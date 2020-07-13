@@ -46,6 +46,10 @@ body { margin: 0; font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Gr
   background-attachment: scroll;
 }
 
+.jumbotron{
+  background-color: #ffffff;
+}
+
 
 /* .cmg-bg-1{
   background-image: url("assets/cmg-bg.png");
@@ -110,8 +114,7 @@ body { margin: 0; font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Gr
 }
 
 .content-c{
-  margin-top: 4rem;
-  margin-left: 1rem;
+  margin: auto;
   justify-content: center;
 }
 
