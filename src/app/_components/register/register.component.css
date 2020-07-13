@@ -1,0 +1,12 @@
+.card-footer>button,a{
+    margin: 0.5rem;
+}
+
+.card{
+    border: 0;
+}
+
+.signup-txt{
+    font-size: large;
+    font-weight: 500;
+}

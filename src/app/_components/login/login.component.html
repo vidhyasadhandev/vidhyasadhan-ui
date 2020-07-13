@@ -1,0 +1,39 @@
+<div class="col-md-6 offset-md-3 mt-5">
+  <div *ngIf='isAlert' class="alert alert-info">
+  </div>
+  <div class="card">
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+      <div class="card-header text-center header-bg">
+        <div><img class="img-thumbnail img-prop" src="assets/logo.jpeg"></div>
+      </div>
+      <div class="card-body">
+        <div class="form-group">
+          <label for="username">Username</label>
+          <input matInput type="text" formControlName="username" class="form-control"
+            [ngClass]="{ 'is-invalid': submitted && f.username.errors }" />
+          <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
+            <div *ngIf="f.username.errors.required">Username is required</div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input matInput type="password" formControlName="password" class="form-control"
+            [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
+          <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+            <div *ngIf="f.password.errors.required">Password is required</div>
+          </div>
+        </div>
+
+      </div>
+      <div class="card-footer text-center">
+        <button mat-flat-button color="accent" [disabled]="loading">
+          <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+          Login
+        </button>
+        <!-- <a mat-flat-button color="accent" [routerLink]="'/register'">Sign Up</a> -->
+        <div class="mt-2">Don't have account? <a [routerLink]="'/register'">Sign Up</a></div>
+        <div *ngIf="error" class="alert alert-danger mt-3 mb-0">{{error}}</div>
+      </div>
+    </form>
+  </div>
+</div>

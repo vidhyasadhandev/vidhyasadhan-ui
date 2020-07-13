@@ -1,1 +1,126 @@
 /* You can add global styles to this file, and also import other style files */
+/* body {
+  background: hsla(186, 66%, 40%, 1);
+  background: linear-gradient(180deg, hsla(186, 66%, 40%, 0.2) 0%, hsla(188, 39%, 53%, 1) 100%);
+  background: -moz-linear-gradient(180deg, hsla(186, 66%, 40%, 0.2) 0%, hsla(188, 39%, 53%, 1) 100%);
+  background: -webkit-linear-gradient(180deg, hsla(186, 66%, 40%, 0.2) 0%, hsla(188, 39%, 53%, 1) 100%);
+  filter: progid: DXImageTransform.Microsoft.gradient(startColorstr="#239eab", endColorstr="#59ABB7", GradientType=1);
+} */
+
+body{
+  background : #ffffff;
+}
+
+html, body { height: 100%; }
+body { margin: 0; font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif !important;}
+
+.header-bg{
+  background: hsla(186, 66%, 40%, 1);
+  background: linear-gradient(180deg, hsla(186, 66%, 40%, 0.2) 0%, hsla(188, 39%, 53%, 1) 100%);
+  background: -moz-linear-gradient(180deg, hsla(186, 66%, 40%, 0.2) 0%, hsla(188, 39%, 53%, 1) 100%);
+  background: -webkit-linear-gradient(180deg, hsla(186, 66%, 40%, 0.2) 0%, hsla(188, 39%, 53%, 1) 100%);
+  filter: progid: DXImageTransform.Microsoft.gradient(startColorstr="#239eab", endColorstr="#59ABB7", GradientType=1);
+}
+
+.cmg-soon > p{
+  font-family: 'Montserrat-Bold','Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif !important;
+  font-size: x-large;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.47;
+  letter-spacing: 0.37px;
+  color: #3c3c3c;
+}
+
+.cmg-soon :last-child{
+  color: #c91e3a;
+}
+
+.cmg-bg{
+  background-image: url("assets/cmg-bg.png");
+  background-color: #ffffff;
+  background-position: right -5% bottom 20%;
+  background-repeat: no-repeat;
+  z-index: 1000;
+  background-attachment: scroll;
+}
+
+
+/* .cmg-bg-1{
+  background-image: url("assets/cmg-bg.png");
+  background-color: #ffffff;
+  background-size: cover;
+  background-repeat: no-repeat;
+  z-index: 1000;
+  background-attachment: scroll;
+} */
+
+.wrapper{
+  position: relative;
+  height: 100%;
+}
+
+.wrapper img{
+  position: absolute;
+  left: 0;
+  bottom: 0;
+}
+
+@media only screen and (max-width: 767px){
+  .wrapper img{
+    position: relative;
+  }
+}
+
+@media only screen and (max-width: 600px){
+  .cmg-bg-1{
+    width: 450px;
+    height: auto;
+  }
+}
+
+@media only screen and (min-width: 600px){
+  .cmg-bg-1{
+    width: 530;
+    height: auto;
+  }
+}
+
+.card-text{
+  font-family: 'Montserrat-Bold','Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif !important;
+  font-size: 18px;
+  font-weight: 500;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: 0.21px;
+  text-align: center;
+  color: #3c3c3c;
+}
+
+.card-img-c{
+  width: 80px;
+  height: 80px;
+}
+
+.card{
+  border: 0px;
+  background: transparent;
+}
+
+.content-c{
+  margin-top: 4rem;
+  margin-left: 1rem;
+  justify-content: center;
+}
+
+@media only screen and (max-width: 576px){
+.content-c{
+ text-align: center;
+}
+
+.icon-space > div > .card{
+  margin-bottom: 2px;
+}
+}

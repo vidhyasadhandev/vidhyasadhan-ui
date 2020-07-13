@@ -1,0 +1,12 @@
+.img-prop{
+    width: 100px;
+    height: 100px;
+}
+
+.card{
+    border: 0;
+}
+
+.card-footer>button,a{
+    margin: 0.5rem;
+}

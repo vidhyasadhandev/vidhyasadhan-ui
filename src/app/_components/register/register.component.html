@@ -1,0 +1,77 @@
+<div class="col-md-6 offset-md-3 mt-5">
+    <div *ngIf='isAlert' class="alert alert-info">
+      {{isAlert}}
+    </div>
+    <div class="card">
+      <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+        <div class="card-header text-center text-white header-bg">
+          <span class="signup-txt">Sign Up</span>
+        </div>
+        <div class="card-body">
+          <div class="form-group">
+            <label for="firstname">First Name</label>
+            <input matInput type="text" formControlName="firstName" class="form-control"
+              [ngClass]="{ 'is-invalid': submitted && f.firstName.errors }" />
+            <div *ngIf="submitted && f.firstName.errors" class="invalid-feedback">
+              <div *ngIf="f.firstName.errors.required">First Name is required</div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="lastname">Last Name</label>
+            <input matInput type="text" formControlName="lastName" class="form-control"
+              [ngClass]="{ 'is-invalid': submitted && f.lastName.errors }" />
+            <div *ngIf="submitted && f.lastName.errors" class="invalid-feedback">
+              <div *ngIf="f.lastName.errors.required">Last Name is required</div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input matInput type="email" formControlName="email" class="form-control"
+              [ngClass]="{ 'is-invalid': submitted && f.email.errors }" />
+            <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                <div *ngIf="f.email.errors.required">Email Address is required</div>
+                <div *ngIf="f.email.errors.email">Please Provide a Valid Email Address</div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input matInput type="password" formControlName="password" class="form-control"
+              [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
+            <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                <div *ngIf="f.password.errors.required">Please Provide a Password</div>
+                <div *ngIf="f.password.errors.minlength">Please Provide password minimum of 6 characters length</div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="password">Confirm Password</label>
+            <input matInput type="password" formControlName="confirmPassword" class="form-control"
+              [ngClass]="{ 'is-invalid': submitted && f.confirmPassword.errors }" />
+            <div *ngIf="submitted && f.confirmPassword.errors" class="invalid-feedback">
+                <div *ngIf="f.confirmPassword.errors.required">Confirm Password is required</div>
+                <div *ngIf="f.confirmPassword.errors.IsMatch">Passwords are not matching!</div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="phone">Phone</label>
+            <input matInput type="tel" formControlName="phone" class="form-control"
+              [ngClass]="{ 'is-invalid': submitted && f.phone.errors }" />
+            <div *ngIf="submitted && f.phone.errors" class="invalid-feedback">
+                <div *ngIf="f.phone.errors.required">Please Provide a Phone number</div>
+                <div *ngIf="f.phone.errors.pattern">Please provide a valid phone number</div>
+            </div>
+          </div>
+  
+        </div>
+        <div class="card-footer text-center">
+          <button mat-flat-button color="accent" type="submit" [disabled]="loading">
+            <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+            Register
+          </button>
+          <!-- <a mat-flat-button color="accent" [routerLink]="'/register'">Sign Up</a> -->
+          <div class="mt-2">Already have an account? <a [routerLink]="'/login'">Sign In</a></div>
+          <div *ngIf="error" class="alert alert-danger mt-3 mb-0">{{error}}</div>
+        </div>
+      </form>
+    </div>
+  </div>
+  
