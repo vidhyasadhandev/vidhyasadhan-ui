@@ -11,6 +11,10 @@ body{
   background : #ffffff;
 }
 
+*{
+  box-sizing: border-box;
+}
+
 html, body { height: 100%; }
 body { margin: 0; font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif !important;}
 
@@ -38,7 +42,7 @@ body { margin: 0; font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Gr
 }
 
 .cmg-bg{
-  background-image: url("assets/cmg-bg.png");
+  background-image: url("./assets/cmg-bg-3.png");
   background-color: #ffffff;
   background-position: right -5% bottom 20%;
   background-repeat: no-repeat;
@@ -48,6 +52,12 @@ body { margin: 0; font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Gr
 
 .jumbotron{
   background-color: #ffffff;
+}
+
+.Bitmap {
+  width: 758px;
+  height: 847px;
+  object-fit: contain;
 }
 
 
@@ -65,11 +75,11 @@ body { margin: 0; font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Gr
   height: 100%;
 }
 
-.wrapper img{
+/* .wrapper img{
   position: absolute;
   left: 0;
   bottom: 0;
-}
+} */
 
 @media only screen and (max-width: 767px){
   .wrapper img{
@@ -118,12 +128,81 @@ body { margin: 0; font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Gr
   justify-content: center;
 }
 
-@media only screen and (max-width: 576px){
-.content-c{
- text-align: center;
+.main-c{
+  margin: 0 0 90px 0;
 }
 
+@media only screen and (max-width: 576px){
 .icon-space > div > .card{
-  margin-bottom: 2px;
+  margin-bottom: 0.5rem;
 }
+}
+
+@media screen and (max-width: 576px) {
+  .main-60{
+    width: 100%;
+  }
+
+  .main-40{
+    width: 100%;
+  }
+
+}
+
+@media screen and (min-width: 576px) and (max-width: 900px){
+  .main-60{
+    width: 100%;
+  }
+
+  .main-40{
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 900px){
+  .content-c{
+    text-align: center;
+   }
+}
+
+@media screen and (min-width: 900px){
+  .main-60{
+    width: 60%;
+  }
+
+  .main-40{
+    width: 40%;
+  } 
+}
+
+@media screen and (min-width: 1200px){
+  .cmg-soon{
+    margin: 2rem;
+  }
+}
+
+.vidhya-sandhhan{
+  width: 200px;
+}
+
+@media screen and (min-width: 576px){
+  .vidhya-sandhhan{
+    padding: 0 1rem;
+    width: 250px;
+  }
+
+  .cmg-soon > p{
+    font-size: 32px;
+  }
+
+  .jumbotron {
+    padding: 2rem 2rem 0 2rem;
+  }
+}
+
+.main-100{
+  align-items: center;
+  justify-content: center;
+  height: 90vh;
+  flex-wrap: wrap;
 }
