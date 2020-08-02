@@ -24,6 +24,8 @@ export class ConfirmationComponent implements OnInit {
 
   ngOnInit(): void {
     this.authUser = this.authservice.userValue;
+    console.log(this.route.snapshot.paramMap.get('userid'));
+    console.log(this.route.snapshot.paramMap.get('token'));
     this.route.params.subscribe(
       (params) =>
       {
