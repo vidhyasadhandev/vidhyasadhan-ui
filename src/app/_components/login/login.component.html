@@ -1,4 +1,4 @@
-<div class="col-md-6 offset-md-3 mt-5">
+<!-- <div class="col-md-6 offset-md-3 mt-5">
   <div *ngIf='isAlert' class="alert alert-info">
   </div>
   <div class="card">
@@ -30,10 +30,90 @@
           <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
           Login
         </button>
-        <!-- <a mat-flat-button color="accent" [routerLink]="'/register'">Sign Up</a> -->
         <div class="mt-2">Don't have account? <a [routerLink]="'/register'">Sign Up</a></div>
         <div *ngIf="error" class="alert alert-danger mt-3 mb-0">{{error}}</div>
       </div>
     </form>
   </div>
-</div>
+</div> -->
+
+<div class="card">
+  <div class="card-header main-header text-center">
+    <img src="assets/registration/vidhya-sandhhan.svg" class="vidhya-sadhan">
+  </div>
+  <div class="card-body">
+    <div class="container-fluid">
+      <div *ngIf='isAlert' class="alert alert-info">
+      </div>
+      <div class="card-deck">
+        <div class="card">
+          <div class="card-body">
+            <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="card-400 bg-white">
+              <div class="card-header text-center bg-white">
+                <h2>Choose Account Type</h2>
+                <div class="d-flex flex-wrap justify-content-center">
+                  <div class="icon-bg" [ngClass]="isTutor ? 'icon-bg-color-blue' : 'border-light'" (click) = "clickedBlue()">
+                    <img class="img-thumbnail img-prop" src="assets/registration/login-1.svg">
+                    <p>Tutor</p>
+                    <mat-icon *ngIf="isTutor" class="icon-position icon-color-blue" color="primary">check_circle</mat-icon>
+                  </div>
+                  <div class="icon-bg" [ngClass]="!isTutor ? 'icon-bg-color-pink' : 'border-light'" (click) = "clickedPink()">
+                    <img class="img-thumbnail img-prop" src="assets/registration/login-2.svg">
+                    <p>Student</p>
+                      <mat-icon *ngIf="!isTutor" class="icon-position icon-color-pink" color="secondary">check_circle</mat-icon>        
+                  </div>
+                </div>    
+              </div>
+              <div class="card-body">
+                <div class="form-group loginform">
+                  <mat-form-field appearance="outline">
+                    <mat-label for="username">Email</mat-label>
+                    <span matPrefix><mat-icon color="primary">email</mat-icon> <mat-divider  [vertical]="true"></mat-divider></span>
+                    <input matInput type="email" formControlName="username"
+                      [ngClass]="{ 'is-invalid': submitted && f.username.errors }" />
+                    <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
+                      <div *ngIf="f.username.errors.required">Email is required</div>
+                    </div>
+                  </mat-form-field>
+                </div>
+                <div class="form-group">
+                  <mat-form-field appearance="outline"> 
+                    <mat-label for="password">Password</mat-label>
+                    <span matPrefix><mat-icon color="primary">lock</mat-icon> <mat-divider  [vertical]="true"></mat-divider></span>
+                    <input matInput type="password" formControlName="password"
+                      [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
+                    <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                      <div *ngIf="f.password.errors.required">Password is required</div>
+                    </div>
+                    <span matSuffix><a [routerLink]="'/register'">Forgot?</a></span>
+                  </mat-form-field>
+                </div>
+                <div class="d-flex d-flex-wrap">
+                <span class="p-2 mr-auto">No account? <a [routerLink]="'/register'">Register</a></span>
+                <button mat-flat-button class="mat-button-base" color="accent" [disabled]="loading">
+                  <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+                  Login
+                </button>
+                </div>
+              </div>
+              <!-- <div class="card-footer text-center">
+                <span>No account? <a [routerLink]="'/register'">Register</a></span>
+                <button mat-flat-button color="accent" [disabled]="loading">
+                  <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+                  Login
+                </button>
+                <div *ngIf="error" class="alert alert-danger mt-3 mb-0">{{error}}</div>
+              </div> -->
+            </form>
+
+          </div>
+        </div>
+        <div class="card  p-3">
+          <img src="assets/registration/register-1.png" srcset="assets/registration/register-2.png 2x,
+          assets/registration/register-3.png 3x" class="card-img-top">
+          <div class="card-body">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

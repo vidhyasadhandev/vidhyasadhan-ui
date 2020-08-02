@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { User } from 'src/app/_models/user';
 import { UserService } from 'src/app/_services/user.service';
 import { first } from 'rxjs/operators';
+import { AuthserviceService } from 'src/app/_services/authservice.service';
+import { NotificationMiddlewareService } from 'src/app/core/notification-middleware.service';
 
 @Component({
   selector: 'app-home',
@@ -12,8 +14,12 @@ export class HomeComponent implements OnInit {
 
   loading = false;
   users: User[];
+  user: User;
 
-  constructor(private userService: UserService) { }
+  constructor(private userService: UserService, private authService: AuthserviceService,
+              public notificationMiddleware: NotificationMiddlewareService) {
+    this.authService.user.subscribe(x => this.user = x);
+  }
 
   ngOnInit(): void {
     this.loading = true;
@@ -21,6 +27,9 @@ export class HomeComponent implements OnInit {
         this.loading = false;
         this.users = users;
     });
+}
+
+logout(){
 }
 
 }

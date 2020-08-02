@@ -1,0 +1,49 @@
+<div class="jumbotron bg-white m-2">
+<div class="row">
+    <div class="col-md-6">
+        <div class="greet">
+            <h4>Hi {{greetmessage}},</h4>
+            <h2>{{user.firstName}} {{user.lastName}}</h2>
+            <div class="text-container">
+                <p>
+                    Start your journey by clicking on one of these icons                           
+                 </p>
+                 <img class="path-2" src="assets/dashboard/path-2.svg">  
+            </div>   
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="dash-board">
+
+        </div>
+        <!-- <img src="assets/dashboard/dashboard-1.png" srcset="assets/dashboard/dashboard-2.png 2x,
+        assets/dashboard/dashboard-3.png 3x" class="img img-responsive"> -->
+    </div>
+</div>
+
+<div class="icon-cards">
+    <div class="row">
+        <div class="col-10">
+            <div class="row">
+                <div class="col-md-3" *ngFor="let item of columns">
+                    <div class="card dash-card text-center clearfix" >                   
+                        <div class="card-body">
+                            <!-- <mat-icon><img [src]="item.icon"></mat-icon> -->
+                            <img [src]="item.icon">
+                            <div class="card-title title-text">{{item.text}}</div>
+                            <p class="card-text title-subtext"><span>{{item.value}}</span>{{item.subtext}}</p>
+                        </div>
+                        <div >
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="col-2">
+    
+        </div>
+    </div>
+</div>
+
+</div>

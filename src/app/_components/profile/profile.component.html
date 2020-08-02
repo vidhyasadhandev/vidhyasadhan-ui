@@ -1,0 +1,279 @@
+<div class="container">
+  <div class="card m-2">
+    <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+      <div class="card-header">
+        <span>My Profile</span>
+      </div>
+      <div class="card-body bg-white card-scroll">
+        <div class="row">
+          <div class="col-9">
+            <div class="form-row">
+              <div class="col-md-6">
+                <mat-form-field appearance="outline">
+                  <mat-label>First Name</mat-label>
+                  <input matInput type="text" formControlName="firstname" id="firstname" placeholder="Enter First Name">
+                </mat-form-field>
+              </div>
+              <div class="col-md-6">
+                <mat-form-field appearance="outline">
+                  <mat-label>Last Name</mat-label>
+                  <input matInput type="lastname" formControlName="lastname" id="lastname"
+                    placeholder="Enter Last Name">
+                </mat-form-field>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="col-md-6">
+                <mat-form-field appearance="outline">
+                  <mat-label>Email</mat-label>
+                  <input type="email" matInput formControlName="profilemail" id="profilemail"
+                    placeholder="Please Provide a Valid Email">
+                </mat-form-field>
+              </div>
+              <div class="col-md-6">
+                <mat-form-field appearance="outline">
+                  <mat-label>Phone</mat-label>
+                  <input matInput type="tel" formControlName="profilephone" id="profilephone"
+                    placeholder="Please Provide a Valid Phone">
+                </mat-form-field>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <mat-label>Sex: </mat-label>
+                <mat-radio-group formControlName="gender">
+                  <mat-radio-button value="Male">Male</mat-radio-button>
+                  <mat-radio-button value="Female">Female</mat-radio-button>
+                </mat-radio-group>
+              </div>
+              <div class="col-md-6">
+                <mat-form-field appearance="outline">
+                  <mat-label for="birthdate">Date Of Birth</mat-label>
+                  <input matInput formControlName="birthdate" type="date" id="birthdate">
+                </mat-form-field>
+              </div>
+            </div>
+          </div>
+          <div class="col-3">
+            <img [src]="userForm.get('profilePic').value" alt="upload image" class="img img-thumbnail">
+          </div>
+        </div>
+        <!-- <div class="address-divider">Address:</div> -->
+        <h4 class="address-div">Address</h4>
+        <div class="row">
+          <div class="col">
+            <div class="form-row">
+              <div class="col-md-6">
+                <mat-form-field appearance="outline">
+                  <mat-label for="streetAddress1">Street Address</mat-label>
+                  <input type="text" matInput formControlName="streetAddress1" id="streetAddress1"
+                    placeholder="1234 Main St">
+                </mat-form-field>
+              </div>
+              <div class="col-md-6">
+                <mat-form-field appearance="outline">
+                  <mat-label for="streetAddress2">Strret Address Line 2</mat-label>
+                  <input type="text" matInput formControlName="streetAddress2" id="streetAddress2"
+                    placeholder="Apartment, studio, or floor">
+                </mat-form-field>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="col-md-6">
+                <mat-form-field appearance="outline">
+                  <mat-label for="inputCity">City</mat-label>
+                  <input type="text" matInput formControlName="inputCity" id="inputCity">
+                </mat-form-field>
+              </div>
+              <div class="col-md-6">
+                <mat-form-field appearance="outline">
+                  <mat-label for="stateCode">State</mat-label>
+                  <mat-select id="stateCode" formControlName="stateCode">
+                    <mat-option>None</mat-option>
+                    <mat-option *ngFor="let state of staticData?.states" [value]="state.stateCd">
+                      {{state.stateName}}
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="col-md-6">
+                <mat-form-field appearance="outline">
+                  <mat-label for="inputPin">PinCode</mat-label>
+                  <input matInput type="text" matInput id="inputPin" formControlName="inputPin">
+                </mat-form-field>
+              </div>
+              <div class="col-md-6">
+                <mat-form-field appearance="outline">
+                  <mat-label for="national">Nationality</mat-label>
+                  <mat-select id="national" formControlName="national">
+                    <mat-option>None</mat-option>
+                    <mat-option *ngFor="let country of staticData?.countries" [value]="country.countryCd">
+                      {{country.countryName}}
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <h4 class="address-div">Professional Background</h4>
+        <div class="row">
+          <div class="form-group col-12">
+              <mat-label>Professional Background</mat-label>
+              <mat-radio-group formControlName="backgroundtype">
+                <mat-radio-button value="Male">Academic</mat-radio-button>
+                <mat-radio-button value="Female">Non Academic</mat-radio-button>
+              </mat-radio-group>
+          </div>
+          <div class="col-12">
+            <div class="form-row">
+              <div class="col-md-6">
+                <mat-form-field appearance="outline">
+                  <mat-label for="medium">Medium Of Education</mat-label>
+                  <input type="text" matInput formControlName="medium" id="medium" placeholder="Type your text here..">
+                </mat-form-field>
+              </div>
+              <div class="col-md-6">
+                <mat-form-field appearance="outline">
+                  <mat-label for="subject">Subject Selection</mat-label>
+                  <input type="text" matInput formControlName="subject" id="subject"
+                    placeholder="Type your text here..">
+                </mat-form-field>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="col-md-6">
+                <mat-form-field appearance="outline">
+                  <mat-label for="board">Education Board</mat-label>
+                  <input type="text" matInput formControlName="board" id="board">
+                </mat-form-field>
+              </div>
+              <div class="col-md-6">
+                <mat-form-field appearance="outline">
+                  <mat-label for="standard">Class/Grade</mat-label>
+                  <input type="text" matInput formControlName="standard" id="standard">
+                </mat-form-field>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="col-md-6">
+                <mat-form-field appearance="outline">
+                  <mat-label for="qualification">Highest Education Qualification</mat-label>
+                  <input matInput type="text" matInput id="qualification" formControlName="qualification">
+                </mat-form-field>
+              </div>
+              <div class="form-group col-md-6">
+                  <mat-label>Do you have a teacher Qualification?</mat-label>
+                  <mat-radio-group formControlName="isteacher">
+                    <mat-radio-button value="Yes">Yes</mat-radio-button>
+                    <mat-radio-button value="No">No</mat-radio-button>
+                  </mat-radio-group>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="col">
+                <mat-form-field appearance="outline">
+                  <mat-label for="tutorexp">If you have tutored before, tell us about it here.</mat-label>
+                  <textarea matInput id="tutorexp" formControlName="tutorexp"></textarea>
+                </mat-form-field>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <h4 class="address-div">Tutor Details</h4>
+        <div class="row">
+            <div class="col-12">
+                <div class="form-row">
+                    <div class="col-md-6">
+                        <mat-label>Preferred Teaching Style</mat-label>
+                        <mat-radio-group formControlName="tutorpreference">
+                          <mat-radio-button value="Online">Online</mat-radio-button>
+                          <mat-radio-button value="Offline">Offline</mat-radio-button>
+                          <mat-radio-button value="Both">Both</mat-radio-button>
+                        </mat-radio-group>
+                    </div>
+                    <div class="col-md-6">
+                        <mat-label>Which days are you able to tutor?</mat-label>
+                        <section>
+                            <mat-checkbox class="day-margin" [checked]="allChecked">All</mat-checkbox>
+                            <mat-checkbox  class="day-margin" [checked]="!allChecked" *ngFor="let day of days">{{day | slice:0:3}}</mat-checkbox>
+                        </section>
+                        <div *ngFor="let day of days"></div>
+                        <!-- <mat-selection-list #dat>
+                            <mat-list-option *ngFor="let day of days">
+                              {{day | slice:0:3}}
+                            </mat-list-option>
+                          </mat-selection-list> -->
+                    </div>
+                </div>
+              <div class="form-row">
+                <div class="col-md-6">
+                  <mat-form-field appearance="outline">
+                    <mat-label for="distance">How far would you travel to tutor?</mat-label>
+                    <input type="text" matInput formControlName="distance" id="distance" placeholder="Type your text here..">
+                  </mat-form-field>
+                </div>
+                <div class="col-md-6">
+                  <mat-form-field appearance="outline">
+                    <mat-label for="timing">Which times are you available.</mat-label>
+                    <input type="text" matInput formControlName="timing" id="timing"
+                      placeholder="Type your text here..">
+                  </mat-form-field>
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="col-md-6">
+                  <mat-form-field appearance="outline">
+                    <mat-label for="rate">Hourly Rate</mat-label>
+                    <input type="text" matInput formControlName="rate" id="rate">
+                  </mat-form-field>
+                </div>
+                <div class="col-md-6">
+                  <mat-form-field appearance="outline">
+                    <mat-label for="currency">Currency</mat-label>
+                    <input type="text" matInput formControlName="currency" id="currency">
+                  </mat-form-field>
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="col-md-6">
+                  <mat-form-field appearance="outline">
+                    <mat-label for="proof">Government ID proof</mat-label>
+                    <input matInput type="text" matInput id="proof" formControlName="proof">
+                  </mat-form-field>
+                </div>
+                <div class="col-md-6">
+                    <mat-form-field appearance="outline">
+                      <mat-label for="demo">Teaching Demo Link</mat-label>
+                      <input matInput type="text" matInput id="demo" formControlName="demo">
+                    </mat-form-field>
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="col">
+                  <mat-form-field appearance="outline">
+                    <mat-label for="interests">To help us make this match give us some idea of your interests, hobbies etc.</mat-label>
+                    <textarea matInput id="interests" formControlName="interests"></textarea>
+                  </mat-form-field>
+                </div>
+              </div>
+            </div>
+          </div>
+
+      </div>
+      <div class="card-footer bg-light">
+        <mat-card-actions class="footer-buttons clearfix">
+          <button mat-raised-button type="submit" color="secondary" class="m-2">Reset</button>
+          <div class="float-right">
+            <button mat-raised-button type="submit" color="secondary" class="m-2">Cancel</button>
+            <button mat-raised-button type="submit" color="accent" class="m-2">Update Profile</button>
+          </div>
+        </mat-card-actions>
+      </div>
+    </form>
+  </div>
+</div>

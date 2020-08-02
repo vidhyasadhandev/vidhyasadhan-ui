@@ -1,0 +1,34 @@
+<mat-sidenav-container>
+  <mat-sidenav #sidenav mode="side">
+    <!-- <img class="img img-responsive sidenav-img" src="assets/sidenav-1.png" 
+        srcset="assets/sidenav-2.png 2x,
+        assets/sidenav-3.png 3x" > -->
+    <mat-toolbar class="logo-toolbar">
+      <mat-toolbar-row>
+        <img src="assets/vidhyasadhan-logo.svg">
+      </mat-toolbar-row>
+    </mat-toolbar>
+    <mat-nav-list>
+      <div class="flex-container">
+        <a class="btn btn-lg btn-outline-primary bg-white">
+          <i class="material-icons md-18">add</i>
+          <span class="Add-New-Entry md-18">Add New Entry</span>
+        </a>
+      </div>
+      <a *ngFor="let item of myWorkRoutes" mat-list-item (click)="sidenav.close()" [routerLink]="[item.route]"
+        routerLinkActive="list-item-active">
+        <mat-icon matListIcon> {{ item.icon }} </mat-icon>
+        {{item.title}}
+      </a>
+      <mat-divider></mat-divider>
+    </mat-nav-list>
+  </mat-sidenav>
+
+  <mat-sidenav-content [ngClass]="loginType === 'pink' ? 'sidenav-bg-pink':'sidenav-bg-blue'">
+    <app-navigation-bar *ngIf="isAuthenticated()" (toggleSidenav)="sidenav.toggle()">
+    </app-navigation-bar>
+    <router-outlet></router-outlet>
+    <footer class="footer"> © 2020 VidhyaSadhan. All Rights Reserved. </footer>
+  </mat-sidenav-content>
+
+</mat-sidenav-container>

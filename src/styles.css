@@ -9,6 +9,7 @@
 
 body{
   background : #ffffff;
+  background-image:  linear-gradient(to bottom, #bcdafc -5%, #bcdafc);
 }
 
 *{
@@ -16,7 +17,7 @@ body{
 }
 
 html, body { height: 100%; }
-body { margin: 0; font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif !important;}
+body { margin: 0; font-family:'Montserrat, sans-serif' !important;}
 
 .header-bg{
   background: hsla(186, 66%, 40%, 1);
@@ -119,7 +120,6 @@ body { margin: 0; font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Gr
 }
 
 .card{
-  border: 0px;
   background: transparent;
 }
 
@@ -206,3 +206,13 @@ body { margin: 0; font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Gr
   height: 90vh;
   flex-wrap: wrap;
 }
+
+
+.card-400 {
+  max-width: 400px;
+ }
+ 
+ .card-500 {
+   max-width: 500px;
+ }
+ 

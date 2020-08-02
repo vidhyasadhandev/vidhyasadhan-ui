@@ -1,0 +1,35 @@
+<div class="container m-2">
+  <div class="card text-center">
+    <div class="card-body">
+ <div [ngSwitch]="success"> 
+    <div *ngSwitchCase="true">
+       Succesfully Completed Registration. <a routerLink="/login"></a>Click Here to go back to login.
+    </div> 
+    <div *ngSwitchCase="false">
+      <div class="authBlock">
+        <h3>Thank You for Registering</h3>
+
+        <div class="formGroup" *ngIf="authUser">
+          <p class="text-center">We have sent a confirmation email to <strong>{{authUser.email}}</strong>.</p>
+          <p class="text-center">Please check your email and click on the link to verfiy your email address.</p>
+        </div>
+
+        <div class="formGroup">
+          <button type="button" class="btn btnPrimary" (click)="confirmEmail()">
+            <i class="fas fa-redo-alt"></i>
+            Resend Verification Email
+          </button>
+          <div *ngIf="isResend" class="alert alert-info">Succesfully Resent for Verification</div>
+        </div>
+
+      </div>
+
+      <div class="redirectToLogin">
+        <span>Go back to?<span class="redirect" routerLink="/sign-in"> Sign in</span></span>
+      </div>
+    </div> 
+</div>
+
+    </div>
+  </div>
+</div>

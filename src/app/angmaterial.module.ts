@@ -40,6 +40,8 @@ import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatButtonToggleModule} from '@angular/material/button-toggle';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import {MatBottomSheetModule} from '@angular/material/bottom-sheet';
+import {MatCheckboxModule} from '@angular/material/checkbox';
+import {MatDividerModule} from '@angular/material/divider';
 
 
 
@@ -69,7 +71,9 @@ import {MatBottomSheetModule} from '@angular/material/bottom-sheet';
     MatSidenavModule,
     MatButtonToggleModule,
     MatSlideToggleModule,
-    MatBottomSheetModule
+    MatBottomSheetModule,
+    MatCheckboxModule,
+    MatDividerModule
   ],
   exports: [MatAutocompleteModule,
     MatInputModule,
@@ -95,7 +99,9 @@ import {MatBottomSheetModule} from '@angular/material/bottom-sheet';
     MatSidenavModule,
     MatButtonToggleModule,
     MatSlideToggleModule,
-    MatBottomSheetModule
+    MatBottomSheetModule,
+    MatCheckboxModule,
+    MatDividerModule
   ],
   providers: [
     MatDatepickerModule,

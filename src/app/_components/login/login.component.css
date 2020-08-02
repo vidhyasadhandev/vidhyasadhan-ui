@@ -1,6 +1,7 @@
 .img-prop{
-    width: 100px;
-    height: 100px;
+    padding: 5px;
+    object-fit: contain;
+    background-color: inherit;
 }
 
 .card{
@@ -9,4 +10,61 @@
 
 .card-footer>button,a{
     margin: 0.5rem;
+}
+
+.icon-bg{
+  padding: 15px 15px 10px 15px;
+  margin: 0.5rem;
+  border-radius: 3px;
+  border: solid 2px;
+  background-color: #ffffff;
+  height: 150px;
+}
+
+.icon-bg-color{
+    background-color: #f6f9fe;;
+}
+
+.icon-position{
+        position: relative;
+        right: -62px;
+        z-index: 5;
+}
+
+.icon-color-blue{
+    color: #3a61a9;
+}
+
+.icon-color-blue svg {
+    fill: rgb(94, 31, 31);
+}
+
+.icon-color-pink{
+    color: #c4182c;
+}
+
+.icon-bg-color-pink{
+    border-color: #c4182c !important;
+    background-color: #ffd1d1 !important;
+}
+
+.icon-bg-color-blue{
+    border-color: #3a61a9 !important;
+    background-color: #f6f9fe !important;
+}
+
+mat-form-field {
+    width: 100%;
+  }
+
+.icon-bg > p {
+    margin: 5px 0 0 0;
+}
+
+mat-form-field > .mat-form-field-wrapper{
+    padding: 0 !important;
+}
+
+.mat-button-base{
+    margin: 8px 8px 8px 0;
 }

@@ -1,0 +1,95 @@
+mat-card-header{
+    border-radius: 5px;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.02);
+    background-color: #a4caf8;
+}
+
+.card-header{
+    border-radius: 5px;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.02);
+    background-color: #a4caf8;
+}
+
+.card-header span{
+    font-family: Montserrat;
+    font-size: 16px;
+    font-weight: 600;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.5;
+    letter-spacing: normal;
+    color: #20253a;
+}
+
+.mat-radio-group{
+  display: block;
+  margin-top: 0.25rem;
+}
+
+.mat-radio-button{
+  padding: 0 0.25rem;
+}
+
+.day-margin {
+  margin: 0 5px;
+}
+
+.address-divider {
+    display: flex;
+    align-items: center;
+  }
+  
+  .address-divider::before,
+  .address-divider::after {
+    content: '';
+    height: 1px;
+    background-color: silver;
+    flex-grow: 1; 
+  }
+
+  .address-div { 
+    display: flex; 
+    flex-direction: row;
+} 
+
+.mat-form-field{
+    width: 100%;
+}
+   
+.address-div:after { 
+    content: ""; 
+    flex: 1 1; 
+    border-bottom: 2px solid silver;
+    margin: auto; 
+    margin-left: 0.2rem;
+} 
+
+.card-scroll{
+    overflow-y: scroll;
+    max-height: 400px;
+}
+
+::-webkit-scrollbar {
+    width: 5px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 2px grey; 
+    border-radius: 5px;
+  }
+   
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #695d5d; 
+    border-radius: 5px;
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #695d5d;
+  }
+
+  .card-header{
+      border-radius: 0;
+  }

@@ -1,11 +1,16 @@
 <!-- <nav class="navbar navbar-expand navbar-dark bg-dark" *ngIf="user">
   <div class="navbar-nav">
       <a class="nav-item nav-link" routerLink="/">Home</a>
+      <a class="nav-item nav-link" routerLink="/notifications">Notifications <span class="badge badge-secondary" *ngIf="notificationMiddleware.notifications.length">{{notificationMiddleware.notifications.length}}</span></a>
+      <a class="nav-item nav-link" routerLink="/broadcast">Broadcasts</a>
       <a class="nav-item nav-link" (click)="logout()">Logout</a>
   </div>
-</nav>
+</nav>  -->
 
- main app container 
-<div class="container-fluid">
+<!-- <div class="container-fluid">
   <router-outlet></router-outlet>
-</div> -->
+</div>  -->
+
+<app-sidenav-bar></app-sidenav-bar>
+
+

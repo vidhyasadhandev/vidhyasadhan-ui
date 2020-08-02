@@ -1,0 +1,117 @@
+.greet h4 {
+    height: 24px;
+    font-family: Montserrat;
+    font-size: 28px;
+    font-weight: 500;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 0.86;
+    letter-spacing: normal;
+    color: #20253a;
+}
+
+.greet h2 {
+    height: 24px;
+    margin-top: 2rem;
+    font-family: Montserrat;
+    font-size: 40px;
+    font-weight: 600;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 0.6;
+    letter-spacing: normal;
+    color: #20253a;
+}
+
+.greet p{
+    height: 104px;
+    font-family: Montserrat;
+    margin-top: 2rem;
+    font-size: 35px;
+    font-weight: 300;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.49;
+    letter-spacing: normal;
+    color: #5f5f5f;
+}
+
+.icon-cards{
+    padding: 1.5rem 0;
+}
+
+.title-text{
+  margin: 1rem 0;
+  font-family: Montserrat;
+  font-weight: 600;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.14;
+  letter-spacing: normal;
+  text-align: center;
+  color: #1d4082;
+}
+
+.title-subtext{
+  font-family: Montserrat;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.5;
+  letter-spacing: normal;
+  color: #b6091d;
+}
+
+.title-subtext>span{
+    height: 24px;
+    font-family: Montserrat;
+    font-size: 24px;
+    font-weight: 500;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1;
+    letter-spacing: normal;
+    color: #b6091d;
+    padding: 0 0.5rem;
+}
+
+.path-2{
+    position: absolute;
+    right: 5px;
+}
+
+.text-container{
+    position: relative;
+}
+
+.dash-card{
+  border-radius: 20px;
+  box-shadow: 0 18px 32px -4px rgba(42, 106, 255, 0.24);
+  border: solid 1px #b0e6ff;
+  background-color: #ffffff;
+}
+
+.dash-board{
+    background-image: url("/assets/dashboard/dashboard-1.png");
+        background-image: 
+          -webkit-image-set(
+            url("/assets/dashboard/dashboard-1.png") 1x,
+            url("/assets/dashboard/dashboard-2.png") 2x,
+            url("/assets/dashboard/dashboard-3.png") 3x,
+          );
+        background-image: 
+          image-set(
+            url("/assets/dashboard/dashboard-1.png") 1x,
+            url("/assets/dashboard/dashboard-2.png") 2x,
+            url("/assets/dashboard/dashboard-3.png") 3x,
+          );
+    min-height: 350px;
+    display: inline-block;
+    width: 100%;
+    font-size: 0;
+    line-height: 0;
+    vertical-align: middle;
+    background-size: 100%;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+}

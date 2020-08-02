@@ -1,0 +1,44 @@
+<div class="container-fluid bg-white">
+    <div class="tcontainer">
+        <div class="ticker-wrap">
+            <div class="ticker-move">
+                <div class="ticker-item" *ngFor="let income of incomes">
+                    <div class="d-flex border rounded m-2 justify-content-center"> 
+                        <div class="p-2" [ngStyle]="{'background-color':income.color}">
+                            <div class="m-4"><mat-icon>{{income.icon}}</mat-icon></div>                           
+                        </div>
+                        <div class="p-2 bg-white">
+                            <div class="m-2 card-width">
+                                <div class="text-muted">{{income.text}}</div>
+                                <h2 class="text-dark">{{income.value}}</h2>
+                            </div>
+                        </div>                                     
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="jumbotron bg-white">
+    <div class="card-deck">
+        <div class="card">
+            <div class="card-header">
+                <div class="card-header-title">{{schedule.title}}</div>
+            </div>
+            <div class="card-body">
+                <google-chart  [type]="schedule.type" 
+              [data]="schedule.data" [columns]="schedule.columnNames"></google-chart>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-header">
+                <div class="card-header-title">Active Users</div>
+            </div>
+            <div class="card-body">
+                <google-chart  [type]="users.type" 
+                [data]="users.data" [columns]="users.columnNames" [options]="users.options">
+            </google-chart>                  
+            </div>
+        </div>
+    </div>
+</div>

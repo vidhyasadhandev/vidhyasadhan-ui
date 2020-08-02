@@ -15,13 +15,35 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RegisterComponent } from './_components/register/register.component';
 import { AngmaterialModule } from './angmaterial.module';
+import { NotificationComponent } from './_components/notification/notification.component';
+import { BroadcastComponent } from './_components/broadcast/broadcast.component';
+import { ServiceWorkerModule} from '@angular/service-worker';
+import { environment } from '../environments/environment';
+import { NavigationBarComponent } from './_components/navigation-bar/navigation-bar.component';
+import { SidenavBarComponent } from './_components/sidenav-bar/sidenav-bar.component';
+import { ProfileComponent } from './_components/profile/profile.component';
+import { CalendarComponent } from './_components/calendar/calendar.component';
+import { DlDateTimeDateModule, DlDateTimePickerModule } from 'angular-bootstrap-datetimepicker';
+import { ConfirmationComponent } from './_components/confirmation/confirmation.component';
+import { DashboardComponent } from './_components/dashboard/dashboard.component';
+import { AdminDashboardComponent } from './_components/admin-dashboard/admin-dashboard.component';
+import { GoogleChartsModule } from 'angular-google-charts';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    NotificationComponent,
+    BroadcastComponent,
+    NavigationBarComponent,
+    SidenavBarComponent,
+    ProfileComponent,
+    CalendarComponent,
+    ConfirmationComponent,
+    DashboardComponent,
+    AdminDashboardComponent
   ],
   imports: [
     BrowserModule,
@@ -30,7 +52,11 @@ import { AngmaterialModule } from './angmaterial.module';
     HttpClientModule,
     NgbModule,
     BrowserAnimationsModule,
-    AngmaterialModule
+    AngmaterialModule,
+    DlDateTimeDateModule,
+    DlDateTimePickerModule,
+    GoogleChartsModule,
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [
     { provide: APP_INITIALIZER, useFactory: appInitializer, multi: true, deps: [AuthserviceService] },

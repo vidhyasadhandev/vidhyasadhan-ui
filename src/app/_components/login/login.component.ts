@@ -30,6 +30,7 @@ export class LoginComponent implements OnInit {
   returnUrl: string;
   isAlert = false;
   error = '';
+  isTutor = true;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -47,6 +48,8 @@ export class LoginComponent implements OnInit {
       username: ['', Validators.required],
       password: ['', Validators.required]
     });
+
+    this.isTutor = this.authService.userType === 'pink' ? false : true;
 
     this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
   }
@@ -73,6 +76,16 @@ export class LoginComponent implements OnInit {
           this.loading = false;
         }
       });
+  }
+
+  clickedBlue(){
+    this.isTutor = true;
+    this.authService.setLoginSubject('blue');
+  }
+
+  clickedPink(){
+    this.isTutor = false;
+    this.authService.setLoginSubject('pink');
   }
 
 }

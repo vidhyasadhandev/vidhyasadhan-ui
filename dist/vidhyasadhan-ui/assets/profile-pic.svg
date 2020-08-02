@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="196" height="189" viewBox="0 0 196 189">
+    <defs>
+        <path id="0abfmzwa9a" d="M9 9L187 9 187 180 9 180z"/>
+        <mask id="io6b62fodb" width="178" height="171" x="0" y="0" fill="#fff" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox">
+            <use xlink:href="#0abfmzwa9a"/>
+        </mask>
+    </defs>
+    <g fill="none" fill-rule="evenodd">
+        <path fill="#FFF" stroke="#AEAEAE" d="M195.5.5v188H.5V.5h195z"/>
+        <use fill="#E8E8E8" fill-opacity=".5" stroke="#B5B4B4" stroke-dasharray="6 6" stroke-width="2" mask="url(#io6b62fodb)" xlink:href="#0abfmzwa9a"/>
+        <path fill="#949191" fill-rule="nonzero" d="M69 62V103H127V62H69zm1.318 1.242h55.364V96.42l-12.688-13.104c-.148-.153-.38-.228-.597-.194-.142.024-.274.094-.37.194l-9.928 9.94-14.15-14.91c-.148-.152-.38-.228-.597-.193-.142.024-.275.093-.371.194l-16.663 16.87V63.241zm32.296 7.455c-2.54 0-4.614 1.954-4.614 4.349 0 2.394 2.073 4.348 4.614 4.348 2.54 0 4.613-1.954 4.613-4.348 0-2.395-2.073-4.349-4.613-4.349zm-.33 1.242c.111-.01.215 0 .33 0 1.827 0 3.295 1.384 3.295 3.107 0 1.722-1.468 3.106-3.295 3.106-1.828 0-3.296-1.384-3.296-3.106 0-1.616 1.299-2.948 2.966-3.107zm-14.85 7.746l20.967 22.073H70.318V97l17.116-17.316zm25.066 4.97l13.182 13.608v3.495h-15.51l-7.188-7.571 9.516-9.532z"/>
+        <text fill="#6A6A6A" font-family="SFPro-Black, SF Pro" font-size="12" font-weight="700">
+            <tspan x="40.813" y="119">Upload profile picture</tspan>
+        </text>
+    </g>
+</svg>

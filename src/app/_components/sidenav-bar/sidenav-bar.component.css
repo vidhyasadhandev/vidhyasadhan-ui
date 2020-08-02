@@ -1,0 +1,116 @@
+mat-sidenav-container{
+    height: 100vh;
+}
+
+/* app-navigation-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 998;
+  } */
+/* 
+  mat-sidenav{
+      width: 255px;
+  } */
+
+  mat-sidenav{
+        background-image: url("/assets/sidenav-1.png");
+        background-image: 
+          -webkit-image-set(
+            url("/assets/sidenav-1.png") 1x,
+            url("/assets/sidenav-2.png") 2x,
+            url("/assets/sidenav-3.png") 3x,
+          );
+        background-image: 
+          image-set(
+            url("/assets/sidenav-1.png") 1x,
+            url("/assets/sidenav-2.png") 2x,
+            url("/assets/sidenav-3.png") 3x,
+          );
+          width: 255px;
+  }
+
+  .logo-toolbar{
+    background-image: linear-gradient(to bottom, #e5f5ff 13%, #60a7f8);
+  }
+
+  .sidenav-img{
+      position: absolute;
+  }
+
+  .Rectangle {
+    width: 195px;
+    padding: 0.75rem 0;
+    border-radius: 3px;
+    border: solid 1px #1d4082;
+    background-color: #ffffff;
+    text-align: center;
+  }
+
+  .md-18{
+      font-size: 18px !important;
+  }
+
+  .Add-New-Entry{
+    width: 110px;
+    font-family: Montserrat;
+    font-size: 14px;
+    font-weight: 600;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: #1d4082;
+  }
+
+ .md-dark{
+      color: #1d4082;;
+  }
+
+  .sidenav-bg-pink{
+    background-image: url("/assets/registration/mask-pink.svg")
+  }
+
+  .sidenav-bg-blue{
+    background-image: url("/assets/registration/mask-blue.svg")
+  }
+
+  .mat-list-item{
+    font-family: Montserrat;
+    color: #1d4082;
+  }
+
+  .mat-list-item a{
+    font-size: 14px;
+    font-weight: 600;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 3.71;
+    letter-spacing: normal;
+  }
+
+  .flex-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 0.75rem;
+  }
+
+  .Path {
+    width: 1px;
+    height: 11px;
+    border: solid 2px #1d4082;
+  }
+
+  .footer{
+  height: 13px;
+  font-family: Montserrat;
+  font-size: 10px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #000000;
+  text-align: center;
+  }

@@ -12,8 +12,78 @@
 // Define the palettes for your theme using the Material Design palettes available in palette.scss
 // (imported above). For each palette, you can optionally specify a default, lighter, and darker
 // hue. Available color palettes: https://material.io/design/color/
-$vidhyasadhan-ui-primary: mat-palette($mat-indigo);
-$vidhyasadhan-ui-accent: mat-palette($mat-pink, A200, A100, A400);
+
+/* For use in src/lib/core/theming/_palette.scss */
+$md-vsadhanpallette: (
+    50 : #f4f9fe,
+    100 : #e4effd,
+    200 : #d2e5fc,
+    300 : #bfdafa,
+    400 : #b2d2f9,
+    500 : #a4caf8,
+    600 : #9cc5f7,
+    700 : #92bdf6,
+    800 : #89b7f5,
+    900 : #78abf3,
+    A100 : #ffffff,
+    A200 : #ffffff,
+    A400 : #ffffff,
+    A700 : #f3f8ff,
+    contrast: (
+        50 : #000000,
+        100 : #000000,
+        200 : #000000,
+        300 : #000000,
+        400 : #000000,
+        500 : #000000,
+        600 : #000000,
+        700 : #000000,
+        800 : #000000,
+        900 : #000000,
+        A100 : #000000,
+        A200 : #000000,
+        A400 : #000000,
+        A700 : #000000,
+    )
+);
+
+$md-mcgpalette1: (
+    50 : #e8eaf6,
+    100 : #c5cae9,
+    200 : #9fa8da,
+    300 : #7986cb,
+    400 : #5c6bc0,
+    500 : #3f51b5,
+    600 : #3949ab,
+    700 : #303f9f,
+    800 : #283593,
+    900 : #1a237e,
+    A100 : #8c9eff,
+    A200 : #536dfe,
+    A400 : #3d5afe,
+    A700 : #304ffe,
+    contrast: (
+        50 : #000000,
+        100 : #000000,
+        200 : #000000,
+        300 : #ffffff,
+        400 : #ffffff,
+        500 : #ffffff,
+        600 : #ffffff,
+        700 : #ffffff,
+        800 : #ffffff,
+        900 : #ffffff,
+        A100 : #000000,
+        A200 : #ffffff,
+        A400 : #ffffff,
+        A700 : #ffffff,
+    )
+);
+
+
+
+$vidhyasadhan-ui-primary: mat-palette($md-vsadhanpallette);
+$vidhyasadhan-ui-accent: mat-palette($md-mcgpalette1, 900, 900, 900);
 
 // The warn palette is optional (defaults to red).
 $vidhyasadhan-ui-warn: mat-palette($mat-red);
@@ -21,8 +91,17 @@ $vidhyasadhan-ui-warn: mat-palette($mat-red);
 // Create the theme object (a Sass map containing all of the palettes).
 $vidhyasadhan-ui-theme: mat-light-theme($vidhyasadhan-ui-primary, $vidhyasadhan-ui-accent, $vidhyasadhan-ui-warn);
 
+
 // Include theme styles for core and each component used in your app.
 // Alternatively, you can import and @include the theme mixins for each component
 // that you are using.
 @include angular-material-theme($vidhyasadhan-ui-theme);
+
+$custom-typography: mat-typography-config(
+  $font-family: 'Montserrat, sans-serif',
+  $headline: mat-typography-level(32px, 48px, 700),
+  $body-1: mat-typography-level(16px, 24px, 500)
+);
+
+@include mat-base-typography($custom-typography);
 

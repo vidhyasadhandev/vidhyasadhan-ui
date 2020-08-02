@@ -1,0 +1,155 @@
+<div class="container">
+  <div class="card text-center bg-white">
+      <div class="card-header">
+          Calendar
+      </div>
+    <div class="card-body">
+      <form [formGroup]="calendarformForm" (ngSubmit)="onSubmit()">
+        <div class="container">
+          <div class="row">
+            <div class="col">
+              <mat-form-field appearance="outline">
+                <mat-label for="summary">Summary</mat-label>
+                <input matInput type="text" formControlName="summary"
+                  [ngClass]="{ 'is-invalid': submitted && f.summary.errors }" />
+                <div *ngIf="submitted && f.summary.errors" class="invalid-feedback">
+                  <div *ngIf="f.summary.errors.required">Summary is required</div>
+                </div>
+              </mat-form-field>
+            </div>
+            <div class="col">
+              <mat-form-field appearance="outline">
+                <mat-label for="location">Location</mat-label>
+                <input matInput type="text" formControlName="location"
+                  [ngClass]="{ 'is-invalid': submitted && f.location.errors }" />
+                <div *ngIf="submitted && f.location.errors" class="invalid-feedback">
+                  <div *ngIf="f.location.errors.required">Locatio is required</div>
+                </div>
+              </mat-form-field>
+            </div>
+            <div class="col">
+                <mat-form-field appearance="outline">
+                  <mat-label for="description">Description</mat-label>
+                  <input matInput type="text" formControlName="description"
+                    [ngClass]="{ 'is-invalid': submitted && f.description.errors }" />
+                  <div *ngIf="submitted && f.description.errors" class="invalid-feedback">
+                    <div *ngIf="f.description.errors.required">Description is required</div>
+                  </div>
+                </mat-form-field>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">
+              <mat-form-field appearance="outline">
+                <mat-label for="timeZone">Timezone</mat-label>
+                <input readonly matInput type="text" formControlName="timeZone"
+                  [ngClass]="{ 'is-invalid': submitted && f.timeZone.errors }" />
+                <div *ngIf="submitted && f.timeZone.errors" class="invalid-feedback">
+                  <div *ngIf="f.timeZone.errors.required">TimeZone is required</div>
+                </div>
+              </mat-form-field>
+            </div>
+            <div class="col">
+              <mat-form-field appearance="outline">
+                <mat-label for="start">Start Date</mat-label>
+                <input matInput type="datetime-local" formControlName="start"
+                  [ngClass]="{ 'is-invalid': submitted && f.start.errors }" />
+                <div *ngIf="submitted && f.start.errors" class="invalid-feedback">
+                  <div *ngIf="f.start.errors.required">Start Date is Required</div>
+                </div>
+              </mat-form-field>
+            </div>
+            <div class="col">
+                <mat-form-field appearance="outline">
+                  <mat-label for="description">End Date</mat-label>
+                  <input matInput type="datetime-local" formControlName="end"
+                    [ngClass]="{ 'is-invalid': submitted && f.end.errors }" />
+                  <div *ngIf="submitted && f.end.errors" class="invalid-feedback">
+                    <div *ngIf="f.end.errors.required">End Date is required</div>
+                  </div>
+                </mat-form-field>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">
+              <mat-form-field appearance="outline">
+                <mat-label for="recurrence">Recurrence</mat-label>
+                <mat-select id="recurrence" formControlName="recurrence">
+                    <mat-option value="None">None</mat-option>
+                    <mat-option value="DAILY">DAILY</mat-option>
+                    <mat-option value="WEEKLY">WEEKLY</mat-option>
+                    <mat-option value="MONTHLY">MONTHLY</mat-option>
+                </mat-select>
+                <div *ngIf="submitted && f.recurrence.errors" class="invalid-feedback">
+                  <div *ngIf="f.recurrence.errors.required">Recurrence is required</div>
+                </div>
+              </mat-form-field>
+            </div>
+            <div class="col">
+                <mat-form-field appearance="outline">
+                  <mat-label for="count">Frequency</mat-label>
+                  <mat-select id="count" formControlName="count">
+                    <mat-option value="1">1</mat-option>
+                    <mat-option value="2">2</mat-option>
+                    <mat-option value="3">3</mat-option>
+                    <mat-option value="4">4</mat-option>
+                  </mat-select>
+                  <div *ngIf="submitted && f.count.errors" class="invalid-feedback">
+                    <div *ngIf="f.count.errors.required">Locatio is required</div>
+                  </div>
+                </mat-form-field>
+              </div>
+            <div class="col">
+              <mat-form-field appearance="outline">
+                <mat-label for="attendees">Location</mat-label>
+                <mat-select id="attendees" formControlName="attendees">
+                    <mat-option>None</mat-option>
+                    <mat-option *ngFor="let user of users" [value]="user.email">
+                      {{user.email}}
+                    </mat-option>
+                </mat-select>
+                <div *ngIf="submitted && f.attendees.errors" class="invalid-feedback">
+                  <div *ngIf="f.attendees.errors.required">Locatio is required</div>
+                </div>
+              </mat-form-field>
+            </div>
+          </div>
+          <button mat-raised-button color="warn" >
+              Submit
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div>
+    <mat-accordion class="example-headers-align" multi>
+        <mat-expansion-panel *ngFor="let course of courses?.items">
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+                {{ course.summary }}
+            </mat-panel-title>
+            <mat-panel-description>
+                {{ course.description }}
+              <!-- <mat-icon>account_circle</mat-icon> -->
+            </mat-panel-description>
+          </mat-expansion-panel-header>
+          <mat-nav-list>
+            <mat-list-item>
+               <div>GMeet</div>
+               <a matLine target="_blank" href="{{course.hangoutLink}}">{{ course.hangoutLink }}</a>
+            </mat-list-item>
+            <mat-list-item>
+                <span>StartDate:</span>
+                <span>{{ course.start.dateTime | date}}</span>
+            </mat-list-item>
+            <mat-list-item>
+                <span>EndDate:</span>
+                <span>{{ course.end.dateTime | date}}</span>
+            </mat-list-item>          
+        </mat-nav-list>
+          </mat-expansion-panel>
+    </mat-accordion>
+  </div>
+
+</div>

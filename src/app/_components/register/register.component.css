@@ -1,12 +1,87 @@
-.card-footer>button,a{
-    margin: 0.5rem;
+.card-footer>button,
+a {
+  margin: 0.5rem;
 }
 
-.card{
-    border: 0;
+.card {
+  border: 0;
 }
 
-.signup-txt{
-    font-size: large;
-    font-weight: 500;
+.signup-txt {
+  font-size: large;
+  font-size: 18px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  text-align: center;
+  color: #3c3c3c;
+  font-family: Montserrat;
+}
+
+mat-form-field {
+  width: 100%;
+}
+
+.Untitled-1 {
+  min-height: 500px;
+}
+
+mat-card,
+.card {
+  background: transparent;
+}
+
+.flex-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.register-card {
+  background-color: #ffffff;
+  width: 40%;
+  margin: 10px;
+  text-align: center;
+}
+
+.register-side {
+  width: 50%;
+  margin: 10px;
+  text-align: center;
+}
+
+.form-group {
+  margin-bottom: 0.20rem;
+}
+
+.mat-form-field-appearance-outline .mat-form-field-wrapper {
+  margin: 0;
+}
+
+form {
+  padding: 0.5rem 2rem;
+  border-radius: 4px;
+  border: solid 1px #ffd1d1;
+  background-color: #ffffff;
+}
+
+.mat-form-field-wrapper {
+  padding-bottom: 0rem !important;
+}
+
+.vidhya-sadhan {
+  object-fit: contain;
+}
+
+.main-header {
+  opacity: 0.9;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.13);
+  background-color: #ffffff;
+}
+
+.side-img {
+  display: block;
+  width: 100%;
+  height: auto;
 }
