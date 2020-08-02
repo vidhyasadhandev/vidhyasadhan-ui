@@ -19,7 +19,7 @@ const routes: Routes = [
   { path: '', component: HomeComponent,  canActivate: [AuthGuard] }, // canActivate: [AuthGuard]
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent},
-  { path: 'verifyemail', component: ConfirmationComponent},
+  { path: 'verifyemail/:userid/:token', component: ConfirmationComponent},
   { path: 'navbar', component: NavigationBarComponent },
   { path: 'sidenav', component: SidenavBarComponent, canActivate: [AuthGuard] },
   { path: 'notifications', component: NotificationComponent, canActivate: [AuthGuard]},
