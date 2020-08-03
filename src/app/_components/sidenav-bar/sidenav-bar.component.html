@@ -1,5 +1,5 @@
 <mat-sidenav-container>
-  <mat-sidenav #sidenav mode="side">
+  <mat-sidenav #sidenav mode="side"  [ngClass]="{'mat-side-pink' : loginType === 'pink'}">
     <!-- <img class="img img-responsive sidenav-img" src="assets/sidenav-1.png" 
         srcset="assets/sidenav-2.png 2x,
         assets/sidenav-3.png 3x" > -->
@@ -9,13 +9,14 @@
       </mat-toolbar-row>
     </mat-toolbar>
     <mat-nav-list>
-      <div class="flex-container">
+      <!-- <div class="flex-container">
         <a class="btn btn-lg btn-outline-primary bg-white">
           <i class="material-icons md-18">add</i>
           <span class="Add-New-Entry md-18">Add New Entry</span>
         </a>
-      </div>
-      <a *ngFor="let item of myWorkRoutes" mat-list-item (click)="sidenav.close()" [routerLink]="[item.route]"
+      </div> -->
+      <a *ngFor="let item of myWorkRoutes" mat-list-item [ngClass]="{'mat-list-item-pink' : loginType === 'pink'}"
+      (click)="sidenav.close()" [routerLink]="[item.route]"
         routerLinkActive="list-item-active">
         <mat-icon matListIcon> {{ item.icon }} </mat-icon>
         {{item.title}}

@@ -3,7 +3,7 @@
     <div class="card-body">
  <div [ngSwitch]="success"> 
     <div *ngSwitchCase="true">
-       Succesfully Completed Registration. <a routerLink="/login"></a>Click Here to go back to login.
+       Succesfully Completed Registration. <a [routerLink]="['/login']"></a>Click Here to go back to login.
     </div> 
     <div *ngSwitchCase="false">
       <div class="authBlock">
@@ -25,7 +25,7 @@
       </div>
 
       <div class="redirectToLogin">
-        <span>Go back to?<span class="redirect" routerLink="/sign-in"> Sign in</span></span>
+        <span>Go back to?<a class="redirect" [routerLink]="['/login']"> Sign in</a></span>
       </div>
     </div> 
 </div>

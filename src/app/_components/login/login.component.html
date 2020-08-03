@@ -42,14 +42,13 @@
     <img src="assets/registration/vidhya-sandhhan.svg" class="vidhya-sadhan">
   </div>
   <div class="card-body">
-    <div class="container-fluid">
       <div *ngIf='isAlert' class="alert alert-info">
       </div>
       <div class="card-deck">
         <div class="card">
           <div class="card-body">
-            <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="card-400 bg-white">
-              <div class="card-header text-center bg-white">
+            <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="log-form-mr bg-white">
+              <div class="card-header text-center log-header ">
                 <h2>Choose Account Type</h2>
                 <div class="d-flex flex-wrap justify-content-center">
                   <div class="icon-bg" [ngClass]="isTutor ? 'icon-bg-color-blue' : 'border-light'" (click) = "clickedBlue()">
@@ -65,6 +64,7 @@
                 </div>    
               </div>
               <div class="card-body">
+                <h2 class="text-center">Hello {{isTutor ? "Tutor" : "Student"}}</h2>
                 <div class="form-group loginform">
                   <mat-form-field appearance="outline">
                     <mat-label for="username">Email</mat-label>
@@ -108,12 +108,11 @@
 
           </div>
         </div>
-        <div class="card  p-3">
-          <img src="assets/registration/register-1.png" srcset="assets/registration/register-2.png 2x,
-          assets/registration/register-3.png 3x" class="card-img-top">
+        <div class="card d-none d-md-block login-side p-3">
           <div class="card-body">
+            <!-- <img src="assets/registration/register-1.png" srcset="assets/registration/register-2.png 2x,
+            assets/registration/register-3.png 3x" class="card-img-top"> -->
           </div>
         </div>
       </div>
-    </div>
   </div>

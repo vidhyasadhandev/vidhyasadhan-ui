@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1596400258302,
+  "timestamp": 1596425805006,
   "index": "/vidhyasadhan-ui/index.html",
   "assetGroups": [
     {
@@ -10,14 +10,14 @@
       "urls": [
         "/vidhyasadhan-ui/favicon.ico",
         "/vidhyasadhan-ui/index.html",
-        "/vidhyasadhan-ui/main-es2015.a6c760d7b366ed126652.js",
-        "/vidhyasadhan-ui/main-es5.a6c760d7b366ed126652.js",
+        "/vidhyasadhan-ui/main-es2015.861e2c08814be8356c27.js",
+        "/vidhyasadhan-ui/main-es5.861e2c08814be8356c27.js",
         "/vidhyasadhan-ui/manifest.webmanifest",
         "/vidhyasadhan-ui/polyfills-es2015.245b1711f20489f5a313.js",
         "/vidhyasadhan-ui/polyfills-es5.de943741b42489c5423f.js",
         "/vidhyasadhan-ui/runtime-es2015.0dae8cbc97194c7caed4.js",
         "/vidhyasadhan-ui/runtime-es5.0dae8cbc97194c7caed4.js",
-        "/vidhyasadhan-ui/styles.292baf03c1fe4b2c4280.css"
+        "/vidhyasadhan-ui/styles.865bc5e1a269938d1cf7.css"
       ],
       "patterns": []
     },
@@ -26,6 +26,19 @@
       "installMode": "lazy",
       "updateMode": "prefetch",
       "urls": [
+        "/vidhyasadhan-ui/assets/Student/background.svg",
+        "/vidhyasadhan-ui/assets/Student/bg.svg",
+        "/vidhyasadhan-ui/assets/Student/chart-pie-36.svg",
+        "/vidhyasadhan-ui/assets/Student/combined-shape.svg",
+        "/vidhyasadhan-ui/assets/Student/my-earnings.svg",
+        "/vidhyasadhan-ui/assets/Student/noun-assignment-3202074.svg",
+        "/vidhyasadhan-ui/assets/Student/noun-teaching-2380320.svg",
+        "/vidhyasadhan-ui/assets/Student/oval-copy-2.svg",
+        "/vidhyasadhan-ui/assets/Student/oval-copy-4.svg",
+        "/vidhyasadhan-ui/assets/Student/path-2.svg",
+        "/vidhyasadhan-ui/assets/Student/path.svg",
+        "/vidhyasadhan-ui/assets/Student/rectangle.svg",
+        "/vidhyasadhan-ui/assets/Student/vidhya-sandhhan.svg",
         "/vidhyasadhan-ui/assets/cmg-bg-2.png",
         "/vidhyasadhan-ui/assets/cmg-bg-3.png",
         "/vidhyasadhan-ui/assets/cmg-bg.png",
@@ -99,6 +112,19 @@
   ],
   "dataGroups": [],
   "hashTable": {
+    "/vidhyasadhan-ui/assets/Student/background.svg": "f9edd5360e61b36e027bcc517db7a48c2df35939",
+    "/vidhyasadhan-ui/assets/Student/bg.svg": "d07eb9774ca88be8000ac7a818883cdad759a08f",
+    "/vidhyasadhan-ui/assets/Student/chart-pie-36.svg": "1a5d608363c284274775709eaafe87bb6e64cb7c",
+    "/vidhyasadhan-ui/assets/Student/combined-shape.svg": "b93d81a357fb0ed32c8d9eb2f40777317373554b",
+    "/vidhyasadhan-ui/assets/Student/my-earnings.svg": "d95d3e96e5f2b32c052208e2d0a03b38b2b0ca21",
+    "/vidhyasadhan-ui/assets/Student/noun-assignment-3202074.svg": "9d292aefcb43cfd570de96ec7565db6a1d70ad6e",
+    "/vidhyasadhan-ui/assets/Student/noun-teaching-2380320.svg": "58e2f49e220682be299e5649f0910e01c6ed56dc",
+    "/vidhyasadhan-ui/assets/Student/oval-copy-2.svg": "69288c4c21606650dc92e00e4f0847ba1450b91d",
+    "/vidhyasadhan-ui/assets/Student/oval-copy-4.svg": "bbc0f5db21a4bda44d7920c9e6b02edd884c0cce",
+    "/vidhyasadhan-ui/assets/Student/path-2.svg": "2364e3379be80ec9d86a5fc9211e05c3a313b318",
+    "/vidhyasadhan-ui/assets/Student/path.svg": "1554a0db2df91d6862b8012076dcdfd89a0adbce",
+    "/vidhyasadhan-ui/assets/Student/rectangle.svg": "5e96c28bccd25604ac93c9f866d457d44c98eda3",
+    "/vidhyasadhan-ui/assets/Student/vidhya-sandhhan.svg": "edc9705d5be2ffaba852a1bc358d8673c1709901",
     "/vidhyasadhan-ui/assets/cmg-bg-2.png": "0c1dd61efb25fb8b3154b7f6abea6c47a90a611d",
     "/vidhyasadhan-ui/assets/cmg-bg-3.png": "9a148f2b5b461ed53f8a56ce4081a98d73115a96",
     "/vidhyasadhan-ui/assets/cmg-bg.png": "e6eed5ff548ae3acad42372db416b7cce97ea621",
@@ -135,7 +161,7 @@
     "/vidhyasadhan-ui/assets/logo.jpeg": "a5394d43a90aec8f1911f365d829dce2cc12a4ac",
     "/vidhyasadhan-ui/assets/profile-pic.svg": "38c5483d9b547f94a9246a4a309b16087e9344c7",
     "/vidhyasadhan-ui/assets/registration/bg.svg": "10e66fea881a4237883c33c1692763497f46bd81",
-    "/vidhyasadhan-ui/assets/registration/combined-shape.svg": "e62cc2ff816d3e51d781d087457d81562c66a285",
+    "/vidhyasadhan-ui/assets/registration/combined-shape.svg": "279903e6ec4b4d479bed040d680044241dbb13b1",
     "/vidhyasadhan-ui/assets/registration/ion-ios-email-outline-ionicons.svg": "c6749861e81183af78c330c816ecc778aab6c2f2",
     "/vidhyasadhan-ui/assets/registration/ion-ios-locked-outline-ionicons.svg": "3a255e571717fbdcbdac83a3b02bc3c936869965",
     "/vidhyasadhan-ui/assets/registration/ion-ios-locked-outline-ionicons_2.svg": "3a255e571717fbdcbdac83a3b02bc3c936869965",
@@ -167,15 +193,15 @@
     "/vidhyasadhan-ui/assets/vidhyasadhan.svg": "80e0914d2ede321d1cc16ee096b973f280e060d1",
     "/vidhyasadhan-ui/cmg-bg-3.3e2925399125cdeb7d2a.png": "9a148f2b5b461ed53f8a56ce4081a98d73115a96",
     "/vidhyasadhan-ui/favicon.ico": "22f6a4a3bcaafafb0254e0f2fa4ceb89e505e8b2",
-    "/vidhyasadhan-ui/index.html": "6ec66a82b2a13526084598c07e8b1c4f7459aa24",
-    "/vidhyasadhan-ui/main-es2015.a6c760d7b366ed126652.js": "6305dc036e12aef26853147dc9bb767fa812386e",
-    "/vidhyasadhan-ui/main-es5.a6c760d7b366ed126652.js": "3776c032370fef1145a1835126386c71bd6c328c",
+    "/vidhyasadhan-ui/index.html": "3ecc49ad887b85f7291798cd8895ba4fbf9a7640",
+    "/vidhyasadhan-ui/main-es2015.861e2c08814be8356c27.js": "18ddbdd6aa9b9f7bbe32fee2676c184a86c60157",
+    "/vidhyasadhan-ui/main-es5.861e2c08814be8356c27.js": "c580554ae652a98954864e523b384125528752c3",
     "/vidhyasadhan-ui/manifest.webmanifest": "976f027ff35bb7d82393fbf67dc190b5b003dd71",
     "/vidhyasadhan-ui/polyfills-es2015.245b1711f20489f5a313.js": "90fb474e1a7d87bd57bc8a95fb3fd361b919d815",
     "/vidhyasadhan-ui/polyfills-es5.de943741b42489c5423f.js": "ccfff1a6bd0b9531245e25bf3c0c8cf948ced8c2",
     "/vidhyasadhan-ui/runtime-es2015.0dae8cbc97194c7caed4.js": "a9aafcf49f49145093fc831efd9b8e2f6c71bb9c",
     "/vidhyasadhan-ui/runtime-es5.0dae8cbc97194c7caed4.js": "a9aafcf49f49145093fc831efd9b8e2f6c71bb9c",
-    "/vidhyasadhan-ui/styles.292baf03c1fe4b2c4280.css": "2b5427572e5444cf870e2587bd964d19ab5540d3"
+    "/vidhyasadhan-ui/styles.865bc5e1a269938d1cf7.css": "acde3e70282adb0d6025aaffb49ee086485ef6ea"
   },
   "navigationUrls": [
     {

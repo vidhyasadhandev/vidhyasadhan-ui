@@ -28,8 +28,7 @@ mat-form-field {
   min-height: 500px;
 }
 
-mat-card,
-.card {
+mat-card {
   background: transparent;
 }
 

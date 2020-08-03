@@ -12,24 +12,6 @@
     margin: 0.5rem;
 }
 
-.icon-bg{
-  padding: 15px 15px 10px 15px;
-  margin: 0.5rem;
-  border-radius: 3px;
-  border: solid 2px;
-  background-color: #ffffff;
-  height: 150px;
-}
-
-.icon-bg-color{
-    background-color: #f6f9fe;;
-}
-
-.icon-position{
-        position: relative;
-        right: -62px;
-        z-index: 5;
-}
 
 .icon-color-blue{
     color: #3a61a9;
@@ -68,3 +50,63 @@ mat-form-field > .mat-form-field-wrapper{
 .mat-button-base{
     margin: 8px 8px 8px 0;
 }
+
+.log-header{
+    border: 0;
+    background-color: #ffffff;
+    background-image: url("/../assets/registration/combined-shape.svg");
+    background-repeat: no-repeat;
+    background-position: top right;
+}
+
+.icon-bg{
+    padding: 15px 15px 10px 15px;
+    margin: 0.5rem;
+    border-radius: 3px;
+    border: solid 2px;
+    background-color: #ffffff;
+    height: 150px;
+  }
+  
+  .icon-bg-color{
+      background-color: #f6f9fe;;
+  }
+  
+  .icon-position{
+          position: relative;
+          right: -62px;
+          z-index: 5;
+          top: -2px;
+  }
+  
+
+@media screen and (min-width: 576px){
+    .log-form-mr{
+        margin: 0 10%;
+    }
+}
+
+
+    @media screen and (max-width: 576px){
+        .icon-bg{
+            padding: 5px 5px 0px 5px;
+            border-radius: 3px;
+            border: solid 2px;
+            background-color: #ffffff;
+            height: 150px;
+            margin: 0 0.25rem;
+          }
+          
+          .icon-bg-color{
+              background-color: #f6f9fe;;
+          }
+          
+          .icon-position{
+                  position: relative;
+                  right: -50px;
+                  z-index: 3;
+          }
+    
+}
+
+

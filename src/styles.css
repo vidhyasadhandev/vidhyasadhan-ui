@@ -103,7 +103,7 @@ body { margin: 0; font-family:'Montserrat, sans-serif' !important;}
 }
 
 .card-text{
-  font-family: 'Montserrat-Bold','Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif !important;
+  font-family: 'Montserrat-Bold', 'sans-serif';
   font-size: 18px;
   font-weight: 500;
   font-stretch: normal;
@@ -216,3 +216,28 @@ body { margin: 0; font-family:'Montserrat, sans-serif' !important;}
    max-width: 500px;
  }
  
+
+ .login-side{
+  background-image: url("/../assets/registration/register-1.png");
+  background-image: 
+    -webkit-image-set(
+      url("/../assets/registration/register-1.png") 1x,
+      url("/../assets/registration/register-2.png") 2x,
+      url("/../assets/registration/register-3.png") 3x,
+    );
+  background-image: 
+    image-set(
+      url("/../assets/registration/register-1.png.png") 1x,
+      url("/../assets/registration/register-2.png.png") 2x,
+      url("/../assets/registration/register-3.png.png") 3x,
+    );
+    min-height: 400px;
+    display: inline-block;
+    width: 100%;
+    font-size: 0;
+    line-height: 0;
+    vertical-align: middle;
+    background-size: 100%;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+}

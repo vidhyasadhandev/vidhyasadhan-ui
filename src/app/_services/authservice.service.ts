@@ -62,11 +62,12 @@ export class AuthserviceService implements OnDestroy {
     this.loginSubject.next(type);
   }
 
-  login(username: string, password: string) {
+  login(username: string, password: string, istutor: boolean) {
     return this.http.post < any > (`${environment.apiUrl}/users/authenticate`, {
        email : username,
        password,
-       rememberMe: false
+       rememberMe: false,
+       role: istutor ? 1 : 0
       }, {
         headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
         withCredentials: true,

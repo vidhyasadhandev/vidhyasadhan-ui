@@ -15,24 +15,30 @@ mat-sidenav-container{
   } */
 
   mat-sidenav{
-        background-image: url("/assets/sidenav-1.png");
+        /* background-image: url("/../assets/sidenav-1.png");
         background-image: 
           -webkit-image-set(
-            url("/assets/sidenav-1.png") 1x,
-            url("/assets/sidenav-2.png") 2x,
-            url("/assets/sidenav-3.png") 3x,
+            url("/../assets/sidenav-1.png") 1x,
+            url("/../assets/sidenav-2.png") 2x,
+            url("/../assets/sidenav-3.png") 3x,
           );
         background-image: 
           image-set(
-            url("/assets/sidenav-1.png") 1x,
-            url("/assets/sidenav-2.png") 2x,
-            url("/assets/sidenav-3.png") 3x,
-          );
+            url("/../assets/sidenav-1.png") 1x,
+            url("/../assets/sidenav-2.png") 2x,
+            url("/../assets/sidenav-3.png") 3x,
+          ); */
+          background-image: linear-gradient(to bottom, #e5f5ff 13%, #60a7f8);
           width: 255px;
   }
 
+  .mat-side-pink{
+    background-image: linear-gradient(to bottom, #ffeae1 13%, #d73200);
+    color: #ac0619 !important;
+  }
+
   .logo-toolbar{
-    background-image: linear-gradient(to bottom, #e5f5ff 13%, #60a7f8);
+    background: transparent;
   }
 
   .sidenav-img{
@@ -65,20 +71,25 @@ mat-sidenav-container{
   }
 
  .md-dark{
-      color: #1d4082;;
+      color: #1d4082;
   }
 
   .sidenav-bg-pink{
-    background-image: url("/assets/registration/mask-pink.svg")
+    background-image: url("/../assets/registration/mask-pink.svg");  
   }
 
   .sidenav-bg-blue{
-    background-image: url("/assets/registration/mask-blue.svg")
+    background-image: url("/../assets/registration/mask-blue.svg")
   }
 
   .mat-list-item{
     font-family: Montserrat;
     color: #1d4082;
+  }
+
+  .mat-list-item-pink{
+    color: #ac0619;
+    font-weight: 600;
   }
 
   .mat-list-item a{

@@ -24,7 +24,6 @@
 }
 
 .greet p{
-    height: 104px;
     font-family: Montserrat;
     margin-top: 2rem;
     font-size: 35px;
@@ -57,15 +56,12 @@
   font-weight: normal;
   font-stretch: normal;
   font-style: normal;
-  line-height: 1.5;
   letter-spacing: normal;
   color: #b6091d;
 }
 
 .title-subtext>span{
-    height: 24px;
     font-family: Montserrat;
-    font-size: 24px;
     font-weight: 500;
     font-stretch: normal;
     font-style: normal;
@@ -114,4 +110,18 @@
     background-size: 100%;
     background-position: 50% 50%;
     background-repeat: no-repeat;
+}
+
+.student-profile {
+  background-image: linear-gradient(to bottom, #ea8b64 13%, #c2300a);
+}
+
+.student-profile .title-text, 
+.student-profile  .title-subtext,
+.student-profile  span{
+  color: #ffffff !important;
+}
+
+.first-nm{
+   color:#ac0619 !important;
 }

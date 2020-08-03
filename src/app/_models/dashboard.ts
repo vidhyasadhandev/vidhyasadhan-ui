@@ -5,4 +5,5 @@ export interface Dashboard {
     value: string;
     type: string;
     color?: string;
+    class?: string;
 }

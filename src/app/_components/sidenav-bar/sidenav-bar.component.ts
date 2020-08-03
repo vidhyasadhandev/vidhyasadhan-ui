@@ -20,10 +20,11 @@ export class SidenavBarComponent implements OnInit {
   myWorkRoutes = [
     {route : 'dashboard', icon: 'dashboard', title: 'Dashboard'},
     {route : 'classroom', icon: 'class', title: 'My Classrom'},
-    {route : 'tasks', icon: 'assignment', title: 'Assign Task'},
+    {route : 'tasks', icon: 'assignment', title: 'Demo Requests'},
     {route : 'profile', icon: 'person_outline', title: 'My Profile'},
-    {route : 'credits', icon: 'pie_chart', title: 'My Credits'},
-    {route : 'calendar', icon: 'calendar_today', title: 'Calendar'},
+    {route : 'earnings', icon: 'account_balance', title: 'My Earnings'},
+    {route : 'credits', icon: 'connect_without_contact', title: 'My Referrals'},
+    // {route : 'calendar', icon: 'calendar_today', title: 'Calendar'},
   ];
 
   ngOnInit(): void {
