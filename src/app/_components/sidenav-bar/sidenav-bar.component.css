@@ -75,11 +75,11 @@ mat-sidenav-container{
   }
 
   .sidenav-bg-pink{
-    background-image: url("/../assets/registration/mask-pink.svg");  
+    background-image: linear-gradient(to bottom, #fff5f0 13%, #fccfbc); 
   }
 
   .sidenav-bg-blue{
-    background-image: url("/../assets/registration/mask-blue.svg")
+    background-image: linear-gradient(to bottom, #bcdafc -5%, #bcdafc);
   }
 
   .mat-list-item{
@@ -125,3 +125,49 @@ mat-sidenav-container{
   color: #000000;
   text-align: center;
   }
+
+  .crown{
+      width: 195px;
+      opacity: 0.9;
+      border-radius: 8px;
+      background-color: #ffffff;
+  }
+
+  .crown>img:after {
+    content:"";
+    position:absolute;
+    width:100%;
+    bottom:1px;
+    z-index:-1;
+    transform:scale(.9);
+    box-shadow: 0px 0px 8px 2px #000000;
+}
+
+.Make-the-most-of-you {
+  font-family: Montserrat;
+  font-size: 13px;
+  font-weight: 500;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.54;
+  letter-spacing: normal;
+  text-align: center;
+  color: #74798c;
+}
+
+.Upgrade-to-Pro {
+  font-family: Montserrat;
+  font-size: 15px;
+  font-weight: 500;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 3.47;
+  letter-spacing: normal;
+  color: #20253a;
+}
+
+.side-bg-pic{
+  position: bottom;
+  width: 100%;
+  height: auto;
+}

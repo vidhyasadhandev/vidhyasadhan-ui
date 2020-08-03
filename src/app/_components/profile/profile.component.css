@@ -93,3 +93,7 @@ mat-card-header{
   .card-header{
       border-radius: 0;
   }
+
+  .white-bg{
+    background-color: #ffffff;
+  }
