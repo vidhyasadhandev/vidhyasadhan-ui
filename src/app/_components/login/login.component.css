@@ -54,7 +54,7 @@ mat-form-field > .mat-form-field-wrapper{
 .log-header{
     border: 0;
     background-color: #ffffff;
-    background-image: url("/../assets/registration/combined-shape.svg");
+    background-image: url("/vidhyasadhan-ui/assets/registration/combined-shape.svg");
     background-repeat: no-repeat;
     background-position: top right;
 }
