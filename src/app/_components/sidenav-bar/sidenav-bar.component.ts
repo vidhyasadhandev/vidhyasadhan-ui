@@ -18,9 +18,9 @@ export class SidenavBarComponent implements OnInit {
    }
 
   myWorkRoutes = [
-    {route : 'dashboard', icon: 'dashboard', title: 'Dashboard'},
+    // {route : 'dashboard', icon: 'dashboard', title: 'Dashboard'},
     {route : 'classroom', icon: 'class', title: 'My Classrom'},
-    {route : 'tasks', icon: 'assignment', title: 'Demo Requests'},
+    {route : 'demos', icon: 'assignment', title: 'Demo Requests'},
     {route : 'profile', icon: 'person_outline', title: 'My Profile'},
     {route : 'earnings', icon: 'account_balance', title: 'My Earnings'},
     {route : 'credits', icon: 'connect_without_contact', title: 'My Referrals'},

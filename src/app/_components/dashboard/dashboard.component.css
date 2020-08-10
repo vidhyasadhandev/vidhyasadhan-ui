@@ -1,3 +1,5 @@
+
+
 .greet h4 {
     height: 24px;
     font-family: Montserrat;
@@ -88,28 +90,25 @@
 }
 
 .dash-board{
-    background-image: url("/vidhyasadhan-ui/assets/dashboard/dashboard-1.png");
+    background-image: url("/assets/dashboard/dashboard-1.png");
         background-image: 
           -webkit-image-set(
-            url("/vidhyasadhan-ui/assets/dashboard/dashboard-1.png") 1x,
-            url("/vidhyasadhan-ui/assets/dashboard/dashboard-2.png") 2x,
-            url("/vidhyasadhan-ui/assets/dashboard/dashboard-3.png") 3x,
+            url("/assets/dashboard/dashboard-1.png") 1x,
+            url("/assets/dashboard/dashboard-2.png") 2x,
+            url("/assets/dashboard/dashboard-3.png") 3x,
           );
         background-image: 
           image-set(
-            url("/vidhyasadhan-ui/assets/dashboard/dashboard-1.png") 1x,
-            url("/vidhyasadhan-ui/assets/dashboard/dashboard-2.png") 2x,
-            url("/vidhyasadhan-ui/assets/dashboard/dashboard-3.png") 3x,
+            url("/assets/dashboard/dashboard-1.png") 1x,
+            url("/assets/dashboard/dashboard-2.png") 2x,
+            url("/assets/dashboard/dashboard-3.png") 3x,
           );
-    min-height: 350px;
-    display: inline-block;
-    width: 100%;
-    font-size: 0;
-    line-height: 0;
-    vertical-align: middle;
-    background-size: 100%;
-    background-position: 50% 50%;
-    background-repeat: no-repeat;
+
+          line-height: 0;
+          vertical-align: middle;
+          /* background-size: 100%; */
+          background-position: 90% 50%;
+          background-repeat: no-repeat;
 }
 
 .student-profile {
@@ -124,4 +123,29 @@
 
 .first-nm{
    color:#ac0619 !important;
+}
+
+@media screen and (min-width: 768px){
+  .greet{
+    min-height: 350px;
+  }
+}
+
+
+@media screen and (max-width: 768px){
+  .dash-board{
+    background-image: none;
+  }
+
+  .greet p{
+    font-size: 25px;
+  }
+  
+  .equal-container{
+    margin-top: 0.5rem;
+  }
+}
+
+.card{
+  background: transparent;
 }

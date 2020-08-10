@@ -6,6 +6,7 @@
 
 .card{
     border: 0;
+    background: transparent;
 }
 
 .card-footer>button,a{
@@ -34,6 +35,12 @@
     border-color: #3a61a9 !important;
     background-color: #f6f9fe !important;
 }
+
+.main-header {
+    opacity: 0.9;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.13);
+    background-color: #ffffff;
+  }
 
 mat-form-field {
     width: 100%;
@@ -76,13 +83,15 @@ mat-form-field > .mat-form-field-wrapper{
           position: relative;
           right: -62px;
           z-index: 5;
-          top: -2px;
+          top: 20px;
   }
-  
+
+
 
 @media screen and (min-width: 576px){
     .log-form-mr{
         margin: 0 10%;
+        max-width: 500px;
     }
 }
 
@@ -105,6 +114,11 @@ mat-form-field > .mat-form-field-wrapper{
                   position: relative;
                   right: -50px;
                   z-index: 3;
+                  top:30px;
+          }
+
+          .log-form-mr{
+            margin: 0 15px;
           }
     
 }

@@ -42,6 +42,7 @@ import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import {MatBottomSheetModule} from '@angular/material/bottom-sheet';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatDividerModule} from '@angular/material/divider';
+import {MatChipsModule} from '@angular/material/chips';
 
 
 
@@ -73,7 +74,8 @@ import {MatDividerModule} from '@angular/material/divider';
     MatSlideToggleModule,
     MatBottomSheetModule,
     MatCheckboxModule,
-    MatDividerModule
+    MatDividerModule,
+    MatChipsModule
   ],
   exports: [MatAutocompleteModule,
     MatInputModule,
@@ -101,7 +103,8 @@ import {MatDividerModule} from '@angular/material/divider';
     MatSlideToggleModule,
     MatBottomSheetModule,
     MatCheckboxModule,
-    MatDividerModule
+    MatDividerModule,
+    MatChipsModule
   ],
   providers: [
     MatDatepickerModule,

@@ -100,7 +100,7 @@ $vidhyasadhan-ui-theme: mat-light-theme($vidhyasadhan-ui-primary, $vidhyasadhan-
 $custom-typography: mat-typography-config(
   $font-family: 'Montserrat, sans-serif',
   $headline: mat-typography-level(32px, 48px, 700),
-  $body-1: mat-typography-level(16px, 24px, 500)
+  $body-1: mat-typography-level(14px, 20px, 500)
 );
 
 @include mat-base-typography($custom-typography);

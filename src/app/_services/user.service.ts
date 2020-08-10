@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { User } from '../_models/user';
 import { environment } from 'src/environments/environment';
+import { Profile } from '../_models/profile';
 
 @Injectable({
   providedIn: 'root'
@@ -20,6 +21,16 @@ export class UserService {
 
   addUser(user: User){
     return this.http.post<User>(`${environment.apiUrl}/users/register`, user);
+  }
+
+  getProfileData(userid){
+    const options = userid ?
+    { params: new HttpParams().set('userId', userid) } : {};
+    return this.http.get<Profile>(`${environment.apiUrl}/users/profile`, options);
+  }
+
+  updateProfileData(profile){
+    return this.http.put<boolean>(`${environment.apiUrl}/users/update`, profile);
   }
 
   updateUser(){

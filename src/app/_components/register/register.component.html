@@ -1,16 +1,16 @@
-<div class="card text-center">
-  <div class="card-header main-header">
+<div class="home-main flex-column">
+  <mat-toolbar class="w-100 p-2 justify-content-center">
     <img src="assets/registration/vidhya-sandhhan.svg" class="vidhya-sadhan">
-  </div>
-  <div class="card-body">
-    <div class="container-fluid">
-      <div class="card-deck">
-        <div class="card" >
-          <div class="card-body">
-            <form [formGroup]="registerForm" class="card-400" (ngSubmit)="onSubmit()">
-              <div class="card-header bg-white text-dark">
+  </mat-toolbar>
+  <div class="equal-container login-side">
+    <div class="equal-col">
+      <div class="card">
+        <div class="card-body">
+          <form [formGroup]="registerForm" class="log-form-mr"  (ngSubmit)="onSubmit()">
+            <div>
+              <div class="card-header bg-img  log-header text-center">
                 <div class="signup-txt">Register For Free</div>
-                <small>Please fill out the form below to get started.</small>
+                <div class="p-2"><small >Please fill out the form below to get started.</small></div>
               </div>
               <div class="form-group">
                 <mat-form-field appearance="outline">
@@ -101,22 +101,15 @@
                     Register
                   </button>
                   <!-- <a mat-flat-button color="accent" [routerLink]="'/register'">Sign Up</a> -->
-                  <div class="mt-2">Already have an account? <a [routerLink]="'/login'">Sign In</a></div>
+                  <div class="mt-2 p-2">Already have an account? <a [routerLink]="'/login'">Sign In</a></div>
                   <div *ngIf="error" class="alert alert-danger mt-3 mb-0">{{error}}</div>
   
                 </mat-card-actions>
               </mat-card-footer>
-            </form>
-
-          </div>
-        </div>
-        
-        <div class="card d-none login-side d-md-block p-3">
-          <div class="card-body">
-            <!-- <img src="assets/registration/register-1.png" srcset="assets/registration/register-2.png 2x,
-            assets/registration/register-3.png 3x" class="card-img-top"> -->
-          </div>
+            </div>         
+          </form>
         </div>
       </div>
     </div>
   </div>
+</div>

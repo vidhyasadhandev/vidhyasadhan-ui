@@ -1,0 +1,35 @@
+
+.mat-form-field{
+    width: 100%;
+}
+
+.demoform{
+    margin: 0 2rem;
+    background-color: white;
+}
+
+
+
+@media screen and (max-width: 900px){
+    .equal-container{
+        margin-top: 25px;
+    }
+  }
+  
+  @media screen and (max-width: 576px){
+    .demoform{
+        margin: 0 5px;
+    }
+  }
+
+  .w-20{
+      width: 20%;
+  }
+
+  .card-header{
+      color: #20253a;
+  }
+
+ .event-bg{
+  background-color: #f7f8fa;   
+ }

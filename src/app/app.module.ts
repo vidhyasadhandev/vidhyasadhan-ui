@@ -28,6 +28,14 @@ import { ConfirmationComponent } from './_components/confirmation/confirmation.c
 import { DashboardComponent } from './_components/dashboard/dashboard.component';
 import { AdminDashboardComponent } from './_components/admin-dashboard/admin-dashboard.component';
 import { GoogleChartsModule } from 'angular-google-charts';
+import { DemoComponent } from './_components/demo/demo.component';
+import { DemolistComponent } from './_components/demolist/demolist.component';
+import { NgxMatFileInputModule } from '@angular-material-components/file-input';
+import { GoogleMapsModule } from '@angular/google-maps';
+import { MapcomponentComponent } from './_components/mapcomponent/mapcomponent.component';
+import { DatePipe } from '@angular/common';
+import { AlertboxComponent } from './_components/alertbox/alertbox.component';
+import { MAT_SNACK_BAR_DATA } from '@angular/material/snack-bar';
 
 @NgModule({
   declarations: [
@@ -43,7 +51,11 @@ import { GoogleChartsModule } from 'angular-google-charts';
     CalendarComponent,
     ConfirmationComponent,
     DashboardComponent,
-    AdminDashboardComponent
+    AdminDashboardComponent,
+    DemoComponent,
+    DemolistComponent,
+    MapcomponentComponent,
+    AlertboxComponent
   ],
   imports: [
     BrowserModule,
@@ -56,13 +68,19 @@ import { GoogleChartsModule } from 'angular-google-charts';
     DlDateTimeDateModule,
     DlDateTimePickerModule,
     GoogleChartsModule,
+    NgxMatFileInputModule,
+    GoogleMapsModule,
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [
     { provide: APP_INITIALIZER, useFactory: appInitializer, multi: true, deps: [AuthserviceService] },
     { provide: HTTP_INTERCEPTORS, useClass: JwtTokenInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
+    { provide: MAT_SNACK_BAR_DATA, useValue: {} },
+    DatePipe,
+    AlertboxComponent
   ],
+  entryComponents: [AlertboxComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

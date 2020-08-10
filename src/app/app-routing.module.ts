@@ -13,6 +13,8 @@ import { CalendarComponent } from './_components/calendar/calendar.component';
 import { ConfirmationComponent } from './_components/confirmation/confirmation.component';
 import { DashboardComponent } from './_components/dashboard/dashboard.component';
 import { AdminDashboardComponent } from './_components/admin-dashboard/admin-dashboard.component';
+import { DemolistComponent } from './_components/demolist/demolist.component';
+import { DemoComponent } from './_components/demo/demo.component';
 
 
 const routes: Routes = [
@@ -28,6 +30,8 @@ const routes: Routes = [
   { path: 'calendar', component: CalendarComponent, canActivate: [AuthGuard]},
   { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard]},
   { path: 'admin', component: AdminDashboardComponent, canActivate: [AuthGuard]},
+  { path: 'demos', component: DemolistComponent, canActivate: [AuthGuard]},
+  { path: 'demos/create', component: DemoComponent, canActivate: [AuthGuard]},
 
   { path: '**', redirectTo: '' }
 ];

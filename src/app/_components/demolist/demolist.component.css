@@ -1,0 +1,91 @@
+@media screen and (max-width: 900px){
+    .equal-container{
+        margin-top: 25px;
+    }
+  }
+
+  .lh-40{
+      line-height: 40px;
+  }
+
+  .Layout {
+    font-family: Roboto;
+    font-size: 12px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    letter-spacing: normal;
+    color: #47495a;
+    line-height: 40px;
+  }
+
+  .Group-3 {
+    width: 164px;
+    height: 156px;
+    object-fit: contain;
+  }
+
+  .Group-10-Copy-3{
+    position: absolute;
+    bottom: 10px;
+    left: 40%;
+  }
+
+  .Student-Name-10th-S {
+    font-family: Roboto;
+    font-size: 16px;
+    font-weight: 500;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: #4184f3;
+    text-decoration: underline;
+  }
+
+  .Requested-Subs-M {
+    font-family: Roboto;
+    font-size: 15px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: #47495a;
+    text-align: left;
+  }
+
+  .v-map{
+  font-family: Roboto;
+  font-size: 15px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #47495a;
+  }
+  .v-map > a{
+    color: #4184f3;
+    text-decoration: underline;
+  }
+
+  .address{
+  font-family: Roboto;
+  font-size: 14px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #47495a;
+  }
+
+  .card-chip{
+  border-radius: 3px;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.16);
+  border: solid 1px #e7e7e7;
+  background-color: #ffffff;
+  }
+
+ 

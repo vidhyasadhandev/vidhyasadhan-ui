@@ -34,10 +34,22 @@
   </mat-sidenav>
 
   <mat-sidenav-content [ngClass]="loginType === 'pink' ? 'sidenav-bg-pink':'sidenav-bg-blue'">
+    <div>
+      <img class="oval-copy-left-1" src="assets/registration/oval-copy-2.svg">
+      <img class="oval-copy-left-2" src="assets/registration/oval-copy-3.svg">
+    </div>
     <app-navigation-bar *ngIf="isAuthenticated()" (toggleSidenav)="sidenav.toggle()">
     </app-navigation-bar>
     <router-outlet></router-outlet>
-    <footer class="footer"> © 2020 VidhyaSadhan. All Rights Reserved. </footer>
-  </mat-sidenav-content>
+    <div>
+      <img class="oval-copy-right-1" src="assets/registration/oval.svg">
+      <img class="oval-copy-right-2" src="assets/registration/oval-copy-4.svg">
+    </div>
 
+    <div class="bottom-icon">
+      <img class="oval-copy-right-3" src="assets/combined-shape.svg">
+      <img class="oval-copy-left-3" src="assets/registration/oval-copy.svg">
+    </div>
+  </mat-sidenav-content>
 </mat-sidenav-container>
+<!-- <footer class="footer"> © 2020 VidhyaSadhan. All Rights Reserved. </footer> -->

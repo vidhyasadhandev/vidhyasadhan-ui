@@ -8,6 +8,7 @@ end: Date;
 recurrence: any;
 attendees: any;
 organizer: string;
+videoLink?: string;
 }
 
 

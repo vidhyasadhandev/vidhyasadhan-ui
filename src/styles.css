@@ -12,14 +12,29 @@ body{
   background-image:  linear-gradient(to bottom, #bcdafc -5%, #bcdafc);
 }
 
+.home-main{
+  height: 100%;
+  display: flex;
+}
+
+.equal-container{
+  display: table;
+  width: 100%;
+  margin-top: 50px;
+}
+
+.equal-col{
+  display: table-cell;
+}
+
 *{
   box-sizing: border-box;
 }
 
 html, body { height: 100%; }
-body { margin: 0; font-family:'Montserrat, sans-serif' !important;}
+body { margin: 0 !important; font-family:'Montserrat, sans-serif' !important;}
 
-.header-bg{
+.header-bg{ 
   background: hsla(186, 66%, 40%, 1);
   background: linear-gradient(180deg, hsla(186, 66%, 40%, 0.2) 0%, hsla(188, 39%, 53%, 1) 100%);
   background: -moz-linear-gradient(180deg, hsla(186, 66%, 40%, 0.2) 0%, hsla(188, 39%, 53%, 1) 100%);
@@ -95,6 +110,10 @@ body { margin: 0; font-family:'Montserrat, sans-serif' !important;}
   }
 }
 
+.equal-container{
+  font-family: 'Montserrat' !important;
+}
+
 @media only screen and (min-width: 600px){
   .cmg-bg-1{
     width: 530;
@@ -119,9 +138,9 @@ body { margin: 0; font-family:'Montserrat, sans-serif' !important;}
   height: 80px;
 }
 
-.card{
+/* .card{
   background: transparent;
-}
+} */
 
 .content-c{
   margin: auto;
@@ -147,6 +166,11 @@ body { margin: 0; font-family:'Montserrat, sans-serif' !important;}
     width: 100%;
   }
 
+  .oval-copy-left-2,.oval-copy-left-3,
+  .oval-copy-right-1, .oval-copy-right-2{
+    display: none;
+  }
+  
 }
 
 @media screen and (min-width: 576px) and (max-width: 900px){
@@ -229,15 +253,69 @@ body { margin: 0; font-family:'Montserrat, sans-serif' !important;}
     image-set(
       url("/vidhyasadhan-ui/assets/registration/register-1.png.png") 1x,
       url("/vidhyasadhan-ui/assets/registration/register-2.png.png") 2x,
-      url("/vidhyasadhan-ui/assets/registration/register-3.png.png") 3x,
+      url("/vidhyasadhan-ui/vidhyasadhan-ui/assets/registration/register-3.png.png") 3x,
     );
-    min-height: 400px;
-    display: inline-block;
-    width: 100%;
-    font-size: 0;
+    /* min-height: 400px; */
+    /* display: inline-block; */
+    /* width: 100%; */
+    /* font-size: 0; */
     line-height: 0;
     vertical-align: middle;
-    background-size: 100%;
-    background-position: 50% 50%;
+    /* background-size: 100%; */
+    background-position: 90% 50%;
     background-repeat: no-repeat;
 }
+
+.oval-copy-left-1{
+  position: absolute;
+  left: 6%;
+  z-index: -1;
+  top: 10%;
+}
+
+.oval-copy-left-2{
+  position: absolute;
+  z-index: -1;
+  left: 15%;
+}
+
+.oval-copy-left-3{
+  position: absolute;
+  z-index: -1;
+  bottom: 0;
+}
+
+.oval-copy-right-1{
+  position: absolute;
+  top: -40px;
+  right: 0;
+  z-index: -1;
+}
+
+.oval-copy-right-2{
+  position: absolute;
+  top: 350px;
+  right: 0;
+  z-index: -1;
+}
+
+.oval-copy-right-3{
+  position: fixed;
+  right: 0;
+  z-index: -1;
+  bottom: 0;
+}
+
+.bottom-icon{
+  position: fixed;
+  z-index: -1;
+  opacity: 0.8;
+}
+
+.bg-tutor-primary{
+ background-color: #a4caf8;
+}
+
+.bg-student-secondary{
+  background-color: #a4caf8;
+ }

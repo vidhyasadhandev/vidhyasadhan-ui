@@ -42,8 +42,8 @@
               <div class="form-group col-md-6">
                 <mat-label>Sex: </mat-label>
                 <mat-radio-group formControlName="gender">
-                  <mat-radio-button value="Male">Male</mat-radio-button>
-                  <mat-radio-button value="Female">Female</mat-radio-button>
+                  <mat-radio-button value="1">Male</mat-radio-button>
+                  <mat-radio-button value="2">Female</mat-radio-button>
                 </mat-radio-group>
               </div>
               <div class="col-md-6">
@@ -124,8 +124,8 @@
           <div class="form-group col-12">
               <mat-label>Professional Background</mat-label>
               <mat-radio-group formControlName="backgroundtype">
-                <mat-radio-button value="Male">Academic</mat-radio-button>
-                <mat-radio-button value="Female">Non Academic</mat-radio-button>
+                <mat-radio-button value="1">Academic</mat-radio-button>
+                <mat-radio-button value="2">Non Academic</mat-radio-button>
               </mat-radio-group>
           </div>
           <div class="col-12">
@@ -162,14 +162,16 @@
               <div class="col-md-6">
                 <mat-form-field appearance="outline">
                   <mat-label for="qualification">Highest Education Qualification</mat-label>
-                  <input matInput type="text" matInput id="qualification" formControlName="qualification">
+                  <mat-select  id="qualification" formControlName="qualification">
+                    <mat-option *ngFor="let qualify of qualifications" [value]="qualify.value">{{qualify.value}}</mat-option>
+                  </mat-select>         
                 </mat-form-field>
               </div>
               <div class="form-group col-md-6">
                   <mat-label>Do you have a teacher Qualification?</mat-label>
                   <mat-radio-group formControlName="isteacher">
-                    <mat-radio-button value="Yes">Yes</mat-radio-button>
-                    <mat-radio-button value="No">No</mat-radio-button>
+                    <mat-radio-button value="true">Yes</mat-radio-button>
+                    <mat-radio-button value="false">No</mat-radio-button>
                   </mat-radio-group>
               </div>
             </div>
@@ -199,10 +201,9 @@
                     <div class="col-md-6">
                         <mat-label>Which days are you able to tutor?</mat-label>
                         <section>
-                            <mat-checkbox class="day-margin" [checked]="allChecked">All</mat-checkbox>
-                            <mat-checkbox  class="day-margin" [checked]="!allChecked" *ngFor="let day of days">{{day | slice:0:3}}</mat-checkbox>
+                          <mat-checkbox  class="day-margin" [checked]="allChecked" (change)="changeAll($event.checked)">All</mat-checkbox>
+                            <mat-checkbox  class="day-margin" [checked]="day.selected" (change)="changeDays($event.checked, day)" *ngFor="let day of days">{{day.day | slice:0:3}}</mat-checkbox>
                         </section>
-                        <div *ngFor="let day of days"></div>
                         <!-- <mat-selection-list #dat>
                             <mat-list-option *ngFor="let day of days">
                               {{day | slice:0:3}}
@@ -241,10 +242,21 @@
               </div>
               <div class="form-row">
                 <div class="col-md-6">
-                  <mat-form-field appearance="outline">
-                    <mat-label for="proof">Government ID proof</mat-label>
-                    <input matInput type="text" matInput id="proof" formControlName="proof">
-                  </mat-form-field>
+                  <div class="d-flex">
+                    <mat-form-field appearance="outline">
+                      <mat-label for="proof">Government ID proof</mat-label>
+                      <mat-select  id="proof" formControlName="proof">
+                        <mat-option selected value="Drivers Licence">Drivers Licence</mat-option>
+                        <mat-option value="Aadhar Card">Aadhar Card</mat-option>
+                        <mat-option value="Other">Other</mat-option>
+                      </mat-select>                  
+                    </mat-form-field>
+                    <mat-form-field class="pl-2 pr-2" appearance="outline">
+                      <ngx-mat-file-input  formControlName="proofDoc" id="proofDoc" >
+                      </ngx-mat-file-input>
+                   </mat-form-field>
+                  </div>
+
                 </div>
                 <div class="col-md-6">
                     <mat-form-field appearance="outline">

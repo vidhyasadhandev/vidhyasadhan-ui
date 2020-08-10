@@ -84,3 +84,33 @@ form {
   width: 100%;
   height: auto;
 }
+
+
+@media screen and (min-width: 576px){
+  .log-form-mr{
+      margin: 0 10%;
+      max-width: 500px;
+  }
+}
+
+@media screen and (max-width: 576px){
+  .log-form-mr{
+    margin: 0 15px;
+  }
+}
+
+.bg-img{
+  background-image: url("/vidhyasadhan-ui/assets/registration/combined-shape.svg");
+  background-repeat: no-repeat;
+  background-position: top right;
+}
+
+.log-header{
+  border: 0;
+  background-color: #ffffff;
+  padding: 1.5rem;
+}
+
+.card{
+  background: transparent;
+}
