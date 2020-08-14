@@ -25,7 +25,7 @@ export class CourseService {
   createCourse(course){
     return this.http.post<any>(`${environment.apiUrl}/courses​/create`, course);
   }
- 
+
   getCalendars(){
     return this.http.get<any>(`${environment.apiUrl}/Calendar`);
   }

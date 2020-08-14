@@ -1,0 +1,38 @@
+<mat-toolbar class="w-100 p-2 justify-content-center">
+    <img src="assets/registration/vidhya-sandhhan.svg" class="vidhya-sadhan">
+</mat-toolbar>
+<div class="equal-container login-side">
+    <div class="equal-col">
+        <div class="row">
+            <div class="col-md-4 offset-md-1">
+                <mat-card class="text-center o-card">
+                    <mat-card-content>             
+                     <h4 class="otp-title">Please enter the One-Time Password
+                         to verify your account</h4>
+                         <img src="assets/OTP/locked.svg"  class="locked" >
+                     <h5 class="p-4">
+                        A One-Time Password has been sent to your number ending with *** {{phone}}
+                     </h5>
+                     
+                     <mat-grid-list cols="6" rowHeight="50px">
+                         <mat-grid-tile
+                             *ngFor="let tile of otpcode"
+                             [colspan]="1"
+                             [rowspan]="1">
+                                 <input class="rectangle" maxlength="1" type="text"  [(ngModel)]="tile.value" (keyup.enter)="entervalue($event)">
+                         </mat-grid-tile>
+                     </mat-grid-list>
+
+                     <button class="btn btn-primary m-4" mat-raised-button (click)="onSubmit()">Validate</button>
+                     <div class="d-flex m-4">
+                         <p class="wrong-num">Entered a wrong number?</p>
+                         <p class="resend ml-auto">Resend One-time Password</p>
+                     </div>
+
+                    </mat-card-content>
+                </mat-card>              
+            </div>
+        </div>
+
+    </div>
+</div>

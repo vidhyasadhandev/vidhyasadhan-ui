@@ -13,7 +13,7 @@ export class SidenavBarComponent implements OnInit {
 
   constructor(private authService: AuthserviceService) {
     this.authService.user.subscribe(x => this.user = x);
-    this.authService.loginuser.subscribe(x => {this.loginType = x; console.log(this.loginType);} );
+    this.authService.loginuser.subscribe(x => {this.loginType = x; console.log(this.loginType); } );
     this.loginType = localStorage.getItem('logtype');
    }
 
@@ -28,6 +28,10 @@ export class SidenavBarComponent implements OnInit {
   ];
 
   ngOnInit(): void {
+    if (this.loginType === 'pink'){
+      this.myWorkRoutes[1].route = 'tutors';
+      this.myWorkRoutes[1].title = 'Tutors';
+    }
     this.IsOpened = this.isAuthenticated ? true : false;
   }
 

@@ -1,0 +1,27 @@
+.classroom {
+  position: absolute;
+  z-index: 100;
+}
+
+.tabheader {
+  border-radius: 5px;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.02);
+  background-color: #a4caf8;
+}
+
+
+.mat-tab-label {
+  font-family: Montserrat;
+  font-size: 14px;
+  font-weight: bold;
+  background-color: transparent;
+  color: #ffffff !important;
+}
+
+.mat-tab-label.mat-tab-label-active {
+    font-family: Montserrat;
+    font-size: 14px;
+    font-weight: bold;
+    background-color: transparent;
+    color: #1d4082 !important;
+}

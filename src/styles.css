@@ -253,7 +253,7 @@ body { margin: 0 !important; font-family:'Montserrat, sans-serif' !important;}
     image-set(
       url("/vidhyasadhan-ui/assets/registration/register-1.png.png") 1x,
       url("/vidhyasadhan-ui/assets/registration/register-2.png.png") 2x,
-      url("/vidhyasadhan-ui/vidhyasadhan-ui/assets/registration/register-3.png.png") 3x,
+      url("/vidhyasadhan-ui/vidhyasadhan-ui/vidhyasadhan-ui/assets/registration/register-3.png.png") 3x,
     );
     /* min-height: 400px; */
     /* display: inline-block; */
@@ -313,9 +313,22 @@ body { margin: 0 !important; font-family:'Montserrat, sans-serif' !important;}
 }
 
 .bg-tutor-primary{
- background-color: #a4caf8;
+  font-family: Montserrat;
+  font-size: 21px;
+  font-weight: 600;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.14;
+  letter-spacing: normal;
+  color: #20253a;
+  background-color: #a4caf8;
 }
 
 .bg-student-secondary{
   background-color: #a4caf8;
+ }
+
+ mat-chip{
+   min-width: 80px;
+   justify-content: center;
  }

@@ -1,5 +1,7 @@
 export interface Calendar{
+title?: string;
 summary: string;
+color?: string;
 location: string;
 description: string;
 timeZone: string;

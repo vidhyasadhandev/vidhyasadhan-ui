@@ -1,0 +1,40 @@
+<mat-card>
+  <mat-card-header class="header-rad">
+    <mat-card-title>Student Assignments</mat-card-title>
+    <mat-card-subtitle>Total: 0</mat-card-subtitle>
+
+    <div class="ml-auto">
+        <button class="btn btn-md btn-primary" [matMenuTriggerFor]="menu">          
+            <span>Add New Task</span>
+            <mat-icon class="align-middle ml-1">add</mat-icon>  
+        </button>
+        <mat-menu #menu="matMenu" xPosition="before">
+          <button mat-menu-item *ngFor="let item of menuItems">
+            <mat-icon>{{item.icon}}</mat-icon>
+             <span class="menu-font">{{item.value}}</span> 
+            </button>
+        </mat-menu>
+    </div>
+  </mat-card-header>
+  <mat-card-content>
+      <mat-card class="assigncard">
+          <mat-card-header class="body-content">         
+              <mat-card-title>
+                  <div class="d-flex">
+                    <div class="vsadhan-img">
+                        <img src="assets/icons/vidhya-sandhhan.svg" class="img img-responsive vidhya-sandhhan">
+                    </div>
+                    <span class="p-2">Assign work to your class here</span>
+                  </div>
+            </mat-card-title>
+          </mat-card-header>
+          <mat-card-content class="text-center">
+                    <mat-action-list>
+                        <mat-list-item class="profession"><mat-icon class="mat-list-icon">text_snippet</mat-icon> Create assignments and questions</mat-list-item>
+                        <mat-list-item class="profession"><mat-icon class="mat-list-icon">format_list_numbered</mat-icon> Use topic to organise classwork into modules or units</mat-list-item>
+                        <mat-list-item class="profession"><mat-icon class="mat-list-icon">format_line_spacing</mat-icon> Order work the way you want students to see it</mat-list-item>
+                    </mat-action-list>    
+          </mat-card-content>
+      </mat-card>
+  </mat-card-content>
+</mat-card>

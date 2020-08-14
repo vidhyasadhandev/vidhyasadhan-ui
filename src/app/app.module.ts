@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, APP_INITIALIZER } from '@angular/core';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -11,7 +11,7 @@ import { appInitializer } from './_helpers/app-initializer';
 import { AuthserviceService } from './_services/authservice.service';
 import { JwtTokenInterceptor } from './_helpers/jwt-token.interceptor';
 import { ErrorInterceptor } from './_helpers/error.interceptor';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgbModule, NgbModalModule } from '@ng-bootstrap/ng-bootstrap';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RegisterComponent } from './_components/register/register.component';
 import { AngmaterialModule } from './angmaterial.module';
@@ -36,6 +36,15 @@ import { MapcomponentComponent } from './_components/mapcomponent/mapcomponent.c
 import { DatePipe } from '@angular/common';
 import { AlertboxComponent } from './_components/alertbox/alertbox.component';
 import { MAT_SNACK_BAR_DATA } from '@angular/material/snack-bar';
+import { ClassroomComponent } from './_components/classroom/classroom.component';
+import { CalendarModule, DateAdapter } from 'angular-calendar';
+import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
+import { EventmodelComponent } from './_components/eventmodel/eventmodel.component';
+import { AssignmentsComponent } from './_components/assignments/assignments.component';
+import { AttendanceComponent } from './_components/attendance/attendance.component';
+import { OtpComponent } from './_components/otp/otp.component';
+import { ActivatescreenComponent } from './_components/activatescreen/activatescreen.component';
+import { TutorsComponent } from './_components/tutors/tutors.component';
 
 @NgModule({
   declarations: [
@@ -55,12 +64,20 @@ import { MAT_SNACK_BAR_DATA } from '@angular/material/snack-bar';
     DemoComponent,
     DemolistComponent,
     MapcomponentComponent,
-    AlertboxComponent
+    AlertboxComponent,
+    ClassroomComponent,
+    EventmodelComponent,
+    AssignmentsComponent,
+    AttendanceComponent,
+    OtpComponent,
+    ActivatescreenComponent,
+    TutorsComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
+    FormsModule,
     HttpClientModule,
     NgbModule,
     BrowserAnimationsModule,
@@ -69,8 +86,10 @@ import { MAT_SNACK_BAR_DATA } from '@angular/material/snack-bar';
     DlDateTimePickerModule,
     GoogleChartsModule,
     NgxMatFileInputModule,
+    NgbModalModule,
     GoogleMapsModule,
-    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
+    CalendarModule.forRoot({ provide: DateAdapter, useFactory: adapterFactory })
   ],
   providers: [
     { provide: APP_INITIALIZER, useFactory: appInitializer, multi: true, deps: [AuthserviceService] },

@@ -1,0 +1,60 @@
+<h2 mat-dialog-title>Hi {{data.event.title}}</h2>
+<div mat-dialog-content>
+  <form [formGroup]="calendarformForm" (ngSubmit)="onSubmit()">
+    <div class="container">
+
+      <mat-form-field appearance="outline">
+        <mat-label for="summary">Summary</mat-label>
+        <input matInput type="text" formControlName="summary"
+          [ngClass]="{ 'is-invalid': submitted && f.summary.errors }" />
+        <div *ngIf="submitted && f.summary.errors" class="invalid-feedback">
+          <div *ngIf="f.summary.errors.required">Summary is required</div>
+        </div>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label for="location">Location</mat-label>
+        <input matInput type="text" formControlName="location"
+          [ngClass]="{ 'is-invalid': submitted && f.location.errors }" />
+        <div *ngIf="submitted && f.location.errors" class="invalid-feedback">
+          <div *ngIf="f.location.errors.required">Locatio is required</div>
+        </div>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label for="description">Description</mat-label>
+        <input matInput type="text" formControlName="description"
+          [ngClass]="{ 'is-invalid': submitted && f.description.errors }" />
+        <div *ngIf="submitted && f.description.errors" class="invalid-feedback">
+          <div *ngIf="f.description.errors.required">Description is required</div>
+        </div>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label for="start">Start Date</mat-label>
+        <input matInput formControlName="start"
+          [ngClass]="{ 'is-invalid': submitted && f.start.errors }" [matDatepicker]="picker"/>
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        <div *ngIf="submitted && f.start.errors" class="invalid-feedback">
+          <div *ngIf="f.start.errors.required">Start Date is Required</div>
+        </div>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label for="description">End Date</mat-label>
+        <input matInput formControlName="end"
+          [ngClass]="{ 'is-invalid': submitted && f.end.errors }" [matDatepicker]="picker2"/>
+          <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+          <mat-datepicker #picker2></mat-datepicker>
+        <div *ngIf="submitted && f.end.errors" class="invalid-feedback">
+          <div *ngIf="f.end.errors.required">End Date is required</div>
+        </div>
+      </mat-form-field>
+    </div>
+  </form>
+</div>
+<div mat-dialog-actions>
+  <button mat-raised-button  color="warn" (click)="onNoClick()">No Thanks</button>
+  <button mat-raised-button  color="primary" (click)="onSubmit()" cdkFocusInitial>Ok</button>
+</div>

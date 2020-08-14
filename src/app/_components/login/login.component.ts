@@ -51,6 +51,7 @@ export class LoginComponent implements OnInit {
 
     this.isTutor = this.authService.userType === 'pink' ? false : true;
 
+    // tslint:disable-next-line: no-string-literal
     this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
   }
 
@@ -69,7 +70,7 @@ export class LoginComponent implements OnInit {
       .pipe(first())
       .subscribe({
         next: () => {
-          this.router.navigate([this.returnUrl]);
+          this.router.navigate(['authenticate'], {queryParams: { returnUrl : this.returnUrl, email: this.f.username.value}});
         },
         error: error => {
           this.error = error;

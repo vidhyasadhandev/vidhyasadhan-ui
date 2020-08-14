@@ -1,0 +1,14 @@
+<div class="m-4">
+  <p class="bg-tutor-primary m-2 classroom">My Classroom</p>
+  <mat-tab-group mat-align-tabs="end" [color]="colors.font" class="tabheader" [backgroundColor]="colors.background">
+    <mat-tab label="TIMETABLE">
+      <app-calendar></app-calendar>
+    </mat-tab>
+    <mat-tab label="ASSIGNMENT">
+      <app-assignments></app-assignments>
+    </mat-tab>
+    <mat-tab label="ATTENDANCE SHEET">
+      <app-attendance></app-attendance>
+    </mat-tab>
+  </mat-tab-group>
+</div>

@@ -71,7 +71,7 @@ export class RegisterComponent implements OnInit {
     .subscribe(data => {
       if (data){
         localStorage.setItem('user', JSON.stringify(regUser));
-        this.router.navigate(['/verifyemail']);
+        this.router.navigate(['welcome']);
       }else{
         this.error = `Unable to Complete Registration`;
       }

@@ -15,12 +15,19 @@ import { DashboardComponent } from './_components/dashboard/dashboard.component'
 import { AdminDashboardComponent } from './_components/admin-dashboard/admin-dashboard.component';
 import { DemolistComponent } from './_components/demolist/demolist.component';
 import { DemoComponent } from './_components/demo/demo.component';
+import { ClassroomComponent } from './_components/classroom/classroom.component';
+import { OtpComponent } from './_components/otp/otp.component';
+import { ActivatescreenComponent } from './_components/activatescreen/activatescreen.component';
+import { TutorsComponent } from './_components/tutors/tutors.component';
 
 
 const routes: Routes = [
   { path: '', component: HomeComponent,  canActivate: [AuthGuard] }, // canActivate: [AuthGuard]
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent},
+  { path: 'authenticate', component: OtpComponent},
+  { path: 'welcome', component: ActivatescreenComponent},
+  { path: 'tutors', component: TutorsComponent, canActivate: [AuthGuard]},
   { path: 'verifyemail/:userid/:token', component: ConfirmationComponent},
   { path: 'navbar', component: NavigationBarComponent },
   { path: 'sidenav', component: SidenavBarComponent, canActivate: [AuthGuard] },
@@ -32,6 +39,7 @@ const routes: Routes = [
   { path: 'admin', component: AdminDashboardComponent, canActivate: [AuthGuard]},
   { path: 'demos', component: DemolistComponent, canActivate: [AuthGuard]},
   { path: 'demos/create', component: DemoComponent, canActivate: [AuthGuard]},
+  { path: 'classroom', component: ClassroomComponent, canActivate: [AuthGuard]},
 
   { path: '**', redirectTo: '' }
 ];

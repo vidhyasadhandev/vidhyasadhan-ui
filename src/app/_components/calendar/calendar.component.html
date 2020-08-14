@@ -1,4 +1,4 @@
-<div class="container">
+<!-- <div class="container">
   <div class="card text-center bg-white">
       <div class="card-header">
           Calendar
@@ -149,6 +149,106 @@
         </mat-nav-list>
           </mat-expansion-panel>
     </mat-accordion>
+  </div>
+
+</div> -->
+
+<div class="card">
+  <div class="card-header">
+    <div class="d-flex">
+      <span class="p-2">Show Only:</span>
+      <mat-chip-list>
+        <mat-chip selected (click)="changeAllSelected($event)" [ngClass]="{'matchip-active' : allChecked}">
+          All
+        </mat-chip>
+        <mat-chip *ngFor="let action of filterActions" selected (click)="changeSelected($event, action)"
+          [ngClass]="{'matchip-active' : action.checked}">
+          {{action.name}}
+        </mat-chip>
+      </mat-chip-list>
+      <div class="ml-auto w-25">
+        <mat-form-field appearance="fill">
+          <mat-label for="demoDate">{{selectedDate | date: 'EEEE'}}</mat-label>
+          <input matInput id="demoDate" [value]='selectedDate' (dateChange)="addEvent($event)" [matDatepicker]="picker">
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+      </div>
+    </div>
+  </div>
+  <div class="card-body">
+    <div class="row text-center">
+      <div class="col-md-4">
+        <div class="btn-group">
+          <div class="btn btn-primary" mwlCalendarPreviousView [view]="view" [(viewDate)]="viewDate"
+            (viewDateChange)="closeOpenMonthViewDay()">
+            Previous
+          </div>
+          <div class="btn btn-outline-secondary" mwlCalendarToday [(viewDate)]="viewDate">
+            Today
+          </div>
+          <div class="btn btn-primary" mwlCalendarNextView [view]="view" [(viewDate)]="viewDate"
+            (viewDateChange)="closeOpenMonthViewDay()">
+            Next
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <h3>{{ viewDate | calendarDate:(view + 'ViewTitle'):'en' }}</h3>
+      </div>
+      <div class="col-md-4">
+        <div class="btn-group">
+          <div class="btn btn-primary" (click)="setView(CalendarView.Month)"
+            [class.active]="view === CalendarView.Month">
+            Month
+          </div>
+          <div class="btn btn-primary" (click)="setView(CalendarView.Week)" [class.active]="view === CalendarView.Week">
+            Week
+          </div>
+          <div class="btn btn-primary" (click)="setView(CalendarView.Day)" [class.active]="view === CalendarView.Day">
+            Day
+          </div>
+        </div>
+        <!-- <mat-button-toggle-group [appearance]="'legacy'" [(value)] ="selectedView" #group="matButtonToggleGroup"  name="fontStyle" aria-label="Font Style">
+    <mat-button-toggle  value="0">Month</mat-button-toggle>
+    <mat-button-toggle value="1">Day</mat-button-toggle>
+    <mat-button-toggle value="2">Week</mat-button-toggle>
+  </mat-button-toggle-group> -->
+
+      </div>
+    </div>
+    <br/>
+    <div [ngSwitch]="view">
+      <mwl-calendar-month-view
+        *ngSwitchCase="CalendarView.Month"
+        [viewDate]="viewDate"
+        [events]="events"
+        [refresh]="refresh"
+        [activeDayIsOpen]="activeDayIsOpen"
+        (dayClicked)="dayClicked($event.day)"
+        (eventClicked)="handleEvent('Clicked', $event.event)"
+        (eventTimesChanged)="eventTimesChanged($event)"
+      >
+      </mwl-calendar-month-view>
+      <mwl-calendar-week-view
+        *ngSwitchCase="CalendarView.Week"
+        [viewDate]="viewDate"
+        [events]="events"
+        [refresh]="refresh"
+        (eventClicked)="handleEvent('Clicked', $event.event)"
+        (eventTimesChanged)="eventTimesChanged($event)"
+      >
+      </mwl-calendar-week-view>
+      <mwl-calendar-day-view
+        *ngSwitchCase="CalendarView.Day"
+        [viewDate]="viewDate"
+        [events]="events"
+        [refresh]="refresh"
+        (eventClicked)="handleEvent('Clicked', $event.event)"
+        (eventTimesChanged)="eventTimesChanged($event)"
+      >
+      </mwl-calendar-day-view>
+    </div>
   </div>
 
 </div>

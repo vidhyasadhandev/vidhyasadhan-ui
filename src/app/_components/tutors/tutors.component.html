@@ -1,0 +1,73 @@
+<div class="m-4 bg-tutor">
+    <mat-toolbar class="tutor-header">
+        <span>Book Tutor</span>
+    </mat-toolbar>
+    <mat-card>
+        <mat-card-header>
+            <div class="row w-100 p-2">
+                <div class="col-md-3">
+                    <mat-form-field>
+                        <mat-label>Area</mat-label>
+                        <input matInput placeholder="Area" >
+                        <button mat-icon-button matPrefix >
+                            <mat-icon>place</mat-icon>
+                        </button>
+                    </mat-form-field>
+                </div>
+                <div class="col-md-6">
+                    <mat-form-field>
+                        <mat-label>Subjects, Grades, etc.</mat-label>
+                        <input matInput placeholder="Subjects, Grades, etc." >
+                        <button mat-icon-button matPrefix >
+                            <mat-icon>school</mat-icon>
+                        </button>
+                    </mat-form-field>
+                </div>
+                <div class="col-md-3">
+                    <mat-form-field>
+                        <mat-label>Tutor</mat-label>
+                        <input matInput placeholder="Tutor">
+                        <button mat-icon-button matPrefix >
+                            <mat-icon>person_outline</mat-icon>
+                        </button>
+                    </mat-form-field>
+                </div>
+            </div>
+        </mat-card-header>
+        <mat-card-content>
+            <div class="card mb-3" *ngFor="let tutor of tutors">
+                <div class="row no-gutters" >
+                    <div class="col-md-2">
+                        <!-- <img  [src]="tutor.profilePic"> -->
+                        <img src="assets/demo/group-3_2.png"
+                        srcset="assets/demo/group-3_2@2x.png 2x,assets/demo/group-3_2@3x.png 3x"
+                        class="img-responsive p-2">
+                    </div>
+                    <div class="col-md-10">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <h5 class="card-title text-dark">
+                                        <a class="tutor-name">{{tutor.firstName | uppercase}} {{tutor.lastName | uppercase}}
+                                        </a>
+                                    </h5>
+                                    <button mat-icon-button class="btn-icon"> <mat-icon color="secondary">star</mat-icon></button>
+                                    <button mat-icon-button class="btn-icon"> <mat-icon color="secondary">star</mat-icon></button>
+                                    <button mat-icon-button class="btn-icon"> <mat-icon color="secondary">star</mat-icon></button>
+                                    <button mat-icon-button class="btn-icon"> <mat-icon color="secondary">star_half</mat-icon></button>
+                                    <button mat-icon-button class="btn-icon"> <mat-icon color="secondary">star_border</mat-icon></button>
+                                </div>
+                                <div class="col-md-8">
+                                </div>
+                            </div>
+                        </div>  
+                    </div>
+    
+                </div>
+
+            </div>
+
+        
+        </mat-card-content>
+    </mat-card>
+</div>

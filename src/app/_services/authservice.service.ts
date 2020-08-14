@@ -130,5 +130,10 @@ export class AuthserviceService implements OnDestroy {
     return this.http.get<any>(`${environment.apiUrl}/users/reconfirm`, options);
   }
 
+  verifyotp(userid, otp: string){
+    const options = otp ?
+    { params: new HttpParams().set('code', otp).append('email', userid )} : {};
+    return this.http.get<any>(`${environment.apiUrl}/users/verifycode`, options);
+  }
 
 }

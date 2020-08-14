@@ -1,3 +1,19 @@
 mat-form-field{
     width: 100%;
 }
+
+.mat-standard-chip{
+    box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.21);
+    background-color: #ffffff;
+}
+
+.mat-chip-selected{
+    border: solid 1px #1d4082;
+    color: #ffffff;
+    background-color: #ffffff !important;
+}
+
+.matchip-active{
+    background-color: #1d4082 !important;
+    color: #ffffff !important;
+}
