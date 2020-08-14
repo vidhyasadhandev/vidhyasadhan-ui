@@ -21,6 +21,7 @@ export class SidenavBarComponent implements OnInit {
     // {route : 'dashboard', icon: 'dashboard', title: 'Dashboard'},
     {route : 'classroom', icon: 'class', title: 'My Classrom'},
     {route : 'demos', icon: 'assignment', title: 'Demo Requests'},
+    {route : 'tutors', icon: 'assignment', title: 'Tutors'},
     {route : 'profile', icon: 'person_outline', title: 'My Profile'},
     {route : 'earnings', icon: 'account_balance', title: 'My Earnings'},
     {route : 'credits', icon: 'connect_without_contact', title: 'My Referrals'},
@@ -28,10 +29,6 @@ export class SidenavBarComponent implements OnInit {
   ];
 
   ngOnInit(): void {
-    if (this.loginType === 'pink'){
-      this.myWorkRoutes[1].route = 'tutors';
-      this.myWorkRoutes[1].title = 'Tutors';
-    }
     this.IsOpened = this.isAuthenticated ? true : false;
   }
 
