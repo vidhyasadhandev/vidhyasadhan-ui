@@ -3,6 +3,7 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { AuthserviceService } from './authservice.service';
 import { environment } from 'src/environments/environment';
 import { Demo } from '../_models/demo';
+import { DemoRequest } from '../_models/demorequest';
 
 @Injectable({
   providedIn: 'root'
@@ -26,5 +27,13 @@ export class DemoService {
 
   createDemo(demo){
     return this.http.post<any>(`${environment.apiUrl}/demos/create`, demo);
+  }
+
+  requestDemo(demo){
+    return this.http.post<any>(`${environment.apiUrl}/demos/request`, demo);
+  }
+
+  getDemoRequests(demo){
+    return this.http.post<DemoRequest[]>(`${environment.apiUrl}/demos/requests`, demo);
   }
 }

@@ -5,6 +5,7 @@ import { AuthserviceService } from 'src/app/_services/authservice.service';
 import { StudentService } from 'src/app/_services/student.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { AlertboxComponent } from '../alertbox/alertbox.component';
+import { DemoRequest } from 'src/app/_models/demorequest';
 
 @Component({
   selector: 'app-demolist',
@@ -16,6 +17,7 @@ export class DemolistComponent implements OnInit {
   selectedAction ;
   isOnline = false;
   demos: Demo[] = [];
+  demoRequests: DemoRequest[] = [];
   actions = [
     {id: 1, action : 'Accept', icon: 'check_circle', color: 'primary', title: 'List View'},
     {id: 2, action : 'Reject', icon: 'cancel', color: 'warn', title: 'List View'},
@@ -40,6 +42,10 @@ export class DemolistComponent implements OnInit {
     this.selectedAction = this.actionIcons[0];
     this.demoService.getAllDemosByUser(this.authService.userValue.id)
     .subscribe(x => this.demos = x, (error) => console.log(error));
+
+    this.demoService.getDemoRequests({tutorId: this.authService.userValue.id}).subscribe(
+      x => (this.demoRequests = x), (error) => console.log(error)
+    );
   }
 
   getDaywithFormat(day: Demo){
@@ -50,7 +56,7 @@ export class DemolistComponent implements OnInit {
   }
 
   changeSelected(e, action, enrollment){
-    this.updateEnrollment(enrollment, action.id);
+    //this.updateEnrollment(enrollment, action.id);
     console.log(action);
   }
 

@@ -30,6 +30,7 @@ import { HttpEventType } from '@angular/common/http';
 import { FileuploaderService } from 'src/app/_services/fileuploader.service';
 import { read } from 'fs';
 import { EventEmitter } from 'protractor';
+import { AuthserviceService } from 'src/app/_services/authservice.service';
 
 @Component({
   selector: 'app-profile',
@@ -75,7 +76,8 @@ export class ProfileComponent implements OnInit {
   constructor(private formBuilder: FormBuilder,
               private userService: UserService,
               private staticdataService: StaticdataService,
-              private fileUploader: FileuploaderService) {}
+              private fileUploader: FileuploaderService,
+              public authService: AuthserviceService) {}
 
   ngOnInit(): void {
     this.userForm = this.formBuilder.group({
@@ -119,16 +121,16 @@ export class ProfileComponent implements OnInit {
       subject: ['', Validators.required],
       board: [''],
       standard: [''],
-      qualification: ['', Validators.required],
-      isteacher: ['', Validators.required],
+      qualification: [''],
+      isteacher: [''],
       tutorexp: [''],
-      tutorpreference: ['', Validators.required],
+      tutorpreference: [''],
       dayselection: [''],
-      distance: ['', Validators.required],
-      timing: ['', Validators.required],
-      rate: ['', Validators.required],
+      distance: [''],
+      timing: [''],
+      rate: [''],
       currency: [''],
-      proof: ['', Validators.required],
+      proof: [''],
       proofDoc: [null],
       demo: [''],
       interests: [''],
@@ -138,7 +140,7 @@ export class ProfileComponent implements OnInit {
   }
 
   getUser() {
-    const currentUser: User = JSON.parse(localStorage.getItem('user'));
+    const currentUser: User = this.authService.userValue;
     this.userService.get(currentUser.id).subscribe(
       x => {
         this.user = x;
@@ -184,7 +186,7 @@ export class ProfileComponent implements OnInit {
           countryCd: this.f.national.value
         },
         instructor: {
-          userId: this.profile?.instructor.userId,
+          userId: this.profile?.instructor?.userId,
           board: this.f.board.value,
           academyTypeId: this.f.backgroundtype.value,
           highestEducation: this.f.qualification.value,
@@ -203,30 +205,44 @@ export class ProfileComponent implements OnInit {
           demoLink: this.f.demo.value,
           intersets: this.f.interests.value,
           medium: this.f.medium.value,
+        },
+        student: {
+          userId:  this.authService.userValue.id,
+          board:  this.f.board.value,
+          academyTypeId:  this.f.backgroundtype.value,
+          subjects:  this.f.subject.value,
+          level:  this.f.standard.value,
+          intersets:  this.f.interests.value,
+          medium: this.f.medium.value,
         }
       };
 
-      if (this.f.proofDoc.value.length > 0){
+      if (this.f.proofDoc.value?.length > 0){
         const data = this.fileread((e) => {
           console.log(e);
           userValues.instructor.idDoc = '';
         });
       }
 
-
+      if (this.authService.userValue.role === 0){
+        userValues.instructor = null;
+      }
+      else if (this.authService.userValue.role === 1){
+        userValues.student = null;
+      }
       this.userService.updateProfileData(userValues)
       .subscribe(x => console.log(x), (error) => console.log(error));
     }
   }
 
- getByteArray(file) {
+getByteArray(file){
 
  }
 
-  updateFormValus(user: User) {
+updateFormValus(user: User){
     this.userService.getProfileData(user.id).subscribe(x => {
       this.profile = x;
-      const available = this.profile.instructor.availableDays.split(',');
+      const available = this.profile.instructor?.availableDays.split(',');
       this.days.forEach(a => {
         if (available?.some(y => y === a.day)){
           a.selected = true;
@@ -247,29 +263,29 @@ export class ProfileComponent implements OnInit {
         stateCode: x?.address.stateCd,
         inputPin: x?.address.pinCode,
         national: x?.address.countryCd,
-        backgroundtype: (String)(x?.instructor.academyTypeId),
-        medium: x?.instructor.medium,
-        subject: x?.instructor.subjects,
-        board: x?.instructor.board,
-        standard: x?.instructor.level,
-        qualification: x?.instructor.highestEducation,
-        isteacher: (String)(x?.instructor.isTutorBefore),
-        tutorexp: x?.instructor.professionalDescription,
-        tutorpreference: x?.instructor.preference,
-        dayselection: x?.instructor.availableDays,
-        distance: x?.instructor.preferredDistance,
-        timing: x?.instructor.preferredTimeSlot,
-        rate: x?.instructor.hourlyRate,
-        currency: x?.instructor.currency,
-        proof: x?.instructor.idType,
-        proofDoc: x?.instructor.idDoc,
-        demo: x?.instructor.demoLink,
-        interests: x?.instructor.intersets,
+        backgroundtype: (String)(x?.instructor?.academyTypeId) || (String)(x?.student?.academyTypeId),
+        medium: x?.instructor?.medium || x?.student?.medium,
+        subject: x?.instructor?.subjects || x?.student?.subjects,
+        board: x?.instructor?.board || x?.student?.board,
+        standard: x?.instructor?.level || x?.student?.level,
+        qualification: x?.instructor?.highestEducation,
+        isteacher: (String)(x?.instructor?.isTutorBefore),
+        tutorexp: x?.instructor?.professionalDescription,
+        tutorpreference: x?.instructor?.preference,
+        dayselection: x?.instructor?.availableDays,
+        distance: x?.instructor?.preferredDistance,
+        timing: x?.instructor?.preferredTimeSlot,
+        rate: x?.instructor?.hourlyRate,
+        currency: x?.instructor?.currency,
+        proof: x?.instructor?.idType,
+        proofDoc: x?.instructor?.idDoc,
+        demo: x?.instructor?.demoLink,
+        interests: x?.instructor?.intersets || x?.student?.intersets,
       });
     });
   }
 
-  callUploadService(file) {
+callUploadService(file){
     // const formData = new FormData();
     // formData.append('file', file.data);
     // file.inProgress = true;
@@ -289,14 +305,14 @@ export class ProfileComponent implements OnInit {
     //   });
   }
 
-  upload(){
+upload() {
     // this.fileInput.nativeElement.value = '';
     // this.files.forEach(file => {
     //   this.callUploadService(file);
     // });
   }
 
-  onClick() {
+onClick(){
     const fileInput = this.fileInput.nativeElement;
     fileInput.onchange = () => {
         // for (let index = 0; index < fileInput .files.length; index++)
@@ -309,12 +325,12 @@ export class ProfileComponent implements OnInit {
     fileInput.click();
   }
 
-  changeDays(checker, day){
+changeDays(checker, day){
     day.selected = checker;
     this.allChecked = this.days.filter(t => t.selected).length > 0 ? false : this.allChecked;
   }
 
-  changeAll(completed: boolean){
+changeAll(completed: boolean) {
     this.allChecked = completed;
     if (this.days == null) {
       return;

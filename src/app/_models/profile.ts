@@ -1,6 +1,7 @@
 
 import { Instructor } from './instructor';
 import { Address } from './user';
+import { Student } from './student';
 
 export interface Profile{
     firstName: string;
@@ -11,5 +12,6 @@ export interface Profile{
     birthdate: Date;
     profilePic: string;
     address: Address;
-    instructor: Instructor;
+    instructor?: Instructor;
+    student?: Student;
 }

@@ -122,11 +122,11 @@
         <h4 class="address-div">Professional Background</h4>
         <div class="row">
           <div class="form-group col-12">
-              <mat-label>Professional Background</mat-label>
-              <mat-radio-group formControlName="backgroundtype">
-                <mat-radio-button value="1">Academic</mat-radio-button>
-                <mat-radio-button value="2">Non Academic</mat-radio-button>
-              </mat-radio-group>
+            <mat-label>Professional Background</mat-label>
+            <mat-radio-group formControlName="backgroundtype">
+              <mat-radio-button value="1">Academic</mat-radio-button>
+              <mat-radio-button value="2">Non Academic</mat-radio-button>
+            </mat-radio-group>
           </div>
           <div class="col-12">
             <div class="form-row">
@@ -158,24 +158,25 @@
                 </mat-form-field>
               </div>
             </div>
-            <div class="form-row">
+            <div class="form-row" *ngIf="authService?.userValue?.role === 1">
               <div class="col-md-6">
                 <mat-form-field appearance="outline">
                   <mat-label for="qualification">Highest Education Qualification</mat-label>
-                  <mat-select  id="qualification" formControlName="qualification">
-                    <mat-option *ngFor="let qualify of qualifications" [value]="qualify.value">{{qualify.value}}</mat-option>
-                  </mat-select>         
+                  <mat-select id="qualification" formControlName="qualification">
+                    <mat-option *ngFor="let qualify of qualifications" [value]="qualify.value">{{qualify.value}}
+                    </mat-option>
+                  </mat-select>
                 </mat-form-field>
               </div>
               <div class="form-group col-md-6">
-                  <mat-label>Do you have a teacher Qualification?</mat-label>
-                  <mat-radio-group formControlName="isteacher">
-                    <mat-radio-button value="true">Yes</mat-radio-button>
-                    <mat-radio-button value="false">No</mat-radio-button>
-                  </mat-radio-group>
+                <mat-label>Do you have a teacher Qualification?</mat-label>
+                <mat-radio-group formControlName="isteacher">
+                  <mat-radio-button value="true">Yes</mat-radio-button>
+                  <mat-radio-button value="false">No</mat-radio-button>
+                </mat-radio-group>
               </div>
             </div>
-            <div class="form-row">
+            <div class="form-row" *ngIf="authService?.userValue?.role === 1">
               <div class="col">
                 <mat-form-field appearance="outline">
                   <mat-label for="tutorexp">If you have tutored before, tell us about it here.</mat-label>
@@ -186,36 +187,40 @@
           </div>
         </div>
 
-        <h4 class="address-div">Tutor Details</h4>
+        <h4 class="address-div" *ngIf="authService?.userValue?.role === 1">Tutor Details</h4>
         <div class="row">
-            <div class="col-12">
-                <div class="form-row">
-                    <div class="col-md-6">
-                        <mat-label>Preferred Teaching Style</mat-label>
-                        <mat-radio-group formControlName="tutorpreference">
-                          <mat-radio-button value="Online">Online</mat-radio-button>
-                          <mat-radio-button value="Offline">Offline</mat-radio-button>
-                          <mat-radio-button value="Both">Both</mat-radio-button>
-                        </mat-radio-group>
-                    </div>
-                    <div class="col-md-6">
-                        <mat-label>Which days are you able to tutor?</mat-label>
-                        <section>
-                          <mat-checkbox  class="day-margin" [checked]="allChecked" (change)="changeAll($event.checked)">All</mat-checkbox>
-                            <mat-checkbox  class="day-margin" [checked]="day.selected" (change)="changeDays($event.checked, day)" *ngFor="let day of days">{{day.day | slice:0:3}}</mat-checkbox>
-                        </section>
-                        <!-- <mat-selection-list #dat>
+          <div class="col-12">
+            <div *ngIf="authService?.userValue?.role === 1">
+              <div class="form-row">
+                <div class="col-md-6">
+                  <mat-label>Preferred Teaching Style</mat-label>
+                  <mat-radio-group formControlName="tutorpreference">
+                    <mat-radio-button value="Online">Online</mat-radio-button>
+                    <mat-radio-button value="Offline">Offline</mat-radio-button>
+                    <mat-radio-button value="Both">Both</mat-radio-button>
+                  </mat-radio-group>
+                </div>
+                <div class="col-md-6">
+                  <mat-label>Which days are you able to tutor?</mat-label>
+                  <section>
+                    <mat-checkbox class="day-margin" [checked]="allChecked" (change)="changeAll($event.checked)">All
+                    </mat-checkbox>
+                    <mat-checkbox class="day-margin" [checked]="day.selected" (change)="changeDays($event.checked, day)"
+                      *ngFor="let day of days">{{day.day | slice:0:3}}</mat-checkbox>
+                  </section>
+                  <!-- <mat-selection-list #dat>
                             <mat-list-option *ngFor="let day of days">
                               {{day | slice:0:3}}
                             </mat-list-option>
                           </mat-selection-list> -->
-                    </div>
                 </div>
+              </div>
               <div class="form-row">
                 <div class="col-md-6">
                   <mat-form-field appearance="outline">
                     <mat-label for="distance">How far would you travel to tutor?</mat-label>
-                    <input type="text" matInput formControlName="distance" id="distance" placeholder="Type your text here..">
+                    <input type="text" matInput formControlName="distance" id="distance"
+                      placeholder="Type your text here..">
                   </mat-form-field>
                 </div>
                 <div class="col-md-6">
@@ -245,36 +250,38 @@
                   <div class="d-flex">
                     <mat-form-field appearance="outline">
                       <mat-label for="proof">Government ID proof</mat-label>
-                      <mat-select  id="proof" formControlName="proof">
+                      <mat-select id="proof" formControlName="proof">
                         <mat-option selected value="Drivers Licence">Drivers Licence</mat-option>
                         <mat-option value="Aadhar Card">Aadhar Card</mat-option>
                         <mat-option value="Other">Other</mat-option>
-                      </mat-select>                  
+                      </mat-select>
                     </mat-form-field>
                     <mat-form-field class="pl-2 pr-2" appearance="outline">
-                      <ngx-mat-file-input  formControlName="proofDoc" id="proofDoc" >
+                      <ngx-mat-file-input formControlName="proofDoc" id="proofDoc">
                       </ngx-mat-file-input>
-                   </mat-form-field>
+                    </mat-form-field>
                   </div>
 
                 </div>
                 <div class="col-md-6">
-                    <mat-form-field appearance="outline">
-                      <mat-label for="demo">Teaching Demo Link</mat-label>
-                      <input matInput type="text" matInput id="demo" formControlName="demo">
-                    </mat-form-field>
-                </div>
-              </div>
-              <div class="form-row">
-                <div class="col">
                   <mat-form-field appearance="outline">
-                    <mat-label for="interests">To help us make this match give us some idea of your interests, hobbies etc.</mat-label>
-                    <textarea matInput id="interests" formControlName="interests"></textarea>
+                    <mat-label for="demo">Teaching Demo Link</mat-label>
+                    <input matInput type="text" matInput id="demo" formControlName="demo">
                   </mat-form-field>
                 </div>
               </div>
             </div>
+            <div class="form-row">
+              <div class="col">
+                <mat-form-field appearance="outline">
+                  <mat-label for="interests">To help us make this match give us some idea of your interests, hobbies
+                    etc.</mat-label>
+                  <textarea matInput id="interests" formControlName="interests"></textarea>
+                </mat-form-field>
+              </div>
+            </div>
           </div>
+        </div>
 
       </div>
       <div class="card-footer bg-light">

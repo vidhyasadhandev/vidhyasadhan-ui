@@ -1,7 +1,7 @@
 import { AcademicType } from './academictype';
 
 export interface Instructor {
-  userId: string;
+    userId: string;
     board: string;
     academyTypeId: number;
     academyType?: AcademicType;

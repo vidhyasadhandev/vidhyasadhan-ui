@@ -36,3 +36,78 @@ mat-form-field{
     width: 24px;
     height: 40px;
 }
+
+.review{
+  font-family: Roboto;
+  font-size: 11px;
+  font-weight: 500;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: -0.22px;
+  text-align: center;
+  color: #6b6b6b;
+}
+
+.review-val{
+    position: absolute;
+    top: 50%;
+    left: 25%;
+    font-size: 10px;
+}
+
+.text-list{
+  font-family: Roboto;
+  font-size: 14px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #515151;
+}
+
+.btn-icons{
+    color: #ac0619;
+    box-shadow: 0 7px 15px 0 rgba(56, 138, 247, 0.17);
+    background-color: #ffffff;
+    margin: 0.5rem;
+}
+
+.book{
+    border-radius: 23px;
+    background-color: #ac0619;
+    font-family: Roboto;
+    font-size: 12px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: 1px;
+    color: #ffffff;
+}
+
+.demo{
+    border-radius: 23px;
+    border: solid 1px #ac0619;
+    background-color: #ffffff;
+    font-family: Roboto;
+    font-size: 12px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: 1px;
+    text-align: center;
+    color: #ac0619;
+}
+
+@media screen and (max-width: 576px){
+    .text-vs-center{
+        text-align: center;
+    }
+
+    .justify-vs-center{
+        justify-content: center;
+    }
+}

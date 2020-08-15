@@ -1,0 +1,52 @@
+<h1 mat-dialog-title>Book a Demo</h1>
+<div mat-dialog-content>
+    <form [formGroup]="demomodelForm" (submit)="onSubmit()">
+  <ul class="list-group">
+      <li class="list-group-item">
+          Tutor:
+          <span>{{data.tutorinfo.firstName | uppercase}} {{data.tutorinfo.lastName | uppercase}}</span>
+      </li>
+    <li  class="list-group-item">
+      <mat-form-field class="w-100">
+          <mat-label>Preferred Date</mat-label>
+          <input matInput [matDatepicker]="picker" formControlName="date" name="date"  placeholder="Preferred Date">
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+          <mat-error *ngIf="f.date.invalid">Date Value is Required</mat-error>
+      </mat-form-field>
+    </li>
+    <!-- <li>
+        <mwl-calendar-month-view  [viewDate]="viewDate"
+        [events]="events" ></mwl-calendar-month-view>
+    </li> -->
+    <li class="list-group-item">
+        <mat-form-field class="w-100">
+        <mat-select placeholder="Slot" formControlName="time" name="item">
+            <mat-option *ngFor="let item of availableslots" [value]="item">
+                {{item}}
+            </mat-option>
+        </mat-select>
+        <mat-error *ngIf="f.time.invalid">Time Slot is Required</mat-error>
+    </mat-form-field>
+    </li>
+    <li class="list-group-item">
+        <mat-form-field class="w-100">
+            <mat-label>Subject</mat-label>
+            <input matInput placeholder="subject" formControlName="subject">
+        </mat-form-field>
+    </li>
+    <li class="list-group-item">
+        <mat-form-field class="w-100">
+            <mat-label>Additional Details</mat-label>
+            <textarea matInput placeholder="Additional Details" formControlName="message"> </textarea>
+        </mat-form-field>
+    </li>
+  </ul>
+  <div mat-dialog-actions>
+    <div class="m-2 text-center justify-content-center">
+      <button mat-button class="btn btn-md btn-primary m-2" type="submit" (click)="onSubmit()">Ok</button>
+      <button mat-button class="btn btn-md btn-primary m-2" (click)="onClose()" cdkFocusInitial>Cancel</button>
+    </div>  
+</div>
+</form>
+</div>

@@ -45,6 +45,7 @@ import { AttendanceComponent } from './_components/attendance/attendance.compone
 import { OtpComponent } from './_components/otp/otp.component';
 import { ActivatescreenComponent } from './_components/activatescreen/activatescreen.component';
 import { TutorsComponent } from './_components/tutors/tutors.component';
+import { DemomodelComponent } from './_components/demomodel/demomodel.component';
 
 @NgModule({
   declarations: [
@@ -71,7 +72,8 @@ import { TutorsComponent } from './_components/tutors/tutors.component';
     AttendanceComponent,
     OtpComponent,
     ActivatescreenComponent,
-    TutorsComponent
+    TutorsComponent,
+    DemomodelComponent
   ],
   imports: [
     BrowserModule,

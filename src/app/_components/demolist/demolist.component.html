@@ -34,7 +34,7 @@
                   'col-md-12' : selectedAction === actionIcons[1],
                   'col-md-6' : selectedAction === actionIcons[2] }">
                     <div [ngClass]="{'card-deck': selectedAction === actionIcons[1]}">
-                        <div class="card card-chip mb-3" *ngFor="let element of demos" >
+                        <div class="card card-chip mb-3" *ngFor="let element of demoRequests" >
                                 <div class="row no-gutters">
                                   <div [ngClass]="{'col-md-2' : selectedAction === actionIcons[0], 
                                   'col-md-12' : selectedAction === actionIcons[1],
@@ -53,26 +53,25 @@
                                   'col-md-8' : selectedAction === actionIcons[2] }">
                                     <div class="card-body">
                                       <h5 class="card-title text-dark">
-                                        <a class="Student-Name-10th-S"> {{element.enrollments[0].student.firstName}}
-                                          {{element.enrollments[0].student.lastName}}
+                                        <a class="Student-Name-10th-S"> {{element.student.firstName}}
+                                          {{element.student.lastName}}
                                         </a>
                                       </h5>
                                       <div class="card-text Requested-Subs-M">
                                         <div class="row">
                                           <div class="col">
-                                            <p>Requested Sub(s) — {{element.title}}</p>
-                                            <p>Requested Demo on {{element.startDate | date: 'EEEE'}},
-                                              {{element.startDate | date: 'shortTime'}} slot</p>
+                                            <p>Requested Sub(s) — {{element.subject}}</p>
+                                            <p>Requested Demo on {{element.date | date: 'EEEE'}},
+                                              {{element.date | date: 'shortTime'}} slot</p>
                                           </div>
                                           <div class="col">
                                             <p class="address">Address</p>
-                                            <p class="v-map">{{element.locationName}} - <a (click)="selectedAction = actionIcons[2]">View On Map</a></p>
+                                            <p class="v-map">{{element.student.addresses[0]?.address1}},{{element.student.addresses[0]?.address2}} - <a (click)="selectedAction = actionIcons[2]">View On Map</a></p>
                                           </div>
                                           <div class="col-12">
-                                            <mat-chip-list #chipList>
-                  
+                                            <mat-chip-list #chipList>                 
                                               <mat-chip [color]="action.color" selected 
-                                              *ngFor="let action of actions"  (click)="changeSelected($event, action, element.enrollments[0])">
+                                              *ngFor="let action of actions"  (click)="changeSelected($event, action, element)">
                                                   <mat-icon>{{action.icon}}</mat-icon>
                                                   {{action.action}}
                                               </mat-chip>
