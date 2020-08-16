@@ -242,7 +242,7 @@ getByteArray(file){
 updateFormValus(user: User){
     this.userService.getProfileData(user.id).subscribe(x => {
       this.profile = x;
-      const available = this.profile.instructor?.availableDays.split(',');
+      const available = this.profile.instructor?.availableDays?.split(',');
       this.days.forEach(a => {
         if (available?.some(y => y === a.day)){
           a.selected = true;

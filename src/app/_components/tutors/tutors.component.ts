@@ -19,6 +19,7 @@ import { AuthserviceService } from 'src/app/_services/authservice.service';
 import { DemoService } from 'src/app/_services/demo.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { AlertboxComponent } from '../alertbox/alertbox.component';
+import { PageEvent } from '@angular/material/paginator';
 
 @Component({
   selector: 'app-tutors',
@@ -27,8 +28,10 @@ import { AlertboxComponent } from '../alertbox/alertbox.component';
 })
 export class TutorsComponent implements OnInit {
 
-  tutors: User[];
+  public tutors: User[];
   weekArray: string[] = [];
+  public slicedTutors: User[];
+  query;
 
   constructor(private userservice: UserService,
               public dialog: MatDialog,
@@ -40,6 +43,8 @@ export class TutorsComponent implements OnInit {
     this.userservice.getAll().subscribe(
       x => {
         this.tutors = x;
+        console.log(x[0]);
+        this.slicedTutors = x?.slice(0, 4);
       },
       (error) => console.log(error)
     );
@@ -76,6 +81,21 @@ export class TutorsComponent implements OnInit {
           });
         }
       });
+  }
+
+  pagechange(event: PageEvent){
+    const startIndex = event.pageIndex * event.pageSize;
+    let endIndex = startIndex + event.pageSize;
+
+    if (endIndex > this.tutors.length){
+      endIndex = this.tutors.length;
+    }
+
+    this.slicedTutors = this.tutors.slice(startIndex, endIndex);
+  }
+
+  filterItem(value){
+
   }
 
 }

@@ -8,13 +8,13 @@
         <div class="col-md-3">
           <mat-form-field>
             <mat-label>Area</mat-label>
-            <input matInput placeholder="Area">
+            <input matInput placeholder="Area" >
             <button mat-icon-button matPrefix>
               <mat-icon>place</mat-icon>
             </button>
           </mat-form-field>
         </div>
-        <div class="col-md-6">
+        <div class="col-md-5">
           <mat-form-field>
             <mat-label>Subjects, Grades, etc.</mat-label>
             <input matInput placeholder="Subjects, Grades, etc.">
@@ -26,16 +26,22 @@
         <div class="col-md-3">
           <mat-form-field>
             <mat-label>Tutor</mat-label>
-            <input matInput placeholder="Tutor">
+            <input matInput placeholder="Tutor" [(ngModel)]="query">
             <button mat-icon-button matPrefix>
               <mat-icon>person_outline</mat-icon>
             </button>
           </mat-form-field>
+
+        </div>
+        <div class="col-md-1">
+          <a mat-icon-button>
+            <mat-icon>search</mat-icon>
+          </a>
         </div>
       </div>
     </mat-card-header>
     <mat-card-content>
-      <div class="card mb-3" *ngFor="let tutor of tutors">
+      <div class="card mb-3" *ngFor="let tutor of slicedTutors | tutorfilter:'firstName,lastName':query">
         <div class="row text-vs-center no-gutters">
           <div class="col-md-2">
             <!-- <img  [src]="tutor.profilePic"> -->
@@ -84,22 +90,27 @@
                 <div class="col-md-5">
                   <span>Hours</span>
                   <ul class="list-group text-list">
-                    <li class="list-group-item p-1 border-0 d-flex justify-content-between align-items-center" *ngFor="let day of weekArray">
-                        {{day}}
+                    <li class="list-group-item p-1 border-0 d-flex justify-content-between align-items-center"
+                      *ngFor="let day of weekArray">
+                      {{day}}
                       <span class="badge badge-primary badge-pill">07:00am : 10:00pm</span>
                     </li>
                   </ul>
                 </div>
                 <div class="col-md-3">
-                    <div class="d-flex justify-content-center">
-                        <button mat-icon-button class="btn-icons"><mat-icon>email</mat-icon></button>
-                        <button mat-icon-button class="btn-icons"><mat-icon>call</mat-icon></button>
-                    </div>               
-                    <mat-chip-list class="mat-chip-list-stacked">
-                        <mat-chip class="book" (click)="bookClass($event, tutor)">Book</mat-chip>
-                        <mat-chip class="demo" (click)="selectDemo($event,tutor)">Schedule A Demo</mat-chip>
-                    </mat-chip-list>
-                    <!-- <mat-chip-list>
+                  <div class="d-flex justify-content-center">
+                    <button mat-icon-button class="btn-icons">
+                      <mat-icon>email</mat-icon>
+                    </button>
+                    <button mat-icon-button class="btn-icons">
+                      <mat-icon>call</mat-icon>
+                    </button>
+                  </div>
+                  <mat-chip-list class="mat-chip-list-stacked">
+                    <mat-chip class="book" (click)="bookClass($event, tutor)">Book</mat-chip>
+                    <mat-chip class="demo" (click)="selectDemo($event,tutor)">Schedule A Demo</mat-chip>
+                  </mat-chip-list>
+                  <!-- <mat-chip-list>
                         <mat-chip class="book">Book</mat-chip>
                         <mat-chip class="demo">Schedule A Demo</mat-chip>
                     </mat-chip-list> -->
@@ -110,5 +121,9 @@
         </div>
       </div>
     </mat-card-content>
+    <mat-card-footer>
+      <mat-paginator [length]="tutors?.length" [pageSize]="4" [pageSizeOptions]="[4, 8, 12, 16]"
+        (page)="pagechange($event)"> </mat-paginator>
+    </mat-card-footer>
   </mat-card>
 </div>

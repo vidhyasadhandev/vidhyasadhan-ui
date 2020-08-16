@@ -46,6 +46,7 @@ import { OtpComponent } from './_components/otp/otp.component';
 import { ActivatescreenComponent } from './_components/activatescreen/activatescreen.component';
 import { TutorsComponent } from './_components/tutors/tutors.component';
 import { DemomodelComponent } from './_components/demomodel/demomodel.component';
+import { TutorfilterPipe } from './tutorfilter.pipe';
 
 @NgModule({
   declarations: [
@@ -73,7 +74,8 @@ import { DemomodelComponent } from './_components/demomodel/demomodel.component'
     OtpComponent,
     ActivatescreenComponent,
     TutorsComponent,
-    DemomodelComponent
+    DemomodelComponent,
+    TutorfilterPipe
   ],
   imports: [
     BrowserModule,
