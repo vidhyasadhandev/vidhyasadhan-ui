@@ -22,6 +22,7 @@ isLoading;
 locations: LocationModel[] = [];
 timestamps;
 isSuccess;
+demos;
 
 eventcolors = [
   {color: 'Red', code: ''},
@@ -49,8 +50,8 @@ eventcolors = [
       enrollments : [''],
       location: ['', Validators.required],
       video: ['', Validators.required],
-      calendar: ['', Validators.required],
-      eventcolor: ['', Validators.required],
+      calendar: [''],
+      eventcolor: [''],
       notificationtype: ['Email', Validators.required],
       remaindertime: ['10', Validators.required],
       timer: ['Minutes', Validators.required]
@@ -82,6 +83,13 @@ eventcolors = [
     });
 
     this.getTimeLabels();
+    this.getDemos();
+  }
+
+  getDemos(){
+    this.demoService.getAllDemosByUser(this.authService.userValue.id).subscribe(
+      x => (this.demos = x), (error) => console.log(error)
+    );
   }
 
   getTimeLabels(){
@@ -169,6 +177,7 @@ eventcolors = [
   }
 
   resetForm(){
+    this.submitted = false;
     this.demoForm.reset();
   }
 }

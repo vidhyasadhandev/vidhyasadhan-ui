@@ -16,6 +16,13 @@ export class DemoService {
     return this.http.get<any>(`${environment.apiUrl}/demos/allcourses`);
   }
 
+  getDemoById(id){
+    const options = id ?
+    { params: new HttpParams().set('id', id)} : {};
+    console.log(id);
+    return this.http.get<any>(`${environment.apiUrl}/demos/GetById`, options);
+  }
+
   getAllDemosByUser(userid){
     const options = userid ?
     { params: new HttpParams().set('userId', userid)} : {};

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Demo, Enrollment } from 'src/app/_models/demo';
 import { DemoService } from 'src/app/_services/demo.service';
 import { AuthserviceService } from 'src/app/_services/authservice.service';
@@ -18,6 +18,7 @@ export class DemolistComponent implements OnInit {
   isOnline = false;
   demos: Demo[] = [];
   demoRequests: DemoRequest[] = [];
+  loadDemo = false;
   actions = [
     {id: 1, action : 'Accept', icon: 'check_circle', color: 'primary', title: 'List View'},
     {id: 2, action : 'Reject', icon: 'cancel', color: 'warn', title: 'List View'},
@@ -29,6 +30,9 @@ export class DemolistComponent implements OnInit {
     {id: 1, action : 'clickdemo', icon: 'view_module', title: 'Demo View'},
     {id: 2, action : 'clickmap', icon: 'map', title: 'Map View'},
   ];
+
+  @Input()
+  demoId;
 
 
   constructor(private demoService: DemoService,
@@ -44,7 +48,9 @@ export class DemolistComponent implements OnInit {
     .subscribe(x => this.demos = x, (error) => console.log(error));
 
     this.demoService.getDemoRequests({tutorId: this.authService.userValue.id}).subscribe(
-      x => (this.demoRequests = x), (error) => console.log(error)
+      x => { this.demoRequests = x.filter(y => y.slot === this.demoId && y.status !== 1);
+             this.loadDemo = true;
+      }, (error) => console.log(error)
     );
   }
 
@@ -56,18 +62,22 @@ export class DemolistComponent implements OnInit {
   }
 
   changeSelected(e, action, enrollment){
-    //this.updateEnrollment(enrollment, action.id);
-    console.log(action);
+    const enrol: Enrollment = {
+    courseID: this.demoId,
+    studentID: enrollment.student.id,
+    };
+    this.updateEnrollment(enrol, action.id);
+    console.log(enrol);
   }
 
   updateEnrollment(enrollment: Enrollment, status){
     enrollment.status = status;
     this.studentService.updateEnrollment(enrollment).subscribe(x => {
-  if (x < 0){
-    this.openSnackBar('Unable to Complete', 1);
+  if (x >= 0){
+    this.openSnackBar('Notified Student', null);
   }
   else{
-    this.openSnackBar('Notified Student', null);
+    this.openSnackBar('Unable to Complete', 1);
   }
 }, (error) => {
   this.openSnackBar(error, 1);

@@ -97,3 +97,9 @@ mat-card-header{
   .white-bg{
     background-color: #ffffff;
   }
+
+  .mat-form-field {
+    font-size: 12px;
+    line-height: 11px;
+    font-weight: 400;
+}

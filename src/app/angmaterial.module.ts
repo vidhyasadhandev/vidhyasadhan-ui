@@ -43,6 +43,7 @@ import {MatBottomSheetModule} from '@angular/material/bottom-sheet';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatDividerModule} from '@angular/material/divider';
 import {MatChipsModule} from '@angular/material/chips';
+import {MatTooltipModule} from '@angular/material/tooltip';
 
 
 
@@ -75,7 +76,8 @@ import {MatChipsModule} from '@angular/material/chips';
     MatBottomSheetModule,
     MatCheckboxModule,
     MatDividerModule,
-    MatChipsModule
+    MatChipsModule,
+    MatTooltipModule
   ],
   exports: [MatAutocompleteModule,
     MatInputModule,
@@ -104,7 +106,8 @@ import {MatChipsModule} from '@angular/material/chips';
     MatBottomSheetModule,
     MatCheckboxModule,
     MatDividerModule,
-    MatChipsModule
+    MatChipsModule,
+    MatTooltipModule
   ],
   providers: [
     MatDatepickerModule,

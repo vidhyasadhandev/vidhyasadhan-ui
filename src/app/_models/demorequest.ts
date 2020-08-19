@@ -8,4 +8,5 @@ export interface DemoRequest{
      slot: string;
      subject: string;
      message: string;
+     status?: any;
 }

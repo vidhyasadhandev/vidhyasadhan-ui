@@ -2,16 +2,14 @@
 <a mat-raised-button [routerLink]="['/demos/create']">Create</a>
 </div> -->
 
-<div class="equal-container">
-  <div class="equal-col">
     <div class="container-fluid">
       <div class="card">
-        <div class="card-header bg-tutor-primary">
+        <!-- <div class="card-header bg-tutor-primary">
           <div>Demo Requests</div>
-        </div>
+        </div> -->
         <div class="card-body">
           <div class="d-flex">
-            <div class="lh-40"> Students List</div>
+            <!-- <div class="lh-40"> Students List</div> -->
             <div class="ml-auto d-flex">
               <div class="mr-1 Layout">LAYOUT</div>
               <div class="mr-1 ml-1">
@@ -93,12 +91,16 @@
                     <!-- <google-map height="500px" width="100%"></google-map> -->
                     <app-mapcomponent [markersdata]="demos"></app-mapcomponent>
                   </div>
-              </div>            
+              </div>
+              <div *ngIf="demoRequests.length == 0 && loadDemo" class="alert alert-info">
+                There are no new requests at this time.
+              </div>
+              <div class="text-center">
+                <mat-spinner *ngIf="!loadDemo" [diameter]="30"></mat-spinner> 
+              </div>
+                         
           </div>
 
         </div>
       </div>
     </div>
-
-  </div>
-</div>

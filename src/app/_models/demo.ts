@@ -25,7 +25,7 @@ export interface CourseAssignment{
 }
 
 export interface Enrollment{
-    enrollmentID: number;
+    enrollmentID?: number;
     courseID: number;
     studentID: string;
     student?: User;

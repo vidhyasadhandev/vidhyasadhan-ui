@@ -31,6 +31,9 @@ import { FileuploaderService } from 'src/app/_services/fileuploader.service';
 import { read } from 'fs';
 import { EventEmitter } from 'protractor';
 import { AuthserviceService } from 'src/app/_services/authservice.service';
+import { format } from 'date-fns/fp';
+import { MatDialog } from '@angular/material/dialog';
+import { ProfilemodelComponent } from '../profilemodel/profilemodel.component';
 
 @Component({
   selector: 'app-profile',
@@ -45,6 +48,8 @@ export class ProfileComponent implements OnInit {
   staticData: StaticData;
   public submitted = false;
   proof;
+  successmessage = false;
+  proofdocument;
 
   days = [
     {day: 'Monday', selected: false },
@@ -77,7 +82,8 @@ export class ProfileComponent implements OnInit {
               private userService: UserService,
               private staticdataService: StaticdataService,
               private fileUploader: FileuploaderService,
-              public authService: AuthserviceService) {}
+              public authService: AuthserviceService,
+              public dialog: MatDialog) {}
 
   ngOnInit(): void {
     this.userForm = this.formBuilder.group({
@@ -217,11 +223,14 @@ export class ProfileComponent implements OnInit {
         }
       };
 
-      if (this.f.proofDoc.value?.length > 0){
-        const data = this.fileread((e) => {
-          console.log(e);
-          userValues.instructor.idDoc = '';
-        });
+      if (this.f.proofDoc.value !== null || this.f.proofDoc.value !== undefined){
+        // const data = this.fileread((e) => {
+        //   console.log(e);
+        //   const fromdata = new FormData();
+        //   fromdata.append('file', this.f.proofDoc.value);
+        //   this.fileUploader.uploadFile(fromdata).subscribe(x => console.log(x));
+        //   userValues.instructor.idDoc = '';
+        // });
       }
 
       if (this.authService.userValue.role === 0){
@@ -305,22 +314,25 @@ callUploadService(file){
     //   });
   }
 
-upload() {
-    // this.fileInput.nativeElement.value = '';
-    // this.files.forEach(file => {
-    //   this.callUploadService(file);
-    // });
+  uploadFile(files) {
+    if (files.length === 0) {
+      return;
+    }
+
+    const fileToUpload =  files[0] as File;
+    const formData = new FormData();
+    formData.append('file', fileToUpload, fileToUpload.name);
+
+    this.fileUploader.uploadFile(formData)
+      .subscribe(event => {
+        this.proofdocument = event.filepath;
+      });
+
   }
 
 onClick(){
     const fileInput = this.fileInput.nativeElement;
     fileInput.onchange = () => {
-        // for (let index = 0; index < fileInput .files.length; index++)
-        // {
-        //      const file = fileInput .files[index];
-        //      this.files.push({ data: file, inProgress: false, progress: 0});
-        // }
-        this.upload();
     };
     fileInput.click();
   }
@@ -330,7 +342,7 @@ changeDays(checker, day){
     this.allChecked = this.days.filter(t => t.selected).length > 0 ? false : this.allChecked;
   }
 
-changeAll(completed: boolean) {
+changeAll(completed: boolean){
     this.allChecked = completed;
     if (this.days == null) {
       return;
@@ -339,6 +351,14 @@ changeAll(completed: boolean) {
       if (completed === true){
         t.selected = false;
       }
+    });
+  }
+
+  openDialog() {
+    const dialogRef = this.dialog.open(ProfilemodelComponent);
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
     });
   }
 }

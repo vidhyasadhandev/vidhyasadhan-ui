@@ -22,7 +22,6 @@ export class JwtTokenInterceptor implements HttpInterceptor {
     if (isLoggedIn && isApiUrl) {
       const headers = new HttpHeaders({
         Authorization: `Bearer ${user.jwtToken}`,
-        'Content-Type': 'application/json',
         'Access-Control-Allow-Origin': '*',
         'Access-Control-Allow-Credentials': 'true',
       });

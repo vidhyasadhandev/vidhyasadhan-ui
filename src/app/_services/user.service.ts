@@ -15,6 +15,14 @@ export class UserService {
     return this.http.get<User>(`${environment.apiUrl}/users/` + id);
   }
 
+  getStudents() {
+    return this.http.get<User[]>(`${environment.apiUrl}/users/students`);
+  }
+
+  getTutors() {
+    return this.http.get<User[]>(`${environment.apiUrl}/users/tutors`);
+  }
+
   getAll() {
     return this.http.get<User[]>(`${environment.apiUrl}/users/allusers`);
   }
@@ -38,6 +46,10 @@ export class UserService {
   }
 
   deleteUser(){
+  }
+
+  uploadprofilepic(file){
+    return this.http.post<User>(`${environment.cloudinary.url}/upload`, file);
   }
 
 }

@@ -27,8 +27,7 @@ export class DemomodelComponent implements OnInit {
     console.log(this.data);
 
     this.demomodelForm = this.formBuilder.group({
-      date : ['', Validators.required],
-      time : ['', Validators.required],
+      demo: [null, Validators.required],
       subject: ['', Validators.required],
       message: [''],
       });
@@ -39,9 +38,9 @@ export class DemomodelComponent implements OnInit {
     if (this.demomodelForm.valid) {
       const demoreq: DemoRequest = {
          tutorId: this.data.tutorinfo.id,
-         date: this.f.date.value,
+         date: this.f.demo.value.startDate,
          studentId:  this.data.student.id,
-         slot : this.f.time.value,
+         slot: this.f.demo.value.courseId,
          subject : this.f.subject.value,
          message : this.f.message.value
       };

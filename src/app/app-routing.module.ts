@@ -19,6 +19,7 @@ import { ClassroomComponent } from './_components/classroom/classroom.component'
 import { OtpComponent } from './_components/otp/otp.component';
 import { ActivatescreenComponent } from './_components/activatescreen/activatescreen.component';
 import { TutorsComponent } from './_components/tutors/tutors.component';
+import { DemodetailComponent } from './_components/demodetail/demodetail.component';
 
 
 const routes: Routes = [
@@ -37,8 +38,9 @@ const routes: Routes = [
   { path: 'calendar', component: CalendarComponent, canActivate: [AuthGuard]},
   { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard]},
   { path: 'admin', component: AdminDashboardComponent, canActivate: [AuthGuard]},
-  { path: 'demos', component: DemolistComponent, canActivate: [AuthGuard]},
+  { path: 'demos', component: DemoComponent, canActivate: [AuthGuard]},
   { path: 'demos/create', component: DemoComponent, canActivate: [AuthGuard]},
+  { path: 'demodetail/:id', component: DemodetailComponent, canActivate: [AuthGuard]},
   { path: 'classroom', component: ClassroomComponent, canActivate: [AuthGuard]},
 
   { path: '**', redirectTo: '' }

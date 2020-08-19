@@ -332,3 +332,9 @@ body { margin: 0 !important; font-family:'Montserrat, sans-serif' !important;}
    min-width: 80px;
    justify-content: center;
  }
+
+ .mat-form-field {
+  font-size: 12px;
+  line-height: 10px;
+  font-weight: 400;
+}

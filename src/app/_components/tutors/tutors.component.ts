@@ -40,7 +40,7 @@ export class TutorsComponent implements OnInit {
               private _snackBar: MatSnackBar) {}
 
   ngOnInit(): void {
-    this.userservice.getAll().subscribe(
+    this.userservice.getTutors().subscribe(
       x => {
         this.tutors = x;
         console.log(x[0]);

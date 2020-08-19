@@ -47,6 +47,8 @@ import { ActivatescreenComponent } from './_components/activatescreen/activatesc
 import { TutorsComponent } from './_components/tutors/tutors.component';
 import { DemomodelComponent } from './_components/demomodel/demomodel.component';
 import { TutorfilterPipe } from './tutorfilter.pipe';
+import { DemodetailComponent } from './_components/demodetail/demodetail.component';
+import { ProfilemodelComponent } from './_components/profilemodel/profilemodel.component';
 
 @NgModule({
   declarations: [
@@ -75,7 +77,9 @@ import { TutorfilterPipe } from './tutorfilter.pipe';
     ActivatescreenComponent,
     TutorsComponent,
     DemomodelComponent,
-    TutorfilterPipe
+    TutorfilterPipe,
+    DemodetailComponent,
+    ProfilemodelComponent
   ],
   imports: [
     BrowserModule,
@@ -93,7 +97,8 @@ import { TutorfilterPipe } from './tutorfilter.pipe';
     NgbModalModule,
     GoogleMapsModule,
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
-    CalendarModule.forRoot({ provide: DateAdapter, useFactory: adapterFactory })
+    CalendarModule.forRoot({ provide: DateAdapter, useFactory: adapterFactory }),
+    // CloudinaryModule.forRoot(Cloudinary, { cloud_name: 'dfsizfwtr', upload_preset: 'ml_default'}),
   ],
   providers: [
     { provide: APP_INITIALIZER, useFactory: appInitializer, multi: true, deps: [AuthserviceService] },

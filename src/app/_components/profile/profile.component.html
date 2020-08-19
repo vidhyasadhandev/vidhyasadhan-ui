@@ -55,7 +55,7 @@
             </div>
           </div>
           <div class="col-3">
-            <img [src]="userForm.get('profilePic').value" alt="upload image" class="img img-thumbnail">
+            <img [src]="userForm.get('profilePic').value" alt="upload image" (click)="openDialog()" class="img img-thumbnail">
           </div>
         </div>
         <!-- <div class="address-divider">Address:</div> -->
@@ -256,10 +256,12 @@
                         <mat-option value="Other">Other</mat-option>
                       </mat-select>
                     </mat-form-field>
-                    <mat-form-field class="pl-2 pr-2" appearance="outline">
-                      <ngx-mat-file-input formControlName="proofDoc" id="proofDoc">
-                      </ngx-mat-file-input>
-                    </mat-form-field>
+                    <div class="pl-2 pr-2">
+                      <input type="file" #file formControlName="proofDoc" placeholder="Choose file" name="formFile" (change)="uploadFile(file.files)" style="display:none;">
+                      <button type="button" class="btn btn-success" (click)="file.click()">Browse</button>
+                      <!-- <ngx-mat-file-input formControlName="proofDoc" id="proofDoc">
+                      </ngx-mat-file-input> -->
+                    </div>
                   </div>
 
                 </div>
