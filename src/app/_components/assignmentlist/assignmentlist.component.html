@@ -1,0 +1,47 @@
+<ng-container>
+  <div class="row m-2">
+    <div class="col-md-6" *ngFor="let assignment of assignments | fieldsfilter: 'subject,title,topic,grade,dueDate': filter">
+      <ng-container>
+        <div class="card m-1">
+          <div class="card-header">
+            <div class="d-flex">
+              <div>
+                <img class="icon-class" src="assets/icons/vidhya-sandhhan.svg">
+                <span class="subject">{{assignment.subject}}</span>
+              </div>
+              <div class="ml-auto">
+                <div class="list-inline">
+                  <button mat-mini-fab color="secondary" class="list-inline-item">
+                    <mat-icon>star_border</mat-icon>
+                  </button>
+                  <button mat-mini-fab color="secondary" class="list-inline-item">
+                    <mat-icon>turned_in_not</mat-icon>
+                  </button>
+                  <button mat-mini-fab color="secondary" class="list-inline-item">75%</button>
+                </div>
+                <mat-chip color="primary" class="m-2 bg-whieicon" selected>View Details</mat-chip>
+              </div>
+            </div>
+          </div>
+          <div class="card-body">
+            <h3 class="card-title title">{{assignment.title}}</h3>
+            <p class="card-sub-title subtitle">{{assignment.topic}}</p>
+            <div class="card-text perfomed">
+              <div class="d-flex">
+                <span>Assignment Performed</span>
+                <span class="list-inline">
+                  <span class="list-inline-item" *ngFor="let user of assignment.studentAssignments">
+                    <img [src]="user.account.profilePic" class="profimg">
+                  </span>
+                </span>
+                <span class="ml-auto">
+                  <mat-chip class="bg-violet" selected>Pending with 20</mat-chip>
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </ng-container>
+    </div>
+  </div>
+</ng-container>

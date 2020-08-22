@@ -14,4 +14,8 @@ export interface Profile{
     address: Address;
     instructor?: Instructor;
     student?: Student;
+    ageGroup: string;
+    certification: string;
+    naCategory: string;
+    naSubCategory: string;
 }

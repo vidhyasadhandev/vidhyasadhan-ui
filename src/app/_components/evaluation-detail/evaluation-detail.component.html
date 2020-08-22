@@ -1,0 +1,73 @@
+<mat-card>
+  <mat-card-header class="header-rad">
+    <mat-card-title>
+      <a (click)="gotolist()" mat-icon-button>
+        <mat-icon>west</mat-icon>
+      </a>
+      <img class="rounded-circle" width="50" height="50" [src]="student.account.profilePic">
+      {{student.account.firstName}} {{student.account.lastName}}
+    </mat-card-title>
+    <div class="row ml-auto">
+        <div class="d-flex flex-column mr-5 mt-2">
+            <mat-card-subtitle>Average Score</mat-card-subtitle>  
+            <div>
+               <span>{{selectedValue}}</span>
+                <ul class="list-inline rating-list" *ngFor="let star of starsarray" style="display: inline-block">
+                    <li class="p-1" [ngClass]="{'selected': (star <= selectedValue)}">
+                      <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-star-fill" fill="currentColor"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path
+                          d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.283.95l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
+                      </svg>
+                    </li>
+                  </ul>
+            </div>
+
+        </div>
+    </div>
+  </mat-card-header>
+  <mat-card-content>
+    <h4 class="skills">Personal skills and competences</h4>
+    <ul class="list-group">
+      <li class="list-group-item d-flex justify-content-between align-items-center" *ngFor="let rating of ratingList">
+        {{rating.name}}
+        <span>
+          <ul class="list-inline rating-list" *ngFor="let star of rating.data" style="display: inline-block">
+            <li (click)="startCount(star, rating)" [ngClass]="{'selected': (star <= rating.value)}">
+              <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-star-fill" fill="currentColor"
+                xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.283.95l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
+              </svg>
+            </li>
+          </ul>
+        </span>
+      </li>
+    </ul>
+    <h4 class="feedback">Write a Feedback</h4>
+    <div class="form-group">
+      <mat-form-field appearance="outline">
+        <mat-label for="feedback1">What went well?</mat-label>
+        <textarea matInput id="feedback1" [(ngModel)]="feedback1"></textarea>
+      </mat-form-field>  
+    </div>
+    <div class="form-group">
+      <mat-form-field appearance="outline">
+        <mat-label for="feedback2">What could be improved?</mat-label>
+        <textarea matInput id="feedback2" [(ngModel)]="feedback2"></textarea>
+      </mat-form-field>
+    </div>
+
+  </mat-card-content>
+  <mat-card-actions>
+    <div class="d-flex">
+      <div>
+        <button mat-raised-button (click)="reset()">Reset</button>
+      </div>
+      <div class="ml-auto">
+        <button mat-raised-button color="warn" (click)="cancel()">Cancel</button>
+        <button mat-raised-button color="accent">Submit</button>
+      </div>
+    </div>
+  </mat-card-actions>
+</mat-card>

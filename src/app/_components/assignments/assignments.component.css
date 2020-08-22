@@ -66,3 +66,71 @@ td {
   background-color: #c3e8ff;
 
 }
+
+.custom-margin{
+  margin: 0 0.5rem;
+}
+
+.sidebar{
+  height: 100%;
+  width: 250px;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  right:0;
+  background-color: #111;
+  overflow-x: hidden;
+  padding-top: 60px;
+  transition: 0.5s;
+}
+
+@media screen and (max-height: 450px) {
+  .sidebar {padding-top: 15px;}
+  .sidebar a {font-size: 18px;}
+}
+
+h2{
+  margin-top: 1rem;
+  font-family: Roboto;
+  font-size: 24px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.33;
+  letter-spacing: normal;
+  color: #333333;
+  text-align: center;
+}
+
+h2 span{
+  font-family: Roboto;
+  font-size: 14px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.71;
+  letter-spacing: normal;
+  color: #1d4082;
+}
+
+h4{
+  font-family: Roboto;
+  font-size: 14px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  letter-spacing: normal;
+  color: #333333;
+  padding-left: 20px;
+}
+
+ul {
+  list-style-type: none;
+  margin-top: 4px;
+}
+
+.sidenav{
+  width: 280px;
+  border-radius: 5px;
+  box-shadow: 0 0 16px 0 rgba(0, 0, 0, 0.24);
+}

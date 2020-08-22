@@ -112,7 +112,7 @@
 }
 
 .student-profile {
-  background-image: linear-gradient(to bottom, #ea8b64 13%, #c2300a);
+  background-image: linear-gradient(to bottom, #ea8b64 13%, #c2300a) !important;
 }
 
 .student-profile .title-text, 
@@ -135,6 +135,10 @@
 @media screen and (max-width: 768px){
   .dash-board{
     background-image: none;
+  }
+
+  .greet h2{
+    font-size: 30px;
   }
 
   .greet p{

@@ -49,6 +49,12 @@ import { DemomodelComponent } from './_components/demomodel/demomodel.component'
 import { TutorfilterPipe } from './tutorfilter.pipe';
 import { DemodetailComponent } from './_components/demodetail/demodetail.component';
 import { ProfilemodelComponent } from './_components/profilemodel/profilemodel.component';
+import { DragndirDirective } from './directives/dragndir.directive';
+import { AssignmentdetailComponent } from './_components/assignmentdetail/assignmentdetail.component';
+import { AssignmentlistComponent } from './_components/assignmentlist/assignmentlist.component';
+import { FieldsfilterPipe } from './_pipes/fieldsfilter.pipe';
+import { EvaluateComponent } from './_components/evaluate/evaluate.component';
+import { EvaluationDetailComponent } from './_components/evaluation-detail/evaluation-detail.component';
 
 @NgModule({
   declarations: [
@@ -79,7 +85,13 @@ import { ProfilemodelComponent } from './_components/profilemodel/profilemodel.c
     DemomodelComponent,
     TutorfilterPipe,
     DemodetailComponent,
-    ProfilemodelComponent
+    ProfilemodelComponent,
+    DragndirDirective,
+    AssignmentdetailComponent,
+    AssignmentlistComponent,
+    FieldsfilterPipe,
+    EvaluateComponent,
+    EvaluationDetailComponent
   ],
   imports: [
     BrowserModule,
@@ -108,7 +120,7 @@ import { ProfilemodelComponent } from './_components/profilemodel/profilemodel.c
     DatePipe,
     AlertboxComponent
   ],
-  entryComponents: [AlertboxComponent],
+  entryComponents: [AlertboxComponent, ProfilemodelComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

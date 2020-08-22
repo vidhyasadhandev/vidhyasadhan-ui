@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, Input } from '@angular/core';
 import { AttendanceService } from 'src/app/_services/attendance.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { debounceTime, tap, switchMap, finalize } from 'rxjs/operators';
@@ -28,6 +28,7 @@ export class AttendanceComponent implements OnInit {
   selectedCourse;
   isLoading;
   courses;
+
   public attendanceForm: FormGroup;
   displayedColumns: string[] = ['name', 'address', 'attendanceDate', 'isPresent', 'reason'];
 

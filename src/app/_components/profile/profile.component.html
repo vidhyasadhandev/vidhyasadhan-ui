@@ -41,15 +41,21 @@
             <div class="form-row">
               <div class="form-group col-md-6">
                 <mat-label>Sex: </mat-label>
-                <mat-radio-group formControlName="gender">
+                <mat-radio-group formControlName="gender" [ngClass]="{ 'is-invalid': submitted && f.gender.errors }">
                   <mat-radio-button value="1">Male</mat-radio-button>
                   <mat-radio-button value="2">Female</mat-radio-button>
                 </mat-radio-group>
+                <div *ngIf="submitted && f.gender.errors" class="invalid-feedback">
+                  <div *ngIf="f.gender.errors.required">Gender is Required</div>
+                </div>
               </div>
               <div class="col-md-6">
                 <mat-form-field appearance="outline">
                   <mat-label for="birthdate">Date Of Birth</mat-label>
-                  <input matInput formControlName="birthdate" type="date" id="birthdate">
+                  <input matInput formControlName="birthdate" type="date" id="birthdate" [ngClass]="{ 'is-invalid': submitted && f.birthdate.errors }">
+                  <div *ngIf="submitted && f.birthdate.errors" class="invalid-feedback">
+                    <div *ngIf="f.birthdate.errors.required">Date Of Birth is required</div>
+                  </div>
                 </mat-form-field>
               </div>
             </div>
@@ -67,7 +73,10 @@
                 <mat-form-field appearance="outline">
                   <mat-label for="streetAddress1">Street Address</mat-label>
                   <input type="text" matInput formControlName="streetAddress1" id="streetAddress1"
-                    placeholder="1234 Main St">
+                    placeholder="1234 Main St" [ngClass]="{ 'is-invalid': submitted && f.streetAddress1.errors }">
+                    <div *ngIf="submitted && f.streetAddress1.errors" class="invalid-feedback">
+                      <div *ngIf="f.streetAddress1.errors.required">Address is required</div>
+                    </div>
                 </mat-form-field>
               </div>
               <div class="col-md-6">
@@ -82,18 +91,24 @@
               <div class="col-md-6">
                 <mat-form-field appearance="outline">
                   <mat-label for="inputCity">City</mat-label>
-                  <input type="text" matInput formControlName="inputCity" id="inputCity">
+                  <input type="text" matInput formControlName="inputCity" id="inputCity" [ngClass]="{ 'is-invalid': submitted && f.inputCity.errors }">
+                  <div *ngIf="submitted && f.inputCity.errors" class="invalid-feedback" >
+                    <div *ngIf="f.inputCity.errors.required">City is required</div>
+                  </div>
                 </mat-form-field>
               </div>
               <div class="col-md-6">
                 <mat-form-field appearance="outline">
                   <mat-label for="stateCode">State</mat-label>
-                  <mat-select id="stateCode" formControlName="stateCode">
+                  <mat-select id="stateCode" formControlName="stateCode" [ngClass]="{ 'is-invalid': submitted && f.stateCode.errors }">
                     <mat-option>None</mat-option>
                     <mat-option *ngFor="let state of staticData?.states" [value]="state.stateCd">
                       {{state.stateName}}
                     </mat-option>
                   </mat-select>
+                  <div *ngIf="submitted && f.stateCode.errors" class="invalid-feedback">
+                    <div *ngIf="f.stateCode.errors.required">State is required</div>
+                  </div>
                 </mat-form-field>
               </div>
             </div>
@@ -101,18 +116,24 @@
               <div class="col-md-6">
                 <mat-form-field appearance="outline">
                   <mat-label for="inputPin">PinCode</mat-label>
-                  <input matInput type="text" matInput id="inputPin" formControlName="inputPin">
+                  <input matInput type="text" matInput id="inputPin" formControlName="inputPin" [ngClass]="{ 'is-invalid': submitted && f.inputPin.errors }">
+                  <div *ngIf="submitted && f.inputPin.errors" class="invalid-feedback">
+                    <div *ngIf="f.inputPin.errors.required">Pincode is required</div>
+                  </div>
                 </mat-form-field>
               </div>
               <div class="col-md-6">
                 <mat-form-field appearance="outline">
                   <mat-label for="national">Nationality</mat-label>
-                  <mat-select id="national" formControlName="national">
+                  <mat-select id="national" formControlName="national" [ngClass]="{ 'is-invalid': submitted && f.national.errors }">
                     <mat-option>None</mat-option>
                     <mat-option *ngFor="let country of staticData?.countries" [value]="country.countryCd">
                       {{country.countryName}}
                     </mat-option>
                   </mat-select>
+                  <div *ngIf="submitted && f.national.errors" class="invalid-feedback">
+                    <div *ngIf="f.national.errors.required">Country is required</div>
+                  </div>
                 </mat-form-field>
               </div>
             </div>
@@ -129,45 +150,103 @@
             </mat-radio-group>
           </div>
           <div class="col-12">
-            <div class="form-row">
-              <div class="col-md-6">
-                <mat-form-field appearance="outline">
-                  <mat-label for="medium">Medium Of Education</mat-label>
-                  <input type="text" matInput formControlName="medium" id="medium" placeholder="Type your text here..">
-                </mat-form-field>
+            <span [ngSwitch]="userForm.get('backgroundtype').value === '1' ">
+            <span *ngSwitchCase="true">
+              <div class="form-row">
+                <div class="col-md-6">
+                  <mat-form-field appearance="outline">
+                    <mat-label for="medium">Medium Of Education</mat-label>
+                    <input type="text" matInput formControlName="medium" id="medium" placeholder="Type your text here..">
+                  </mat-form-field>
+                </div>
+                <div class="col-md-6">
+                  <mat-form-field appearance="outline">
+                    <mat-label for="subject">Subject Selection</mat-label>
+                    <input type="text" matInput formControlName="subject" id="subject"
+                      placeholder="Type your text here..">
+                  </mat-form-field>
+                </div>
               </div>
-              <div class="col-md-6">
-                <mat-form-field appearance="outline">
-                  <mat-label for="subject">Subject Selection</mat-label>
-                  <input type="text" matInput formControlName="subject" id="subject"
-                    placeholder="Type your text here..">
-                </mat-form-field>
+              <div class="form-row">
+                <div class="col-md-6">
+                  <mat-form-field appearance="outline">
+                    <mat-label for="board">Education Board</mat-label>
+                    <input type="text" matInput formControlName="board" id="board">
+                  </mat-form-field>
+                </div>
+                <div class="col-md-6">
+                  <mat-form-field appearance="outline">
+                    <mat-label for="standard">Class/Grade</mat-label>
+                    <input type="text" matInput formControlName="standard" id="standard">
+                  </mat-form-field>
+                </div>
               </div>
-            </div>
-            <div class="form-row">
-              <div class="col-md-6">
-                <mat-form-field appearance="outline">
-                  <mat-label for="board">Education Board</mat-label>
-                  <input type="text" matInput formControlName="board" id="board">
-                </mat-form-field>
+            </span>
+            <span *ngSwitchCase="false">
+              <div class="form-row">
+                <div class="col-md-6">
+                  <mat-form-field appearance="outline">
+                    <mat-label for="nacategory">Type Of Category/Activity</mat-label>
+                    <mat-select id="nacategory" formControlName="nacategory">
+                      <mat-option>None</mat-option>
+                      <mat-option *ngFor="let cat of nacategories; let i= index" [value]="cat.value">
+                        {{cat.value}}
+                      </mat-option>
+                    </mat-select>
+                  </mat-form-field>
+                </div>
+                <div class="col-md-6">
+                  <mat-form-field appearance="outline">
+                    <mat-label for="nasubcategory">Sub Category</mat-label>
+                    <mat-select id="nasubcategory" formControlName="nasubcategory">
+                      <mat-option>None</mat-option>
+                      <mat-option *ngFor="let subcat of getSubCategory()" [value]="subcat?.value">
+                        {{subcat?.value}}
+                      </mat-option>
+                    </mat-select>
+                  </mat-form-field>
+                </div>
               </div>
-              <div class="col-md-6">
-                <mat-form-field appearance="outline">
-                  <mat-label for="standard">Class/Grade</mat-label>
-                  <input type="text" matInput formControlName="standard" id="standard">
-                </mat-form-field>
+              <div class="form-row" *ngIf="authService?.userValue?.role === 1">
+                <div class="col-md-6">
+                  <mat-form-field appearance="outline">
+                    <mat-label for="agegroup">Age Group</mat-label>
+                    <mat-select id="agegroup" formControlName="agegroup">
+                      <mat-option>None</mat-option>
+                      <mat-option *ngFor="let group of agegroups" [value]="group.value">
+                        {{group.value}}
+                      </mat-option>
+                    </mat-select>
+                  </mat-form-field>
+                </div>
+                <div class="col-md-6">
+                  <mat-form-field appearance="outline">
+                    <mat-label for="certification">Certification Details</mat-label>
+                    <input type="text" matInput formControlName="certification" id="certification">
+                  </mat-form-field>
+                </div>
               </div>
-            </div>
+            </span>
+            </span>
+ 
             <div class="form-row" *ngIf="authService?.userValue?.role === 1">
-              <div class="col-md-6">
-                <mat-form-field appearance="outline">
-                  <mat-label for="qualification">Highest Education Qualification</mat-label>
-                  <mat-select id="qualification" formControlName="qualification">
-                    <mat-option *ngFor="let qualify of qualifications" [value]="qualify.value">{{qualify.value}}
-                    </mat-option>
-                  </mat-select>
-                </mat-form-field>
-              </div>
+                <div class="col-md-6">
+                  <span [ngSwitch]="userForm.get('backgroundtype').value === '1'">
+                    <span *ngSwitchCase="true">
+                  <mat-form-field appearance="outline">
+                    <mat-label for="qualification">Highest Education Qualification</mat-label>
+                    <mat-select id="qualification" formControlName="qualification">
+                      <mat-option *ngFor="let qualify of qualifications" [value]="qualify.value">{{qualify.value}}
+                      </mat-option>
+                    </mat-select>
+                  </mat-form-field>
+                </span>
+                <span *ngSwitchCase="false">
+                
+                </span>
+                </span>
+                </div>
+
               <div class="form-group col-md-6">
                 <mat-label>Do you have a teacher Qualification?</mat-label>
                 <mat-radio-group formControlName="isteacher">
@@ -257,7 +336,7 @@
                       </mat-select>
                     </mat-form-field>
                     <div class="pl-2 pr-2">
-                      <input type="file" #file formControlName="proofDoc" placeholder="Choose file" name="formFile" (change)="uploadFile(file.files)" style="display:none;">
+                      <input type="file" #file formControlName="proofDoc" placeholder="Choose file" name="formFile" (change)="uploadFile(file.files, 1)" style="display:none;">
                       <button type="button" class="btn btn-success" (click)="file.click()">Browse</button>
                       <!-- <ngx-mat-file-input formControlName="proofDoc" id="proofDoc">
                       </ngx-mat-file-input> -->

@@ -1,0 +1,43 @@
+
+  .rating-list li:hover,
+  .rating-list li:hover ~ li, .rating-list li.selected {
+    color: #1a237e;
+  }
+
+  .rating-list li{
+    color: rgb(214, 195, 195);
+    padding: 0 5px;
+  }
+
+  .skills{
+    font-family: Roboto;
+    font-size: 16px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: #22282d;
+  }
+
+  .header-rad{
+    border-radius: 8px;
+    box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.08);
+    margin-bottom: 0.5rem;
+  }
+
+  mat-form-field{
+    width: 100%;
+  }
+
+  .feedback{
+  margin: 1rem 0;
+  font-family: Roboto;
+  font-size: 16px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #22282d;
+  }

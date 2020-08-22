@@ -10,6 +10,7 @@ import { User } from 'src/app/_models/user';
 export class NavigationBarComponent implements OnInit {
 
   user: User;
+  checked = false;
   @Output() toggleSidenav = new EventEmitter<void>();
   constructor(private authService: AuthserviceService) { }
 
