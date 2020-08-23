@@ -55,6 +55,15 @@ import { AssignmentlistComponent } from './_components/assignmentlist/assignment
 import { FieldsfilterPipe } from './_pipes/fieldsfilter.pipe';
 import { EvaluateComponent } from './_components/evaluate/evaluate.component';
 import { EvaluationDetailComponent } from './_components/evaluation-detail/evaluation-detail.component';
+import { EarningsComponent } from './_components/earnings/earnings.component';
+import { FooterComponent } from './_components/footer/footer.component';
+import { VsnavigationComponent } from './_components/vsnavigation/vsnavigation.component';
+import { LayoutModule } from '@angular/cdk/layout';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatButtonModule } from '@angular/material/button';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatIconModule } from '@angular/material/icon';
+import { MatListModule } from '@angular/material/list';
 
 @NgModule({
   declarations: [
@@ -91,7 +100,10 @@ import { EvaluationDetailComponent } from './_components/evaluation-detail/evalu
     AssignmentlistComponent,
     FieldsfilterPipe,
     EvaluateComponent,
-    EvaluationDetailComponent
+    EvaluationDetailComponent,
+    EarningsComponent,
+    FooterComponent,
+    VsnavigationComponent
   ],
   imports: [
     BrowserModule,
@@ -110,6 +122,12 @@ import { EvaluationDetailComponent } from './_components/evaluation-detail/evalu
     GoogleMapsModule,
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
     CalendarModule.forRoot({ provide: DateAdapter, useFactory: adapterFactory }),
+    LayoutModule,
+    MatToolbarModule,
+    MatButtonModule,
+    MatSidenavModule,
+    MatIconModule,
+    MatListModule,
     // CloudinaryModule.forRoot(Cloudinary, { cloud_name: 'dfsizfwtr', upload_preset: 'ml_default'}),
   ],
   providers: [

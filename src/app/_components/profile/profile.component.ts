@@ -395,4 +395,8 @@ changeAll(completed: boolean){
   getSubCategory() {
     return this.nacategories.filter(x => x.value === this.userForm.get('nacategory').value)[0]?.subcategories ;
   }
+
+  reset(){
+    this.getUser();
+  }
 }

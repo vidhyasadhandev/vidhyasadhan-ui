@@ -1,5 +1,5 @@
 <mat-sidenav-container>
-  <mat-sidenav #sidenav mode="side"  [ngClass]="{'mat-side-pink' : loginType === 'pink'}">
+  <mat-sidenav #sidenav mode="side"  [ngClass]="{'mat-side-pink' : loginType === 'pink'}" fixedInViewport>
     <!-- <img class="img img-responsive sidenav-img" src="assets/sidenav-1.png" 
         srcset="assets/sidenav-2.png 2x,
         assets/sidenav-3.png 3x" > -->
@@ -17,7 +17,7 @@
       </div> -->
       <a *ngFor="let item of myWorkRoutes" mat-list-item [ngClass]="{'mat-list-item-pink' : loginType === 'pink'}"
       (click)="sidenav.close()" [routerLink]="[item.route]"
-        routerLinkActive="list-item-active">
+      routerLinkActive="list-item-active">
         <mat-icon matListIcon> {{ item.icon }} </mat-icon>
         {{item.title}}
       </a>
@@ -52,4 +52,3 @@
     </div>
   </mat-sidenav-content>
 </mat-sidenav-container>
-<!-- <footer class="footer"> © 2020 VidhyaSadhan. All Rights Reserved. </footer> -->

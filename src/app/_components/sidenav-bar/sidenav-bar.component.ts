@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { AuthserviceService } from 'src/app/_services/authservice.service';
+import { MatSidenav } from '@angular/material/sidenav';
 
 @Component({
   selector: 'app-sidenav-bar',
@@ -10,6 +11,9 @@ export class SidenavBarComponent implements OnInit {
   user;
   IsOpened;
   loginType;
+
+  @ViewChild('drawer', { static: false })
+  drawer: MatSidenav;
 
   constructor(private authService: AuthserviceService) {
     this.authService.user.subscribe(x => this.user = x);

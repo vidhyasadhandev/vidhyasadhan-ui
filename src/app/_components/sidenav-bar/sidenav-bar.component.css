@@ -171,3 +171,8 @@ mat-sidenav-container{
   width: 100%;
   height: auto;
 }
+
+.list-item-active{
+  background: #1d4082;
+  color: #ffffff;
+}

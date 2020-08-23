@@ -20,6 +20,7 @@ import { OtpComponent } from './_components/otp/otp.component';
 import { ActivatescreenComponent } from './_components/activatescreen/activatescreen.component';
 import { TutorsComponent } from './_components/tutors/tutors.component';
 import { DemodetailComponent } from './_components/demodetail/demodetail.component';
+import { EarningsComponent } from './_components/earnings/earnings.component';
 
 
 const routes: Routes = [
@@ -29,6 +30,7 @@ const routes: Routes = [
   { path: 'authenticate', component: OtpComponent},
   { path: 'welcome', component: ActivatescreenComponent},
   { path: 'tutors', component: TutorsComponent, canActivate: [AuthGuard]},
+  { path: 'earnings', component: EarningsComponent, canActivate: [AuthGuard]},
   { path: 'verifyemail/:userid/:token', component: ConfirmationComponent},
   { path: 'navbar', component: NavigationBarComponent },
   { path: 'sidenav', component: SidenavBarComponent, canActivate: [AuthGuard] },

@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { AuthserviceService } from './authservice.service';
 import { environment } from 'src/environments/environment';
 
@@ -13,6 +13,12 @@ export class StudentService {
 
   updateEnrollment(enrollment){
     return this.http.put<any>(`${environment.apiUrl}/students/enrollment`, enrollment);
+  }
+
+  getenrollmentsbyTutor(tutorid){
+    const options = tutorid ?
+    { params: new HttpParams().set('tutorId', tutorid)} : {};
+    return this.http.get<any>(`${environment.apiUrl}/students/bytutor`, options);
   }
 
 }

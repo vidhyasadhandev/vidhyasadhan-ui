@@ -1,3 +1,10 @@
 table{
     width: 100%;
 }
+
+.example-container.mat-elevation-z8 {    
+    overflow-x: auto;
+  }
+  .example-container .mat-table.mat-table {
+    min-width: 450px;
+  }
