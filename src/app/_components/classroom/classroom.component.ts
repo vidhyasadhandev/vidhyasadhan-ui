@@ -1,4 +1,5 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { AuthserviceService } from 'src/app/_services/authservice.service';
 
 @Component({
   selector: 'app-classroom',
@@ -8,7 +9,7 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 })
 export class ClassroomComponent implements OnInit {
 
-  constructor() { }
+  constructor(public auth: AuthserviceService) { }
 
   colors = {
     background: 'primary',
@@ -16,6 +17,9 @@ export class ClassroomComponent implements OnInit {
   };
 
   ngOnInit(): void {
+    if (this.auth.userValue.role === 0){
+      this.colors.background = 'secondary';
+    }
   }
 
 }

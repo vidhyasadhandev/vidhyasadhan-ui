@@ -1,28 +1,89 @@
-<mat-sidenav-container>
-  <mat-sidenav #sidenav mode="side"  [ngClass]="{'mat-side-pink' : loginType === 'pink'}" fixedInViewport>
+<mat-sidenav-container class="example-container mat-typography"  autosize>
+  <mat-sidenav #sidenav class="main-container" mode="side" [ngClass]="{'mat-side-pink' : loginType === 'pink'}">
     <!-- <img class="img img-responsive sidenav-img" src="assets/sidenav-1.png" 
-        srcset="assets/sidenav-2.png 2x,
+        srcset="assets/sidenav-2.png 2x, disableClose="true"
         assets/sidenav-3.png 3x" > -->
+    <!-- <button mat-mini-fab (click)="isExpanded = !isExpanded" color="warn" style="margin: 10px;">
+      <mat-icon aria-label="Menu">menu</mat-icon>
+    </button> -->
     <mat-toolbar class="logo-toolbar">
-      <mat-toolbar-row>
+      <mat-toolbar-row [routerLink]="['/dashboard']">
         <img src="assets/vidhyasadhan-logo.svg">
       </mat-toolbar-row>
     </mat-toolbar>
     <mat-nav-list>
-      <!-- <div class="flex-container">
-        <a class="btn btn-lg btn-outline-primary bg-white">
-          <i class="material-icons md-18">add</i>
-          <span class="Add-New-Entry md-18">Add New Entry</span>
+      <ng-container [ngSwitch]="authService.userValue?.role === 0">
+      <ng-container *ngSwitchCase="true">
+        <a  mat-list-item class="pink"
+        (click)="sidenav.close()" [routerLink]="['/classroom']"
+        routerLinkActive="list-item-active">
+          <mat-icon matListIcon  > class </mat-icon>
+          <h4 mat-line>My Classroom</h4>
         </a>
-      </div> -->
-      <a *ngFor="let item of myWorkRoutes" mat-list-item [ngClass]="{'mat-list-item-pink' : loginType === 'pink'}"
-      (click)="sidenav.close()" [routerLink]="[item.route]"
-      routerLinkActive="list-item-active">
-        <mat-icon matListIcon> {{ item.icon }} </mat-icon>
-        {{item.title}}
-      </a>
+        <a  mat-list-item class="pink"
+        (click)="sidenav.close()" [routerLink]="['/tutors']"
+        routerLinkActive="list-item-active">
+          <mat-icon matListIcon  > assignment </mat-icon>
+          <h4 mat-line>Book Tutor</h4>
+        </a>
+        <a  mat-list-item class="pink"
+        (click)="sidenav.close()" [routerLink]="['/profile']"
+        routerLinkActive="list-item-active">
+          <mat-icon matListIcon > person_outline </mat-icon>
+          <h4 mat-line>My Profile</h4>
+        </a>
+        <a  mat-list-item class="pink"
+        (click)="sidenav.close()" [routerLink]="['/materials']"
+        routerLinkActive="list-item-active">
+          <mat-icon matListIcon> article </mat-icon>
+          <h4 mat-line>Study Material</h4>
+        </a>
+        <a  mat-list-item class="pink"
+        (click)="sidenav.close()" [routerLink]="['/progress']"
+        routerLinkActive="list-item-active">
+          <mat-icon matListIcon > pie_chart </mat-icon>
+          <h4 mat-line>Progress Report</h4>
+        </a>
+      </ng-container>
+      <ng-container class="blueside-nav" *ngSwitchCase="false">
+        <a  mat-list-item
+        (click)="sidenav.close()" [routerLink]="['/classroom']"
+        routerLinkActive="list-item-active">
+          <mat-icon matListIcon > class </mat-icon>
+          <h4 mat-line>My Classroom</h4>
+        </a>
+        <a  mat-list-item
+        (click)="sidenav.close()" [routerLink]="['/demos']"
+        routerLinkActive="list-item-active">
+          <mat-icon matListIcon > assignment </mat-icon>
+          <h4 mat-line>View Requests</h4>
+        </a>
+        <a  mat-list-item
+        (click)="sidenav.close()" [routerLink]="['/profile']"
+        routerLinkActive="list-item-active">
+          <mat-icon matListIcon > person_outline </mat-icon>
+          <h4 mat-line>My Profile</h4>
+        </a>
+        <a  mat-list-item
+        (click)="sidenav.close()" [routerLink]="['/earnings']"
+        routerLinkActive="list-item-active">
+          <mat-icon matListIcon > account_balance </mat-icon>
+          <h4 mat-line>My Earnings</h4>
+        </a>
+        <a  mat-list-item
+        (click)="sidenav.close()" [routerLink]="['/credits']"
+        routerLinkActive="list-item-active">
+          <mat-icon matListIcon > connect_without_contact </mat-icon>
+          <h4 mat-line>My Credits</h4>
+        </a>
+      </ng-container>
+      <p *ngSwitchDefault>
+      
+      </p>
+      </ng-container>
+
       <mat-divider></mat-divider>
-      <div class="d-flex m-2 align-items-center justify-content-center">
+      <div class="d-flex m-2 align-items-center justify-content-center" *ngIf="sidenav.opened">
         <div class="crown text-center">
           <img class= "p-2" src="assets/sidenav/crown.jpg">
           <h5 class="Upgrade-to-Pro">Upgrade to Pro</h5>
@@ -33,7 +94,7 @@
     </mat-nav-list>
   </mat-sidenav>
 
-  <mat-sidenav-content [ngClass]="loginType === 'pink' ? 'sidenav-bg-pink':'sidenav-bg-blue'">
+  <mat-sidenav-content class="example-sidenav-content" [ngClass]="loginType === 'pink' ? 'sidenav-bg-pink':'sidenav-bg-blue'">
     <div>
       <img class="oval-copy-left-1" src="assets/registration/oval-copy-2.svg">
       <img class="oval-copy-left-2" src="assets/registration/oval-copy-3.svg">

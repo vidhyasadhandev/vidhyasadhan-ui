@@ -16,6 +16,7 @@ export class OtpComponent implements OnInit {
   phone: number;
   returnUrl;
   useremail;
+  error;
   otpcode = [
     {value: null},
     {value: null},
@@ -51,10 +52,12 @@ export class OtpComponent implements OnInit {
         if (x){
           this.router.navigate([this.returnUrl]);
         }
-        this.router.navigate([this.returnUrl]);
+        else{
+          this.error = 'Invalid token code';
+        }
       },
       (error) => {
-        this.router.navigate([this.returnUrl]);
+        this.error = 'Invalid token code';
       }
     );
   }

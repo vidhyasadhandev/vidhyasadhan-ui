@@ -21,36 +21,39 @@ import { ActivatescreenComponent } from './_components/activatescreen/activatesc
 import { TutorsComponent } from './_components/tutors/tutors.component';
 import { DemodetailComponent } from './_components/demodetail/demodetail.component';
 import { EarningsComponent } from './_components/earnings/earnings.component';
+import { MainlayoutComponent } from './_layouts/mainlayout/mainlayout.component';
 
 
 const routes: Routes = [
-  { path: '', component: HomeComponent,  canActivate: [AuthGuard] }, // canActivate: [AuthGuard]
+  { path: '', component: MainlayoutComponent, canActivate: [AuthGuard],
+  children: [
+  { path: '', component: HomeComponent, pathMatch: 'full'},
+  { path: 'navbar', component: NavigationBarComponent},
+  { path: 'sidenav', component: SidenavBarComponent},
+  { path: 'tutors', component: TutorsComponent},
+  { path: 'earnings', component: EarningsComponent},
+  { path: 'notifications', component: NotificationComponent},
+  { path: 'broadcast', component: BroadcastComponent},
+  { path: 'profile', component: ProfileComponent},
+  { path: 'calendar', component: CalendarComponent},
+  { path: 'dashboard', component: DashboardComponent},
+  { path: 'admin', component: AdminDashboardComponent},
+  { path: 'demos', component: DemoComponent},
+  { path: 'demos/create', component: DemoComponent},
+  { path: 'demodetail/:id', component: DemodetailComponent},
+  { path: 'classroom', component: ClassroomComponent},
+  ] },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent},
   { path: 'authenticate', component: OtpComponent},
   { path: 'welcome', component: ActivatescreenComponent},
-  { path: 'tutors', component: TutorsComponent, canActivate: [AuthGuard]},
-  { path: 'earnings', component: EarningsComponent, canActivate: [AuthGuard]},
   { path: 'verifyemail/:userid/:token', component: ConfirmationComponent},
-  { path: 'navbar', component: NavigationBarComponent },
-  { path: 'sidenav', component: SidenavBarComponent, canActivate: [AuthGuard] },
-  { path: 'notifications', component: NotificationComponent, canActivate: [AuthGuard]},
-  { path: 'broadcast', component: BroadcastComponent, canActivate: [AuthGuard]},
-  { path: 'profile', component: ProfileComponent, canActivate: [AuthGuard]},
-  { path: 'calendar', component: CalendarComponent, canActivate: [AuthGuard]},
-  { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard]},
-  { path: 'admin', component: AdminDashboardComponent, canActivate: [AuthGuard]},
-  { path: 'demos', component: DemoComponent, canActivate: [AuthGuard]},
-  { path: 'demos/create', component: DemoComponent, canActivate: [AuthGuard]},
-  { path: 'demodetail/:id', component: DemodetailComponent, canActivate: [AuthGuard]},
-  { path: 'classroom', component: ClassroomComponent, canActivate: [AuthGuard]},
-
   { path: '**', redirectTo: '' }
 ];
 
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, { enableTracing: true })],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

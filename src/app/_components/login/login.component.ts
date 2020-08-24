@@ -73,7 +73,7 @@ export class LoginComponent implements OnInit {
           this.router.navigate(['authenticate'], {queryParams: { returnUrl : this.returnUrl, email: this.f.username.value}});
         },
         error: error => {
-          this.error = error;
+          this.error = 'Please Check your Password or Email to Confirm';
           this.loading = false;
         }
       });

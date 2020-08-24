@@ -1,11 +1,13 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, ViewEncapsulation } from '@angular/core';
 import { AuthserviceService } from 'src/app/_services/authservice.service';
 import { MatSidenav } from '@angular/material/sidenav';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-sidenav-bar',
   templateUrl: './sidenav-bar.component.html',
-  styleUrls: ['./sidenav-bar.component.css']
+  styleUrls: ['./sidenav-bar.component.css'],
+  encapsulation: ViewEncapsulation.None,
 })
 export class SidenavBarComponent implements OnInit {
   user;
@@ -14,33 +16,44 @@ export class SidenavBarComponent implements OnInit {
 
   @ViewChild('drawer', { static: false })
   drawer: MatSidenav;
+  isExpanded;
 
-  constructor(private authService: AuthserviceService) {
+  constructor(public authService: AuthserviceService, private route: ActivatedRoute, private router: Router) {
     this.authService.user.subscribe(x => this.user = x);
     this.authService.loginuser.subscribe(x => {this.loginType = x; console.log(this.loginType); } );
     this.loginType = localStorage.getItem('logtype');
    }
 
-  myWorkRoutes = [
-    // {route : 'dashboard', icon: 'dashboard', title: 'Dashboard'},
+  studentnavs = [
+    {route : 'classroom', icon: 'class', title: 'My Classrom'},
+    {route : 'tutors', icon: 'assignment', title: 'Tutors'},
+    {route : 'profile', icon: 'person_outline', title: 'My Profile'},
+    {route : 'earnings', icon: 'account_balance', title: 'My Earnings'},
+    {route : 'credits', icon: 'connect_without_contact', title: 'My Referrals'},
+  ];
+
+  tutornavs = [
     {route : 'classroom', icon: 'class', title: 'My Classrom'},
     {route : 'demos', icon: 'assignment', title: 'Demo Requests'},
     {route : 'profile', icon: 'person_outline', title: 'My Profile'},
     {route : 'earnings', icon: 'account_balance', title: 'My Earnings'},
-    {route : 'credits', icon: 'connect_without_contact', title: 'My Referrals'},
-    // {route : 'calendar', icon: 'calendar_today', title: 'Calendar'},
+    {route :  'credits', icon: 'connect_without_contact', title: 'My Referrals'},
   ];
 
   ngOnInit(): void {
-    if (this.loginType === 'pink'){
-      this.myWorkRoutes[1].route = 'tutors',
-      this.myWorkRoutes[1].title = 'Tutors';
-    }
     this.IsOpened = this.isAuthenticated ? true : false;
   }
 
   isAuthenticated(){
     return this.user;
   }
+
+  navigate(card, sidenav){
+    sidenav.close();
+    console.log(card);
+    console.log(this.route);
+    this.router.navigate(['..', card.route], { relativeTo: this.route });
+  }
+
 
 }

@@ -31,3 +31,9 @@
     background-color: transparent;
     color: #1d4082 !important;
 }
+
+.bg-pink{
+  border-radius: 5px;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.02);
+  background-color: #f6d9cd !important;
+}

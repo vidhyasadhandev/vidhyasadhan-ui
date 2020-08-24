@@ -6,7 +6,8 @@
           <div class="card col-md-6 border-0 rounded">
             <div class="greet">
               <h4>Hi {{greetmessage}},</h4>
-              <h2 [ngClass]="{'first-nm': istutor === false}">{{user.firstName}} {{user.lastName}}</h2>
+              <h2 [ngClass]="{'first-nm': istutor === false}">{{user.firstName | uppercase}}
+                {{user.lastName | uppercase}}</h2>
               <div class="text-container">
                 <p>
                   Start your journey by clicking on one of these icons
@@ -17,38 +18,30 @@
           </div>
         </div>
       </div>
-      </div>
+    </div>
 
 
     <div class="icon-cards">
       <div [ngSwitch]="istutor">
         <div *ngSwitchCase="true">
-          <div class="row">
-            <div class="col-md-10">
-              <div class="card-deck">
-                <div class="card dash-card text-center clearfix" *ngFor="let item of tutorcards">
-                  <div class="card-body">
-                    <img class="img img-responsive" [src]="item.icon">
-                    <h5 class="card-title title-text">{{item.text}}</h5>
-                    <p class="card-text title-subtext"><span>{{item.value}}</span>{{item.subtext}}</p>
-                    <!-- <div class="card-title title-text">{{item.text}}</div>
-                                      <p class="card-text title-subtext"><span>{{item.value}}</span>{{item.subtext}}</p> -->
-                  </div>
-                  <div>
-                  </div>
-                </div>
+          <div class="card-deck">
+            <div class="card dash-card text-center clearfix" [ngClass]="{'opac-5': profile.address === null}" *ngFor="let item of tutorcards">
+              <div class="card-body">
+                <img class="img img-responsive" [src]="item.icon">
+                <h5 class="card-title title-text"><a  [routerLink]="profile.address === null ? '' : item.path">{{item.text}}</a></h5>
+                <p class="card-text title-subtext"><span>{{item.value}}</span>{{item.subtext}}</p>
               </div>
-            </div>
-            <div class="col-md-2">
+              <div>
+              </div>
             </div>
           </div>
         </div>
         <div *ngSwitchCase="false">
           <div class="card-deck">
-            <div class="card dash-card text-center clearfix" [ngClass]="item.class" *ngFor="let item of studentcards">
+            <div class="card dash-card text-center clearfix"  [ngClass]="{'opac-5': profile.address === null}" *ngFor="let item of studentcards">
               <div class="card-body">
                 <img class="img img-responsive" [src]="item.icon">
-                <h5 class="card-title text-dark title-text">{{item.text}}</h5>
+                <h5 class="card-title text-dark title-text"><a [routerLink]="profile.address === null ? '' : item.path">{{item.text}}</a></h5>
                 <p class="card-text text-dark title-subtext"><span>{{item.value}}</span>{{item.subtext}}</p>
                 <!-- <div class="card-title title-text">{{item.text}}</div>
                                       <p class="card-text title-subtext"><span>{{item.value}}</span>{{item.subtext}}</p> -->

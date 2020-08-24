@@ -63,10 +63,10 @@
                   <mat-label for="password">Password</mat-label>
                   <input matInput type="password" formControlName="password"
                     [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
-                  <mat-hint>Use 8 or more characters with mix of letters and numbers and a minimum of 1 Capital letter</mat-hint>
+                  <mat-hint>Minimum 8 characters with atleast one capital letter and a number</mat-hint>
                   <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
                     <div *ngIf="f.password.errors.required">Please Provide a Password</div>
-                    <div *ngIf="f.password.errors.pattern">Password should be 8 characters with 1 Upper case letter</div>
+                    <div *ngIf="f.password.errors.pattern">Password should be 8 characters with 1 Upper case letter and a number</div>
                   </div>
                 </mat-form-field>
               </div>
