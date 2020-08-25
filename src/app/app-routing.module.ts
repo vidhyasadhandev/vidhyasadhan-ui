@@ -42,13 +42,13 @@ const routes: Routes = [
   { path: 'demos/create', component: DemoComponent},
   { path: 'demodetail/:id', component: DemodetailComponent},
   { path: 'classroom', component: ClassroomComponent},
+  { path: 'tutor-referrals', component: TutorReferralsComponent},
   ] },
   { path: 'login', component: LoginComponent },
   { path: 'register/:id', component: RegisterComponent},
   { path: 'authenticate', component: OtpComponent},
   { path: 'welcome', component: ActivatescreenComponent},
   { path: 'verifyemail/:userid/:token', component: ConfirmationComponent},
-  { path: 'tutor-referrals', component: TutorReferralsComponent},
   { path: '**', redirectTo: '' }
 ];
 
