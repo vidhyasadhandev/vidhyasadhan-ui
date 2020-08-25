@@ -149,8 +149,9 @@ eventcolors = [
           attendees: [
             this.authService.userValue.email
           ],
-          organizer: null
-        }
+          organizer: null,
+        },
+        isDemo: true
       };
       console.log(demodata);
       this.demoService.createDemo(demodata).subscribe(x => {

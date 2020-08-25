@@ -16,6 +16,7 @@ export interface Demo{
     locationName: string;
     langitude: string;
     latitude: string;
+    isDemo: boolean;
 }
 
 export interface CourseAssignment{

@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1598369242486,
+  "timestamp": 1598391544551,
   "index": "/vidhyasadhan-ui/index.html",
   "assetGroups": [
     {
@@ -10,8 +10,8 @@
       "urls": [
         "/vidhyasadhan-ui/favicon.ico",
         "/vidhyasadhan-ui/index.html",
-        "/vidhyasadhan-ui/main-es2015.2763ff070a8663c13b0a.js",
-        "/vidhyasadhan-ui/main-es5.2763ff070a8663c13b0a.js",
+        "/vidhyasadhan-ui/main-es2015.81ff8f92adc8cac6e3b7.js",
+        "/vidhyasadhan-ui/main-es5.81ff8f92adc8cac6e3b7.js",
         "/vidhyasadhan-ui/manifest.webmanifest",
         "/vidhyasadhan-ui/polyfills-es2015.245b1711f20489f5a313.js",
         "/vidhyasadhan-ui/polyfills-es5.e830a038e80caa95af64.js",
@@ -435,9 +435,9 @@
     "/vidhyasadhan-ui/assets/welcome/vidhya-sandhhan.svg": "8c87a32da604e2f253ab029533865f3dad7ab23c",
     "/vidhyasadhan-ui/cmg-bg-3.3e2925399125cdeb7d2a.png": "9a148f2b5b461ed53f8a56ce4081a98d73115a96",
     "/vidhyasadhan-ui/favicon.ico": "22f6a4a3bcaafafb0254e0f2fa4ceb89e505e8b2",
-    "/vidhyasadhan-ui/index.html": "dd7285bff4fcfe4cd90e17feac862f960cee36da",
-    "/vidhyasadhan-ui/main-es2015.2763ff070a8663c13b0a.js": "868f2f838497ffed60c600ca47a143e493bc14bf",
-    "/vidhyasadhan-ui/main-es5.2763ff070a8663c13b0a.js": "08e66b539dcc65213de1fb5c5543ff25fd3eae34",
+    "/vidhyasadhan-ui/index.html": "c8020ea092fd3b6b29bc9af4736b653a1ab92ac7",
+    "/vidhyasadhan-ui/main-es2015.81ff8f92adc8cac6e3b7.js": "091527731399eef50a1211c4ad591dda492921ff",
+    "/vidhyasadhan-ui/main-es5.81ff8f92adc8cac6e3b7.js": "270a3e10dec70d48a33549a0d8397e36e9e53a4b",
     "/vidhyasadhan-ui/manifest.webmanifest": "976f027ff35bb7d82393fbf67dc190b5b003dd71",
     "/vidhyasadhan-ui/polyfills-es2015.245b1711f20489f5a313.js": "90fb474e1a7d87bd57bc8a95fb3fd361b919d815",
     "/vidhyasadhan-ui/polyfills-es5.e830a038e80caa95af64.js": "ccfff1a6bd0b9531245e25bf3c0c8cf948ced8c2",
