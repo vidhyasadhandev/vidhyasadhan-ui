@@ -55,6 +55,9 @@
   </form>
 </div>
 <div mat-dialog-actions>
-  <button mat-raised-button  color="warn" (click)="onNoClick()">No Thanks</button>
-  <button mat-raised-button  color="primary" (click)="onSubmit()" cdkFocusInitial>Ok</button>
+  <div class="d-flex">
+    <button mat-raised-button hidden  color="warn" (click)="onNoClick()">No Thanks</button>  
+    <button mat-raised-button  class="ml-auto" color="primary" (click)="onSubmit()" cdkFocusInitial>Ok</button>
+  </div>
+
 </div>

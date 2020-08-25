@@ -19,8 +19,8 @@ export class EventmodelComponent implements OnInit {
     console.log(this.data);
     this.calendarformForm = this.formBuilder.group({
       summary: [this.data.event.title, Validators.required],
-      location: [this.data.event?.meta?.location, Validators.required],
-      description: ['', Validators.required],
+      location: [this.data.event?.meta?.locationName, Validators.required],
+      description: [this.data.event?.meta?.courseDescription, Validators.required],
       timeZone: ['Asia/Calcutta', Validators.required],
       start: [this.data.event.start, Validators.required],
       end: [this.data.event.end, Validators.required],
@@ -41,6 +41,7 @@ export class EventmodelComponent implements OnInit {
   }
 
   onNoClick(){
+    this.dialogRef.close();
   }
 
 }

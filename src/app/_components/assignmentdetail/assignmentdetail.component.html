@@ -1,0 +1,95 @@
+
+
+<mat-card class="m-2">
+  <form [formGroup]="assignmentForm" (submit)="onSubmit()">
+  <mat-card-content class="text-center">
+    <div class="alert alert-info" role="alert" *ngIf="success && submitted">{{success}}</div>
+        <div class="form-row">
+            <div class="col-md-6">
+              <mat-form-field appearance="outline">
+                <mat-label>Exam Title</mat-label>
+                <input matInput type="text" formControlName="title" id="title" placeholder="Exam Title">
+                <mat-icon matPrefix>queue_play_next</mat-icon>
+              </mat-form-field>
+            </div>
+            <div class="col-md-6">
+              <mat-form-field appearance="outline">
+                <mat-label>Exam Topic</mat-label> 
+                <input matInput type="text" formControlName="topic" id="topic" placeholder="topic">
+                <mat-icon matPrefix>chrome_reader_mode</mat-icon>
+              </mat-form-field>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="col-md-6">
+              <mat-form-field appearance="outline">
+                <mat-label>Subject</mat-label>
+                <input type="text" matInput formControlName="subject" id="profilemail"
+                  placeholder="Subject">
+                <mat-icon matPrefix>subject</mat-icon>
+              </mat-form-field>
+            </div>
+            <div class="col-md-6">
+              <mat-form-field appearance="outline">
+                <mat-label>Grade/Standard</mat-label>
+                <input matInput type="text" formControlName="grade" id="grade"
+                  placeholder="Grade/Standard">
+                <mat-icon matPrefix>class</mat-icon>
+              </mat-form-field>
+            </div>
+          </div>
+          <div class="form-row">
+              <div class="col-md-6">
+                <mat-form-field appearance="outline">
+                  <mat-label>Points</mat-label>
+                  <input type="text" matInput formControlName="points" id="points"
+                    placeholder="Points">
+                  <mat-icon matPrefix>grading</mat-icon>
+                </mat-form-field>
+              </div>
+              <div class="col-md-6">
+                <mat-form-field appearance="outline">
+                  <mat-label>Due Date</mat-label>
+                  <input matInput formControlName="dueDate" id="dueDate" [matDatepicker]="picker"
+                    placeholder="Due Date">
+                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
+                </mat-form-field>
+              </div>
+          </div>
+          <div class="form-row">
+            <mat-form-field appearance="outline">
+              <mat-label>Instructions (Optional)</mat-label>
+              <textarea matInput placeholder="Instructions (Optional)" matInput formControlName="instructions" id="instructions"></textarea>
+            </mat-form-field>
+          </div>
+          <div class="container" appDragndir (fileDropped)="dropped($event)">
+            <input type="file" class="fileinput" #fileDropRef id="fileDropRef" formControlName="assignmentFile" (change)="fileBrowse($event.target.files)" />
+            <h3 class="text-dark">Drag and Drop the file</h3>
+        </div>
+      <div class="info">
+        <h4 class="name">
+            {{ files[0]?.name }}
+        </h4>
+		<p class="size" *ngIf="files.length>0">
+            {{files[0]?.progress}}% of {{ formatBytes(files[0]?.size,0) }}
+        </p>
+        <mat-progress-bar
+            mode="buffer"
+            [color]="'primary'"
+            [value]="files[0]?.progress"
+            [bufferValue]="files[0]?.progress">
+        </mat-progress-bar>
+    </div>
+  </mat-card-content>
+  <mat-card-footer>
+      <button class="ml-2 btn btn-md" mat-raised-button>Reset</button>
+      <span class="float-right">
+        <button class="mr-2 btn btn-md" color="warn"  mat-raised-button>Cancel</button>
+        <button class="mr-2 btn btn-md" color="accent" type="submit"  mat-raised-button>Create</button>
+      </span>
+    <mat-card-actions>
+    </mat-card-actions>
+  </mat-card-footer>
+</form>
+</mat-card>

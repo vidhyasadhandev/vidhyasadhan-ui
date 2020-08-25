@@ -50,6 +50,7 @@ export class ProfileComponent implements OnInit {
   proof;
   successmessage = false;
   proofdocument;
+  uploadedFile;
 
   days = [
     {day: 'Monday', selected: false },
@@ -75,8 +76,39 @@ export class ProfileComponent implements OnInit {
     {id: 9, value: 'Professional Certificate' },
   ];
 
+  nacategories = [
+    {id: 0, value: 'Music', subcategories: [
+      {id: 0, value: 'Classical Music' },
+      {id: 1, value: 'Tabla' },
+      {id: 2, value: 'Piano' },
+    ]},
+    {id: 1, value: 'Cricket', subcategories: [
+      {id: 0, value: 'Batsmen' },
+      {id: 1, value: 'Bowler' },
+      {id: 2, value: 'Wicket keeper' },
+    ]},
+    {id: 2, value: 'Tennis', subcategories: [
+      {id: 0, value: 'Batsmen' },
+      {id: 1, value: 'Bowler' },
+      {id: 2, value: 'Wicket keeper' },
+    ] },
+  ];
+
+  nasubcategories = [
+    {id: 1, value: 'Music' },
+    {id: 2, value: 'Cricket' },
+    {id: 3, value: 'Tennis' },
+  ];
+
+  agegroups = [
+    {id: 1, value: '5 to 10' },
+    {id: 2, value: '11 to 19' },
+    {id: 3, value: '20 to 35' }
+  ];
+
   @ViewChild('fileInput', {static: false}) fileInput: ElementRef;
   files  = [];
+
 
   constructor(private formBuilder: FormBuilder,
               private userService: UserService,
@@ -137,9 +169,13 @@ export class ProfileComponent implements OnInit {
       rate: [''],
       currency: [''],
       proof: [''],
-      proofDoc: [null],
+      proofDoc: [''],
       demo: [''],
       interests: [''],
+      nacategory: [''],
+      nasubcategory: [''],
+      agegroup: [''],
+      certification: [''],
     });
     this.getUser();
     this.staticdataService.getStaticData().subscribe(x => this.staticData = x);
@@ -180,7 +216,11 @@ export class ProfileComponent implements OnInit {
         phone: this.f.profilephone.value,
         gender: this.f.gender.value,
         birthdate: this.f.birthdate.value,
-        profilePic: null,
+        profilePic: this.f.profilePic.value,
+        ageGroup: this.f.agegroup.value,
+        certification: this.f.certification.value,
+        naCategory: this.f.nacategory.value,
+        naSubCategory: this.f.nasubcategory.value,
         address: {
           addressType: 1,
           addressId: this.profile?.address.addressId,
@@ -207,7 +247,7 @@ export class ProfileComponent implements OnInit {
           hourlyRate: this.f.rate.value,
           currency: this.f.currency.value,
           idType: this.f.proof.value,
-          idDoc: '',
+          idDoc: this.f.proofDoc.value,
           demoLink: this.f.demo.value,
           intersets: this.f.interests.value,
           medium: this.f.medium.value,
@@ -223,15 +263,7 @@ export class ProfileComponent implements OnInit {
         }
       };
 
-      if (this.f.proofDoc.value !== null || this.f.proofDoc.value !== undefined){
-        // const data = this.fileread((e) => {
-        //   console.log(e);
-        //   const fromdata = new FormData();
-        //   fromdata.append('file', this.f.proofDoc.value);
-        //   this.fileUploader.uploadFile(fromdata).subscribe(x => console.log(x));
-        //   userValues.instructor.idDoc = '';
-        // });
-      }
+      console.log(userValues);
 
       if (this.authService.userValue.role === 0){
         userValues.instructor = null;
@@ -272,7 +304,7 @@ updateFormValus(user: User){
         stateCode: x?.address.stateCd,
         inputPin: x?.address.pinCode,
         national: x?.address.countryCd,
-        backgroundtype: (String)(x?.instructor?.academyTypeId) || (String)(x?.student?.academyTypeId),
+        backgroundtype: x?.instructor?.academyTypeId?.toString() || x?.student?.academyTypeId?.toString(),
         medium: x?.instructor?.medium || x?.student?.medium,
         subject: x?.instructor?.subjects || x?.student?.subjects,
         board: x?.instructor?.board || x?.student?.board,
@@ -287,34 +319,20 @@ updateFormValus(user: User){
         rate: x?.instructor?.hourlyRate,
         currency: x?.instructor?.currency,
         proof: x?.instructor?.idType,
-        proofDoc: x?.instructor?.idDoc,
         demo: x?.instructor?.demoLink,
         interests: x?.instructor?.intersets || x?.student?.intersets,
+        agegroup: x?.ageGroup,
+        certification: x?.certification,
+        nacategory: x?.naCategory,
+        nasubcategory: x?.naSubCategory,
       });
     });
   }
 
 callUploadService(file){
-    // const formData = new FormData();
-    // formData.append('file', file.data);
-    // file.inProgress = true;
-    // this.fileUploader.upload(formData).pipe(
-    //   map(event => {
-    //     switch (event.type) {
-    //       case HttpEventType.UploadProgress:
-    //         file.progress = Math.round(event.loaded * 100 / event.total);
-    //         break;
-    //       case HttpEventType.Response:
-    //         return event;
-    //     }
-    //   }).subscribe((event: any) => {
-    //     if (typeof (event) === 'object') {
-    //       console.log(event.body);
-    //     }
-    //   });
   }
 
-  uploadFile(files) {
+  uploadFile(files, type) {
     if (files.length === 0) {
       return;
     }
@@ -323,11 +341,17 @@ callUploadService(file){
     const formData = new FormData();
     formData.append('file', fileToUpload, fileToUpload.name);
 
-    this.fileUploader.uploadFile(formData)
+    const filepath = this.fileUploader.uploadFile(formData)
       .subscribe(event => {
-        this.proofdocument = event.filepath;
+        if (type === 0){
+          this.uploadedFile = event.filepath;
+          this.userForm.get('profilePic').setValue(this.uploadedFile);
+        }
+        else{
+          this.proofdocument = event.filepath;
+          this.userForm.get('proofDoc').setValue(this.proofdocument);
+        }
       });
-
   }
 
 onClick(){
@@ -355,10 +379,24 @@ changeAll(completed: boolean){
   }
 
   openDialog() {
-    const dialogRef = this.dialog.open(ProfilemodelComponent);
+    const dialogRef = this.dialog.open(ProfilemodelComponent, {
+      width: '350px'
+    });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log(`Dialog result: ${result}`);
+      if (result !== null && result !== undefined){
+        console.log(result.image);
+        this.userForm.get('profilePic').setValue(result.image);
+        this.uploadFile(result.file, 0);
+      }
     });
+  }
+
+  getSubCategory() {
+    return this.nacategories.filter(x => x.value === this.userForm.get('nacategory').value)[0]?.subcategories ;
+  }
+
+  reset(){
+    this.getUser();
   }
 }

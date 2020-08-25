@@ -45,8 +45,7 @@
         <div class="row text-vs-center no-gutters">
           <div class="col-md-2">
             <!-- <img  [src]="tutor.profilePic"> -->
-            <img src="assets/demo/group-3_2.png"
-              srcset="assets/demo/group-3_2@2x.png 2x,assets/demo/group-3_2@3x.png 3x" class="img-thumbnail p-2">
+            <img [src]="tutor.profilePic || 'assets/profile-pic.svg'" class="img-thumbnail p-2 mx-auto d-block">
           </div>
           <div class="col-md-10">
             <div class="card-body">

@@ -6,6 +6,7 @@ import { IsMatch } from 'src/app/_helpers/fieldmatcher';
 import { User } from 'src/app/_models/user';
 import { handleException } from 'src/app/_helpers/vsexception';
 import { AuthserviceService } from 'src/app/_services/authservice.service';
+import { Customvalidators } from 'src/app/_helpers/customvalidators';
 
 @Component({
   selector: 'app-register',
@@ -40,10 +41,15 @@ export class RegisterComponent implements OnInit {
       lastName: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
       phone: ['', Validators.required],
-      password: ['', [Validators.required, Validators.minLength(8)]],
+      password: [ null, Validators.compose([
+        Validators.required,
+        Customvalidators.patternValidator(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/, { isInvalid: true }),
+        // Customvalidators.patternValidator(/[A-Z]/, { hasCapitalCase: true }),
+        // Customvalidators.patternValidator(/[a-z]/, { hasSmallCase: true }),
+        Validators.minLength(8)])
+     ],
       role: [''],
       confirmPassword: [''],
-      // uname: ['', [Validators.required, Validators.minLength(6)]]
     }, {validator: IsMatch('password', 'confirmPassword') });
   }
 

@@ -177,78 +177,120 @@
     </div>
   </div>
   <div class="card-body">
-    <div class="row text-center">
-      <div class="col-md-4">
-        <div class="btn-group">
-          <div class="btn btn-primary" mwlCalendarPreviousView [view]="view" [(viewDate)]="viewDate"
-            (viewDateChange)="closeOpenMonthViewDay()">
-            Previous
+    <div class="row">
+      <div class="col-md-8">
+        <div class="row text-center">
+          <div class="col-md-4">
+            <div class="btn-group">
+              <div class="btn btn-primary" mwlCalendarPreviousView [view]="view" [(viewDate)]="viewDate"
+                (viewDateChange)="closeOpenMonthViewDay()">
+                Previous
+              </div>
+              <div class="btn btn-outline-secondary" mwlCalendarToday [(viewDate)]="viewDate">
+                Today
+              </div>
+              <div class="btn btn-primary" mwlCalendarNextView [view]="view" [(viewDate)]="viewDate"
+                (viewDateChange)="closeOpenMonthViewDay()">
+                Next
+              </div>
+            </div>
           </div>
-          <div class="btn btn-outline-secondary" mwlCalendarToday [(viewDate)]="viewDate">
-            Today
+          <div class="col-md-4">
+            <h3>{{ viewDate | calendarDate:(view + 'ViewTitle'):'en' }}</h3>
           </div>
-          <div class="btn btn-primary" mwlCalendarNextView [view]="view" [(viewDate)]="viewDate"
-            (viewDateChange)="closeOpenMonthViewDay()">
-            Next
+          <div class="col-md-4">
+            <div class="btn-group">
+              <div class="btn btn-primary" (click)="setView(CalendarView.Month)"
+                [class.active]="view === CalendarView.Month">
+                Month
+              </div>
+              <div class="btn btn-primary" (click)="setView(CalendarView.Week)"
+                [class.active]="view === CalendarView.Week">
+                Week
+              </div>
+              <div class="btn btn-primary" (click)="setView(CalendarView.Day)"
+                [class.active]="view === CalendarView.Day">
+                Day
+              </div>
+            </div>
+            <!-- <mat-button-toggle-group [appearance]="'legacy'" [(value)] ="selectedView" #group="matButtonToggleGroup"  name="fontStyle" aria-label="Font Style">
+        <mat-button-toggle  value="0">Month</mat-button-toggle>
+        <mat-button-toggle value="1">Day</mat-button-toggle>
+        <mat-button-toggle value="2">Week</mat-button-toggle>
+      </mat-button-toggle-group> -->
+
           </div>
+        </div>
+        <br />
+        <div [ngSwitch]="view">
+          <mwl-calendar-month-view *ngSwitchCase="CalendarView.Month" [viewDate]="viewDate" [events]="events"
+            [refresh]="refresh" [activeDayIsOpen]="activeDayIsOpen" (dayClicked)="dayClicked($event.day)"
+            (eventClicked)="handleEvent('Clicked', $event.event)" (eventTimesChanged)="eventTimesChanged($event)">
+          </mwl-calendar-month-view>
+          <mwl-calendar-week-view *ngSwitchCase="CalendarView.Week" [viewDate]="viewDate" [events]="events"
+            [refresh]="refresh" (eventClicked)="handleEvent('Clicked', $event.event)"
+            (eventTimesChanged)="eventTimesChanged($event)">
+          </mwl-calendar-week-view>
+          <mwl-calendar-day-view *ngSwitchCase="CalendarView.Day" [viewDate]="viewDate" [events]="events"
+            [refresh]="refresh" (eventClicked)="handleEvent('Clicked', $event.event)"
+            (eventTimesChanged)="eventTimesChanged($event)">
+          </mwl-calendar-day-view>
         </div>
       </div>
       <div class="col-md-4">
-        <h3>{{ viewDate | calendarDate:(view + 'ViewTitle'):'en' }}</h3>
-      </div>
-      <div class="col-md-4">
-        <div class="btn-group">
-          <div class="btn btn-primary" (click)="setView(CalendarView.Month)"
-            [class.active]="view === CalendarView.Month">
-            Month
+        <div class="row">
+          <div class="col">
+            <h2 class="meetings">
+              Meetings <div>{{courses?.length}}</div>
+            </h2>
           </div>
-          <div class="btn btn-primary" (click)="setView(CalendarView.Week)" [class.active]="view === CalendarView.Week">
-            Week
-          </div>
-          <div class="btn btn-primary" (click)="setView(CalendarView.Day)" [class.active]="view === CalendarView.Day">
-            Day
+          <div class="col text-right">
+               <mat-slide-toggle [ngModel]="isChecked" (change)="changedFilter($event)">Today Only</mat-slide-toggle>
           </div>
         </div>
-        <!-- <mat-button-toggle-group [appearance]="'legacy'" [(value)] ="selectedView" #group="matButtonToggleGroup"  name="fontStyle" aria-label="Font Style">
-    <mat-button-toggle  value="0">Month</mat-button-toggle>
-    <mat-button-toggle value="1">Day</mat-button-toggle>
-    <mat-button-toggle value="2">Week</mat-button-toggle>
-  </mat-button-toggle-group> -->
+        <div class="course-height">
+          <ng-container *ngFor="let course of courses">
+            <!-- <mat-card-header *ngIf="course.startDate !== getToday()">
+              {{course.startDate | date}}
+            </mat-card-header>     -->
+            <mat-card class="m-2 card-left">     
+              <mat-card-content>
+                <div class="row">
+                  <div class="col-10">
+                    <mat-card-title class="side-header">{{course.title}}</mat-card-title>
+                  </div>
+                  <div class="col-2 text-right">
+                    <mat-card-subtitle>
+                      <span [ngSwitch]="course?.enrollments?.length > 1">
+                        <p *ngSwitchCase="true">
+                          <img src="assets/bitmap.svg">
+                        </p>
+                        <p *ngSwitchCase="false">
+                          <img src="assets/bitmap.svg">
+                        </p>
+                        <p *ngSwitchDefault>
+                        </p>
+                      </span>
+                    </mat-card-subtitle>
+                  </div>
+                </div>
+                <p class="card-text">
+                  {{course.startDate | date:'hh:mm a'}} - {{course.endDate | date:'hh:mm a'}}
+                </p>
+                <div class="card-text d-flex">
+                  <ng-container *ngFor="let profimg of course.enrollments">
+                    <img class="list-img" [src]="profimg.student?.profilePic ? profimg.student?.profilePic : 'assets/profile-pic.svg'">
+                  </ng-container>
+                </div>
+  
+              </mat-card-content>
+            </mat-card>
+          </ng-container>
+        </div>
 
       </div>
     </div>
-    <br/>
-    <div [ngSwitch]="view">
-      <mwl-calendar-month-view
-        *ngSwitchCase="CalendarView.Month"
-        [viewDate]="viewDate"
-        [events]="events"
-        [refresh]="refresh"
-        [activeDayIsOpen]="activeDayIsOpen"
-        (dayClicked)="dayClicked($event.day)"
-        (eventClicked)="handleEvent('Clicked', $event.event)"
-        (eventTimesChanged)="eventTimesChanged($event)"
-      >
-      </mwl-calendar-month-view>
-      <mwl-calendar-week-view
-        *ngSwitchCase="CalendarView.Week"
-        [viewDate]="viewDate"
-        [events]="events"
-        [refresh]="refresh"
-        (eventClicked)="handleEvent('Clicked', $event.event)"
-        (eventTimesChanged)="eventTimesChanged($event)"
-      >
-      </mwl-calendar-week-view>
-      <mwl-calendar-day-view
-        *ngSwitchCase="CalendarView.Day"
-        [viewDate]="viewDate"
-        [events]="events"
-        [refresh]="refresh"
-        (eventClicked)="handleEvent('Clicked', $event.event)"
-        (eventTimesChanged)="eventTimesChanged($event)"
-      >
-      </mwl-calendar-day-view>
-    </div>
+
   </div>
 
 </div>

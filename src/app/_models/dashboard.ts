@@ -6,4 +6,5 @@ export interface Dashboard {
     type: string;
     color?: string;
     class?: string;
+    path?: string;
 }

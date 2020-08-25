@@ -16,6 +16,12 @@ export class AttendanceService {
     return this.http.get<any[]>(environment.apiUrl + `/attendance/getbycourseid`, options);
   }
 
+  getattendanceByTutor(courseid){
+    const options = courseid ?
+    { params: new HttpParams().set('id', courseid)} : {};
+    return this.http.get<any[]>(environment.apiUrl + `/attendance/bytutor`, options);
+  }
+
   saveattendance(attendances: Attendance[]){
     return this.http.post(environment.apiUrl + `/attendance`, attendances);
   }

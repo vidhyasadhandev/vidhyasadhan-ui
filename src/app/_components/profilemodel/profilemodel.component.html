@@ -1,4 +1,28 @@
-<h2 mat-dialog-title>Upload Image</h2>
+<h4 mat-dialog-title class="titlec">Upload Image</h4>
 <div mat-dialog-content>
-
+    <div class="container" appDragndir (fileDropped)="dropped($event)" [ngStyle]="{'background-image': 'url(' + imagepath + ')'}">
+        <input type="file" #fileDropRef id="fileDropRef" (change)="fileBrowse($event.target.files)" accept="image/gif, image/jpeg, image/png" />
+        <h3 class="text-light">Drag a Photo here</h3>
+        <h3 class="text-dark">Or</h3>
+        <!-- <label class="text-light" for="fileDropRef">Select a Photo</label> -->
+        <a class="btn btn-md btn-primary">Select a Photo</a>
+    </div>
+    <div class="info">
+        <h4 class="name">
+            {{ files[0]?.name }}
+        </h4>
+		<p class="size" *ngIf="files.length>0">
+            {{files[0]?.progress}}% of {{ formatBytes(files[0]?.size,0) }}
+        </p>
+        <mat-progress-bar
+            mode="buffer"
+            [color]="'primary'"
+            [value]="files[0]?.progress"
+            [bufferValue]="files[0]?.progress">
+        </mat-progress-bar>
+    </div>
+</div>
+<div mat-dialog-actions class="text-center mt-2">
+    <button class="m-2" mat-raised-button color="warn" (click)="onCancel()">Cancel</button>
+    <button class="m-2" mat-raised-button [disabled]="files.length === 0"  color="accent" (click)="onUpload(files[0])" cdkFocusInitial>Upload</button>
 </div>

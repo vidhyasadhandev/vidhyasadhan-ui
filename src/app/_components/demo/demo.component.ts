@@ -23,6 +23,7 @@ locations: LocationModel[] = [];
 timestamps;
 isSuccess;
 demos;
+message;
 
 eventcolors = [
   {color: 'Red', code: ''},
@@ -152,8 +153,15 @@ eventcolors = [
         }
       };
       console.log(demodata);
-      this.demoService.createDemo(demodata).subscribe(x => console.log(x),
-     (error) => console.log(error));
+      this.demoService.createDemo(demodata).subscribe(x => {
+        if ( x >= 0){
+          this.message = 'succesfully created demo';
+        }
+        else{
+          this.message = 'Unable to create demo';
+        }
+      },
+     (error) => this.message = error);
     }
   }
 

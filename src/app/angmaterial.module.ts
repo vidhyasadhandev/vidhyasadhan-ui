@@ -44,6 +44,9 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatDividerModule} from '@angular/material/divider';
 import {MatChipsModule} from '@angular/material/chips';
 import {MatTooltipModule} from '@angular/material/tooltip';
+import {MatProgressBarModule} from '@angular/material/progress-bar';
+import {MatSliderModule} from '@angular/material/slider';
+
 
 
 
@@ -77,7 +80,9 @@ import {MatTooltipModule} from '@angular/material/tooltip';
     MatCheckboxModule,
     MatDividerModule,
     MatChipsModule,
-    MatTooltipModule
+    MatTooltipModule,
+    MatProgressBarModule,
+    MatSliderModule
   ],
   exports: [MatAutocompleteModule,
     MatInputModule,
@@ -107,7 +112,9 @@ import {MatTooltipModule} from '@angular/material/tooltip';
     MatCheckboxModule,
     MatDividerModule,
     MatChipsModule,
-    MatTooltipModule
+    MatTooltipModule,
+    MatProgressBarModule,
+    MatSliderModule
   ],
   providers: [
     MatDatepickerModule,

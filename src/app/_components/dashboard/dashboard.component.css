@@ -14,27 +14,23 @@
 
 .greet h2 {
     height: 24px;
-    margin-top: 2rem;
     font-family: Montserrat;
-    font-size: 40px;
     font-weight: 600;
     font-stretch: normal;
     font-style: normal;
-    line-height: 0.6;
-    letter-spacing: normal;
+    letter-spacing: normal; 
     color: #20253a;
+    line-height: 0.6;
 }
 
 .greet p{
     font-family: Montserrat;
-    margin-top: 2rem;
-    font-size: 35px;
     font-weight: 300;
     font-stretch: normal;
     font-style: normal;
-    line-height: 1.49;
     letter-spacing: normal;
     color: #5f5f5f;
+    line-height: 1.49;
 }
 
 .icon-cards{
@@ -112,7 +108,7 @@
 }
 
 .student-profile {
-  background-image: linear-gradient(to bottom, #ea8b64 13%, #c2300a);
+  background-image: linear-gradient(to bottom, #ea8b64 13%, #c2300a) !important;
 }
 
 .student-profile .title-text, 
@@ -129,6 +125,16 @@
   .greet{
     min-height: 350px;
   }
+
+  .greet h2{
+    font-size: 35px;
+    margin-top: 2rem;
+  }
+
+  .greet p{
+    font-size: 30px;
+    margin-top: 2rem;
+  }
 }
 
 
@@ -137,8 +143,8 @@
     background-image: none;
   }
 
-  .greet p{
-    font-size: 25px;
+  .greet h2{
+    margin-top: 2rem;
   }
   
   .equal-container{
@@ -148,4 +154,8 @@
 
 .card{
   background: transparent;
+}
+
+.opac-5{
+  opacity: 0.5;
 }

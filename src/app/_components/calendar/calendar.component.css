@@ -2,6 +2,11 @@ mat-form-field{
     width: 100%;
 }
 
+.header-container{
+    display: flex;
+}
+
+
 .mat-standard-chip{
     box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.21);
     background-color: #ffffff;
@@ -16,4 +21,65 @@ mat-form-field{
 .matchip-active{
     background-color: #1d4082 !important;
     color: #ffffff !important;
+}
+
+.side-header{
+  font-family: Roboto;
+  font-size: 14px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: 0.3px;
+  color: #25265e;
+}
+
+
+.card-left{
+   border-left: 5px solid #25265e;
+}
+
+.card-text{
+    font-family: Roboto;
+    font-size: 12px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: 0.3px;
+    color: #787993;
+    text-align: left;
+}
+
+.list-img{
+    width: 25px;
+    height: 25px;
+    border-radius: 25px;
+    margin-right: 0.5rem;
+}
+
+.meetings{
+    font-family: Roboto;
+    font-size: 18px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.44;
+    letter-spacing: 0.3px;
+    color: #25265e;
+    margin: 0 8px;
+}
+
+.meetings>div{
+    padding: 0 24px;
+    display: inline;
+    border-radius: 16px;
+    border: solid 2px rgba(45, 199, 109, 0.1);
+    background-color: #1d4082;
+    color: #ffffff;
+}
+
+.course-height{
+    max-height: 600px;
+    overflow: auto;
 }

@@ -50,6 +50,22 @@ import { DemodetailComponent } from './_components/demodetail/demodetail.compone
 import { ProfilemodelComponent } from './_components/profilemodel/profilemodel.component';
 import { TutorReferralsComponent } from './_components/tutor-referrals/tutor-referrals.component';
 import { TutorReferralsDetailsComponent } from './_components/tutor-referrals/tutor-referrals-details/tutor-referrals-details.component';
+import { DragndirDirective } from './directives/dragndir.directive';
+import { AssignmentdetailComponent } from './_components/assignmentdetail/assignmentdetail.component';
+import { AssignmentlistComponent } from './_components/assignmentlist/assignmentlist.component';
+import { FieldsfilterPipe } from './_pipes/fieldsfilter.pipe';
+import { EvaluateComponent } from './_components/evaluate/evaluate.component';
+import { EvaluationDetailComponent } from './_components/evaluation-detail/evaluation-detail.component';
+import { EarningsComponent } from './_components/earnings/earnings.component';
+import { FooterComponent } from './_components/footer/footer.component';
+import { VsnavigationComponent } from './_components/vsnavigation/vsnavigation.component';
+import { LayoutModule } from '@angular/cdk/layout';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatButtonModule } from '@angular/material/button';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatIconModule } from '@angular/material/icon';
+import { MatListModule } from '@angular/material/list';
+import { MainlayoutComponent } from './_layouts/mainlayout/mainlayout.component';
 
 @NgModule({
   declarations: [
@@ -82,7 +98,18 @@ import { TutorReferralsDetailsComponent } from './_components/tutor-referrals/tu
     DemodetailComponent,
     ProfilemodelComponent,
     TutorReferralsComponent,
-    TutorReferralsDetailsComponent],
+    TutorReferralsDetailsComponent,
+    DragndirDirective,
+    AssignmentdetailComponent,
+    AssignmentlistComponent,
+    FieldsfilterPipe,
+    EvaluateComponent,
+    EvaluationDetailComponent,
+    EarningsComponent,
+    FooterComponent,
+    VsnavigationComponent,
+    MainlayoutComponent
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -100,6 +127,12 @@ import { TutorReferralsDetailsComponent } from './_components/tutor-referrals/tu
     GoogleMapsModule,
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
     CalendarModule.forRoot({ provide: DateAdapter, useFactory: adapterFactory }),
+    LayoutModule,
+    MatToolbarModule,
+    MatButtonModule,
+    MatSidenavModule,
+    MatIconModule,
+    MatListModule,
     // CloudinaryModule.forRoot(Cloudinary, { cloud_name: 'dfsizfwtr', upload_preset: 'ml_default'}),
   ],
   providers: [
@@ -110,7 +143,7 @@ import { TutorReferralsDetailsComponent } from './_components/tutor-referrals/tu
     DatePipe,
     AlertboxComponent
   ],
-  entryComponents: [AlertboxComponent],
+  entryComponents: [AlertboxComponent, ProfilemodelComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

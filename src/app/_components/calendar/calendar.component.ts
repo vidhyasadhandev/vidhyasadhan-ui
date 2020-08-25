@@ -41,11 +41,13 @@ import {
   CalendarEventAction,
   CalendarEventTimesChangedEvent,
   CalendarView,
+  CalendarEventTitleFormatter,
 } from 'angular-calendar';
 import { Subject } from 'rxjs';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
 import { EventmodelComponent } from '../eventmodel/eventmodel.component';
+import { CustomCalendarFormat } from './custom-calendar-format';
 
 const colors: any = {
   red: {
@@ -64,9 +66,14 @@ const colors: any = {
 
 @Component({
   selector: 'app-calendar',
-  changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './calendar.component.html',
-  styleUrls: ['./calendar.component.css']
+  styleUrls: ['./calendar.component.css'],
+  providers: [
+    {
+      provide: CalendarEventTitleFormatter,
+      useClass: CustomCalendarFormat,
+    },
+  ],
 })
 export class CalendarComponent implements OnInit {
 
@@ -75,20 +82,9 @@ export class CalendarComponent implements OnInit {
   view: CalendarView = CalendarView.Month;
 
   CalendarView = CalendarView;
+  isChecked = false;
 
   viewDate: Date = new Date();
-
-  constructor(private formBuilder: FormBuilder,
-              private userService: UserService,
-              private courseService: CourseService,
-              private authService: AuthserviceService,
-              private modal: NgbModal,
-              public dialog: MatDialog) {}
-
-  get f() {
-    return this.calendarformForm.controls;
-  }
-
   public calendarformForm: FormGroup;
   public submitted = false;
   users: User[] = [];
@@ -115,7 +111,7 @@ export class CalendarComponent implements OnInit {
 
   actions: CalendarEventAction[] = [
     {
-      label: '<i class="fas fa-fw fa-pencil-alt"></i>',
+      label: '<i class="fas fa-fw fa-trash-alt"></i>',
       a11yLabel: 'Edit',
       onClick: ({ event }: { event: CalendarEvent }): void => {
         this.handleEvent('Edited', event);
@@ -130,6 +126,18 @@ export class CalendarComponent implements OnInit {
       },
     },
   ];
+
+  constructor(private formBuilder: FormBuilder,
+              private userService: UserService,
+              private courseService: CourseService,
+              private authService: AuthserviceService,
+              private modal: NgbModal,
+              public dialog: MatDialog) {}
+
+  get f() {
+    return this.calendarformForm.controls;
+  }
+
 
 
   ngOnInit(): void {
@@ -154,23 +162,29 @@ export class CalendarComponent implements OnInit {
     this.getEvents();
   }
 
+  getToday(){
+    return new Date();
+  }
+
   getCoursesByUser() {
-    this.courseService.getCalendarById(this.logUser.id).
+    this.courseService.getAllCoursesByUser(this.logUser.id).
     subscribe(x => {
-      this.courses = x;
+      if (x.length > 0){
+        this.courses = x;
+      }
     });
   }
 
   getEvents(){
-    this.courseService.getCalendars().
+    this.courseService.getAllCoursesByUser(this.logUser.id).
     subscribe((x) => {
-      x?.items?.forEach(element => {
+      x.forEach(element => {
         this.events.push(
           {
-            start: startOfDay(new Date(element.start.dateTime)),
-            end: endOfDay(new Date(element.end.dateTime)),
-            title: element.summary,
-            color: colors.yellow,
+            start: new Date(element.startDate),
+            end: new Date(element.endDate),
+            title: element.title,
+            color: colors.blue,
             actions: this.actions,
             meta: element,
           },
@@ -279,5 +293,15 @@ export class CalendarComponent implements OnInit {
       return iEvent;
     });
     this.handleEvent('Dropped or resized', event);
+  }
+
+  changedFilter(event){
+    if (event.checked){
+      this.courses  = this.courses.filter(x => new Date(x.startDate).getDate() === new Date().getDate());
+    }
+    else
+    {
+      this.getCoursesByUser();
+    }
   }
 }
