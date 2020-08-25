@@ -49,8 +49,6 @@ export class LoginComponent implements OnInit {
       password: ['', Validators.required]
     });
 
-    this.isTutor = this.authService.userType === 'pink' ? false : true;
-
     // tslint:disable-next-line: no-string-literal
     this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
   }
@@ -77,16 +75,6 @@ export class LoginComponent implements OnInit {
           this.loading = false;
         }
       });
-  }
-
-  clickedBlue(){
-    this.isTutor = true;
-    this.authService.setLoginSubject('blue');
-  }
-
-  clickedPink(){
-    this.isTutor = false;
-    this.authService.setLoginSubject('pink');
   }
 
 }

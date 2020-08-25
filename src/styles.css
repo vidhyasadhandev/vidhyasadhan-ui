@@ -338,3 +338,7 @@ body { margin: 0 !important; font-family:'Montserrat, sans-serif' !important;}
   line-height: 10px;
   font-weight: 400;
 }
+
+.main-bg{
+  background-image: linear-gradient(to bottom, #fff5f0 13%, #fccfbc);
+}

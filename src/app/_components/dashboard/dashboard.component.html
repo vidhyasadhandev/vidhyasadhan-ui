@@ -25,11 +25,11 @@
       <div [ngSwitch]="istutor">
         <div *ngSwitchCase="true">
           <div class="card-deck">
-            <div class="card dash-card text-center clearfix" [ngClass]="{'opac-5': profile.address === null}" *ngFor="let item of tutorcards">
+            <div class="card dash-card text-center clearfix" [ngClass]="{'opac-blue': profile?.address?.addressId == 0}" *ngFor="let item of tutorcards">
               <div class="card-body">
                 <img class="img img-responsive" [src]="item.icon">
-                <h5 class="card-title title-text"><a  [routerLink]="profile.address === null ? '' : item.path">{{item.text}}</a></h5>
-                <p class="card-text title-subtext"><span>{{item.value}}</span>{{item.subtext}}</p>
+                <h5 class="card-title title-text"><a  [routerLink]="profile?.address?.addressId > 0 ? item.path : ''">{{item.text}}</a></h5>
+                <p class="card-text title-subtext" *ngIf="profile?.address?.addressId > 0"><span>{{item.value}}</span>{{item.subtext}}</p>
               </div>
               <div>
               </div>
@@ -38,11 +38,11 @@
         </div>
         <div *ngSwitchCase="false">
           <div class="card-deck">
-            <div class="card dash-card text-center clearfix"  [ngClass]="{'opac-5': profile.address === null}" *ngFor="let item of studentcards">
+            <div class="card dash-card text-center clearfix"  [ngClass]="{'opac-pink': profile?.address?.addressId == 0}" *ngFor="let item of studentcards">
               <div class="card-body">
                 <img class="img img-responsive" [src]="item.icon">
-                <h5 class="card-title text-dark title-text"><a [routerLink]="profile.address === null ? '' : item.path">{{item.text}}</a></h5>
-                <p class="card-text text-dark title-subtext"><span>{{item.value}}</span>{{item.subtext}}</p>
+                <h5 class="card-title text-dark title-text"><a  [routerLink]="profile?.address?.addressId > 0 ? item.path : ''">{{item.text}}</a></h5>
+                <p class="card-text text-dark title-subtext"  *ngIf="profile?.address?.addressId > 0"><span>{{item.value}}</span>{{item.subtext}}</p>
                 <!-- <div class="card-title title-text">{{item.text}}</div>
                                       <p class="card-text title-subtext"><span>{{item.value}}</span>{{item.subtext}}</p> -->
               </div>

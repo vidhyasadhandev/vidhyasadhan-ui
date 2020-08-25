@@ -44,7 +44,7 @@ const routes: Routes = [
   { path: 'classroom', component: ClassroomComponent},
   ] },
   { path: 'login', component: LoginComponent },
-  { path: 'register', component: RegisterComponent},
+  { path: 'register/:id', component: RegisterComponent},
   { path: 'authenticate', component: OtpComponent},
   { path: 'welcome', component: ActivatescreenComponent},
   { path: 'verifyemail/:userid/:token', component: ConfirmationComponent},
@@ -53,7 +53,7 @@ const routes: Routes = [
 
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes, { enableTracing: true })],
+  imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

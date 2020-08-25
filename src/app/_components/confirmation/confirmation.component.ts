@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { AuthserviceService } from 'src/app/_services/authservice.service';
 import { User } from 'src/app/_models/user';
 
@@ -11,7 +11,8 @@ import { User } from 'src/app/_models/user';
 export class ConfirmationComponent implements OnInit {
 
   constructor(private route: ActivatedRoute,
-              public authservice: AuthserviceService) { }
+              public authservice: AuthserviceService,
+              private router: Router) { }
 
   user: {
     userId: '',
@@ -33,7 +34,7 @@ export class ConfirmationComponent implements OnInit {
           userId: params.userid,
           token: params.token
         };
-        this.authservice.confirmEmail(this.user).subscribe(x => this.success = x);
+        this.authservice.confirmEmail(this.user).subscribe(x =>  this.router.navigate(['/login']));
       });
   }
 

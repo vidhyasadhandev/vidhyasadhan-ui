@@ -37,7 +37,7 @@
   </div>
 </div> -->
 
-<div class="home-main flex-column">
+<div class="home-main flex-column" [ngClass]="isTutor? '':'main-bg'">
   <mat-toolbar class="w-100 p-2 justify-content-center">
     <img src="assets/registration/vidhya-sandhhan.svg" class="vidhya-sadhan">
   </mat-toolbar>
@@ -51,14 +51,14 @@
                 <h2>Choose Account Type</h2>
                 <div class="d-flex flex-wrap justify-content-center">
                   <div class="icon-bg" [ngClass]="isTutor ? 'icon-bg-color-blue' : 'border-light'"
-                    (click)="clickedBlue()">
+                    (click)="isTutor = true">
                     <img class="img-thumbnail img-prop" src="assets/registration/login-1.svg">
                     <p>Tutor</p>
                     <mat-icon *ngIf="isTutor" class="icon-position icon-color-blue" color="primary">check_circle
                     </mat-icon>
                   </div>
                   <div class="icon-bg" [ngClass]="!isTutor ? 'icon-bg-color-pink' : 'border-light'"
-                    (click)="clickedPink()">
+                    (click)="isTutor = false">
                     <img class="img-thumbnail img-prop" src="assets/registration/login-2.svg">
                     <p>Student</p>
                     <mat-icon *ngIf="!isTutor" class="icon-position icon-color-pink" color="secondary">check_circle
@@ -98,7 +98,7 @@
                   </mat-form-field>
                 </div>
                 <div class="d-flex d-flex-wrap">
-                  <span class="p-2 mr-auto">No account? <a [routerLink]="'/register'">Register</a></span>
+                  <span class="p-2 mr-auto">No account? <a [routerLink]="['/register', isTutor? 'tutor': 'student']">Register</a></span>
                   <button mat-flat-button class="mat-button-base" color="accent" [disabled]="loading">
                     <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
                     Login

@@ -20,6 +20,7 @@ export class RegisterComponent implements OnInit {
   submitted = false;
   isAlert = '';
   error = '';
+  isTutor = true;
 
   tiles: Tile[] = [
     {text: 'One', cols: 2, rows: 1, color: 'lightblue'},
@@ -31,11 +32,14 @@ export class RegisterComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router,
     private userService: UserService,
-    private authService: AuthserviceService
+    public authService: AuthserviceService
   ) {
   }
 
   ngOnInit(): void {
+    const dat = this.route.url.subscribe(
+      x => {this.isTutor = x[1].path === 'tutor'; }
+    );
     this.registerForm = this.formBuilder.group({
       firstName: ['', Validators.required],
       lastName: ['', Validators.required],

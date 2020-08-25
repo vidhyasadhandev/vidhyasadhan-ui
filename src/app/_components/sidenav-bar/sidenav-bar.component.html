@@ -1,5 +1,5 @@
 <mat-sidenav-container class="example-container mat-typography"  autosize>
-  <mat-sidenav #sidenav class="main-container" mode="side" [ngClass]="{'mat-side-pink' : loginType === 'pink'}">
+  <mat-sidenav #sidenav class="main-container" mode="side" [ngClass]="{'mat-side-pink' : authService.userValue?.role === 0}">
     <!-- <img class="img img-responsive sidenav-img" src="assets/sidenav-1.png" 
         srcset="assets/sidenav-2.png 2x, disableClose="true"
         assets/sidenav-3.png 3x" > -->
@@ -94,7 +94,7 @@
     </mat-nav-list>
   </mat-sidenav>
 
-  <mat-sidenav-content class="example-sidenav-content" [ngClass]="loginType === 'pink' ? 'sidenav-bg-pink':'sidenav-bg-blue'">
+  <mat-sidenav-content class="example-sidenav-content" [ngClass]="authService.userValue?.role === 0 ? 'sidenav-bg-pink':'sidenav-bg-blue'">
     <div>
       <img class="oval-copy-left-1" src="assets/registration/oval-copy-2.svg">
       <img class="oval-copy-left-2" src="assets/registration/oval-copy-3.svg">
