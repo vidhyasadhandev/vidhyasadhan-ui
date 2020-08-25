@@ -2,7 +2,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, APP_INITIALIZER } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './_components/home/home.component';
@@ -49,6 +48,8 @@ import { DemomodelComponent } from './_components/demomodel/demomodel.component'
 import { TutorfilterPipe } from './tutorfilter.pipe';
 import { DemodetailComponent } from './_components/demodetail/demodetail.component';
 import { ProfilemodelComponent } from './_components/profilemodel/profilemodel.component';
+import { TutorReferralsComponent } from './_components/tutor-referrals/tutor-referrals.component';
+import { TutorReferralsDetailsComponent } from './_components/tutor-referrals/tutor-referrals-details/tutor-referrals-details.component';
 
 @NgModule({
   declarations: [
@@ -79,11 +80,13 @@ import { ProfilemodelComponent } from './_components/profilemodel/profilemodel.c
     DemomodelComponent,
     TutorfilterPipe,
     DemodetailComponent,
-    ProfilemodelComponent
-  ],
+    ProfilemodelComponent,
+    TutorReferralsComponent,
+    TutorReferralsDetailsComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    NgbModalModule,
     ReactiveFormsModule,
     FormsModule,
     HttpClientModule,
@@ -94,7 +97,6 @@ import { ProfilemodelComponent } from './_components/profilemodel/profilemodel.c
     DlDateTimePickerModule,
     GoogleChartsModule,
     NgxMatFileInputModule,
-    NgbModalModule,
     GoogleMapsModule,
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
     CalendarModule.forRoot({ provide: DateAdapter, useFactory: adapterFactory }),

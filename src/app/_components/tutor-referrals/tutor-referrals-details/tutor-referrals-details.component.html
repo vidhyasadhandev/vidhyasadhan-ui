@@ -1,0 +1,28 @@
+<div class="modal-header modal-header-custom">
+  <h4 class="modal-title referral-details">Referral Details</h4>
+  <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body">
+  <div class="row">
+      <div class="col-4">
+        <form>
+          <div class="form-row align-items-center">
+            <div class="col-auto">
+              <label class="sr-only" for="inlineFormInput">Name</label>
+              <input type="text" class="form-control mb-2" id="inlineFormInput" placeholder="Search ">
+            </div> 
+          </div>
+        </form>
+      </div>
+      <div class="col-4 text-center">
+      
+          <button type="submit" class="btn btn-primary withdraw-button mb-2">Submit</button>
+          <button type="submit" class="btn btn-primary ml-2">Submit</button>
+      </div>
+  </div>
+</div>
+<div class="modal-footer">
+  <button type="button" class="btn btn-outline-dark" (click)="activeModal.close('Close click')">Close</button>
+</div>

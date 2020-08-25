@@ -20,7 +20,7 @@ import { OtpComponent } from './_components/otp/otp.component';
 import { ActivatescreenComponent } from './_components/activatescreen/activatescreen.component';
 import { TutorsComponent } from './_components/tutors/tutors.component';
 import { DemodetailComponent } from './_components/demodetail/demodetail.component';
-
+import { TutorReferralsComponent } from './_components/tutor-referrals/tutor-referrals.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent,  canActivate: [AuthGuard] }, // canActivate: [AuthGuard]
@@ -42,7 +42,7 @@ const routes: Routes = [
   { path: 'demos/create', component: DemoComponent, canActivate: [AuthGuard]},
   { path: 'demodetail/:id', component: DemodetailComponent, canActivate: [AuthGuard]},
   { path: 'classroom', component: ClassroomComponent, canActivate: [AuthGuard]},
-
+  { path: 'tutor-referrals', component: TutorReferralsComponent},
   { path: '**', redirectTo: '' }
 ];
 

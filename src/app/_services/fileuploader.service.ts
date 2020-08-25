@@ -1,5 +1,5 @@
 import { Injectable, Input } from '@angular/core';
-import { BlobServiceClient, AnonymousCredential, newPipeline} from '@azure/storage-blob';
+// import { BlobServiceClient, AnonymousCredential, newPipeline} from '@azure/storage-blob';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 

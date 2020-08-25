@@ -1,0 +1,26 @@
+.referral-details {
+    width: 127px;
+    height: 24px;
+    font-family: Montserrat;
+    font-size: 16px;
+    font-weight: 600;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.5;
+    letter-spacing: normal;
+    color: #20253a;
+  }
+
+  .modal-header-custom
+  {
+    border-radius: 5px;
+    background-color: #cae2ff;
+  }
+  .withdraw-button
+  {
+    border-radius: 24px;
+    border: solid 1px #1d4082;
+    background-color: #ffffff;
+    box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.08);
+    background-color: #ffffff;
+  }
