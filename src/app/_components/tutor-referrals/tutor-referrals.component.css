@@ -1,0 +1,228 @@
+.my-credit {
+    width: 187px;
+    height: 127px;
+    border-radius: 0px 0px 20px 20px;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.57);
+    background-color: #fda320;
+    margin-top: -20px;
+  }
+
+  .text-500
+  {
+    width: 82px;
+    height: 24px;
+    font-family: Montserrat;
+    font-size: 28px;
+    font-weight: 800;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 0.86;
+    letter-spacing: normal;
+    text-align: center;
+    color: #ffffff;
+  }
+
+  .card-header-styles
+  {
+        box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.02);
+        background-color: #a4caf8;
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
+  }
+  .my-refferal{
+    width: 135px;
+    height: 24px;
+    font-family: Montserrat;
+    font-size: 21px;
+    font-weight: 600;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.14;
+    letter-spacing: normal;
+    color: #20253a;
+  }
+  
+  .sub-card
+  {
+    border-radius: 5px;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.02);
+    background-color: #e2ecf8;
+  }
+
+  .refer-friends-earn {
+    width: 343px;
+    height: 24px;
+    font-family: Montserrat;
+    font-size: 24px;
+    font-weight: 500;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1;
+    letter-spacing: normal;
+    color: #20253a;
+  }
+
+  .introduce-a-friend-t {
+    width: 549px;
+    height: 24px;
+    font-family: Montserrat;
+    font-size: 14px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.71;
+    letter-spacing: normal;
+    color: #20253a;
+  }
+  
+  .sub-card-2{
+      background-color:  white;
+  }
+
+  .share-my-referral-li {
+    font-family: Roboto;
+    font-size: 14px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.71;
+    letter-spacing: normal;
+    color: #20253a;
+  }
+
+  .text-box-styles
+  {
+        border-radius: 3px;
+        border: solid 1px #b4b4b4;
+        background-color: #ffffff;
+  }
+  .copyLink{
+    border-radius: 3px;
+    background-color: #1d4082;
+    font-family: Roboto;
+    font-size: 14px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.43;
+    letter-spacing: normal;
+    color: #ffffff;
+  }
+
+  .button-styles
+  {
+    width: 105px;
+    height: 28px;
+    border-radius: 23px;
+    border: solid 1px #1d4082;
+    background-color: #ffffff;
+  }
+
+  .refferal-number
+  {
+    width: 35px;
+    height: 35px;
+    font-family: Roboto;
+    font-size: 30px;
+    font-weight: 300;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: 0.75px;
+    text-align: center;
+    color: #787993;
+  }
+
+  .refferal-card
+  {
+    border-radius: 5px;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.16);
+    border: solid 1px #e7e7e7;
+    background-color: #ffffff;
+  }
+
+  .referal-signups {
+    width: 104px;
+    height: 16px;
+    font-family: Roboto;
+    font-size: 14px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: 0.3px;
+    text-align: center;
+    color: #25265e;
+  }
+
+  .vertical { 
+    border-left: 1px solid #bdbcbc;
+    height: 130px;
+    position: absolute;
+    right: -10px;
+} 
+
+.view-details {
+    font-family: Roboto;
+    font-size: 12px;
+    font-weight: 500;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: 1px;
+    text-align: center;
+    color: #1d4082;
+    border-radius: 23px;
+    border: solid 1px #1d4082;
+    background-color: #ffffff
+  }
+
+  .referral-imag-top
+  {
+    margin-top: -5%;
+  }
+  .transfer-to-earnings {
+    font-family: Roboto;
+    font-size: 12px;
+    font-weight: 500;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.67;
+    letter-spacing: normal;
+    text-align: center;
+    color: #404040;
+    border-radius: 4px;
+    border: solid 1px #dbbb2a;
+    background-color: #fff5cf
+  }
+
+  .width-65{
+    width: 65%;
+  }
+
+  .btn-facebook {
+    background: #3B5998;
+    border-radius: 0;
+    color: #fff;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #263961; 
+  }
+  .btn-facebook:link, .btn-facebook:visited {
+    color: #fff;
+  }
+  .btn-facebook:active, .btn-facebook:hover {
+    background: #263961;
+    color: #fff;
+  }
+
+  .please-note-that-som {
+    font-family: Roboto;
+    font-size: 10px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.5;
+    letter-spacing: normal;
+    color: #20253a;
+  }

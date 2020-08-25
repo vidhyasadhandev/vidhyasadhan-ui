@@ -2,7 +2,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, APP_INITIALIZER } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './_components/home/home.component';
@@ -49,6 +48,8 @@ import { DemomodelComponent } from './_components/demomodel/demomodel.component'
 import { TutorfilterPipe } from './tutorfilter.pipe';
 import { DemodetailComponent } from './_components/demodetail/demodetail.component';
 import { ProfilemodelComponent } from './_components/profilemodel/profilemodel.component';
+import { TutorReferralsComponent } from './_components/tutor-referrals/tutor-referrals.component';
+import { TutorReferralsDetailsComponent } from './_components/tutor-referrals/tutor-referrals-details/tutor-referrals-details.component';
 import { DragndirDirective } from './directives/dragndir.directive';
 import { AssignmentdetailComponent } from './_components/assignmentdetail/assignmentdetail.component';
 import { AssignmentlistComponent } from './_components/assignmentlist/assignmentlist.component';
@@ -96,6 +97,8 @@ import { MainlayoutComponent } from './_layouts/mainlayout/mainlayout.component'
     TutorfilterPipe,
     DemodetailComponent,
     ProfilemodelComponent,
+    TutorReferralsComponent,
+    TutorReferralsDetailsComponent,
     DragndirDirective,
     AssignmentdetailComponent,
     AssignmentlistComponent,
@@ -110,6 +113,7 @@ import { MainlayoutComponent } from './_layouts/mainlayout/mainlayout.component'
   imports: [
     BrowserModule,
     AppRoutingModule,
+    NgbModalModule,
     ReactiveFormsModule,
     FormsModule,
     HttpClientModule,
@@ -120,7 +124,6 @@ import { MainlayoutComponent } from './_layouts/mainlayout/mainlayout.component'
     DlDateTimePickerModule,
     GoogleChartsModule,
     NgxMatFileInputModule,
-    NgbModalModule,
     GoogleMapsModule,
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
     CalendarModule.forRoot({ provide: DateAdapter, useFactory: adapterFactory }),

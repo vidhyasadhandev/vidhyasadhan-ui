@@ -20,9 +20,9 @@ import { OtpComponent } from './_components/otp/otp.component';
 import { ActivatescreenComponent } from './_components/activatescreen/activatescreen.component';
 import { TutorsComponent } from './_components/tutors/tutors.component';
 import { DemodetailComponent } from './_components/demodetail/demodetail.component';
+import { TutorReferralsComponent } from './_components/tutor-referrals/tutor-referrals.component';
 import { EarningsComponent } from './_components/earnings/earnings.component';
 import { MainlayoutComponent } from './_layouts/mainlayout/mainlayout.component';
-
 
 const routes: Routes = [
   { path: '', component: MainlayoutComponent, canActivate: [AuthGuard],
@@ -48,6 +48,7 @@ const routes: Routes = [
   { path: 'authenticate', component: OtpComponent},
   { path: 'welcome', component: ActivatescreenComponent},
   { path: 'verifyemail/:userid/:token', component: ConfirmationComponent},
+  { path: 'tutor-referrals', component: TutorReferralsComponent},
   { path: '**', redirectTo: '' }
 ];
 
