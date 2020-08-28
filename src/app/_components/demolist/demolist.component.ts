@@ -44,11 +44,11 @@ export class DemolistComponent implements OnInit {
 
   ngOnInit(): void {
     this.selectedAction = this.actionIcons[0];
-    this.demoService.getAllDemosByUser(this.authService.userValue.id)
-    .subscribe(x => this.demos = x, (error) => console.log(error));
+    // this.demoService.getAllDemosByUser(this.authService.userValue.id)
+    // .subscribe(x => this.demos = x, (error) => console.log(error));
 
     this.demoService.getDemoRequests({tutorId: this.authService.userValue.id}).subscribe(
-      x => { this.demoRequests = x.filter(y => y.slot === this.demoId && y.status !== 1);
+      x => { this.demoRequests = x;
              this.loadDemo = true;
       }, (error) => console.log(error)
     );
@@ -63,11 +63,10 @@ export class DemolistComponent implements OnInit {
 
   changeSelected(e, action, enrollment){
     const enrol: Enrollment = {
-    courseID: this.demoId,
+    courseID: enrollment.course.courseId,
     studentID: enrollment.student.id,
     };
     this.updateEnrollment(enrol, action.id);
-    console.log(enrol);
   }
 
   updateEnrollment(enrollment: Enrollment, status){

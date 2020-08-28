@@ -7,6 +7,8 @@ export interface Demo{
     courseDescription: string;
     startDate: Date;
     endDate: Date;
+    startTime: string;
+    endTime: string;
     credits: number;
     departmentID: number;
     courseAssignments: CourseAssignment[];
@@ -17,6 +19,8 @@ export interface Demo{
     langitude: string;
     latitude: string;
     isDemo: boolean;
+    grade?: string;
+    subject?: string;
 }
 
 export interface CourseAssignment{

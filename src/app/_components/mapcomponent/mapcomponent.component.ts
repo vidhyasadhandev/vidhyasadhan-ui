@@ -16,7 +16,7 @@ export class MapcomponentComponent implements OnInit {
   lng = 78.46667;
 
   @Input()
-  markersdata: Demo[];
+  markersdata: any;
 
   constructor() { }
 
@@ -36,7 +36,9 @@ export class MapcomponentComponent implements OnInit {
     this.map.addControl(new mapboxgl.NavigationControl());
 
     this.markersdata.forEach(x => {
-      const marker = new mapboxgl.Marker().setLngLat([Number(x.langitude), Number(x.latitude)]).addTo(this.map);
+      if (x.course?.langitude?.length > 0 && x.course?.latitude?.length > 0 ){
+        const marker = new mapboxgl.Marker().setLngLat([Number(x.course?.langitude), Number(x.course?.latitude)]).addTo(this.map);
+      }
     });
   }
 

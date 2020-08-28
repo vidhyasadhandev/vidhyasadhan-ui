@@ -1,16 +1,48 @@
-<div class="container-fluid">
-  <mat-card class="m-2">
-    <mat-card-header>
-      <mat-card-title>{{demo?.title}}</mat-card-title>
-      <mat-card-subtitle>{{demo?.locationName}}</mat-card-subtitle>
-      <mat-card-subtitle><a [href]="demo?.calendarEvent?.videoLink">{{demo?.calendarEvent?.videoLink}}</a>
-      </mat-card-subtitle>
-      <span class="ml-auto">
-        <mat-card-title>{{demo?.startDate | date: 'medium'}} - {{demo?.endDate | date: 'medium'}}</mat-card-title>
-      </span>
-    </mat-card-header>
-    <mat-card-content>
-      <mat-accordion>
+<div class="card">
+  <div class="card-header">
+    <div class="demo-header"> 
+      <div class="d-flex">
+        <a (click)="returnToList()"><mat-icon>west</mat-icon></a>
+        <div>
+          <div class="header-title">{{demo?.title}}</div>
+          <div class="header-subtitle">{{demo?.locationName}}</div>
+          <div class="header-subtitle"><a [href]="demo?.calendarEvent?.videoLink">{{demo?.calendarEvent?.videoLink}}</a>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="d-flex flex-column text-center">
+          <p class="header-title">{{demo?.startDate | date}} - {{demo?.endDate | date}}</p>
+          <p class="header-subtitle">{{demo?.startTime}} - {{demo?.endTime}}</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <div class="card-body">
+    <!-- <div class="card-title">
+        Enrolled Students
+      </div> -->
+    <table mat-table #table [dataSource]="enrollments">
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef> Name </th>
+        <td mat-cell *matCellDef="let row">
+          <img class="img-responsive" src="assets/demo/avatar.png">
+          {{row.name}}
+        </td>
+      </ng-container>
+      <ng-container matColumnDef="email">
+        <th mat-header-cell *matHeaderCellDef> Email </th>
+        <td mat-cell *matCellDef="let row"> {{row.email}} </td>
+      </ng-container>
+      <ng-container matColumnDef="phone">
+        <th mat-header-cell *matHeaderCellDef> Phone </th>
+        <td mat-cell *matCellDef="let row"> {{row.phone}} </td>
+      </ng-container>
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+    <!-- <mat-accordion>
         <mat-expansion-panel>
           <mat-expansion-panel-header>
             New Requests
@@ -21,27 +53,8 @@
           <mat-expansion-panel-header>
             Enrolled Students
           </mat-expansion-panel-header>
-          <table mat-table #table [dataSource]="enrollments">
-            <ng-container matColumnDef="name">
-              <th mat-header-cell *matHeaderCellDef> Name </th>
-              <td mat-cell *matCellDef="let row">
-                <img class="img-responsive" src="assets/demo/avatar.png">
-                {{row.name}}
-              </td>
-            </ng-container>
-            <ng-container matColumnDef="email">
-              <th mat-header-cell *matHeaderCellDef> Email </th>
-              <td mat-cell *matCellDef="let row"> {{row.email}} </td>
-            </ng-container>
-            <ng-container matColumnDef="phone">
-              <th mat-header-cell *matHeaderCellDef> Phone </th>
-              <td mat-cell *matCellDef="let row"> {{row.phone}} </td>
-            </ng-container>
-            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-          </table>
+
         </mat-expansion-panel>
-      </mat-accordion>
-    </mat-card-content>
-  </mat-card>
+      </mat-accordion> -->
+  </div>
 </div>

@@ -1,0 +1,48 @@
+.Start-your-journey-b{
+    font-family: Montserrat;
+    font-weight: 300;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.49;
+    letter-spacing: normal;
+    color: #5f5f5f;
+}
+
+.event-img{
+    width: 80%;
+    text-align: center;
+    margin: auto;
+    padding: 10px;
+    overflow: hidden;
+}
+
+
+.circle-add{
+    box-shadow: 0 11px 21px 0 rgba(106, 166, 255, 0.7);
+    background-image: linear-gradient(to top, #82b5f5, #1d4082);
+}
+
+.my-event{
+    font-family: Montserrat;
+    font-weight: 600;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.14;
+    letter-spacing: normal;
+    color: #20253a;
+}
+
+h2{
+    font-family: Montserrat;
+    font-weight: 600;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.14;
+    letter-spacing: normal;
+    color: #20253a;
+}
+
+.bg-primary{
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.02);
+    background-color: #a4caf8 !important;
+}

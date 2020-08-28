@@ -23,6 +23,7 @@ import { DemodetailComponent } from './_components/demodetail/demodetail.compone
 import { TutorReferralsComponent } from './_components/tutor-referrals/tutor-referrals.component';
 import { EarningsComponent } from './_components/earnings/earnings.component';
 import { MainlayoutComponent } from './_layouts/mainlayout/mainlayout.component';
+import { EventsComponent } from './_components/events/events.component';
 
 const routes: Routes = [
   { path: '', component: MainlayoutComponent, canActivate: [AuthGuard],
@@ -39,6 +40,8 @@ const routes: Routes = [
   { path: 'dashboard', component: DashboardComponent},
   { path: 'admin', component: AdminDashboardComponent},
   { path: 'demos', component: DemoComponent},
+  { path: 'events', component: EventsComponent},
+  { path: 'requests', component: DemolistComponent},
   { path: 'demos/create', component: DemoComponent},
   { path: 'demodetail/:id', component: DemodetailComponent},
   { path: 'classroom', component: ClassroomComponent},

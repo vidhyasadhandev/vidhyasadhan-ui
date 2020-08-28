@@ -1,0 +1,174 @@
+<form [formGroup]="demoForm" class="demoform rounded" (submit)="onSubmit()">
+  <div class="card">
+    <div class="card-header bg-primary">
+        <div class="d-flex">
+            <a (click)="gotoList()">
+                <mat-icon>west</mat-icon>
+              </a>
+              <h2 class="my-event">
+                Schedule an Event
+              </h2>
+        </div>
+    </div>
+    <div class="card-body">
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <mat-form-field appearance="outline">
+            <mat-label for="title">Title</mat-label>
+            <input matInput type="text" formControlName="title" id="title" placeholder="Demo Title"
+              [ngClass]="{ 'is-invalid': submitted && demoFormControls.title.errors }">
+            <div *ngIf="submitted && demoFormControls.title.errors" class="invalid-feedback">
+              <div *ngIf="demoFormControls.title.errors.required">Title is required</div>
+            </div>
+          </mat-form-field>
+        </div>
+        <div class="form-group col-md-6">
+          <mat-form-field appearance="outline">
+            <mat-label for="subject">Subject</mat-label>
+            <input matInput type="text" formControlName="subject" id="subject" placeholder="Course/Subject"
+              [ngClass]="{ 'is-invalid': submitted && demoFormControls.subject.errors }">
+            <div *ngIf="submitted && demoFormControls.title.errors" class="invalid-feedback">
+              <div *ngIf="demoFormControls.title.errors.required">Subject is required</div>
+            </div>
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          Schedule
+          <mat-form-field class="w-25 ml-1" appearance="outline">
+            <mat-label for="startDate">From</mat-label>
+            <input formControlName="startDate" matInput id="startDate" [matDatepicker]="picker">
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+          </mat-form-field>
+          <mat-form-field class="w-25 ml-1" appearance="outline">
+            <mat-label for="endDate">To</mat-label>
+            <input formControlName="endDate" matInput id="endDate" [matDatepicker]="picker1">
+            <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+            <mat-datepicker #picker1></mat-datepicker>
+          </mat-form-field>
+        </div>
+        <div class="form-group col-md-6">
+          <mat-form-field class="w-50 pl-1" appearance="outline">
+            <mat-label for="startTime">Start Time</mat-label>
+            <mat-select formControlName="startTime" id="startTime"
+              [ngClass]="{ 'is-invalid': submitted && demoFormControls.startTime.errors }">
+              <mat-option *ngFor="let timestamp of timestamps" [value]="timestamp">
+                {{timestamp}}
+              </mat-option>
+            </mat-select>
+            <div *ngIf="submitted && demoFormControls.startTime.errors" class="invalid-feedback">
+              <div *ngIf="demoFormControls.startTime.errors.required">Start Time is required</div>
+            </div>
+          </mat-form-field>
+          <mat-form-field class="w-50 pl-1" appearance="outline">
+            <mat-label for="endTime">End Time</mat-label>
+            <mat-select formControlName="endTime" id="endTime"
+              [ngClass]="{ 'is-invalid': submitted && demoFormControls.endTime.errors }">
+              <mat-option *ngFor="let timestamp of timestamps" [value]="timestamp">
+                {{timestamp}}
+              </mat-option>
+            </mat-select>
+            <div *ngIf="submitted && demoFormControls.endTime.errors" class="invalid-feedback">
+              <div *ngIf="demoFormControls.endTime.errors.required">End Time is required</div>
+            </div>
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="card event-bg">
+        <div class="card-header">
+          Event Details
+        </div>
+        <div class="card-body">
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <mat-form-field appearance="outline">
+                <mat-label for="location">Where</mat-label>
+                <input matInput type="text" formControlName="location" id="location" [matAutocomplete]="loc"
+                  placeholder="Where" [ngClass]="{ 'is-invalid': submitted && demoFormControls.location.errors }">
+                <mat-autocomplete #loc="matAutocomplete" [displayWith]="displayLoc">
+                  <mat-option *ngFor="let location of locations" [value]="location">
+                    {{location.locationName}}
+                  </mat-option>
+                </mat-autocomplete>
+                <div *ngIf="submitted && demoFormControls.location.errors" class="invalid-feedback">
+                  <div *ngIf="demoFormControls.location.errors.required">Location is required</div>
+                </div>
+              </mat-form-field>
+            </div>
+            <div class="form-group col-md-6">
+              <mat-form-field appearance="outline">
+                <mat-label for="video">Online?</mat-label>
+                <mat-select formControlName="video" id="video"
+                  [ngClass]="{ 'is-invalid': submitted && demoFormControls.video.errors }">
+                  <mat-option selected="selected" value="Yes">Yes</mat-option>
+                  <mat-option value="No">No</mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group col-md-6">
+                <mat-form-field appearance="outline">
+                <mat-label for="grade">Level/Grade</mat-label>
+                <input type="text" formControlName="grade" matInput id="grade" placeholder="Grade">
+                </mat-form-field>
+                </div>
+            <div class="form-group col-md-6">
+              <mat-label class="d-flex">Event Type</mat-label>
+              <mat-radio-group formControlName="eventType">
+                <mat-radio-button value="Demo">Demo</mat-radio-button>
+                <mat-radio-button value="Tution">Tution</mat-radio-button>
+              </mat-radio-group>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group col-12">
+              <mat-form-field appearance="outline">
+                <mat-label for="courseDescription">Description</mat-label>
+                <textarea matInput formControlName="courseDescription" id="courseDescription"
+                  placeholder="Description"></textarea>
+              </mat-form-field>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              Notifications:
+              <mat-select class="w-20" formControlName="notificationtype" id="notificationtype">
+                <mat-option selected="selected" value="None">None</mat-option>
+                <mat-option value="Email">Email</mat-option>
+                <mat-option value="Phone">Phone</mat-option>
+              </mat-select>
+              <mat-select class="w-20" formControlName="remaindertime" id="remaindertime">
+                <mat-option selected="selected" value="0">0</mat-option>
+                <mat-option value="0.5">0.5</mat-option>
+                <mat-option value="1">1</mat-option>
+                <mat-option value="5">5</mat-option>
+                <mat-option value="10">10</mat-option>
+                <mat-option value="15">15</mat-option>
+                <mat-option value="20">20</mat-option>
+              </mat-select>
+              <mat-select class="w-20" formControlName="timer" id="timer">
+                <mat-option selected="selected" value="None">None</mat-option>
+                <mat-option value="Minutes">Minutes</mat-option>
+                <mat-option value="Hours">Hours</mat-option>
+                <mat-option value="Days">Days</mat-option>
+              </mat-select>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card-footer bg-light">
+      <mat-card-actions class="footer-buttons clearfix">
+        <button mat-raised-button (click)="resetForm()" color="secondary" class="m-2">Reset</button>
+        <div class="float-right">
+          <button mat-raised-button color="secondary" class="m-2">Cancel</button>
+          <button mat-raised-button type="submit" color="accent" class="m-2">Send Invite</button>
+        </div>
+      </mat-card-actions>
+    </div>
+  </div>
+</form>

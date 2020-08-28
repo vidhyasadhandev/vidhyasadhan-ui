@@ -1,0 +1,36 @@
+<ng-container *ngIf="!create">
+  <div class="card m-4">
+    <ng-container [ngSwitch]="events?.length > 0">
+      <ng-container *ngSwitchCase="true">
+        <app-eventslist [demos]="demos" [tutions]="tutions" (returnEvent)="returnClicked($event)"></app-eventslist>
+      </ng-container>
+      <ng-container *ngSwitchCase="false">
+        <div class="card-header bg-primary">
+          <h2 class="my-event">My Events</h2>
+        </div>
+        <div class="card-body">
+          <h1 class="card-title">
+            <p class="Start-your-journey-b">
+              You haven't scheduled any Events yet, 
+            </p>
+            <p class="Start-your-journey-b">
+              Click <span style="font-weight: bold;">'+'</span> icon to create a Demo / Tuition event 
+            </p>
+
+          </h1>
+        </div>
+        <div class="event-img">
+          <img class="img img-responsive" src="assets/event.svg">
+        </div>
+        <a class="ml-auto m-4 circle-add" mat-mini-fab (click)="create = true">
+          <mat-icon>add</mat-icon>
+        </a>
+      </ng-container>
+
+    </ng-container>
+  </div>
+</ng-container>
+
+<ng-container *ngIf="create">
+  <app-eventdetail (returnEvent)="returnClicked($event)"></app-eventdetail>
+</ng-container>

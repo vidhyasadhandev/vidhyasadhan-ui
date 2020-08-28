@@ -17,6 +17,7 @@ export class OtpComponent implements OnInit {
   returnUrl;
   useremail;
   error;
+  tokenMessage;
   otpcode = [
     {value: null},
     {value: null},
@@ -60,6 +61,16 @@ export class OtpComponent implements OnInit {
         this.error = 'Invalid token code';
       }
     );
+  }
+
+  resendcode(){
+    this.authService.resendotp(this.authService.userValue.email).subscribe(x => {
+      if (x){
+          this.tokenMessage = 'Resent Code Succesfully';
+      }
+    }, (error) => {
+      this.error = error;
+    });
   }
 
 }

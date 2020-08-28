@@ -1,6 +1,9 @@
 import {
   Component,
-  OnInit
+  OnInit,
+  Input,
+  Output,
+  EventEmitter
 } from '@angular/core';
 import {
   ActivatedRoute
@@ -19,33 +22,35 @@ export class DemodetailComponent implements OnInit {
 
   constructor(private route: ActivatedRoute,
               private demoService: DemoService) {}
-  courseId;
+
+  @Input()
+  course;
+
+  @Output() listView = new EventEmitter<boolean>();
+
   demo;
   enrollments: MatTableDataSource<any>;
   displayedColumns: string[] = ['name', 'email', 'phone'];
 
 
   ngOnInit(): void {
-    this.route.params.subscribe(params => {
-      this.courseId = params['id'];
-      if (this.courseId !== null && this.courseId !== undefined) {
-        this.demoService.getDemoById(this.courseId).subscribe(x => {
-          this.demo = x;
-          const enrollmentarray = [];
-          this.demo.enrollments?.forEach(e => {
-            enrollmentarray.push({
-              name : e.student.firstName + ' ' + e.student.lastName,
-              email: e.student.email,
-              phone: e.student.phoneNumber
-            });
-          });
-          this.enrollments = new MatTableDataSource(enrollmentarray);
+    console.log(this.course);
+    this.demoService.getDemoById(this.course.courseId).subscribe(x => {
+      this.demo = x;
+      const enrollmentarray = [];
+      this.demo?.enrollments?.forEach(e => {
+        enrollmentarray.push({
+          name : e.student.firstName + ' ' + e.student.lastName,
+          email: e.student.email,
+          phone: e.student.phoneNumber
         });
-      }
+      });
+      this.enrollments = new MatTableDataSource(enrollmentarray);
     });
+  }
 
-
-
+  returnToList(){
+    this.listView.emit(true);
   }
 
 }

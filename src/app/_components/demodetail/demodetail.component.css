@@ -1,3 +1,34 @@
 table{
     width: 100%;
 }
+
+.demo-header{
+    display: flex;
+    justify-content: space-between;
+}
+
+.card-header{
+    background-color: #a4caf8;
+}
+
+.header-title{
+    font-family: Montserrat;
+    font-size: 16px;
+    font-weight: 500;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.5;
+    letter-spacing: normal;
+    color: #20253a;
+}
+
+.header-subtitle{
+  font-family: Roboto;
+  font-size: 14px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.71;
+  letter-spacing: normal;
+  color: #20253a;
+}

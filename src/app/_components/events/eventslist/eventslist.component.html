@@ -1,0 +1,151 @@
+<ng-container *ngIf="!selectedDemo">
+  <mat-tab-group mat-align-tabs="center" [backgroundColor]="'primary'">
+    <mat-tab label="Demos">
+      <div class="card">
+        <div class="card-header">
+          <div class="demo-container">
+            <div>
+              <p>Demo Events</p>
+              <p>Total: {{demos.length}}</p>
+            </div>
+            <div>
+              <a (click)="nextClick('left')">
+                <mat-icon>chevron_left</mat-icon>
+              </a>
+              <span>{{month | date: 'MMMM , yyyy'}}</span>
+              <a (click)="nextClick('right')">
+                <mat-icon>chevron_right</mat-icon>
+              </a>
+            </div>
+            <div>
+              <mat-form-field appearance="outline">
+                <input matInput [(ngModel)]="filter1" placeholder="Search">
+                <mat-icon matSuffix>search</mat-icon>
+              </mat-form-field>
+            </div>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="row m-2">
+            <div class="col-md-6"
+              *ngFor="let demo of splitDemos | fieldsfilter: 'subject,title,topic,grade,dueDate': filter1">
+              <ng-container>
+                <div class="card m-1">
+                  <div class="card-header">
+                    <div class="d-flex">
+                      <div>
+                        <img class="icon-class" src="assets/icons/vidhya-sandhhan.svg">
+                        <span class="subject">{{demo.title}}</span>
+                      </div>
+                      <div class="ml-auto">
+                        <p class="card-sub-title subject">Class: {{demo.grade}}</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="card-body">
+                    <h3 class="card-title title">{{demo.subject}}</h3>
+                    <p class="card-sub-title subtitle">{{demo.description}}</p>
+                    <p class="card-sub-title subtitle">Demo Date: {{demo.startDate | date}}</p>
+                    <p class="card-sub-title subtitle">Time: {{demo.startTime}} - {{demo.endTime}}</p>
+                    <div class="card-text perfomed">
+                      <div class="d-flex">
+                        <span class="list-inline">
+                          <span class="list-inline-item" *ngFor="let user of demo.enrollments">
+                            <img [src]="user.student?.profilePic" class="profimg">
+                          </span>
+                        </span>
+                        <span class="ml-auto">
+                          <span class="badge badge-pill badge-primary pill-font" (click)="selectedDemo = demo">View Details</span>
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </ng-container>
+            </div>
+          </div>
+        </div>
+        <a class="ml-auto m-4 circle-add" mat-mini-fab (click)="addEvent()">
+            <mat-icon>add</mat-icon>
+        </a>
+      </div>
+
+    </mat-tab>
+    <mat-tab label="Tutions">
+      <div class="card">
+        <div class="card-header">
+          <div class="demo-container">
+            <div>
+              <p>Tuition Events</p>
+              <p>Total: {{tutions.length}}</p>
+            </div>
+            <div>
+              <a (click)="nextClick('left')">
+                <mat-icon>chevron_left</mat-icon>
+              </a>
+              <span>{{month | date: 'MMMM , yyyy'}}</span>
+              <a (click)="nextClick('right')">
+                <mat-icon>chevron_right</mat-icon>
+              </a>
+            </div>
+            <div>
+              <mat-form-field appearance="outline">
+                <input matInput [(ngModel)]="filter2" placeholder="Search">
+                <mat-icon matSuffix>search</mat-icon>
+              </mat-form-field>
+            </div>
+          </div>
+
+
+        </div>
+        <div class="card-body">
+          <div class="row m-2">
+            <div class="col-md-6"
+              *ngFor="let tution of splitTutions | fieldsfilter: 'subject,title,topic,grade,startDate': filter2">
+              <ng-container>
+                <div class="card m-1">
+                  <div class="card-header">
+                    <div class="d-flex">
+                      <div>
+                        <img class="icon-class" src="assets/icons/vidhya-sandhhan.svg">
+                        <span class="subject">{{tution.title}}</span>
+                      </div>
+                      <div class="ml-auto">
+                        <p class="card-sub-title subject">Class: {{tution.grade}}</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="card-body">
+                    <h3 class="card-title title">{{tution.subject}}</h3>
+                    <p class="card-sub-title subtitle">{{tution.description}}</p>
+                    <p class="card-sub-title subtitle">Demo Date: {{tution.startDate | date}}</p>
+                    <p class="card-sub-title subtitle">Time: {{tution.startTime}} - {{tution.endTime}}</p>
+                    <div class="card-text perfomed">
+                      <div class="d-flex">
+                        <span class="list-inline">
+                          <span class="list-inline-item" *ngFor="let user of tution.enrollments">
+                            <img [src]="user.student?.profilePic" class="profimg">
+                          </span>
+                        </span>
+                        <span class="ml-auto">
+                          <span class="badge badge-pill badge-primary pill-font" (click)="selectedDemo = tution">View Details</span>
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </ng-container>
+            </div>
+          </div>
+        </div>
+        <a class="ml-auto m-4 circle-add" mat-mini-fab (click)="addEvent()">
+            <mat-icon>add</mat-icon>
+          </a>
+      </div>
+    </mat-tab>
+  </mat-tab-group>
+</ng-container>
+
+<ng-container *ngIf="selectedDemo">  
+    <app-demodetail [course]="selectedDemo" (listView)="accessreturnValue($event)"></app-demodetail>
+</ng-container>

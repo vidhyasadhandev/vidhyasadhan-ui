@@ -26,9 +26,16 @@
                      <button class="btn btn-primary m-4" mat-raised-button (click)="onSubmit()">Validate</button>
                      <div class="d-flex m-4">
                          <p class="wrong-num">Entered a wrong number?</p>
-                         <p class="resend ml-auto">Resend One-time Password</p>
+                         <p class="resend ml-auto"><a (click)="resendcode()">Resend One-time Password</a></p>
                      </div>
-
+                     <div class="alert alert-success alert-dismissible fade show" role="alert" *ngIf="tokenMessage">              
+                       <strong>{{tokenMessage}}</strong>
+                       <mat-icon (click)="tokenMessage = null">close</mat-icon> 
+                     </div>
+                     <div class="alert alert-warning alert-dismissible fade show" role="alert" *ngIf="error">              
+                        <strong>{{error}}</strong>
+                        <mat-icon (click)="error = null">close</mat-icon> 
+                      </div>
                     </mat-card-content>
                 </mat-card>              
             </div>

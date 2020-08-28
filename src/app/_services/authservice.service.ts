@@ -136,4 +136,10 @@ export class AuthserviceService implements OnDestroy {
     return this.http.get<any>(`${environment.apiUrl}/users/verifycode`, options);
   }
 
+  resendotp(emailId){
+    const options = emailId ?
+    { params: new HttpParams().set('email', emailId)} : {};
+    return this.http.get<any>(`${environment.apiUrl}/users/regeneratecode`, options);
+  }
+
 }

@@ -66,6 +66,9 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { MainlayoutComponent } from './_layouts/mainlayout/mainlayout.component';
+import { EventsComponent } from './_components/events/events.component';
+import { EventdetailComponent } from './_components/events/eventdetail/eventdetail.component';
+import { EventslistComponent } from './_components/events/eventslist/eventslist.component';
 
 @NgModule({
   declarations: [
@@ -108,7 +111,10 @@ import { MainlayoutComponent } from './_layouts/mainlayout/mainlayout.component'
     EarningsComponent,
     FooterComponent,
     VsnavigationComponent,
-    MainlayoutComponent
+    MainlayoutComponent,
+    EventsComponent,
+    EventdetailComponent,
+    EventslistComponent
   ],
   imports: [
     BrowserModule,

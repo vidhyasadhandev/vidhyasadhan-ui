@@ -53,16 +53,22 @@
           <h4 mat-line>My Classroom</h4>
         </a>
         <a  mat-list-item
-        (click)="sidenav.close()" [routerLink]="['/demos']"
+        (click)="sidenav.close()" [routerLink]="['/requests']"
         routerLinkActive="list-item-active">
           <mat-icon matListIcon > assignment </mat-icon>
-          <h4 mat-line>View Requests</h4>
+          <h4 mat-line>Student Requests</h4>
         </a>
         <a  mat-list-item
         (click)="sidenav.close()" [routerLink]="['/profile']"
         routerLinkActive="list-item-active">
           <mat-icon matListIcon > person_outline </mat-icon>
           <h4 mat-line>My Profile</h4>
+        </a>
+        <a  mat-list-item
+        (click)="sidenav.close()" [routerLink]="['/events']"
+        routerLinkActive="list-item-active">
+          <mat-icon matListIcon > event </mat-icon>
+          <h4 mat-line>My Events</h4>
         </a>
         <a  mat-list-item
         (click)="sidenav.close()" [routerLink]="['/earnings']"

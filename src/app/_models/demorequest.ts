@@ -1,3 +1,5 @@
+import { Demo } from './demo';
+
 export interface DemoRequest{
      requestId?: number;
      tutorId: string;
@@ -9,4 +11,5 @@ export interface DemoRequest{
      subject: string;
      message: string;
      status?: any;
+     course?: Demo;
 }
