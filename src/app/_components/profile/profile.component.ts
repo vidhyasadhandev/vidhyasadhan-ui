@@ -263,8 +263,6 @@ export class ProfileComponent implements OnInit {
         }
       };
 
-      console.log(userValues);
-
       if (this.authService.userValue.role === 0){
         userValues.instructor = null;
       }

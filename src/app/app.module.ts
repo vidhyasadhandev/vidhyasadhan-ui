@@ -69,6 +69,10 @@ import { MainlayoutComponent } from './_layouts/mainlayout/mainlayout.component'
 import { EventsComponent } from './_components/events/events.component';
 import { EventdetailComponent } from './_components/events/eventdetail/eventdetail.component';
 import { EventslistComponent } from './_components/events/eventslist/eventslist.component';
+import { ReportsComponent } from './_components/student/reports/reports.component';
+import { AllreportsComponent } from './_components/student/allreports/allreports.component';
+import { AdaptivereportsComponent } from './_components/student/adaptivereports/adaptivereports.component';
+import {NgApexchartsModule} from 'ng-apexcharts';
 
 @NgModule({
   declarations: [
@@ -114,7 +118,10 @@ import { EventslistComponent } from './_components/events/eventslist/eventslist.
     MainlayoutComponent,
     EventsComponent,
     EventdetailComponent,
-    EventslistComponent
+    EventslistComponent,
+    ReportsComponent,
+    AllreportsComponent,
+    AdaptivereportsComponent
   ],
   imports: [
     BrowserModule,
@@ -139,6 +146,7 @@ import { EventslistComponent } from './_components/events/eventslist/eventslist.
     MatSidenavModule,
     MatIconModule,
     MatListModule,
+    NgApexchartsModule
     // CloudinaryModule.forRoot(Cloudinary, { cloud_name: 'dfsizfwtr', upload_preset: 'ml_default'}),
   ],
   providers: [

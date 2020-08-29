@@ -25,7 +25,6 @@ import {
 import {
   AuthserviceService
 } from 'src/app/_services/authservice.service';
-import { MatDatepickerInputEvent } from '@angular/material/datepicker';
 import {
   startOfDay,
   endOfDay,
@@ -48,6 +47,7 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
 import { EventmodelComponent } from '../eventmodel/eventmodel.component';
 import { CustomCalendarFormat } from './custom-calendar-format';
+import { MatDatepickerInputEvent } from '@angular/material/datepicker/datepicker-input-base';
 
 const colors: any = {
   red: {
@@ -184,7 +184,7 @@ export class CalendarComponent implements OnInit {
             start: new Date(element.startDate),
             end: new Date(element.endDate),
             title: element.title,
-            color: colors.blue,
+            color: element.isDemo ? colors.blue : colors.yellow,
             actions: this.actions,
             meta: element,
           },

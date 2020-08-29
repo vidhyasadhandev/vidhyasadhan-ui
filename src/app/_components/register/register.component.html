@@ -103,9 +103,17 @@
                   </button>
                   <!-- <a mat-flat-button color="accent" [routerLink]="'/register'">Sign Up</a> -->
                   <div class="mt-2 p-2">Already have an account? <a [routerLink]="'/login'">Sign In</a></div>
-                  <div *ngIf="error" class="alert alert-danger mt-3 mb-0">{{error}}</div>
-  
                 </mat-card-actions>
+                <div class="m-1">
+                  <div class="alert alert-success" role="alert" *ngIf="success">
+                    <strong>{{success}}</strong>
+                    <mat-icon (click)="registered()">close</mat-icon>
+                  </div>
+                  <div class="alert alert-warning" role="alert" *ngIf="error">
+                    <strong>Unable to Register!</strong>
+                    <mat-icon (click)="error = null">close</mat-icon>
+                  </div>
+                </div>
               </mat-card-footer>
             </div>         
           </form>

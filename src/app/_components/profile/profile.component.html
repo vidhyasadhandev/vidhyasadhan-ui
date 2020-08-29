@@ -1,7 +1,7 @@
 <div class="container">
   <div class="card m-2">
     <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
-      <div class="card-header">
+      <div class="card-header" [ngClass]="{'pink-bg': authService?.userValue?.role === 0}">
         <span>My Profile</span>
       </div>
       <div class="card-body white-bg card-scroll">
@@ -367,9 +367,9 @@
       </div>
       <div class="card-footer bg-light">
         <mat-card-actions class="footer-buttons clearfix">
-          <button mat-raised-button type="submit" color="secondary" (click)="reset()" class="m-2">Reset</button>
+          <button mat-raised-button color="secondary" (click)="reset()" class="m-2">Reset</button>
           <div class="float-right">
-            <button mat-raised-button type="submit" color="secondary" class="m-2">Cancel</button>
+            <button mat-raised-button  color="secondary" class="m-2">Cancel</button>
             <button mat-raised-button type="submit" color="accent" class="m-2">Update Profile</button>
           </div>
         </mat-card-actions>

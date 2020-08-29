@@ -16,10 +16,10 @@
                      
                      <mat-grid-list cols="6" rowHeight="50px">
                          <mat-grid-tile
-                             *ngFor="let tile of otpcode"
+                             *ngFor="let tile of otpcode; let i = index"
                              [colspan]="1"
                              [rowspan]="1">
-                                 <input class="rectangle" maxlength="1" type="text"  [(ngModel)]="tile.value" (keyup.enter)="entervalue($event)">
+                                 <input class="rectangle" [tabindex]="i" maxlength="1" autofocus type="text" name="{{tile.name}}"  [(ngModel)]="tile.value" (keyup)="entervalue($event)">
                          </mat-grid-tile>
                      </mat-grid-list>
 

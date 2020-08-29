@@ -1,0 +1,30 @@
+ul li::before {
+    content: "\2022";
+    font-weight: bold;
+    display: inline-block;
+    width: 1.5em; 
+    margin-left: -1em;
+  }
+  ul li:nth-of-type(1)::before {
+    color: rgba(0, 143, 251, 0.85);
+  }
+  ul li:nth-of-type(2)::before {
+    color: rgba(0, 227, 150, 0.85);
+  }
+  ul li:nth-of-type(3)::before {
+    color: rgba(254, 176, 25, 0.85);
+  }
+
+  .list-inline-item{
+      padding: 0 0.5rem;
+  }
+
+  .card-header{
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.02);
+    background-color: #ffffff;
+  }
+
+  .card-header-main{
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.02);
+    background-color: #f6d9cd;
+  }

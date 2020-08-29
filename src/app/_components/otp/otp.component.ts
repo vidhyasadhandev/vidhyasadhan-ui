@@ -19,12 +19,12 @@ export class OtpComponent implements OnInit {
   error;
   tokenMessage;
   otpcode = [
-    {value: null},
-    {value: null},
-    {value: null},
-    {value: null},
-    {value: null},
-    {value: null}
+    {name: 'key1', value: null},
+    {name: 'key2', value: null},
+    {name: 'key3', value: null},
+    {name: 'key4', value: null},
+    {name: 'key5', value: null},
+    {name: 'key6', value: null},
   ];
 
   ngOnInit(): void {
@@ -36,6 +36,7 @@ export class OtpComponent implements OnInit {
 
   entervalue(event){
     const element = event.srcElement.nextElementSibling;
+    // const element1 = document.getElementsByName(event.srcElement.name) as HTMLInputElement;
     if (element == null) {
         return;
     }

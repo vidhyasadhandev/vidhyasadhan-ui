@@ -1,0 +1,102 @@
+<div class="card text-center">
+  <div class="card-header card-header-main">
+    <mat-form-field fill="outline" class="mr-2">
+      <input matInput placeholder="Subject">
+      <mat-icon matPrefix>subject</mat-icon>
+    </mat-form-field>
+    <mat-form-field fill="outline" class="mr-2">
+      <input matInput placeholder="Chapter">
+      <mat-icon matPrefix>topic</mat-icon>
+    </mat-form-field>
+  </div>
+  <div class="card-body">
+    <div class="card">
+      <div class="card-header card-header-main text-left">
+        <div class="d-flex justify-content-between">
+          <div class="d-flex flex-column">
+            <span class="chapters">
+              Chapters Completed and Point Gained per Day
+            </span>
+            <span class="chaper-date">
+              {{reportDate | date}}
+            </span>
+          </div>
+          <div class="d-flex">
+            <div class="d-flex flex-column mr-1">
+              <span class="completed">Completed ({{reportDate | date: 'MMM'}})</span>
+              <span class="chaper-date">Total :25</span>
+            </div>
+            <div class="d-flex flex-column mr-1">
+              <span class="completed">Gained Point ({{reportDate | date: 'MMM'}})</span>
+              <span class="chaper-date">Total : 282</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-body">
+        <apx-chart [series]="chartOptions.series" [chart]="chartOptions.chart" [xaxis]="chartOptions.xaxis"
+          [stroke]="chartOptions.stroke" [colors]="chartOptions.colors" [dataLabels]="chartOptions.dataLabels"
+          [legend]="chartOptions.legend" [markers]="chartOptions.markers" [grid]="chartOptions.grid"
+          [yaxis]="chartOptions.yaxis" [title]="chartOptions.title"></apx-chart>
+      </div>
+    </div>
+
+    <div class="container-fluid">
+        <div class="card m-2 text-left">
+            <div class="card-body">
+                <h4 class="card-title register">Registered Tutions Progress</h4>
+                <div class="row">
+                    <div class="col-md-3" *ngFor="let chart of radialCharts">
+                      <div class="card">
+                        <div class="card-header">
+                          <div class="d-flex justify-content-between">
+                            <div>Maths</div>
+                            <div>
+                              <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="">
+                                <mat-icon>drag_indicator</mat-icon>
+                              </button>
+                              <mat-menu #menu="matMenu" xPosition="before">
+                                <button mat-menu-item>
+                                  <span>Announcement</span>
+                                </button>
+                                <button mat-menu-item>
+                                  <span>Activity</span>
+                                </button>
+                                <button mat-menu-item>
+                                  <span>Ask</span>
+                                </button>
+                                <button mat-menu-item>
+                                  <span>Quiz</span>
+                                </button>
+                              </mat-menu>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="card-body">
+                          <apx-chart [series]="chart.series" [chart]="chart.chart" [plotOptions]="chart.plotOptions"
+                            [labels]="chart.labels" [stroke]="chart.stroke" [fill]="chart.fill"></apx-chart>
+                        </div>
+                        <div class="card-footer text-center">
+                           <div class="d-flex justify-content-between">
+                               <div class="d-flex flex-column">
+                                   <span class="chart-left">15</span>
+                                   <span class="chart-text">Chapters Completed</span>
+                                </div>
+                               <mat-divider
+                                   [vertical]="true">
+                               </mat-divider>
+                               <div class="d-flex flex-column">
+                                   <span class="chart-right">7</span>
+                                   <span class="chart-text">Chapters Left</span>
+                                </div>
+                           </div>
+                        </div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+  </div>
+</div>

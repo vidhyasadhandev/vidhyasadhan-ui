@@ -103,3 +103,12 @@ mat-card-header{
     line-height: 11px;
     font-weight: 400;
 }
+
+.pink-bg{
+  background-color: #f6d9cd;
+  color: #ac0619;
+}
+
+.pink-bg>span{
+  color: #ac0619;
+}

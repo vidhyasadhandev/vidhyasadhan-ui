@@ -1,0 +1,80 @@
+.card-header{
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.02);
+    background-color: #ffffff;
+  }
+
+  .card-header-main{
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.02);
+    background-color: #f6d9cd;
+  }
+
+  .chapters{
+    font-family: Montserrat;
+    font-size: 18px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: #3c4144;
+  }
+
+  .chapter-date{
+    font-family: Roboto;
+    font-size: 14px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: #8f9ea6;
+  }
+
+  .completed{
+    font-family: Montserrat;
+    font-size: 18px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    text-align: right;
+    color: #eb8c01;
+  }
+
+  .register{
+    font-family: Montserrat;
+    font-size: 18px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    color: #3c4144;
+  }
+
+  .card-footer{
+      background-color: #ffffff;
+  }
+
+  .chart-left{
+    color:#53c34a;
+    font-size: 24px;
+  }
+
+  .chart-right{
+    color:#c62522;
+    font-size: 24px;
+  }
+
+  .chart-text{
+  font-family: Roboto;
+  font-size: 14px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  text-align: center;
+  color: #9facb3;
+  }

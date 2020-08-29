@@ -21,6 +21,7 @@ export class RegisterComponent implements OnInit {
   isAlert = '';
   error = '';
   isTutor = true;
+  success;
 
   tiles: Tile[] = [
     {text: 'One', cols: 2, rows: 1, color: 'lightblue'},
@@ -74,19 +75,24 @@ export class RegisterComponent implements OnInit {
        password: this.f.password.value,
        phone: this.f.phone.value,
        username: this.f.email.value,
-       role: this.authService.userType === 'pink' ? 0 : 1,
+       role: this.isTutor ? 1 : 0,
     };
 
     this.userService.addUser(regUser)
     .subscribe(data => {
       if (data){
-        localStorage.setItem('user', JSON.stringify(regUser));
-        this.router.navigate(['welcome']);
+        // localStorage.setItem('user', JSON.stringify(regUser));
+        this.success = 'Registration Succesful. Please check your email to confirm!';
       }else{
         this.error = `Unable to Complete Registration`;
       }
      }, error => this.error = error);
 
+  }
+
+  registered(){
+    this.success = null;
+    this.registerForm.reset();
   }
 
 }

@@ -32,10 +32,12 @@
     "angular-calendar": "^0.29.0-beta.3",
     "angular-draggable-droppable": "^4.5.3",
     "angular-google-charts": "^1.1.4",
+    "apexcharts": "^3.20.0",
     "bootstrap": "^4.4.0",
     "date-fns": "^2.14.0",
     "mapbox-gl": "^1.11.1",
     "moment": "^2.27.0",
+    "ng-apexcharts": "^1.5.1",
     "rxjs": "~6.5.4",
     "tslib": "^2.0.0",
     "zone.js": "~0.10.2"

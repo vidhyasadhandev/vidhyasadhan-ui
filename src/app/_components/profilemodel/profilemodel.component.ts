@@ -29,7 +29,6 @@ export class ProfilemodelComponent implements OnInit {
       item.progress = 0;
       this.files.push(item);
     }
-    console.log(this.files[0]);
     const reader = new FileReader();
     reader.onload = (e) => {
       this.imagepath = e.target.result;
