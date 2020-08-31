@@ -241,7 +241,7 @@
         <div class="row">
           <div class="col">
             <h2 class="meetings">
-              Meetings <div>{{courses?.length}}</div>
+              Meetings <div *ngIf="courses?.length > 0">{{courses?.length}}</div>
             </h2>
           </div>
           <div class="col text-right">
@@ -253,7 +253,7 @@
             <!-- <mat-card-header *ngIf="course.startDate !== getToday()">
               {{course.startDate | date}}
             </mat-card-header>     -->
-            <mat-card class="m-2 card-left">     
+            <mat-card class="m-2 card-left" [ngClass]="{'card-left-demo': !course.isDemo}">     
               <mat-card-content>
                 <div class="row">
                   <div class="col-10">

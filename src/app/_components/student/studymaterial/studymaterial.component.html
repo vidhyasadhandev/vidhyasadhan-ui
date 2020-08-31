@@ -1,0 +1,131 @@
+<ng-container>
+  <div class="card m-2">
+    <div class="card-header material-bg">
+      <div class="d-flex justify-content-between">
+        <div>{{selectedAction.name}}</div>
+        <div ngbDropdown class="d-inline-block">
+          <button class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>
+            Select Action
+          </button>
+          <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+            <button ngbDropdownItem (click)="selectedAction = action"
+              *ngFor="let action of actions">{{action.name}}</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <span [ngSwitch]="selectedAction.name">
+      <div class="card-body" *ngSwitchCase="actions[0].name">
+        <div class="alert alert-primary alert-dismissible fade show" role="alert" *ngIf="error">
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            <span class="sr-only">Close</span>
+          </button>
+          <strong>{{error}}</strong>
+        </div>
+        <div class="row m-2">
+          <div class="col-md-6"
+            *ngFor="let course of courses | fieldsfilter: 'subject,title,topic,grade,dueDate': filter">
+            <ng-container>
+              <div class="card m-1">
+                <div class="card-header">
+                  <div class="d-flex">
+                    <div>
+                      <img class="icon-class" src="assets/icons/vidhya-sandhhan.svg">
+                      <span class="subject">{{course.title}}</span>
+                    </div>
+                    <div class="ml-auto">
+                     {{course.startDate | date}} - {{course.endDate | date}}
+                    </div>
+                  </div>
+                </div>
+                <div class="card-body">
+                  <h3 class="card-title title">{{course.subject}} - {{course.grade}}</h3>
+                  <p class="card-sub-title subtitle">Tutor: {{course?.courseAssignments[0]?.instructor.firstName}} {{course?.courseAssignments[0]?.instructor.lastName}}</p>
+                  <div class="card-text perfomed">
+                    <div class="d-flex">
+                      <span>{{course.locationName}}</span>
+                      <span class="list-inline">
+                        <!-- <span class="list-inline-item" *ngFor="let user of assignment.studentAssignments">
+                          <img [src]="user.account.profilePic" class="profimg">
+                        </span> -->
+                      </span>
+                      <span class="ml-auto">
+                        <a href="#" class="badge badge-warning p-2 text-white">View Details</a>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </ng-container>
+          </div>
+        </div>
+      </div>
+      <div class="card-body" *ngSwitchCase="actions[1].name">
+        <div class="alert alert-primary alert-dismissible fade show" role="alert" *ngIf="error">
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            <span class="sr-only">Close</span>
+          </button>
+          <strong>{{error}}</strong>
+        </div>
+        <div class="row m-2">
+          <div class="col-md-6"
+            *ngFor="let model of assignments | fieldsfilter: 'subject,title,topic,grade,dueDate': filter">
+            <ng-container>
+              <div class="card m-1">
+                <div class="card-header">
+                  <div class="d-flex">
+                    <div>
+                      <img class="icon-class" src="assets/icons/vidhya-sandhhan.svg">
+                      <span class="subject">{{model.assignment.title}}</span>
+                    </div>
+                    <div class="ml-auto">
+                      <div class="list-inline">
+                        <a mat-mini-fab color="secondary" (click)="downloadFile(model.assignment.assignmentFile)" title="download" class="list-inline-item">
+                          <mat-icon>cloud_download</mat-icon>
+                        </a>
+                        <a mat-mini-fab color="secondary" title="upload" (click)="uploader.click()"  class="list-inline-item">
+                          <mat-icon>cloud_upload</mat-icon>
+                        </a>
+                        <input hidden  type="file" #uploader (change)="fileBrowse($event.target.files)" />
+                        <!-- <button mat-mini-fab color="secondary" class="list-inline-item">75%</button> -->
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="card-body">
+                  <h3 class="card-title title">{{model.assignment.subject}}</h3>
+                  <p class="card-sub-title subtitle">{{model.assignment.topic}}</p>
+                  <div class="card-text perfomed">
+                    <div class="d-flex flex-column">
+                      <span>Due: {{model.assignment.dueDate | date: 'medium'}}</span>
+                      <span class="list-inline" *ngIf="uploadedFile">
+                          {{uploadedFile.name}} 
+                      </span>
+                      <span *ngIf="uploadedFile">
+                        <a (click)="onSubmit(model)"><span class="badge badge-pill badge-primary" >Submit</span></a>
+                        <a (click)="onDelete()"><span class="badge badge-pill badge-danger">Delete</span></a>
+                      </span>
+                      <span class="ml-auto">
+                          <ng-container [ngSwitch]="model.status">
+                            <span class="badge badge-pill badge-warning" *ngSwitchCase="0">Pending</span>
+                            <span class="badge badge-pill badge-success" *ngSwitchCase="1">Submitted</span>
+                            <span class="badge badge-pill badge-primary" *ngSwitchCase="2">Evaluated</span>
+                          </ng-container>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </ng-container>
+          </div>
+        </div>
+      </div>
+      <p *ngSwitchCase="actions[2].name">
+
+      </p>
+    </span>
+
+  </div>
+</ng-container>

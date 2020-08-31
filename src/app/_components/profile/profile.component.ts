@@ -371,7 +371,7 @@ changeAll(completed: boolean){
     }
     this.days.forEach(t => {
       if (completed === true){
-        t.selected = false;
+        t.selected = true;
       }
     });
   }

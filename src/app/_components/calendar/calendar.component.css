@@ -39,6 +39,10 @@ mat-form-field{
    border-left: 5px solid #25265e;
 }
 
+.card-left-demo{
+    border-left: 5px solid rgb(227, 188, 8);
+ }
+
 .card-text{
     font-family: Roboto;
     font-size: 12px;

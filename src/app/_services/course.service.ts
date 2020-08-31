@@ -58,6 +58,10 @@ export class CourseService {
     return this.http.get<any>(`${environment.apiUrl}/assignments/student`, options);
   }
 
+  updateStudentAssignments(assignment){
+    return this.http.put<any>(`${environment.apiUrl}/assignments/student/update`, assignment);
+  }
+
   getTutorStudentAssignments(userId){
     const options = userId ?
       { params: new HttpParams().set('id', userId)} : {};

@@ -73,6 +73,7 @@ import { ReportsComponent } from './_components/student/reports/reports.componen
 import { AllreportsComponent } from './_components/student/allreports/allreports.component';
 import { AdaptivereportsComponent } from './_components/student/adaptivereports/adaptivereports.component';
 import {NgApexchartsModule} from 'ng-apexcharts';
+import { StudymaterialComponent } from './_components/student/studymaterial/studymaterial.component';
 
 @NgModule({
   declarations: [
@@ -121,7 +122,8 @@ import {NgApexchartsModule} from 'ng-apexcharts';
     EventslistComponent,
     ReportsComponent,
     AllreportsComponent,
-    AdaptivereportsComponent
+    AdaptivereportsComponent,
+    StudymaterialComponent
   ],
   imports: [
     BrowserModule,

@@ -25,6 +25,7 @@ import { EarningsComponent } from './_components/earnings/earnings.component';
 import { MainlayoutComponent } from './_layouts/mainlayout/mainlayout.component';
 import { EventsComponent } from './_components/events/events.component';
 import { ReportsComponent } from './_components/student/reports/reports.component';
+import { StudymaterialComponent } from './_components/student/studymaterial/studymaterial.component';
 
 const routes: Routes = [
   { path: '', component: MainlayoutComponent, canActivate: [AuthGuard],
@@ -47,6 +48,7 @@ const routes: Routes = [
   { path: 'demodetail/:id', component: DemodetailComponent},
   { path: 'classroom', component: ClassroomComponent},
   { path: 'tutor-referrals', component: TutorReferralsComponent},
+  { path: 'student/assignments', component: StudymaterialComponent},
   { path: 'progress', component: ReportsComponent},
   ] },
   { path: 'login', component: LoginComponent },

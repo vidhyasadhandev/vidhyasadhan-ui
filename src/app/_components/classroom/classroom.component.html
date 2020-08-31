@@ -1,14 +1,14 @@
 <div class="m-4">
-  <p class="bg-tutor-primary m-2 classroom">My Classroom</p>
+  <p class="bg-tutor-primary m-2 classroom" [ngClass]="{'student-header': auth.userValue.role === 0}">My Classroom</p>
   <mat-tab-group mat-align-tabs="end" [color]="colors.font" class="tabheader" [ngClass]="{'bg-pink': auth.userValue.role === 0}"
    [backgroundColor]="colors.background">
     <mat-tab label="TIMETABLE">
       <app-calendar></app-calendar>
     </mat-tab>
-    <mat-tab label="ASSIGNMENT">
+    <mat-tab label="ASSIGNMENT" *ngIf="auth.userValue.role !== 0">
       <app-assignments></app-assignments>
     </mat-tab>
-    <mat-tab label="Evaluate">
+    <mat-tab label="Evaluate" *ngIf="auth.userValue.role !== 0">
       <app-evaluate></app-evaluate>
     </mat-tab>
     <mat-tab label="ATTENDANCE SHEET">

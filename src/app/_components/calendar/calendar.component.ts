@@ -97,7 +97,7 @@ export class CalendarComponent implements OnInit {
   refresh: Subject<any> = new Subject();
   events: CalendarEvent[] = [];
   selectedView = '1';
-  activeDayIsOpen = true;
+  activeDayIsOpen = false;
   modalData: {
     action: string;
     event: CalendarEvent;
