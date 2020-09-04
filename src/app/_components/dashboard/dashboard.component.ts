@@ -19,8 +19,9 @@ export class DashboardComponent implements OnInit {
 
   tutorcards: Dashboard[] = [
     { icon: 'assets/dashboard/noun-teaching-2380320.svg', text: 'My Classroom', subtext : 'Events', value : '20', type: '', class: 'opac-5', path: '/classroom'},
-    { icon: 'assets/dashboard/noun-assignment-3202074.svg', text: 'Assign Tasks', subtext : 'Pending tasks', value : '8', type: '', class: 'opac-5', path: '/tasks' },
+    { icon: 'assets/dashboard/noun-assignment-3202074.svg', text: 'Requests', subtext : 'Pending tasks', value : '8', type: '', class: 'opac-5', path: '/tasks' },
     { icon: 'assets/dashboard/path.svg', text: 'My Profile', subtext : 'Completed', value : '80%', type: '', class: 'opac-5', path: '/profile' },
+    { icon: 'assets/dashboard/vector.svg', text: 'My Events', subtext : 'Completed', value : '80%', type: '', class: 'opac-5', path: '/profile' },
     { icon: 'assets/dashboard/my-earnings.svg', text: 'My Earnings', subtext : 'Completed', value : '80%', type: '', class: 'opac-5', path: '/earnings' },
     { icon: 'assets/dashboard/my-referrals.svg', text: 'My Referrals', subtext : 'Rewards', value : '200', type: '', class: 'opac-5', path: '/referrals' }
   ];

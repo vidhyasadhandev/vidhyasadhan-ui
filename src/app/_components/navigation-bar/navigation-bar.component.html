@@ -1,35 +1,105 @@
 <mat-toolbar class="bg-white">
-    <mat-toolbar-row>
-      <a mat-icon-button (click)="toggleSidenav.emit()">
-        <mat-icon>menu</mat-icon>
+  <mat-toolbar-row>
+    <span [ngSwitch]="navClicked">
+      <a *ngSwitchCase="true" [routerLink]="['/dashboard']">
+        <img src="assets/icons/vidhya-sandhhan.svg">
       </a>
-  
-      <span class="example-spacer"></span>
+      <a *ngSwitchCase="false" [routerLink]="['/dashboard']">
+        <img src="assets/vidhyasadhan-logo.svg">
+      </a>
+    </span>
+    <a mat-icon-button (click)="menuClicked()" class="d-none d-sm-block">
+      <mat-icon>menu</mat-icon>
+    </a>
 
-      <div>
-        <ul class="navbar-nav flex-row">
-          <li fxHide.xs class="nav-item active">
-            <a mat-icon-button class="nav-link">
-              <mat-icon>notifications</mat-icon>
+    <span class="example-spacer"></span>
+
+    <a mat-icon-button (click)="smallmenuClicked()" class="d-block d-sm-none">
+      <mat-icon>menu</mat-icon>
+    </a>
+
+    <div class="d-none d-sm-block">
+      <ul class="navbar-nav flex-row">
+        <li fxHide.xs class="nav-item active">
+          <a mat-icon-button class="nav-link">
+            <mat-icon>notifications</mat-icon>
+          </a>
+        </li>
+
+        <li class="nav-item">
+          <a mat-icon-button [matMenuTriggerFor]="auth" class="nav-link">
+            <!-- <mat-icon>account_circle</mat-icon> -->
+            <img class="rounded-circle" width="25" height="25" [src]="user.profilePic || 'assets/avatar.svg'" />
+          </a>
+          <mat-menu #auth="matMenu">
+            <a mat-menu-item (click)="logout()">
+              <mat-icon>exit_to_app</mat-icon>
+              <span>Sign out</span>
             </a>
+          </mat-menu>
+        </li>
+        <li fxHide.xs class="nav-item">
+          <a class="nav-link profile-pic">{{user.firstName}} {{user.lastName}}</a>
+        </li>
+      </ul>
+    </div>
+  </mat-toolbar-row>
+  <mat-toolbar-row *ngIf="smClicked" class="h-100 d-block d-sm-none toolbar" [ngClass]="authService.userValue?.role === 0 ? 'student' : 'tutor'">
+    <ng-container [ngSwitch]="authService.userValue?.role === 0">
+      <ng-container *ngSwitchCase="true">
+        <ul class="navbar-nav mt-auto">
+          <li class="nav-item active">
+            <a class="nav-link" (click)="smClicked = !smClicked" [routerLink]="['/classroom']" >My Classroom <span class="sr-only">(current)</span></a>
           </li>
-         
           <li class="nav-item">
-            <a mat-icon-button [matMenuTriggerFor]="auth"  class="nav-link">
-              <!-- <mat-icon>account_circle</mat-icon> -->
-              <img class="rounded-circle" width="25" height="25" [src]="user.profilePic || 'assets/avatar.svg'" />
-            </a>
-            <mat-menu #auth="matMenu">
-              <a mat-menu-item (click)="logout()">
-                <mat-icon>exit_to_app</mat-icon>
-                <span>Sign out</span>
-              </a>
-            </mat-menu>
+            <a class="nav-link" (click)="smClicked = !smClicked" [routerLink]="['/tutors']">Book Tutor</a>
           </li>
-          <li fxHide.xs class="nav-item">
-           <a class="nav-link profile-pic">{{user.firstName}} {{user.lastName}}</a>
+          <li class="nav-item">
+            <a class="nav-link" (click)="smClicked = !smClicked" [routerLink]="['/profile']">My Profile</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" (click)="smClicked = !smClicked" [routerLink]="['/student/assignments']">Study Material</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" (click)="smClicked = !smClicked" [routerLink]="['/progress']">Progress Report</a>
+          </li>
+          <!-- <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
+              aria-haspopup="true" aria-expanded="false">
+              Dropdown link
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+              <a class="dropdown-item" href="#">Action</a>
+              <a class="dropdown-item" href="#">Another action</a>
+              <a class="dropdown-item" href="#">Something else here</a>
+            </div>
+          </li> -->
+        </ul>
+      </ng-container>
+      <ng-container *ngSwitchCase="false">
+        <ul class="navbar-nav mt-auto">
+          <li class="nav-item active">
+            <a class="nav-link" (click)="smClicked = !smClicked" [routerLink]="['/classroom']">My Classroom <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" (click)="smClicked = !smClicked" [routerLink]="['/requests']">Student Requests</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" (click)="smClicked = !smClicked" [routerLink]="['/profile']">My Profile</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" (click)="smClicked = !smClicked"  [routerLink]="['/events']">My Events</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" (click)="smClicked = !smClicked"  [routerLink]="['/earnings']">My Earnings</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" (click)="smClicked = !smClicked" [routerLink]="['/tutor-referrals']">My Referrals</a>
           </li>
         </ul>
-      </div>
-    </mat-toolbar-row>
-  </mat-toolbar>
+      </ng-container>
+    </ng-container>
+
+
+  </mat-toolbar-row>
+</mat-toolbar>

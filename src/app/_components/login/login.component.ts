@@ -25,12 +25,18 @@ import {
 })
 export class LoginComponent implements OnInit {
   loginForm: FormGroup;
+  passwordForm: FormGroup;
   loading = false;
+  loadforgot = false;
   submitted = false;
+  passwordsubmitted = false;
   returnUrl: string;
   isAlert = false;
   error = '';
   isTutor = true;
+  username;
+  isForgot = false;
+  forgotMessage;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -49,6 +55,12 @@ export class LoginComponent implements OnInit {
       password: ['', Validators.required]
     });
 
+    this.passwordForm = this.formBuilder.group({
+      username: ['', Validators.required],
+      password: ['', Validators.required],
+      confirmPassword: ['', Validators.required]
+    });
+
     // tslint:disable-next-line: no-string-literal
     this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
   }
@@ -56,6 +68,11 @@ export class LoginComponent implements OnInit {
   get f() {
     return this.loginForm.controls;
   }
+
+  get p() {
+    return this.passwordForm.controls;
+  }
+
 
   onSubmit() {
     this.submitted = true;
@@ -75,6 +92,37 @@ export class LoginComponent implements OnInit {
           this.loading = false;
         }
       });
+  }
+
+  onpasswordSubmit(){
+    this.passwordsubmitted = true;
+
+    this.loadforgot = true;
+    if (this.passwordForm.valid){
+      const forgotModel = {
+        email : this.p.username.value,
+        password : this.p.password.value,
+        confirmPassword: this.p.confirmPassword.value,
+      };
+      this.authService.forgotpassword(forgotModel).subscribe(x => {
+        if (x){
+          this.forgotMessage = true;
+        }
+        else{
+          this.error = 'Unable to Reset Password';
+        }
+        this.loadforgot = false;
+      }, (error) => {
+        this.loadforgot = false;
+        this.error = error;
+      });
+    }
+
+  }
+
+  forgotClick(e){
+    e.preventDefault();
+    this.isForgot = !this.isForgot;
   }
 
 }

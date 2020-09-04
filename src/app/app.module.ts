@@ -74,6 +74,11 @@ import { AllreportsComponent } from './_components/student/allreports/allreports
 import { AdaptivereportsComponent } from './_components/student/adaptivereports/adaptivereports.component';
 import {NgApexchartsModule} from 'ng-apexcharts';
 import { StudymaterialComponent } from './_components/student/studymaterial/studymaterial.component';
+import { StudentAssignmentsComponent } from './_components/student/assignments/assignments.component';
+import { StudentmateriallistComponent } from './_components/student/studymaterial/studentmateriallist/studentmateriallist.component';
+import { MatTableModule } from '@angular/material/table';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatSortModule } from '@angular/material/sort';
 
 @NgModule({
   declarations: [
@@ -123,7 +128,9 @@ import { StudymaterialComponent } from './_components/student/studymaterial/stud
     ReportsComponent,
     AllreportsComponent,
     AdaptivereportsComponent,
-    StudymaterialComponent
+    StudymaterialComponent,
+    StudentAssignmentsComponent,
+    StudentmateriallistComponent
   ],
   imports: [
     BrowserModule,
@@ -148,7 +155,10 @@ import { StudymaterialComponent } from './_components/student/studymaterial/stud
     MatSidenavModule,
     MatIconModule,
     MatListModule,
-    NgApexchartsModule
+    NgApexchartsModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatSortModule
     // CloudinaryModule.forRoot(Cloudinary, { cloud_name: 'dfsizfwtr', upload_preset: 'ml_default'}),
   ],
   providers: [

@@ -1,0 +1,125 @@
+.icon-class {
+  width: 30px;
+  height: 30px;
+  border-radius: 30px;
+  box-shadow: 0 6px 20px -4px rgba(136, 136, 136, 0.36);
+  background-color: #c3e8ff;
+}
+
+.card {
+  border-radius: 8px;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.16);
+  border: solid 1px #e7e7e7;
+  background-color: #ffffff;
+}
+
+.vidhya-sandhhan {
+  width: 45px;
+  height: 45px;
+  object-fit: contain;
+}
+
+.subject {
+  font-family: Roboto;
+  font-size: 16px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: 0.34px;
+  color: #25265e;
+  margin-left: 0.5rem;
+}
+
+.card-header {
+  background: transparent;
+  border: 0;
+}
+
+.percent {
+  background-repeat: no-repeat;
+  display: inline-block;
+  fill: currentColor;
+  font-size: 16px;
+  height: 24px;
+  width: 24px;
+}
+
+.bg {
+  width: 38px;
+  height: 40px;
+  border-radius: 6px;
+  box-shadow: 0 6px 20px -4px rgba(136, 136, 136, 0.25);
+  background-color: #ffffff;
+}
+
+.title {
+  font-family: Roboto;
+  font-size: 16px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 0.5;
+  letter-spacing: normal;
+  color: #272738;
+}
+
+.subtitle {
+  font-family: Roboto;
+  font-size: 14px;
+  font-weight: 500;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 0.75;
+  letter-spacing: normal;
+  color: #272738;
+}
+
+.perfomed {
+  font-family: Roboto;
+  font-size: 12px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.67;
+  letter-spacing: normal;
+  color: #828294;
+  text-align: left;
+}
+
+.bg-whieicon {
+  border: solid 1px #1d4082 !important;
+  background-color: #ffffff !important;
+  font-family: Roboto;
+  font-size: 12px;
+  font-weight: 500;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: 1px;
+  text-align: center;
+  color: #1d4082 !important;
+}
+
+.profimg {
+  margin-left: 0.5rem;
+  width: 30px;
+  height: 30px;
+  border-radius: 30px;
+}
+
+.bg-violet {
+  background-color: #9a53ff !important;
+}
+
+.material-bg {
+  color: #ac0619 !important;
+  background-color: rgba(0,0,0,.03);
+  font-family: Montserrat;
+  font-size: 21px;
+  font-weight: 600;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.14;
+  letter-spacing: normal;
+}

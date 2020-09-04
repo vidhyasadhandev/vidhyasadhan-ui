@@ -1,16 +1,18 @@
+<app-navigation-bar *ngIf="isAuthenticated()" (toggleSidenav)="sidenav.toggle()">
+</app-navigation-bar>
 <mat-sidenav-container class="example-container mat-typography"  autosize>
-  <mat-sidenav #sidenav class="main-container" mode="side" [ngClass]="{'mat-side-pink' : authService.userValue?.role === 0}">
-    <!-- <img class="img img-responsive sidenav-img" src="assets/sidenav-1.png" 
+  <mat-sidenav  #sidenav class="main-container" mode="side" [ngClass]="{'mat-side-pink' : authService.userValue?.role === 0}">
+    <!-- <img class="img img-responsive sidenav-img" src="assets/sidenav-1.png"
         srcset="assets/sidenav-2.png 2x, disableClose="true"
         assets/sidenav-3.png 3x" > -->
     <!-- <button mat-mini-fab (click)="isExpanded = !isExpanded" color="warn" style="margin: 10px;">
       <mat-icon aria-label="Menu">menu</mat-icon>
     </button> -->
-    <mat-toolbar class="logo-toolbar">
+    <!-- <mat-toolbar class="logo-toolbar">
       <mat-toolbar-row [routerLink]="['/dashboard']">
         <img src="assets/vidhyasadhan-logo.svg">
       </mat-toolbar-row>
-    </mat-toolbar>
+    </mat-toolbar> -->
     <mat-nav-list>
       <ng-container [ngSwitch]="authService.userValue?.role === 0">
       <ng-container *ngSwitchCase="true">
@@ -84,7 +86,7 @@
         </a>
       </ng-container>
       <p *ngSwitchDefault>
-      
+
       </p>
       </ng-container>
 
@@ -94,7 +96,7 @@
           <img class= "p-2" src="assets/sidenav/crown.jpg">
           <h5 class="Upgrade-to-Pro">Upgrade to Pro</h5>
           <p class="Make-the-most-of-you">Make the most of your app with premium</p>
-        </div>    
+        </div>
       </div>
       <img class="side-bg-pic img img-responsive" src="assets/sidenav/group-19.png" srcset="assets/sidenav/group-19@2x.png 2x,assets/sidenav/group-19@3x.png 3x">
     </mat-nav-list>
@@ -105,8 +107,6 @@
       <img class="oval-copy-left-1" src="assets/registration/oval-copy-2.svg">
       <img class="oval-copy-left-2" src="assets/registration/oval-copy-3.svg">
     </div>
-    <app-navigation-bar *ngIf="isAuthenticated()" (toggleSidenav)="sidenav.toggle()">
-    </app-navigation-bar>
     <router-outlet></router-outlet>
     <div>
       <img class="oval-copy-right-1" src="assets/registration/oval.svg">

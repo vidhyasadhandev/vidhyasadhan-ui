@@ -1,5 +1,6 @@
 mat-form-field{
     width: 100%;
+    margin: 0 15px;
 }
 
 .tutor-header{
@@ -110,4 +111,51 @@ mat-form-field{
     .justify-vs-center{
         justify-content: center;
     }
+}
+
+.list-height{
+  max-height: 100px;
+  overflow: auto;
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 2px grey;
+  border-radius: 5px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #695d5d;
+  border-radius: 5px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #695d5d;
+}
+
+.demo-bg{
+  background-color:  rgb(227, 188, 8);
+}
+
+.tutor-img{
+  width: 50%;
+  margin: auto;
+  height: 325px;
+}
+
+.search-text{
+  font-family: Montserrat;
+  font-weight: 500;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.5;
+  letter-spacing: normal;
+  text-align: center;
+  color: #20253a;
 }

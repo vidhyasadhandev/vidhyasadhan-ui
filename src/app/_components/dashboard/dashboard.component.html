@@ -1,7 +1,6 @@
 <div class="align-items-center">
-  <div class="jumbotron bg-white m-4">
-    <div class="equal-container">
-      <div class="equal-col dash-board">
+  <div class="jumbotron bg-white m-2">
+      <div class="dash-board">
         <div class="card-deck">
           <div class="card col-md-6 border-0 rounded">
             <div class="greet">
@@ -18,35 +17,37 @@
           </div>
         </div>
       </div>
-    </div>
-
 
     <div class="icon-cards">
       <div [ngSwitch]="istutor">
         <div *ngSwitchCase="true">
-          <div class="card-deck">
-            <div class="card dash-card text-center clearfix" [ngClass]="{'opac-blue': profile?.address?.addressId == 0}" *ngFor="let item of tutorcards">
-              <div class="card-body">
-                <img class="img img-responsive" [src]="item.icon">
-                <h5 class="card-title title-text"><a  [routerLink]="profile?.address?.addressId === 0 && item.text !== 'My Profile' ? '' : item.path">{{item.text}}</a></h5>
-                <p class="card-text title-subtext" *ngIf="profile?.address?.addressId > 0"><span>{{item.value}}</span>{{item.subtext}}</p>
-              </div>
-              <div>
+          <div class="row">
+            <div class="col-md-4 col-lg-2 mb-1" *ngFor="let item of tutorcards">
+              <div class="card dash-card text-center clearfix" [ngClass]="{'opac-blue': profile?.address?.addressId == 0}">
+                <div class="card-body spl-padding">
+                  <img class="img img-responsive" [src]="item.icon">
+                  <h5 class="card-title title-text"><a  [routerLink]="profile?.address?.addressId === 0 && item.text !== 'My Profile' ? '' : item.path">{{item.text}}</a></h5>
+                  <p class="card-text title-subtext" *ngIf="profile?.address?.addressId > 0"><span>{{item.value}}</span>{{item.subtext}}</p>
+                </div>
+                <div>
+                </div>
               </div>
             </div>
           </div>
         </div>
         <div *ngSwitchCase="false">
-          <div class="card-deck">
-            <div class="card dash-card text-center clearfix"  [ngClass]="{'opac-pink': profile?.address?.addressId == 0}" *ngFor="let item of studentcards">
-              <div class="card-body">
-                <img class="img img-responsive" [src]="item.icon">
-                <h5 class="card-title text-dark title-text"><a  [routerLink]="profile?.address?.addressId === 0 && item.text !== 'My Profile' ? '' : item.path">{{item.text}}</a></h5>
-                <p class="card-text text-dark title-subtext"  *ngIf="profile?.address?.addressId > 0"><span>{{item.value}}</span>{{item.subtext}}</p>
-                <!-- <div class="card-title title-text">{{item.text}}</div>
-                                      <p class="card-text title-subtext"><span>{{item.value}}</span>{{item.subtext}}</p> -->
-              </div>
-              <div>
+          <div class="row">
+            <div class="col-md-4 col-lg-2 mb-1" *ngFor="let item of studentcards">
+              <div class="card dash-card text-center clearfix"  [ngClass]="{'opac-pink': profile?.address?.addressId == 0}" >
+                <div class="card-body spl-padding">
+                  <img class="img img-responsive" [src]="item.icon">
+                  <h5 class="card-title text-dark title-text"><a  [routerLink]="profile?.address?.addressId === 0 && item.text !== 'My Profile' ? '' : item.path">{{item.text}}</a></h5>
+                  <p class="card-text text-dark title-subtext"  *ngIf="profile?.address?.addressId > 0"><span>{{item.value}}</span>{{item.subtext}}</p>
+                  <!-- <div class="card-title title-text">{{item.text}}</div>
+                                        <p class="card-text title-subtext"><span>{{item.value}}</span>{{item.subtext}}</p> -->
+                </div>
+                <div>
+                </div>
               </div>
             </div>
           </div>

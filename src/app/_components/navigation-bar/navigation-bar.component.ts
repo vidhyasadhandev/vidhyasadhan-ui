@@ -11,8 +11,10 @@ export class NavigationBarComponent implements OnInit {
 
   user: User;
   checked = false;
+  navClicked = true;
+  smClicked = false;
   @Output() toggleSidenav = new EventEmitter<void>();
-  constructor(private authService: AuthserviceService) { }
+  constructor(public authService: AuthserviceService) { }
 
   ngOnInit(): void {
     this.user = this.authService.userValue;
@@ -20,6 +22,15 @@ export class NavigationBarComponent implements OnInit {
 
   logout() {
     this.authService.logout();
+  }
+
+  menuClicked(){
+    this.toggleSidenav.emit();
+    this.navClicked = !this.navClicked;
+  }
+
+  smallmenuClicked(){
+    this.smClicked = !this.smClicked;
   }
 
 }

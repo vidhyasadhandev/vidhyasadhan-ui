@@ -63,6 +63,7 @@ export class RegisterComponent implements OnInit {
   }
 
   onSubmit(){
+    this.error = null;
     this.submitted = true;
     if (this.registerForm.invalid){
       return;
@@ -81,8 +82,7 @@ export class RegisterComponent implements OnInit {
     this.userService.addUser(regUser)
     .subscribe(data => {
       if (data){
-        // localStorage.setItem('user', JSON.stringify(regUser));
-        this.success = 'Registration Succesful. Please check your email to confirm!';
+        this.success = 'Registration Complete. Check your email to confirm!';
       }else{
         this.error = `Unable to Complete Registration`;
       }

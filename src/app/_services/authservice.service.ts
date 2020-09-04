@@ -142,4 +142,8 @@ export class AuthserviceService implements OnDestroy {
     return this.http.get<any>(`${environment.apiUrl}/users/regeneratecode`, options);
   }
 
+  forgotpassword(passwordmodel){
+    return this.http.post<boolean>(`${environment.apiUrl}/users/password/reset`, passwordmodel);
+  }
+
 }

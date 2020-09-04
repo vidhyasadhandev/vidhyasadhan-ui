@@ -2,17 +2,14 @@ import { Component, OnInit } from '@angular/core';
 import { CourseService } from 'src/app/_services/course.service';
 import { AuthserviceService } from 'src/app/_services/authservice.service';
 import { FileuploaderService } from 'src/app/_services/fileuploader.service';
+import * as moment from 'moment';
 
 @Component({
-  selector: 'app-studymaterial',
-  templateUrl: './studymaterial.component.html',
-  styleUrls: ['./studymaterial.component.css']
+  selector: 'app-student-assignments',
+  templateUrl: './assignments.component.html',
+  styleUrls: ['./assignments.component.css']
 })
-export class StudymaterialComponent implements OnInit {
-
-  constructor(private courseService: CourseService,
-              private authService: AuthserviceService,
-              private fileUploader: FileuploaderService) { }
+export class StudentAssignmentsComponent implements OnInit {
 
   assignments;
   courses;
@@ -21,19 +18,25 @@ export class StudymaterialComponent implements OnInit {
   isUploaded;
   uploadedFile;
   isSuccess;
-  actions = [
-    { id: 1, name: 'Courses'},
-    { id: 2, name: 'Materials'}
-  ];
-  selectedAction;
+  selectdetail = false;
+  splitAssignments;
+  month = new Date();
+
+  constructor(private courseService: CourseService,
+              private authService: AuthserviceService,
+              private fileUploader: FileuploaderService) { }
 
   ngOnInit(): void {
-    this.courseService.getAllCoursesByUser(this.authService.userValue.id)
-    .subscribe(x => this.courses = x, (error) => this.error = error);
+    this.filterassignments();
+  }
+
+  filterassignments(){
     this.courseService.getStudentAssignments(this.authService.userValue.id)
-    .subscribe(x => {this.assignments = x; console.log(this.assignments); },
+    .subscribe(x => {this.assignments = x;
+                     console.log(this.assignments);
+                     this.splitAssignments = x?.filter(y => new Date(y.assignment.dueDate).getMonth() === this.month.getMonth() &&
+                     new Date(y.assignment.dueDate).getFullYear() === this.month.getFullYear()); },
       (error) => this.error = error);
-    this.selectedAction = this.actions[0];
   }
 
   downloadFile(data) {
@@ -79,6 +82,16 @@ export class StudymaterialComponent implements OnInit {
 
   onDelete(){
     this.uploadedFile = null;
+  }
+
+  nextClick(side){
+    if (side === 'left'){
+      this.month = moment(this.month).subtract('1', 'month').toDate() ;
+    }
+    else{
+      this.month = moment(this.month).add('1', 'month').toDate() ;
+    }
+    this.filterassignments();
   }
 
 }

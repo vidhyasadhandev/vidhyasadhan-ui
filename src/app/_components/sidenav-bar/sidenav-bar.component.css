@@ -10,20 +10,20 @@ mat-sidenav-container{
     right: 0;
     z-index: 998;
   } */
-/* 
+/*
   mat-sidenav{
       width: 255px;
   } */
 
   mat-sidenav{
         /* background-image: url("/../assets/sidenav-1.png");
-        background-image: 
+        background-image:
           -webkit-image-set(
             url("/../assets/sidenav-1.png") 1x,
             url("/../assets/sidenav-2.png") 2x,
             url("/../assets/sidenav-3.png") 3x,
           );
-        background-image: 
+        background-image:
           image-set(
             url("/../assets/sidenav-1.png") 1x,
             url("/../assets/sidenav-2.png") 2x,
@@ -76,7 +76,7 @@ mat-sidenav-container{
   }
 
   .sidenav-bg-pink{
-    background-image: linear-gradient(to bottom, #fff5f0 13%, #fccfbc); 
+    background-image: linear-gradient(to bottom, #fff5f0 13%, #fccfbc);
   }
 
   .sidenav-bg-blue{
@@ -195,7 +195,7 @@ mat-sidenav-container{
 .example-container>mat-sidenav:not(.mat-drawer-opened) {
   transform: translate3d(0, 0, 0) !important;
   visibility: visible !important;
-  width: 60px !important;
+  width: 62px !important;
   overflow: hidden;
 }
 
@@ -229,4 +229,18 @@ mat-sidenav .mat-drawer-inner-container{
 
 .mat-list-item.pink{
   color: #ac0619 !important;
+}
+
+@media screen and (max-width: 576px){
+  mat-sidenav{
+    width: 0 !important;
+  }
+
+  .example-container>mat-sidenav:not(.mat-drawer-opened) {
+    width: 0 !important;
+  }
+
+  .mat-sidenav-content{
+    margin-left: 0;
+  }
 }

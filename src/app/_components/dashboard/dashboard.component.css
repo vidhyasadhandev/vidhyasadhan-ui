@@ -18,7 +18,7 @@
     font-weight: 600;
     font-stretch: normal;
     font-style: normal;
-    letter-spacing: normal; 
+    letter-spacing: normal;
     color: #20253a;
     line-height: 0.6;
 }
@@ -87,13 +87,13 @@
 
 .dash-board{
     background-image: url("/vidhyasadhan-ui/assets/dashboard/dashboard-1.png");
-        background-image: 
+        background-image:
           -webkit-image-set(
             url("/vidhyasadhan-ui/assets/dashboard/dashboard-1.png") 1x,
             url("/vidhyasadhan-ui/assets/dashboard/dashboard-2.png") 2x,
             url("/vidhyasadhan-ui/assets/dashboard/dashboard-3.png") 3x,
           );
-        background-image: 
+        background-image:
           image-set(
             url("/vidhyasadhan-ui/assets/dashboard/dashboard-1.png") 1x,
             url("/vidhyasadhan-ui/assets/dashboard/dashboard-2.png") 2x,
@@ -111,7 +111,7 @@
   background-image: linear-gradient(to bottom, #ea8b64 13%, #c2300a) !important;
 }
 
-.student-profile .title-text, 
+.student-profile .title-text,
 .student-profile  .title-subtext,
 .student-profile  span{
   color: #ffffff !important;
@@ -146,7 +146,7 @@
   .greet h2{
     margin-top: 2rem;
   }
-  
+
   .equal-container{
     margin-top: 0.5rem;
   }
@@ -190,7 +190,7 @@
   10%, 90% {
     transform: translate3d(-1px, 0, 0);
   }
-  
+
   20%, 80% {
     transform: translate3d(2px, 0, 0);
   }
@@ -202,4 +202,17 @@
   40%, 60% {
     transform: translate3d(4px, 0, 0);
   }
+}
+
+.spl-padding{
+  padding: 1.25rem 0.25rem;
+}
+
+.spl-padding img{
+width: 45px;
+height: 46px;
+}
+
+.spl-padding .card-text{
+  font-size: 14px;
 }
