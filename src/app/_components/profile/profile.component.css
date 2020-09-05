@@ -27,7 +27,15 @@ mat-card-header{
 }
 
 .mat-radio-button{
-  padding: 0 0.25rem;
+  padding: 0 0.25rem; 
+}
+
+::ng-deep.mat-radio-outer-circle{
+  border-color: rgb(204 28 28 / 54%);
+}
+
+::ng-deep.mat-radio-button.mat-accent.mat-radio-checked .mat-radio-outer-circle{
+ border: solid 0.8px #c4182c;
 }
 
 .day-margin {
@@ -112,3 +120,14 @@ mat-card-header{
 .pink-bg>span{
   color: #ac0619;
 }
+
+
+.btn-cancel{
+  color:#c4182c;
+  border: solid 0.8px #c4182c;
+}
+
+.btn-update{
+  background-color:#c4182c;
+}
+
