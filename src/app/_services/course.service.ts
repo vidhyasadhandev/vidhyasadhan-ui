@@ -46,6 +46,10 @@ export class CourseService {
     return this.http.post<any>(`${environment.apiUrl}/assignments/save`, assignment);
   }
 
+  addstudentstoassignment(assignments){
+    return this.http.post<any>(`${environment.apiUrl}/assignments/addusers`, assignments);
+  }
+
   getAssignmentByTutor(userId){
     const options = userId ?
       { params: new HttpParams().set('id', userId)} : {};

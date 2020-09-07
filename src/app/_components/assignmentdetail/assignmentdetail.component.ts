@@ -1,7 +1,9 @@
 import {
   Component,
   OnInit,
-  Input
+  Input,
+  Output,
+  EventEmitter
 } from '@angular/core';
 import {
   FormBuilder,
@@ -40,6 +42,9 @@ export class AssignmentdetailComponent implements OnInit {
 
   @Input()
   students: any[] = [];
+
+  @Output()
+  assignmentCreated = new EventEmitter<boolean>();
 
 
   menuItems = [{
@@ -100,6 +105,7 @@ export class AssignmentdetailComponent implements OnInit {
       const assignment: Assignment = {
         title: this.f.title.value,
         topic: this.f.topic.value,
+        instructorId: this.authService.userValue.id,
         subject: this.f.subject.value,
         grade: this.f.grade.value,
         points: this.f.points.value,
@@ -109,7 +115,7 @@ export class AssignmentdetailComponent implements OnInit {
         assignmentFile: null,
         questionSetId: 0,
         courseId: this.course?.courseId,
-        studentAssignments: this.getStudentAssignments(),
+        studentAssignments: null,
       };
 
       this.uploadFile(this.files).then(event => {
@@ -117,6 +123,7 @@ export class AssignmentdetailComponent implements OnInit {
         this.courseService.createAssignment(assignment).subscribe(x => {
           if (x >= 0){
             this.success = 'Created Assignment Succesfully';
+            this.assignmentCancelled();
           }
           else{
             this.success = 'Unable to Create Assignment at this time';
@@ -190,6 +197,10 @@ export class AssignmentdetailComponent implements OnInit {
 
     return this.fileUploader.uploadFile(formData)
       .toPromise();
+  }
+
+  assignmentCancelled(){
+    this.assignmentCreated.emit(true);
   }
 
 }

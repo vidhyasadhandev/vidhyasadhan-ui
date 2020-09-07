@@ -1,12 +1,15 @@
-<div class="container">
-  <div class="card m-2">
+<div class="container-fluid">
+  <div class="card p-margin">
     <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
       <div class="card-header" [ngClass]="{'pink-bg': authService?.userValue?.role === 0}">
         <span>My Profile</span>
       </div>
       <div class="card-body white-bg card-scroll">
         <div class="row">
-          <div class="col-9">
+          <div class="col-sm-3 order-sm-last text-center">
+            <img [src]="userForm.get('profilePic').value" alt="upload image" (click)="openDialog()" class="img img-thumbnail">
+          </div>
+          <div class="col-sm-9">
             <div class="form-row">
               <div class="col-md-6">
                 <mat-form-field appearance="outline">
@@ -59,9 +62,6 @@
                 </mat-form-field>
               </div>
             </div>
-          </div>
-          <div class="col-3">
-            <img [src]="userForm.get('profilePic').value" alt="upload image" (click)="openDialog()" class="img img-thumbnail">
           </div>
         </div>
         <!-- <div class="address-divider">Address:</div> -->
@@ -337,7 +337,8 @@
                     </mat-form-field>
                     <div class="pl-2 pr-2">
                       <input type="file" #file formControlName="proofDoc" placeholder="Choose file" name="formFile" (change)="uploadFile(file.files, 1)" style="display:none;">
-                      <button type="button" class="btn btn-success" (click)="file.click()">Browse</button>
+                      <button type="button" class="btn btn-success d-none d-md-block" (click)="file.click()">Browse</button>
+                      <button mat-icon-button class="d-block d-sm-none" color="primary" (click)="file.click()"><mat-icon>attach_file</mat-icon></button>
                       <!-- <ngx-mat-file-input formControlName="proofDoc" id="proofDoc">
                       </ngx-mat-file-input> -->
                     </div>
@@ -367,11 +368,15 @@
       </div>
       <div class="card-footer bg-light">
         <mat-card-actions class="footer-buttons clearfix">
-          <button mat-raised-button color="secondary" (click)="reset()" class="m-2">Reset</button>
-          <div class="float-right">
-            <button mat-raised-button  color="secondary" class="m-2">Cancel</button>
-            <button mat-raised-button type="submit" color="accent" class="m-2">Update Profile</button>
+          <div class="d-flex justify-content-between">
+            <button mat-raised-button color="secondary" (click)="reset()" class="m-2">Reset</button>
+            <div class="d-flex">
+              <button mat-raised-button  color="secondary" class="m-2">Cancel</button>
+              <button mat-raised-button type="submit" color="accent" class="m-2">Update Profile</button>
+            </div>
           </div>
+
+
         </mat-card-actions>
       </div>
     </form>

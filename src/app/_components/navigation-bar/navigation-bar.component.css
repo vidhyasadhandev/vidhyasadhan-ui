@@ -68,3 +68,9 @@
   .tutor{
     background-image: linear-gradient(to bottom, #e5f5ff 13%, #60a7f8);
   }
+
+  .img-nav{
+    height: 25px;
+    margin-right: 0.5rem;
+    width: 25px;
+  }

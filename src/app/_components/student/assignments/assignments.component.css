@@ -123,3 +123,35 @@
   line-height: 1.14;
   letter-spacing: normal;
 }
+
+.full-width{
+  width: 100%;
+}
+
+.file-container {
+  height: 100px;
+  padding: 2rem;
+  text-align: center;
+  border: dashed 2px #979797;
+  position: relative;
+  margin: 0 auto;
+  background-size: cover;
+  font-family: Montserrat;
+  width: 100%;
+}
+
+
+.fileinput {
+  opacity: 0;
+  position: absolute;
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+
+.info{
+  width: 100%;
+  margin: 1rem;
+}

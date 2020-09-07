@@ -11,6 +11,7 @@ export interface Assignment {
     assignmentFile: string;
     questionSetId: number;
     courseId: string;
+    instructorId: string;
     studentAssignments?: StudentAssignment[];
 }
 

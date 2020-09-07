@@ -1,4 +1,4 @@
-<mat-sidenav-container >
+<mat-sidenav-container>
   <mat-sidenav #drawer class="sidenav" position="end" mode="over">
     <h2>Edit Filters <span>Clear Filters</span></h2>
     <nav>
@@ -40,13 +40,13 @@
       <ul>
         <li>
           <mat-slide-toggle>
-        Show Only Online
-      </mat-slide-toggle>
+            Show Only Online
+          </mat-slide-toggle>
         </li>
         <li>
           <mat-slide-toggle>
-        Toggle State Off!
-      </mat-slide-toggle>
+            Toggle State Off!
+          </mat-slide-toggle>
         </li>
         <li>
         </li>
@@ -54,98 +54,75 @@
       <div class="text-center">
         <button mat-raised-button color="accent">Apply</button>
       </div>
-      
+
     </nav>
   </mat-sidenav>
 
-  <mat-sidenav-content>
-    <mat-card>
-      <mat-card-header class="header-rad">
-        <mat-card-title>
-          <span [ngSwitch]="displayassignments">
-            <p *ngSwitchCase="true">
-              Student Assignments
-            </p>
-            <p *ngSwitchCase="false">
-              <a (click)="gotolist()" mat-icon-button>
-                <mat-icon>west</mat-icon>
-              </a>
-              Create Assignments
-            </p>
-          </span>
-        </mat-card-title>
-        <mat-card-subtitle *ngIf="displayassignments">Total: {{assignments?.length}}</mat-card-subtitle>
-        <div class="ml-auto">
-          <div class="d-flex">
-            <ng-container [ngSwitch]="displayassignments">
-              <ng-container class="ml-2" *ngSwitchCase="true">
-                <div class="row">
-                  <div class="col-md-6">
-                    <mat-form-field appearance="fill" class="custom-margin">
-                      <mat-label>Search</mat-label>
-                      <input matInput placeholder="Search" [(ngModel)]="query">
-                      <button mat-icon-button matSuffix>
-                        <mat-icon>search</mat-icon>
-                      </button>
-                    </mat-form-field>
-                  </div>
-                  <div class="col-md-2">
-                    <div class="custom-margin">
-                      <button mat-raised-button color="primary" aria-label="Example icon button with a home icon"
-                        (click)="drawer.toggle()">
-                        filter <mat-icon>filter_list</mat-icon>
-                      </button>
+  <mat-sidenav-content class="assignments-nav">
+    <div class="card">
+      <div class="card-header header-rad" *ngIf="assignments?.length > 0">
+        <div class="d-flex justify-content-between">
+          <div>
+            <mat-card-title>
+              <ng-container [ngSwitch]="displayassignments">
+                <span class="student-Assignments" *ngSwitchCase="true">
+                  List of Assignments
+                </span>
+                <span class="student-Assignments" *ngSwitchCase="false">
+                  <a (click)="gotolist()" mat-icon-button>
+                    <mat-icon>west</mat-icon>
+                  </a>
+                  Create Assignments
+                </span>
+              </ng-container>
+            </mat-card-title>
+            <mat-card-subtitle *ngIf="displayassignments">Total: {{assignments?.length}}</mat-card-subtitle>
+          </div>
+          <div class="d-flex" *ngIf="displayassignments">
+            <!-- <div class="col-md-6">
+                      <mat-form-field appearance="fill" class="custom-margin">
+                        <mat-label>Search</mat-label>
+                        <input matInput placeholder="Search" [(ngModel)]="query">
+                        <button mat-icon-button matSuffix>
+                          <mat-icon>search</mat-icon>
+                        </button>
+                      </mat-form-field>
                     </div>
-                    <!-- <mat-form-field appearance="fill" class="custom-margin">
-                      <mat-label>Most Recent</mat-label>
-                      <input matInput placeholder="Most Recent" disabled [(ngModel)]="query">
-                      <button mat-icon-button matSuffix>
-                        <mat-icon>expand_more</mat-icon>
-                      </button>
-                    </mat-form-field> -->
-                  </div>
-                  <div class="col-md-4">
-                    <button class="btn btn-primary custom-margin" [matMenuTriggerFor]="menu">
-                      <span>New Task</span>
-                      <mat-icon class="align-middle ml-1">add</mat-icon>
-                    </button>
-                    <mat-menu #menu="matMenu" xPosition="before">
-                      <button mat-menu-item *ngFor="let item of switchMenus()" (click)="menuClicks(item)">
-                        <mat-icon>{{item.icon}}</mat-icon>
-                        <span class="menu-font">{{item.value}}</span>
-                      </button>
-                    </mat-menu>
-                  </div>
-                </div>
-              </ng-container>
-              <ng-container *ngSwitchCase="false">
-                <mat-form-field appearance="fill">
-                  <mat-label for="course">Course</mat-label>
-                  <mat-select [(ngModel)]="selectedCourse" name="course">
-                    <mat-option *ngFor="let location of filteredCourses" [value]="location">
-                      {{location.title}}
-                    </mat-option>
-                  </mat-select>
-                </mat-form-field>
-                <ng-container>
-                  <mat-form-field appearance="fill" class="ml-2">
-                    <mat-label>Assign To</mat-label>
-                    <mat-select [(ngModel)]="selectedstudents" multiple>
-                      <mat-option *ngFor="let enrollment of selectedCourse?.enrollments" [value]="enrollment.student">
-                        {{enrollment.student?.firstName}} {{enrollment.student?.lastName}}
-                      </mat-option>
-                    </mat-select>
-                  </mat-form-field>
-                </ng-container>
-              </ng-container>
-            </ng-container>
+                    <div class="col-md-2">
+                      <div class="custom-margin">
+                        <button mat-raised-button color="primary" aria-label="Example icon button with a home icon"
+                          (click)="drawer.toggle()">
+                          filter <mat-icon>filter_list</mat-icon>
+                        </button>
+                      </div>
+                    </div> -->
+            <a class="btn btn-primary custom-margin" [matMenuTriggerFor]="menu">
+              <span>New Task</span>
+              <mat-icon class="align-middle ml-1">add</mat-icon>
+            </a>
+            <mat-menu #menu="matMenu" xPosition="before">
+              <a mat-menu-item *ngFor="let item of switchMenus()" (click)="menuClicks(item)">
+                <mat-icon>{{item.icon}}</mat-icon>
+                <span class="menu-font">{{item.value}}</span>
+              </a>
+            </mat-menu>
           </div>
         </div>
-      </mat-card-header>
-      <mat-card-content>
+      </div>
+      <div class="card-body">
         <span [ngSwitch]="displayassignments">
           <p *ngSwitchCase="true">
-            <mat-card *ngIf="assignments?.length === 0">
+            <ng-container [ngSwitch]="assignments?.length === 0">
+              <ng-container *ngSwitchCase="true">
+                <app-noassignments (assignmentEmitter)="eventClicked($event)"></app-noassignments>
+              </ng-container>
+              <ng-container *ngSwitchCase="false">
+                <app-assignmentlist [assignments]="assignments" [filter]="query"></app-assignmentlist>
+                <!-- <mat-paginator [length]="assignments?.length" [pageSize]="4" [pageSizeOptions]="[4, 8, 12, 16]"
+                  (page)="pagechange($event)"> </mat-paginator> -->
+              </ng-container>
+            </ng-container>
+            <!-- <mat-card *ngIf="assignments?.length === 0">
               <mat-card-header class="body-content">
                 <mat-card-title>
                   <div class="d-flex">
@@ -172,16 +149,15 @@
                   </mat-list-item>
                 </mat-action-list>
               </mat-card-content>
-            </mat-card>
-            <app-assignmentlist [assignments]="slicedAssignments" [filter]="query"></app-assignmentlist>
-            <mat-paginator [length]="assignments?.length" [pageSize]="4" [pageSizeOptions]="[4, 8, 12, 16]"
-              (page)="pagechange($event)"> </mat-paginator>
+            </mat-card> -->
+
           </p>
           <p *ngSwitchCase="false">
-            <app-assignmentdetail [course]="selectedCourse" [students]="selectedstudents"></app-assignmentdetail>
+            <app-assignmentdetail [course]="selectedCourse" [students]="selectedstudents"
+              (assignmentCreated)="assignmentCreatedEvent($event)"></app-assignmentdetail>
           </p>
         </span>
-      </mat-card-content>
-    </mat-card>
+      </div>
+    </div>
   </mat-sidenav-content>
 </mat-sidenav-container>

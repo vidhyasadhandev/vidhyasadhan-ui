@@ -2,8 +2,12 @@
   <div class="card">
     <div class="card-header material-bg">
       <div class="d-flex justify-content-between">
-        <div>Assignments</div>
         <div>
+          <a *ngIf="selectdetail" (click)="selectdetail = !selectdetail">
+            <mat-icon>west</mat-icon>
+          </a> Assignments
+        </div>
+        <div *ngIf="!selectdetail">
           <a (click)="nextClick('left')">
             <mat-icon>chevron_left</mat-icon>
           </a>
@@ -16,8 +20,86 @@
       </div>
     </div>
     <span [ngSwitch]="selectdetail">
-      <div class="card-body" *ngSwitchCase="true">
-      </div>
+      <form [formGroup]="assignmentFormForm" novalidate (ngSubmit)="onSubmit()" *ngSwitchCase="true">
+        <div class="card-body">
+          <div class="container">
+
+            <div class="row">
+              <div class="col-sm-6">
+                <mat-form-field class="full-width">
+                  <input matInput placeholder="subject" formControlName="subject">
+                </mat-form-field>
+              </div>
+              <div class="col-sm-6">
+                <mat-form-field class="full-width">
+                  <input matInput placeholder="title" formControlName="title">
+                </mat-form-field>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-6">
+                <mat-form-field class="full-width">
+                  <input matInput placeholder="grade" formControlName="grade">
+                </mat-form-field>
+              </div>
+              <div class="col-sm-6">
+                <mat-form-field class="full-width">
+                  <input matInput placeholder="Due Date" formControlName="dueDate">
+                </mat-form-field>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-6">
+                <mat-form-field class="full-width">
+                  <input matInput placeholder="Tutor" formControlName="tutor">
+                </mat-form-field>
+              </div>
+              <div class="col-sm-6">
+                <mat-form-field class="full-width">
+                  <input matInput placeholder="Points" formControlName="points">
+                </mat-form-field>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-8">
+                <mat-form-field class="full-width">
+                  <textarea matInput placeholder="Instructions" formControlName="instructions"></textarea>
+                </mat-form-field>
+              </div>
+              <div class="col-4">
+                assignment file <button mat-icon-button color="accent">
+                  <mat-icon>cloud_download</mat-icon>
+                </button>
+              </div>
+            </div>
+            <div class="row">
+              <div class="file-container" appDragndir (fileDropped)="dropped($event)">
+                <input type="file" class="fileinput" #fileDropRef id="fileDropRef" formControlName="submissionFile"
+                  (change)="filesBrowse($event.target.files)" />
+                <h3 class="text-dark">Drag and Drop the file</h3>
+              </div>
+              <div class="info" *ngIf="files.length>0">
+                <h4 class="name">
+                  {{ files[0]?.name }} <button mat-icon-button (click)="deletefiles()" color="warn">
+                    <mat-icon>delete_forever</mat-icon>
+                  </button>
+                </h4>
+                <p class="size">
+                  {{files[0]?.progress}}% of {{ formatBytes(files[0]?.size,0) }}
+                </p>
+                <mat-progress-bar mode="buffer" [color]="'primary'" [value]="files[0]?.progress"
+                  [bufferValue]="files[0]?.progress">
+                </mat-progress-bar>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="card-footer">
+          <div class="d-flex justify-content-end m-2">
+            <button mat-raised-button color="accent" type="submit">Submit</button>
+          </div>
+        </div>
+      </form>
       <div class="card-body" *ngSwitchCase="false">
         <div class="alert alert-primary alert-dismissible fade show" role="alert" *ngIf="error">
           <button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -38,16 +120,17 @@
                       <span class="subject">{{model.assignment.title}}</span>
                     </div>
                     <div class="ml-auto">
-                      <div class="list-inline">
-                        <a mat-mini-fab color="secondary" (click)="downloadFile(model.assignment.assignmentFile)" title="download" class="list-inline-item">
-                          <mat-icon>cloud_download</mat-icon>
-                        </a>
-                        <a mat-mini-fab color="secondary" title="upload" (click)="uploader.click()"  class="list-inline-item">
-                          <mat-icon>cloud_upload</mat-icon>
-                        </a>
-                        <input hidden  type="file" #uploader (change)="fileBrowse($event.target.files)" />
-                        <!-- <button mat-mini-fab color="secondary" class="list-inline-item">75%</button> -->
-                      </div>
+                      <a (click)="viewDetails(model)"><span class="badge badge-pill badge-primary">View
+                          Details</span></a>
+                      <!-- <div class="list-inline">
+                          <a mat-mini-fab color="secondary" (click)="downloadFile(model.assignment.assignmentFile)" title="download" class="list-inline-item">
+                            <mat-icon>cloud_download</mat-icon>
+                          </a>
+                          <a mat-mini-fab color="secondary" title="upload" (click)="uploader.click()"  class="list-inline-item">
+                            <mat-icon>cloud_upload</mat-icon>
+                          </a>
+                          <input hidden  type="file" #uploader (change)="fileBrowse($event.target.files)" />
+                        </div> -->
                     </div>
                   </div>
                 </div>
@@ -58,18 +141,18 @@
                     <div class="d-flex flex-column">
                       <span>Due: {{model.assignment.dueDate | date: 'mediumDate'}}</span>
                       <span class="list-inline" *ngIf="uploadedFile">
-                          {{uploadedFile.name}}
+                        {{uploadedFile.name}}
                       </span>
-                      <span *ngIf="uploadedFile">
-                        <a (click)="onSubmit(model)"><span class="badge badge-pill badge-primary" >Submit</span></a>
-                        <a (click)="onDelete()"><span class="badge badge-pill badge-danger">Delete</span></a>
-                      </span>
+                      <!-- <span *ngIf="uploadedFile">
+                          <a (click)="onSubmit(model)"><span class="badge badge-pill badge-primary" >Submit</span></a>
+                          <a (click)="onDelete()"><span class="badge badge-pill badge-danger">Delete</span></a>
+                        </span> -->
                       <span class="ml-auto">
-                          <ng-container [ngSwitch]="model.status">
-                            <span class="badge badge-pill badge-warning" *ngSwitchCase="0">Pending</span>
-                            <span class="badge badge-pill badge-success" *ngSwitchCase="1">Submitted</span>
-                            <span class="badge badge-pill badge-primary" *ngSwitchCase="2">Evaluated</span>
-                          </ng-container>
+                        <ng-container [ngSwitch]="model.status">
+                          <span class="badge badge-pill badge-warning" *ngSwitchCase="0">Pending</span>
+                          <span class="badge badge-pill badge-success" *ngSwitchCase="1">Submitted</span>
+                          <span class="badge badge-pill badge-primary" *ngSwitchCase="2">Evaluated</span>
+                        </ng-container>
                       </span>
                     </div>
                   </div>
@@ -82,4 +165,3 @@
     </span>
   </div>
 </ng-container>
-

@@ -6,20 +6,20 @@
         <div class="row">
             <div class="col-md-4 offset-md-1">
                 <mat-card class="text-center o-card">
-                    <mat-card-content>             
+                    <mat-card-content>
                      <h4 class="otp-title">Please enter the One-Time Password
                          to verify your account</h4>
                          <img src="assets/OTP/locked.svg"  class="locked" >
                      <h5 class="p-4">
                         A One-Time Password has been sent to your number ending with *** {{phone}}
                      </h5>
-                     
+
                      <mat-grid-list cols="6" rowHeight="50px">
                          <mat-grid-tile
                              *ngFor="let tile of otpcode; let i = index"
                              [colspan]="1"
                              [rowspan]="1">
-                                 <input class="rectangle" [tabindex]="i" maxlength="1" autofocus type="text" name="{{tile.name}}"  [(ngModel)]="tile.value" (keyup)="entervalue($event)">
+                                 <input class="rectangle" [tabindex]="i+10" maxlength="1" autofocus type="text" name="{{tile.name}}"  [(ngModel)]="tile.value" (keyup)="entervalue($event)">
                          </mat-grid-tile>
                      </mat-grid-list>
 
@@ -28,16 +28,16 @@
                          <p class="wrong-num">Entered a wrong number?</p>
                          <p class="resend ml-auto"><a (click)="resendcode()">Resend One-time Password</a></p>
                      </div>
-                     <div class="alert alert-success alert-dismissible fade show" role="alert" *ngIf="tokenMessage">              
+                     <div class="alert alert-success alert-dismissible fade show" role="alert" *ngIf="tokenMessage">
                        <strong>{{tokenMessage}}</strong>
-                       <mat-icon (click)="tokenMessage = null">close</mat-icon> 
+                       <mat-icon (click)="tokenMessage = null">close</mat-icon>
                      </div>
-                     <div class="alert alert-warning alert-dismissible fade show" role="alert" *ngIf="error">              
+                     <div class="alert alert-warning alert-dismissible fade show" role="alert" *ngIf="error">
                         <strong>{{error}}</strong>
-                        <mat-icon (click)="error = null">close</mat-icon> 
+                        <mat-icon (click)="error = null">close</mat-icon>
                       </div>
                     </mat-card-content>
-                </mat-card>              
+                </mat-card>
             </div>
         </div>
 

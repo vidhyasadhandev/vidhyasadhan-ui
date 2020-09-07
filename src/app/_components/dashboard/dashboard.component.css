@@ -1,7 +1,6 @@
 
 
 .greet h4 {
-    height: 24px;
     font-family: Montserrat;
     font-size: 28px;
     font-weight: 500;
@@ -13,14 +12,13 @@
 }
 
 .greet h2 {
-    height: 24px;
     font-family: Montserrat;
     font-weight: 600;
     font-stretch: normal;
     font-style: normal;
     letter-spacing: normal;
     color: #20253a;
-    line-height: 0.6;
+    line-height: 1;
 }
 
 .greet p{
@@ -86,7 +84,7 @@
 }
 
 .dash-board{
-    background-image: url("/vidhyasadhan-ui/assets/dashboard/dashboard-1.png");
+    background-image: url("/assets/dashboard/dashboard-1.png");
         background-image:
           -webkit-image-set(
             url("/vidhyasadhan-ui/assets/dashboard/dashboard-1.png") 1x,
@@ -160,18 +158,18 @@
   opacity: 0.5;
 }
 
-.card-deck .opac-pink:nth-of-type(3){
+.prof-pink{
   border-radius: 10px;
   background-image: linear-gradient(to bottom, #ea8b64 13%, #c2300a);
   color: #ffffff;
   opacity: 1;
 }
 
-.card-deck .opac-pink:nth-of-type(3) *, .card-deck .opac-blue:nth-of-type(3) *{
+.prof-pink *, .prof-blue *{
   color: #ffffff;
 }
 
-.card-deck .opac-blue:nth-of-type(3){
+.prof-blue{
   border-radius: 10px;
   box-shadow: 0 11px 21px 3px rgba(106, 166, 255, 0.7);
   background-image: linear-gradient(138deg, #aac7ea -8%, #1d4082 69%);
@@ -179,7 +177,7 @@
   opacity: 1;
 }
 
-.card-deck .opac-blue:nth-of-type(3):hover, .card-deck .opac-pink:nth-of-type(3):hover {
+.prof-pink:hover, .prof-blue:hover {
   animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
   transform: translate3d(0, 0, 0);
   backface-visibility: hidden;

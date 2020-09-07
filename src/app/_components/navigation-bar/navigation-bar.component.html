@@ -14,9 +14,20 @@
 
     <span class="example-spacer"></span>
 
+    <a mat-icon-button [matMenuTriggerFor]="auth1" class="d-block d-sm-none">
+      <!-- <mat-icon>account_circle</mat-icon> -->
+      <img class="rounded-circle" width="25" height="25" [src]="user.profilePic || 'assets/avatar.svg'" />
+    </a>
+    <mat-menu #auth1="matMenu">
+      <a mat-menu-item (click)="logout()">
+        <mat-icon>exit_to_app</mat-icon>
+        <span>Sign out</span>
+      </a>
+    </mat-menu>
     <a mat-icon-button (click)="smallmenuClicked()" class="d-block d-sm-none">
       <mat-icon>menu</mat-icon>
     </a>
+
 
     <div class="d-none d-sm-block">
       <ul class="navbar-nav flex-row">
@@ -49,19 +60,24 @@
       <ng-container *ngSwitchCase="true">
         <ul class="navbar-nav mt-auto">
           <li class="nav-item active">
-            <a class="nav-link" (click)="smClicked = !smClicked" [routerLink]="['/classroom']" >My Classroom <span class="sr-only">(current)</span></a>
+            <a class="nav-link" (click)="smClicked = !smClicked" [routerLink]="['/classroom']" >
+              <img class="img-nav" src="assets/Student/noun-teaching-2380320.svg"> My Classroom <span class="sr-only">(current)</span></a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" (click)="smClicked = !smClicked" [routerLink]="['/tutors']">Book Tutor</a>
+            <a class="nav-link" (click)="smClicked = !smClicked" [routerLink]="['/tutors']">
+              <img class="img-nav" src="assets/Student/noun-assignment-3202074.svg">Book Tutor</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" (click)="smClicked = !smClicked" [routerLink]="['/profile']">My Profile</a>
+            <a class="nav-link" (click)="smClicked = !smClicked" [routerLink]="['/profile']">
+              <img class="img-nav" src="assets/Student/path.svg">My Profile</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" (click)="smClicked = !smClicked" [routerLink]="['/student/assignments']">Study Material</a>
+            <a class="nav-link" (click)="smClicked = !smClicked" [routerLink]="['/student/assignments']">
+              <img class="img-nav" src="assets/Student/my-earnings.svg">Study Material</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" (click)="smClicked = !smClicked" [routerLink]="['/progress']">Progress Report</a>
+            <a class="nav-link" (click)="smClicked = !smClicked" [routerLink]="['/progress']">
+              <img class="img-nav" src="assets/Student/chart-pie-36.svg">Progress Report</a>
           </li>
           <!-- <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
@@ -79,22 +95,29 @@
       <ng-container *ngSwitchCase="false">
         <ul class="navbar-nav mt-auto">
           <li class="nav-item active">
-            <a class="nav-link" (click)="smClicked = !smClicked" [routerLink]="['/classroom']">My Classroom <span class="sr-only">(current)</span></a>
+            <a class="nav-link" (click)="smClicked = !smClicked" [routerLink]="['/classroom']">
+              <img class="img-nav" src="assets/dashboard/noun-teaching-2380320.svg">My Classroom <span class="sr-only">(current)</span>
+            </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" (click)="smClicked = !smClicked" [routerLink]="['/requests']">Student Requests</a>
+            <a class="nav-link" (click)="smClicked = !smClicked" [routerLink]="['/requests']">
+              <img class="img-nav" src="assets/dashboard/noun-assignment-3202074.svg">Student Requests</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" (click)="smClicked = !smClicked" [routerLink]="['/profile']">My Profile</a>
+            <a class="nav-link" (click)="smClicked = !smClicked" [routerLink]="['/profile']">
+              <img class="img-nav" src="assets/dashboard/path.svg">My Profile</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" (click)="smClicked = !smClicked"  [routerLink]="['/events']">My Events</a>
+            <a class="nav-link" (click)="smClicked = !smClicked"  [routerLink]="['/events']">
+              <img class="img-nav" src="assets/dashboard/vector.svg">My Events</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" (click)="smClicked = !smClicked"  [routerLink]="['/earnings']">My Earnings</a>
+            <a class="nav-link" (click)="smClicked = !smClicked"  [routerLink]="['/earnings']">
+              <img class="img-nav" src="assets/dashboard/my-earnings.svg">My Earnings</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" (click)="smClicked = !smClicked" [routerLink]="['/tutor-referrals']">My Referrals</a>
+            <a class="nav-link" (click)="smClicked = !smClicked" [routerLink]="['/tutor-referrals']">
+              <img class="img-nav" src="assets/dashboard/my-referrals.svg">My Referrals</a>
           </li>
         </ul>
       </ng-container>

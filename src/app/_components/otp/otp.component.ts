@@ -35,14 +35,21 @@ export class OtpComponent implements OnInit {
   }
 
   entervalue(event){
-    const element = event.srcElement.nextElementSibling;
-    // const element1 = document.getElementsByName(event.srcElement.name) as HTMLInputElement;
-    if (element == null) {
-        return;
+    const el = event.srcElement;
+    const tidx = +(el.getAttribute('tabindex')) + 1,
+    elements = document.getElementsByTagName('input');
+
+    for (let i = elements.length; i--;) {
+        const tidx2 = elements[i].getAttribute('tabindex');
+        if (Number(tidx2) === tidx) { elements[i].focus(); }
     }
-    else {
-        element.focus();
-    }
+    // // const element1 = document.getElementsByName(event.srcElement.name) as HTMLInputElement;
+    // if (element == null) {
+    //     return;
+    // }
+    // else {
+    //     element.focus();
+    // }
   }
 
   onSubmit(){

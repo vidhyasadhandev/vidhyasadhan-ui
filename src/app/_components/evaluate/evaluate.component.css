@@ -2,9 +2,20 @@ table{
     width: 100%;
 }
 
-.example-container.mat-elevation-z8 {    
+.example-container.mat-elevation-z8 {
     overflow-x: auto;
   }
   .example-container .mat-table.mat-table {
     min-width: 450px;
+  }
+
+  .evaluate-tasks {
+    font-family: Montserrat;
+    font-size: 16px;
+    font-weight: 500;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.5;
+    letter-spacing: normal;
+    color: #20253a;
   }

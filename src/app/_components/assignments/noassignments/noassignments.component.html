@@ -1,0 +1,27 @@
+<!-- <div class="card-header bg-primary">
+  <h2 class="my-event">Assignments</h2>
+</div> -->
+
+  <h1 class="card-title">
+    <p class="Start-your-journey-b">
+      You haven't created any Assignments yet,
+    </p>
+    <p class="Start-your-journey-b">
+      Click <span style="font-weight: bold;">'+'</span> icon to create an assignment, Quiz, and Q&A..etc..  
+    </p>
+
+  </h1>
+<div class="event-img">
+  <img class="img img-responsive" src="assets/assignments/assignment_bg1.png"
+  srcset="assets/assignments/assignment_bg2.png 2x,
+  assets/assignments/assignment_bg3.png 3x">
+</div>
+<a class="ml-auto m-4 circle-add float-right" mat-mini-fab [matMenuTriggerFor]="menu">
+  <mat-icon>add</mat-icon>
+</a>
+<mat-menu #menu="matMenu" yPosition="above">
+  <a mat-menu-item *ngFor="let item of menuItems" (click)="addEvent(item)">
+    <mat-icon>{{item.icon}}</mat-icon>
+    <span>{{item.value}}</span>
+  </a>
+</mat-menu>

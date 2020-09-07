@@ -1,6 +1,4 @@
-<ng-container>
-  <div class="row m-2">
-    <div class="col-md-6" *ngFor="let assignment of assignments | fieldsfilter: 'subject,title,topic,grade,dueDate': filter">
+<!-- <div class="col-md-6" *ngFor="let assignment of assignments | fieldsfilter: 'subject,title,topic,grade,dueDate': filter">
       <ng-container>
         <div class="card m-1">
           <div class="card-header">
@@ -42,6 +40,124 @@
           </div>
         </div>
       </ng-container>
-    </div>
+    </div> -->
+
+<div class="d-flex justify-content-between">
+  <mat-form-field>
+    <mat-label>Filter</mat-label>
+    <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Subject, Grade, Title, Topic" #input>
+  </mat-form-field>
+  <div>
+    <mat-form-field>
+      <mat-label for="course">Course</mat-label>
+      <mat-select [(ngModel)]="selectedCourse" name="course">
+        <mat-option *ngFor="let location of filteredCourses" [value]="location">
+          {{location.title}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field class="ml-2">
+      <mat-label>Assign To</mat-label>
+      <mat-select [(ngModel)]="selectedstudents" multiple>
+        <mat-option *ngFor="let enrollment of selectedCourse?.enrollments" [value]="enrollment.student">
+          {{enrollment.student?.firstName}} {{enrollment.student?.lastName}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <a class="ml-2" mat-raised-button color="accent" (click)="addAssignments()"
+      [disabled]="!selectedstudents">Submit</a>
   </div>
-</ng-container>
+</div>
+
+
+<div class="mat-elevation-z8">
+  <table mat-table [dataSource]="dataSource" matSort>
+
+    <ng-container matColumnDef="select">
+      <th mat-header-cell *matHeaderCellDef>
+        <mat-checkbox (change)="$event ? masterToggle() : null" [checked]="selection.hasValue() && isAllSelected()"
+          [indeterminate]="selection.hasValue() && !isAllSelected()" [aria-label]="checkboxLabel()">
+        </mat-checkbox>
+      </th>
+      <td mat-cell *matCellDef="let row">
+        <mat-checkbox (click)="$event.stopPropagation()" (change)="$event ? selection.toggle(row) : null"
+          [checked]="selection.isSelected(row)" [aria-label]="checkboxLabel(row)">
+        </mat-checkbox>
+      </td>
+    </ng-container>
+
+    <!-- ID Column -->
+    <!-- <ng-container matColumnDef="id" hidden>
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> ID </th>
+        <td mat-cell *matCellDef="let row"> {{row.assignmentId}} </td>
+      </ng-container> -->
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="title">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Title </th>
+      <td mat-cell *matCellDef="let row">
+        <span class="img-span"><img class="rounded-circle" src="assets/icons/vidhya-sandhhan.svg" width="24" height="24"> </span>{{row.title}} </td>
+    </ng-container>
+
+    <!-- Color Column -->
+    <ng-container matColumnDef="grade">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Grade </th>
+      <td mat-cell *matCellDef="let row" [style.color]="row.color"> {{row.grade}} </td>
+    </ng-container>
+
+    <!-- Progress Column -->
+    <ng-container matColumnDef="subject">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Subject </th>
+      <td mat-cell *matCellDef="let row"> {{row.subject}} </td>
+    </ng-container>
+
+    <!-- Color Column -->
+    <ng-container matColumnDef="created">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Due Date </th>
+      <td mat-cell *matCellDef="let row" [style.color]="row.color"> {{row.dueDate | date}} </td>
+    </ng-container>
+
+    <!-- Color Column -->
+    <ng-container matColumnDef="topic">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Topic </th>
+      <td mat-cell *matCellDef="let row" [style.color]="row.color"> {{row.topic}} </td>
+    </ng-container>
+
+    <!-- Color Column -->
+    <ng-container matColumnDef="points">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Points </th>
+      <td mat-cell *matCellDef="let row" [style.color]="row.color"> {{row.points}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="attachment">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Attachment </th>
+      <td mat-cell *matCellDef="let row" [style.color]="row.color"> <a (click)="downloadFile(row.assignmentFile)">
+        <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-download" fill="currentColor"
+        xmlns="http://www.w3.org/2000/svg">
+        <path fill-rule="evenodd"
+          d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5z" />
+        <path fill-rule="evenodd"
+          d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3z" />
+      </svg> Download
+        </a> </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+    <!-- Row shown when there is no matching data. -->
+    <tr class="mat-row" *matNoDataRow>
+      <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
+    </tr>
+  </table>
+  <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+  <div class="d-flex text-center justify-content-center">
+    <div class="alert alert-success" *ngIf="success" role="alert">
+      <strong>Assigned to Students Successfully</strong> <mat-icon (click)="success = !success">cancel</mat-icon>
+    </div>
+    <div class="alert alert-warning" *ngIf="error" role="alert">
+     <strong>{{error}}</strong> <mat-icon (click)="error = null">cancel</mat-icon>
+   </div>
+  </div>
+
+</div>

@@ -34,7 +34,7 @@ body{
 html, body { height: 100%; }
 body { margin: 0 !important; font-family:'Montserrat, sans-serif' !important;}
 
-.header-bg{ 
+.header-bg{
   background: hsla(186, 66%, 40%, 1);
   background: linear-gradient(180deg, hsla(186, 66%, 40%, 0.2) 0%, hsla(188, 39%, 53%, 1) 100%);
   background: -moz-linear-gradient(180deg, hsla(186, 66%, 40%, 0.2) 0%, hsla(188, 39%, 53%, 1) 100%);
@@ -170,7 +170,7 @@ body { margin: 0 !important; font-family:'Montserrat, sans-serif' !important;}
   .oval-copy-right-1, .oval-copy-right-2{
     display: none;
   }
-  
+
 }
 
 @media screen and (min-width: 576px) and (max-width: 900px){
@@ -196,7 +196,7 @@ body { margin: 0 !important; font-family:'Montserrat, sans-serif' !important;}
 
   .main-40{
     width: 40%;
-  } 
+  }
 }
 
 @media screen and (min-width: 1200px){
@@ -235,21 +235,21 @@ body { margin: 0 !important; font-family:'Montserrat, sans-serif' !important;}
 .card-400 {
   max-width: 400px;
  }
- 
+
  .card-500 {
    max-width: 500px;
  }
- 
+
 
  .login-side{
   background-image: url("/vidhyasadhan-ui/assets/registration/register-1.png");
-  background-image: 
+  background-image:
     -webkit-image-set(
       url("/vidhyasadhan-ui/assets/registration/register-1.png") 1x,
       url("/vidhyasadhan-ui/assets/registration/register-2.png") 2x,
       url("/vidhyasadhan-ui/assets/registration/register-3.png") 3x,
     );
-  background-image: 
+  background-image:
     image-set(
       url("/vidhyasadhan-ui/assets/registration/register-1.png.png") 1x,
       url("/vidhyasadhan-ui/assets/registration/register-2.png.png") 2x,
@@ -341,4 +341,25 @@ body { margin: 0 !important; font-family:'Montserrat, sans-serif' !important;}
 
 .main-bg{
   background-image: linear-gradient(to bottom, #fff5f0 13%, #fccfbc);
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 2px grey;
+  border-radius: 5px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #695d5d;
+  border-radius: 5px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #695d5d;
 }

@@ -79,6 +79,12 @@ import { StudentmateriallistComponent } from './_components/student/studymateria
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
+import { NoassignmentsComponent } from './_components/assignments/noassignments/noassignments.component';
+import { AssignmentDetailComponent } from './_components/student/assignments/assignment-detail/assignment-detail.component';
+import { MatInputModule } from '@angular/material/input';
+import { MatSelectModule } from '@angular/material/select';
+import { MatRadioModule } from '@angular/material/radio';
+import { MatCardModule } from '@angular/material/card';
 
 @NgModule({
   declarations: [
@@ -130,7 +136,9 @@ import { MatSortModule } from '@angular/material/sort';
     AdaptivereportsComponent,
     StudymaterialComponent,
     StudentAssignmentsComponent,
-    StudentmateriallistComponent
+    StudentmateriallistComponent,
+    NoassignmentsComponent,
+    AssignmentDetailComponent
   ],
   imports: [
     BrowserModule,
@@ -158,7 +166,11 @@ import { MatSortModule } from '@angular/material/sort';
     NgApexchartsModule,
     MatTableModule,
     MatPaginatorModule,
-    MatSortModule
+    MatSortModule,
+    MatInputModule,
+    MatSelectModule,
+    MatRadioModule,
+    MatCardModule
     // CloudinaryModule.forRoot(Cloudinary, { cloud_name: 'dfsizfwtr', upload_preset: 'ml_default'}),
   ],
   providers: [

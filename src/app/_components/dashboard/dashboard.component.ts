@@ -19,18 +19,18 @@ export class DashboardComponent implements OnInit {
 
   tutorcards: Dashboard[] = [
     { icon: 'assets/dashboard/noun-teaching-2380320.svg', text: 'My Classroom', subtext : 'Events', value : '20', type: '', class: 'opac-5', path: '/classroom'},
-    { icon: 'assets/dashboard/noun-assignment-3202074.svg', text: 'Requests', subtext : 'Pending tasks', value : '8', type: '', class: 'opac-5', path: '/tasks' },
+    { icon: 'assets/dashboard/noun-assignment-3202074.svg', text: 'Requests', subtext : 'Pending tasks', value : '8', type: '', class: 'opac-5', path: '/requests' },
     { icon: 'assets/dashboard/path.svg', text: 'My Profile', subtext : 'Completed', value : '80%', type: '', class: 'opac-5', path: '/profile' },
-    { icon: 'assets/dashboard/vector.svg', text: 'My Events', subtext : 'Completed', value : '80%', type: '', class: 'opac-5', path: '/profile' },
+    { icon: 'assets/dashboard/vector.svg', text: 'My Events', subtext : 'Completed', value : '80%', type: '', class: 'opac-5', path: '/events' },
     { icon: 'assets/dashboard/my-earnings.svg', text: 'My Earnings', subtext : 'Completed', value : '80%', type: '', class: 'opac-5', path: '/earnings' },
-    { icon: 'assets/dashboard/my-referrals.svg', text: 'My Referrals', subtext : 'Rewards', value : '200', type: '', class: 'opac-5', path: '/referrals' }
+    { icon: 'assets/dashboard/my-referrals.svg', text: 'My Referrals', subtext : 'Rewards', value : '200', type: '', class: 'opac-5', path: '/tutor-referrals' }
   ];
 
   studentcards: Dashboard[] = [
     { icon: 'assets/Student/noun-teaching-2380320.svg', text: 'My Classroom', subtext : 'Events', value : '20', type: '', class: 'opac-5', path: '/classroom' },
     { icon: 'assets/Student/noun-assignment-3202074.svg', text: 'Book Tutor', subtext : 'Pending tasks', value : '8', type: '', class: 'opac-5', path: '/tutors' },
     { icon: 'assets/Student/path.svg', text: 'My Profile', subtext : 'Completed', value : '80%', type: '', class: 'student-profile', path: '/profile' },
-    { icon: 'assets/Student/my-earnings.svg', text: 'Study Material', subtext : 'Resources', value : '30', type: '', class: 'opac-5', path: '/materials' },
+    { icon: 'assets/Student/my-earnings.svg', text: 'Study Material', subtext : 'Resources', value : '30', type: '', class: 'opac-5', path: '/student/assignments' },
     { icon: 'assets/Student/chart-pie-36.svg', text: 'Progress Reports', subtext : 'Credits', value : '200', type: '', class: 'opac-5', path: '/progress' }
   ];
 

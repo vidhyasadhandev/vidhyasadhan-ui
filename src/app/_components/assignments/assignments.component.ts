@@ -22,24 +22,24 @@ export class AssignmentsComponent implements OnInit {
   filteredCourses;
   selectedCourse;
   selectedstudents;
-  assignments;
+  assignments = [];
   slicedAssignments;
   query;
 
   menuItems = [
     {id: 0, value: 'Assignment', icon: 'assignment_turned_in'},
     {id: 1, value: 'Quiz Assignment', icon: 'batch_prediction'},
-    {id: 2, value: 'Question', icon: 'help'},
-    {id: 3, value: 'Material', icon: 'menu_book'},
-    {id: 4, value: 'Topic', icon: 'local_library'},
+    // {id: 2, value: 'Question', icon: 'help'},
+    // {id: 3, value: 'Material', icon: 'menu_book'},
+    {id: 2, value: 'Topic', icon: 'local_library'},
   ];
 
   detailsMenu = [
     {id: 0, value: 'Student', icon: 'assignment_turned_in'},
     {id: 1, value: 'Quiz Assignment', icon: 'batch_prediction'},
-    {id: 2, value: 'Question', icon: 'help'},
-    {id: 3, value: 'Material', icon: 'menu_book'},
-    {id: 4, value: 'Topic', icon: 'local_library'},
+    // {id: 2, value: 'Question', icon: 'help'},
+    // {id: 3, value: 'Material', icon: 'menu_book'},
+    {id: 2, value: 'Topic', icon: 'local_library'},
   ];
 
   ngOnInit(): void {
@@ -61,9 +61,6 @@ export class AssignmentsComponent implements OnInit {
   }
 
   updateList(){
-    this.courseService.getAllCoursesByUser(this.authService.userValue.id)
-    .subscribe(x => this.filteredCourses = x);
-
     this.courseService.getAssignmentByTutor(this.authService.userValue.id)
     .subscribe(x => {this.assignments = x; this.slicedAssignments = x?.slice(0, 4); } );
   }
@@ -82,6 +79,16 @@ export class AssignmentsComponent implements OnInit {
     }
 
     this.slicedAssignments = this.assignments.slice(startIndex, endIndex);
+  }
+
+  eventClicked(event){
+    if (event.id === 0){
+      this.displayassignments = false;
+    }
+  }
+
+  assignmentCreatedEvent(event){
+    this.displayassignments = event;
   }
 
 }
