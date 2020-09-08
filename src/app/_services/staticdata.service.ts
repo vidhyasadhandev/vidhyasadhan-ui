@@ -35,4 +35,10 @@ export class StaticdataService {
     }
     return of([]);
   }
+
+  getNotifications(userId){
+    const options = { params: new HttpParams().set('userId', userId) };
+    return this.http.get<any>(`${environment.apiUrl}/notifications/load`, options);
+  }
+
 }

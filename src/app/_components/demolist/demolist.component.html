@@ -26,15 +26,15 @@
       </div>
     </div>
 
-    <div class="container-fluid">
+    <!-- <div class="container-fluid">
       <div class="row">
-        <div [ngClass]="{'col' : selectedAction === actionIcons[0], 
+        <div [ngClass]="{'col' : selectedAction === actionIcons[0],
                   'col-md-12' : selectedAction === actionIcons[1],
                   'col-md-6' : selectedAction === actionIcons[2] }">
           <div [ngClass]="{'card-deck': selectedAction === actionIcons[1]}">
             <div class="card card-chip mb-3" *ngFor="let element of demoRequests">
               <div class="row no-gutters">
-                <div [ngClass]="{'col-md-2' : selectedAction === actionIcons[0], 
+                <div [ngClass]="{'col-md-2' : selectedAction === actionIcons[0],
                                   'col-md-12' : selectedAction === actionIcons[1],
                                   'col-md-4' : selectedAction === actionIcons[2] }">
                   <div class="d-flex" [ngClass]="{'justify-content-center' : selectedAction === actionIcons[1]}">
@@ -44,7 +44,7 @@
                       class="Group-10-Copy-3">
                   </div>
                 </div>
-                <div [ngClass]="{'col-md-10' : selectedAction === actionIcons[0], 
+                <div [ngClass]="{'col-md-10' : selectedAction === actionIcons[0],
                                   'col-md-12' : selectedAction === actionIcons[1],
                                   'col-md-8' : selectedAction === actionIcons[2] }">
                   <div class="card-body">
@@ -77,8 +77,6 @@
                       </div>
 
                     </div>
-                    <!-- <p class="card-text"><small class="text-muted">Last updated 3 mins
-                                            ago</small></p> -->
                   </div>
                 </div>
               </div>
@@ -87,7 +85,7 @@
 
         </div>
         <div class="col-md-6" *ngIf="selectedAction == actionIcons[2]">
-          <!-- <google-map height="500px" width="100%"></google-map> -->
+          <google-map height="500px" width="100%"></google-map>
           <app-mapcomponent [markersdata]="demoRequests"></app-mapcomponent>
         </div>
       </div>
@@ -97,8 +95,170 @@
       <div class="text-center">
         <mat-spinner *ngIf="!loadDemo" [diameter]="30"></mat-spinner>
       </div>
+    </div> -->
 
-    </div>
-
+    <ng-container [ngSwitch]="selectedAction">
+      <div class="container-fluid">
+        <ng-container *ngSwitchCase="actionIcons[0]">
+          <div class="card card-chip mb-3" *ngFor="let element of demoRequests">
+            <div class="row no-gutters">
+              <div class="col-md-2">
+                <div class="card-img">
+                  <img [src]="element.student.profilePic" class="img-thumbnail m-2" width="200">
+                  <img src="assets/demo/group-10-copy-3.png"
+                    srcset="assets/demo/group-10-copy-3@2x.png 2x,assets/demo/group-10-copy-3@3x.png 3x"
+                    class="Group-10-Copy-3">
+                </div>
+              </div>
+              <div class="col-md-10">
+                <div class="card-body">
+                  <h5 class="card-title text-dark">
+                    <a class="Student-Name-10th-S"> {{element.student.firstName | uppercase}}
+                      {{element.student.lastName | uppercase}}
+                    </a>
+                  </h5>
+                  <div class="card-text Requested-Subs-M">
+                    <div class="row">
+                      <div class="col">
+                        <p>Requested Sub(s) — {{element.subject}}</p>
+                        <p>Requested Demo on {{element.date | date: 'EEEE'}},
+                          {{element.date | date: 'shortTime'}} slot</p>
+                      </div>
+                      <div class="col">
+                        <p class="address">Address</p>
+                        <p class="v-map">{{element.course?.locationName}} - <a
+                            (click)="selectedAction = actionIcons[2]">View On Map</a></p>
+                      </div>
+                      <div class="col-12">
+                        <mat-chip-list #chipList>
+                          <mat-chip [color]="action.color" selected *ngFor="let action of actions"
+                            (click)="changeSelected($event, action, element)">
+                            <mat-icon>{{action.icon}}</mat-icon>
+                            {{action.action}}
+                          </mat-chip>
+                        </mat-chip-list>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </ng-container>
+        <ng-container *ngSwitchCase="actionIcons[1]">
+          <div class="container-fluid">
+            <div class="row">
+              <div class="col-md-4" *ngFor="let element of demoRequests">
+                <div class="card card-chip mb-3">
+                  <div class="row no-gutters">
+                    <div class="col-md-12">
+                      <div class="card-img">
+                        <img [src]="element.student.profilePic" class="img-thumbnail m-2" width="200">
+                        <img src="assets/demo/group-10-copy-3.png"
+                          srcset="assets/demo/group-10-copy-3@2x.png 2x,assets/demo/group-10-copy-3@3x.png 3x"
+                          class="Group-10-Copy-3">
+                      </div>
+                    </div>
+                    <div class="col-md-12">
+                      <div class="card-body">
+                        <h5 class="card-title text-dark">
+                          <a class="Student-Name-10th-S"> {{element.student.firstName | uppercase}}
+                            {{element.student.lastName | uppercase}}
+                          </a>
+                        </h5>
+                        <div class="card-text Requested-Subs-M">
+                          <div class="row">
+                            <div class="col">
+                              <p>Requested Sub(s) — {{element.subject}}</p>
+                              <p>Requested Demo on {{element.date | date: 'EEEE'}},
+                                {{element.date | date: 'shortTime'}} slot</p>
+                            </div>
+                            <div class="col text-right">
+                              <p class="address">Address</p>
+                              <p class="v-map">{{element.course?.locationName}} - <a
+                                  (click)="selectedAction = actionIcons[2]">View On Map</a></p>
+                            </div>
+                            <div class="col-12">
+                              <mat-chip-list #chipList>
+                                <mat-chip [color]="action.color" selected *ngFor="let action of actions"
+                                  (click)="changeSelected($event, action, element)">
+                                  <mat-icon>{{action.icon}}</mat-icon>
+                                  {{action.action}}
+                                </mat-chip>
+                              </mat-chip-list>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </ng-container>
+        <ng-container *ngSwitchCase="actionIcons[2]">
+          <div class="container-fluid">
+            <div class="row">
+              <div class="col-md-7">
+                <div class="card card-chip mb-3" *ngFor="let element of demoRequests">
+                  <div class="row no-gutters">
+                    <div class="col-md-2">
+                      <div class="card-img">
+                        <img [src]="element.student.profilePic" class="img-thumbnail m-2" width="200">
+                        <img src="assets/demo/group-10-copy-3.png"
+                          srcset="assets/demo/group-10-copy-3@2x.png 2x,assets/demo/group-10-copy-3@3x.png 3x"
+                          class="Group-10-Copy-3">
+                      </div>
+                    </div>
+                    <div class="col-md-10">
+                      <div class="card-body">
+                        <h5 class="card-title text-dark">
+                          <a class="Student-Name-10th-S"> {{element.student.firstName | uppercase}}
+                            {{element.student.lastName | uppercase}}
+                          </a>
+                        </h5>
+                        <div class="card-text Requested-Subs-M">
+                          <div class="row">
+                            <div class="col">
+                              <p>Requested Sub(s) — {{element.subject}}</p>
+                              <p>Requested Demo on {{element.date | date: 'EEEE'}},
+                                {{element.date | date: 'shortTime'}} slot</p>
+                            </div>
+                            <div class="col">
+                              <p class="address">Address</p>
+                              <p class="v-map">{{element.course?.locationName}} - <a
+                                  (click)="selectedAction = actionIcons[2]">View On Map</a></p>
+                            </div>
+                            <div class="col-12">
+                              <mat-chip-list #chipList>
+                                <mat-chip [color]="action.color" selected *ngFor="let action of actions"
+                                  (click)="changeSelected($event, action, element)">
+                                  <mat-icon>{{action.icon}}</mat-icon>
+                                  {{action.action}}
+                                </mat-chip>
+                              </mat-chip-list>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-5">
+                <app-mapcomponent [markersdata]="demoRequests"></app-mapcomponent>
+              </div>
+              <div *ngIf="demoRequests.length == 0 && loadDemo" class="alert alert-info">
+                There are no new requests at this time.
+              </div>
+              <div class="text-center">
+                <mat-spinner *ngIf="!loadDemo" [diameter]="30"></mat-spinner>
+              </div>
+            </div>
+          </div>
+        </ng-container>
+      </div>
+    </ng-container>
   </div>
 </div>

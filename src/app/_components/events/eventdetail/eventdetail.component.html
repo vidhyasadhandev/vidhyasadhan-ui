@@ -98,14 +98,22 @@
               </mat-form-field>
             </div>
             <div class="form-group col-md-6">
-              <mat-form-field appearance="outline">
+                <mat-label>Which days are you able to tutor?</mat-label>
+                <section class="m-1">
+                  <mat-checkbox class="day-margin" [checked]="allChecked" (change)="changeAll($event.checked)">All
+                  </mat-checkbox>
+                  <mat-checkbox class="day-margin" [checked]="day.selected" (change)="changeDays($event.checked, day)"
+                    *ngFor="let day of days">{{day.day | slice:0:3}}</mat-checkbox>
+                </section>
+
+              <!-- <mat-form-field appearance="outline">
                 <mat-label for="video">Online?</mat-label>
                 <mat-select formControlName="video" id="video"
                   [ngClass]="{ 'is-invalid': submitted && demoFormControls.video.errors }">
                   <mat-option selected="selected" value="Yes">Yes</mat-option>
                   <mat-option value="No">No</mat-option>
                 </mat-select>
-              </mat-form-field>
+              </mat-form-field> -->
             </div>
           </div>
           <div class="form-row">
@@ -115,11 +123,17 @@
                 <input type="text" formControlName="grade" matInput id="grade" placeholder="Grade">
                 </mat-form-field>
                 </div>
-            <div class="form-group col-md-6">
-              <mat-label class="d-flex">Event Type</mat-label>
+            <div class="form-group col-md-3">
+              <!-- <mat-label class="d-flex">Event Type</mat-label> -->
               <mat-radio-group formControlName="eventType">
                 <mat-radio-button value="Demo">Demo</mat-radio-button>
                 <mat-radio-button value="Tution">Tution</mat-radio-button>
+              </mat-radio-group>
+            </div>
+            <div class="form-group col-md-3">
+              <mat-radio-group formControlName="video">
+                <mat-radio-button value="true">Online</mat-radio-button>
+                <mat-radio-button value="false">Offline</mat-radio-button>
               </mat-radio-group>
             </div>
           </div>

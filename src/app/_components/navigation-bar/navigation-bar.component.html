@@ -14,6 +14,17 @@
 
     <span class="example-spacer"></span>
 
+    <a mat-icon-button [matMenuTriggerFor]="notificationid" class="d-block d-sm-none">
+      <mat-icon matBadge="{{notifications.length}}" matBadgeColor="warn">notifications</mat-icon>
+    </a>
+    <mat-menu #notificationid="matMenu">
+      <div class="list-group">
+        <a mat-menu-item class="list-group-item list-group-item-warning" *ngFor="let note of notifications">
+          {{note.message}}
+        </a>
+      </div>
+    </mat-menu>
+
     <a mat-icon-button [matMenuTriggerFor]="auth1" class="d-block d-sm-none">
       <!-- <mat-icon>account_circle</mat-icon> -->
       <img class="rounded-circle" width="25" height="25" [src]="user.profilePic || 'assets/avatar.svg'" />
@@ -32,9 +43,16 @@
     <div class="d-none d-sm-block">
       <ul class="navbar-nav flex-row">
         <li fxHide.xs class="nav-item active">
-          <a mat-icon-button class="nav-link">
-            <mat-icon>notifications</mat-icon>
+          <a mat-icon-button class="nav-link" [matMenuTriggerFor]="notificationid">
+            <mat-icon matBadge="{{notifications.length}}" matBadgeColor="warn">notifications</mat-icon>
           </a>
+          <mat-menu #notificationid="matMenu">
+            <div class="list-group">
+              <a mat-menu-item class="list-group-item list-group-item-warning" *ngFor="let note of notifications">
+                {{note.message}}
+              </a>
+            </div>
+          </mat-menu>
         </li>
 
         <li class="nav-item">

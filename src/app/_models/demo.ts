@@ -21,6 +21,7 @@ export interface Demo{
     isDemo: boolean;
     grade?: string;
     subject?: string;
+    isOnline: boolean;
 }
 
 export interface CourseAssignment{

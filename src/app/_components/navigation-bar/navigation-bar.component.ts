@@ -1,6 +1,7 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { AuthserviceService } from 'src/app/_services/authservice.service';
 import { User } from 'src/app/_models/user';
+import { StaticdataService } from 'src/app/_services/staticdata.service';
 
 @Component({
   selector: 'app-navigation-bar',
@@ -12,12 +13,18 @@ export class NavigationBarComponent implements OnInit {
   user: User;
   checked = false;
   navClicked = true;
+  notifications = [];
   smClicked = false;
   @Output() toggleSidenav = new EventEmitter<void>();
-  constructor(public authService: AuthserviceService) { }
+  constructor(public authService: AuthserviceService, private staticService: StaticdataService) { }
 
   ngOnInit(): void {
     this.user = this.authService.userValue;
+    if (this.authService.userValue.id){
+      this.staticService.getNotifications(this.authService.userValue.id).subscribe(
+        x => this.notifications = x
+      );
+    }
   }
 
   logout() {

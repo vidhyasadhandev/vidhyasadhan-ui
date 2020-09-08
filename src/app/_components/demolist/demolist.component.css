@@ -27,8 +27,8 @@
 
   .Group-10-Copy-3{
     position: absolute;
-    bottom: 20px;
-    right: 0;
+    bottom: 10%;
+    left: 60%;
   }
 
   .Student-Name-10th-S {
@@ -88,4 +88,8 @@
   background-color: #ffffff;
   }
 
- 
+  .card-img{
+    position: relative;
+    text-align: center;
+  }
+

@@ -28,3 +28,7 @@ h2{
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.02);
     background-color: #a4caf8 !important;
 }
+
+.day-margin{
+  margin: 0 5px;
+}

@@ -130,7 +130,7 @@
                 {{ course.summary }}
             </mat-panel-title>
             <mat-panel-description>
-                {{ course.description }}      
+                {{ course.description }}
             </mat-panel-description>
           </mat-expansion-panel-header>
           <mat-nav-list>
@@ -145,7 +145,7 @@
             <mat-list-item>
                 <span>EndDate:</span>
                 <span>{{ course.end.dateTime | date}}</span>
-            </mat-list-item>          
+            </mat-list-item>
         </mat-nav-list>
           </mat-expansion-panel>
     </mat-accordion>
@@ -253,7 +253,7 @@
             <!-- <mat-card-header *ngIf="course.startDate !== getToday()">
               {{course.startDate | date}}
             </mat-card-header>     -->
-            <mat-card class="m-2 card-left" [ngClass]="{'card-left-demo': !course.isDemo}">     
+            <mat-card class="m-2 card-left" [ngClass]="{'card-left-demo': !course.isDemo}">
               <mat-card-content>
                 <div class="row">
                   <div class="col-10">
@@ -275,14 +275,14 @@
                   </div>
                 </div>
                 <p class="card-text">
-                  {{course.startDate | date:'hh:mm a'}} - {{course.endDate | date:'hh:mm a'}}
+                  {{course.startTime}} - {{course.endTime}}
                 </p>
                 <div class="card-text d-flex">
                   <ng-container *ngFor="let profimg of course.enrollments">
                     <img class="list-img" [src]="profimg.student?.profilePic ? profimg.student?.profilePic : 'assets/profile-pic.svg'">
                   </ng-container>
                 </div>
-  
+
               </mat-card-content>
             </mat-card>
           </ng-container>

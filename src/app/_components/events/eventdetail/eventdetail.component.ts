@@ -26,6 +26,16 @@ export class EventdetailComponent implements OnInit {
   locations: LocationModel[] = [];
   message;
   timestamps;
+  days = [
+    {day: 'Monday', selected: false, code: 'MO' },
+    {day: 'Tuesday', selected: false, code: 'TU' },
+    {day: 'Wednesday', selected: false, code: 'WE' },
+    {day: 'Thursday', selected: false, code: 'TH' },
+    {day: 'Friday', selected: false, code: 'FR' },
+    {day: 'Saturday', selected: false, code: 'SA' },
+    {day: 'Sunday', selected: false, code: 'SU' }
+  ];
+  allChecked = false;
 
   @Output() returnEvent = new EventEmitter<boolean>();
 
@@ -105,7 +115,8 @@ export class EventdetailComponent implements OnInit {
   onSubmit() {
     this.submitted = true;
 
-    if (this.demoForm.valid) {
+    if (this.demoForm.valid)
+    {
       const demodata: Demo = {
         title: this.demoFormControls.title.value,
         courseId: null,
@@ -134,16 +145,16 @@ export class EventdetailComponent implements OnInit {
           timeZone: 'Asia/Calcutta',
           start: this.getDateforTimes(this.demoFormControls.startDate.value, this.demoFormControls.startTime.value),
           end: this.getDateforTimes(this.demoFormControls.startDate.value, this.demoFormControls.endTime.value),
-          recurrence: [{frequency: 'DAILY', count: this.dayDiff(this.demoFormControls.startDate.value,
-            this.demoFormControls.endDate.value)}],
+          recurrence: this.createRecurrance(),
           attendees: [
             this.authService.userValue.email
           ],
           organizer: null,
         },
-        isDemo: this.demoFormControls.eventType.value === 'Demo'
+        isDemo: this.demoFormControls.eventType.value === 'Demo',
+        isOnline: this.demoFormControls.video.value,
       };
-      console.log(demodata);
+
       this.demoService.createDemo(demodata).subscribe(x => {
         if ( x >= 0){
           this.message = 'succesfully created demo';
@@ -191,6 +202,37 @@ export class EventdetailComponent implements OnInit {
 
   gotoList(){
     this.returnEvent.emit(true);
+  }
+
+  changeAll(check){
+    this.allChecked = check;
+    if (this.days == null) {
+      return;
+    }
+    this.days.forEach(t => {
+      if (check === true){
+        t.selected = true;
+      }
+    });
+  }
+
+  changeDays(check, day){
+    day.selected = check;
+    this.allChecked = this.days.filter(t => t.selected).length > 0 ? false : this.allChecked;
+  }
+
+  createRecurrance(){
+    const count = this.dayDiff(this.demoFormControls.startDate.value,
+      this.demoFormControls.endDate.value);
+    const frequency = 'WEEKLY';
+    let result = [];
+    const byday = this.allChecked ? this.days.forEach(x => {
+      result = result.concat(x.code);
+    }) :  this.days.filter(x => x.selected).forEach(x => {
+      result = result.concat(x.code);
+    });
+
+    return result.length > 0 ? ['RRULE:FREQ=WEEKLY;COUNT=' + count + ';BYDAY=' + result.join(',')] : ['RRULE:FREQ=WEEKLY;COUNT=' + count];
   }
 
 }
