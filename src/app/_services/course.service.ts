@@ -18,8 +18,7 @@ export class CourseService {
   }
 
   getAllCoursesByUser(userid){
-      const options = userid ?
-      { params: new HttpParams().set('userId', userid)} : {};
+      const options = userid ? { params: new HttpParams().set('userId', userid)} : {};
       return this.http.get<Demo[]>(`${environment.apiUrl}/demos/GetByUserId`, options);
   }
 

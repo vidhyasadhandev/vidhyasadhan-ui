@@ -158,8 +158,8 @@ export class CalendarComponent implements OnInit {
     });
 
     this.userService.getAll().subscribe(x => this.users = x);
-    this.getCoursesByUser();
-    this.getEvents();
+   // this.getCoursesByUser();
+    this.getEvents(null);
   }
 
   getToday(){
@@ -175,9 +175,11 @@ export class CalendarComponent implements OnInit {
     });
   }
 
-  getEvents(){
+  getEvents(status){
     this.courseService.getAllCoursesByUser(this.logUser.id).
     subscribe((x) => {
+      this.courses = x;
+      this.events = [];
       x.forEach(element => {
         this.events.push(
           {
@@ -192,6 +194,10 @@ export class CalendarComponent implements OnInit {
           },
         );
       });
+      if (status?.length > 0){
+        this.courses = this.courses.filter(a => status.some(b => a.status === b));
+        this.events = this.events.filter(a => status.some(b => a.meta.status === b));
+      }
       this.refresh.next();
     });
   }
@@ -220,7 +226,6 @@ export class CalendarComponent implements OnInit {
     };
 
     this.courseService.createCalendar(calendar).subscribe(x => {
-      console.log(x);
       this.getCoursesByUser();
     });
 
@@ -230,12 +235,20 @@ export class CalendarComponent implements OnInit {
     if (action.checked === true){
       this.allChecked = false;
     }
+    const statuses = [];
+    this.filterActions.forEach(x => {
+    if (x.checked){
+          statuses.push(x.id);
+        }
+      });
+    this.getEvents(statuses);
   }
 
   changeAllSelected($event){
     this.allChecked = !this.allChecked;
     if (this.allChecked === true){
       this.filterActions.forEach(x => x.checked = false);
+      this.getEvents(null);
     }
   }
 

@@ -1,6 +1,9 @@
 <ng-container *ngIf="!create">
   <div class="card m-4">
-    <ng-container [ngSwitch]="events?.length > 0">
+    <div class="spinner-class" *ngIf="isLoading">
+      <mat-spinner></mat-spinner>
+    </div>
+    <ng-container [ngSwitch]="events?.length > 0" *ngIf="!isLoading">
       <ng-container *ngSwitchCase="true">
         <app-eventslist [demos]="demos" [tutions]="tutions" (returnEvent)="returnClicked($event)"></app-eventslist>
       </ng-container>

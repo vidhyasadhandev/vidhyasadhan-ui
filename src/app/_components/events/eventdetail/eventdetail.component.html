@@ -25,8 +25,14 @@
         <div class="form-group col-md-6">
           <mat-form-field appearance="outline">
             <mat-label for="subject">Subject</mat-label>
-            <input matInput type="text" formControlName="subject" id="subject" placeholder="Course/Subject"
+            <!-- <input matInput type="text" formControlName="subject" id="subject" placeholder="Course/Subject"
+              [ngClass]="{ 'is-invalid': submitted && demoFormControls.subject.errors }"> -->
+              <mat-select placeholder="Subject" formControlName="subject" name="subject" id="subject"
               [ngClass]="{ 'is-invalid': submitted && demoFormControls.subject.errors }">
+                <mat-option *ngFor="let item of staticDataSet?.subjects" [value]="item.name">
+                  {{item.name}}
+                </mat-option>
+              </mat-select>
             <div *ngIf="submitted && demoFormControls.title.errors" class="invalid-feedback">
               <div *ngIf="demoFormControls.title.errors.required">Subject is required</div>
             </div>
@@ -120,7 +126,13 @@
             <div class="form-group col-md-6">
                 <mat-form-field appearance="outline">
                 <mat-label for="grade">Level/Grade</mat-label>
-                <input type="text" formControlName="grade" matInput id="grade" placeholder="Grade">
+                <!-- <input type="text" formControlName="grade" matInput id="grade" placeholder="Grade"> -->
+                <mat-select placeholder="Grade" formControlName="grade" name="grade" id="grade"
+                [ngClass]="{ 'is-invalid': submitted && demoFormControls.grade.errors }">
+                  <mat-option *ngFor="let item of levels" [value]="item">
+                    {{item}}
+                  </mat-option>
+                </mat-select>
                 </mat-form-field>
                 </div>
             <div class="form-group col-md-3">

@@ -157,3 +157,18 @@ ul {
   letter-spacing: normal;
   color: #20253a;
 }
+
+.spinner-class{
+  width: 100%;
+  min-height: 450px;
+  position: relative;
+}
+
+.spinner-class>mat-spinner{
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%)
+}

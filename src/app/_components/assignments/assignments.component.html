@@ -114,7 +114,10 @@
           <p *ngSwitchCase="true">
             <ng-container [ngSwitch]="assignments?.length === 0">
               <ng-container *ngSwitchCase="true">
-                <app-noassignments (assignmentEmitter)="eventClicked($event)"></app-noassignments>
+                <div class="spinner-class" *ngIf="isLoading">
+                  <mat-spinner></mat-spinner>
+                </div>
+                <app-noassignments *ngIf="!isLoading" (assignmentEmitter)="eventClicked($event)"></app-noassignments>
               </ng-container>
               <ng-container *ngSwitchCase="false">
                 <app-assignmentlist [assignments]="assignments" [filter]="query"></app-assignmentlist>

@@ -16,8 +16,10 @@ export class EventsComponent implements OnInit {
   tutions;
   demos;
   events;
+  isLoading;
 
   ngOnInit(): void {
+    this.isLoading = true;
     this.getDemos();
   }
 
@@ -27,6 +29,7 @@ export class EventsComponent implements OnInit {
         this.events = x;
         this.tutions = x.filter(y => !y.isDemo);
         this.demos = x.filter(y => y.isDemo);
+        this.isLoading = false;
       }, (error) => console.log(error)
     );
   }

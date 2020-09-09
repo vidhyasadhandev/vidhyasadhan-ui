@@ -41,4 +41,8 @@ export class StaticdataService {
     return this.http.get<any>(`${environment.apiUrl}/notifications/load`, options);
   }
 
+  getStaticDataSets(){
+    return this.http.get<StaticData>(`${environment.apiUrl}/resourses/StaticDataForSubjects`);
+  }
+
 }

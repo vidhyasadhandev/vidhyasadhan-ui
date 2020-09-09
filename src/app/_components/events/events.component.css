@@ -46,3 +46,18 @@ h2{
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.02);
     background-color: #a4caf8 !important;
 }
+
+.spinner-class{
+  width: 100%;
+  min-height: 450px;
+  position: relative;
+}
+
+.spinner-class>mat-spinner{
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%)
+}

@@ -3,19 +3,29 @@
   <mat-tab-group mat-align-tabs="end" [color]="colors.font" class="tabheader" [ngClass]="{'bg-pink': auth.userValue.role === 0}"
    [backgroundColor]="colors.background">
     <mat-tab label="TIMETABLE">
-      <app-calendar></app-calendar>
+      <ng-template matTabContent>
+        <app-calendar></app-calendar>
+      </ng-template>
     </mat-tab>
     <mat-tab label="ASSIGNMENT" *ngIf="auth.userValue.role !== 0">
-      <app-assignments></app-assignments>
+      <ng-template matTabContent>
+        <app-assignments></app-assignments>
+      </ng-template>
     </mat-tab>
     <mat-tab label="ASSIGNMENT" *ngIf="auth.userValue.role === 0">
-      <app-student-assignments></app-student-assignments>
+      <ng-template matTabContent>
+        <app-student-assignments></app-student-assignments>
+      </ng-template>
     </mat-tab>
     <mat-tab label="Evaluate" *ngIf="auth.userValue.role !== 0">
-      <app-evaluate></app-evaluate>
+      <ng-template matTabContent>
+        <app-evaluate></app-evaluate>
+      </ng-template>
     </mat-tab>
     <mat-tab label="ATTENDANCE SHEET">
-      <app-attendance></app-attendance>
+      <ng-template matTabContent>
+        <app-attendance></app-attendance>
+      </ng-template>
     </mat-tab>
   </mat-tab-group>
 </div>

@@ -7,6 +7,7 @@ import { StaticdataService } from 'src/app/_services/staticdata.service';
 import { LocationModel } from 'src/app/_models/location';
 import * as moment from 'moment';
 import { Demo } from 'src/app/_models/demo';
+import { StaticData } from 'src/app/_models/static';
 
 @Component({
   selector: 'app-eventdetail',
@@ -26,6 +27,8 @@ export class EventdetailComponent implements OnInit {
   locations: LocationModel[] = [];
   message;
   timestamps;
+  staticDataSet: StaticData;
+  levels = [];
   days = [
     {day: 'Monday', selected: false, code: 'MO' },
     {day: 'Tuesday', selected: false, code: 'TU' },
@@ -63,34 +66,45 @@ export class EventdetailComponent implements OnInit {
       timer: ['Minutes', Validators.required]
     });
 
-    this.demoForm
-    .get('location')
-    .valueChanges
-    .pipe(
-      debounceTime(300),
-      tap(() => this.isLoading = true),
-      switchMap(value => this.staticData.searchLocations(value)
-        .pipe(
-          finalize(() => this.isLoading = false),
-        )
-      )
-    )
-    .subscribe((locs) => {
-      this.locations = [];
-      locs?.features?.forEach(element => {
-        const location: LocationModel = {
-          locationId: element.id,
-          locationName: element.place_name,
-          langitude: element.geometry?.coordinates[0],
-          latitude: element.geometry?.coordinates[1]
-        };
-        this.locations.push(location);
-      });
-    });
-
+    this.locationSearch();
+    this.subjectSearch();
     this.getTimeLabels();
   }
 
+
+  private locationSearch() {
+    this.demoForm
+      .get('location')
+      .valueChanges
+      .pipe(
+        debounceTime(300),
+        tap(() => this.isLoading = true),
+        switchMap(value => this.staticData.searchLocations(value)
+          .pipe(
+            finalize(() => this.isLoading = false))
+        )
+      )
+      .subscribe((locs) => {
+        this.locations = [];
+        locs?.features?.forEach(element => {
+          const location: LocationModel = {
+            locationId: element.id,
+            locationName: element.place_name,
+            langitude: element.geometry?.coordinates[0],
+            latitude: element.geometry?.coordinates[1]
+          };
+          this.locations.push(location);
+        });
+      });
+  }
+
+  private subjectSearch() {
+    this.staticData.getStaticDataSets().subscribe(x => { this.staticDataSet = x;
+                                                         x.subjects.forEach(y => {
+                                                         this.levels.push(y.level);
+      });
+     });
+  }
 
   getTimeLabels(){
     const times = (desiredStartTime, interval, period) => {

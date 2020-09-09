@@ -43,6 +43,7 @@ export class AssignmentsComponent implements OnInit {
   ];
 
   ngOnInit(): void {
+    this.isLoading = true;
     this.updateList();
   }
 
@@ -62,7 +63,7 @@ export class AssignmentsComponent implements OnInit {
 
   updateList(){
     this.courseService.getAssignmentByTutor(this.authService.userValue.id)
-    .subscribe(x => {this.assignments = x; this.slicedAssignments = x?.slice(0, 4); } );
+    .subscribe(x => {this.assignments = x; this.slicedAssignments = x?.slice(0, 4); this.isLoading = false; } );
   }
 
   gotolist(){
