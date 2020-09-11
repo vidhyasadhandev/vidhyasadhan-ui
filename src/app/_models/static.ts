@@ -22,8 +22,13 @@ export interface Medium{
 }
 
 export interface Group{
-  groupId: 1;
+  groupId: number;
   groupName: string;
+}
+
+export interface Board{
+  boardId: number;
+  boardName: string;
 }
 
 
@@ -34,4 +39,5 @@ export interface StaticData{
     subjects: Subject[];
     mediums: Medium[];
     groups: Group[];
+    boards: Board[];
 }

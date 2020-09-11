@@ -51,6 +51,7 @@ export class ProfileComponent implements OnInit {
   successmessage = false;
   proofdocument;
   uploadedFile;
+  levels;
 
   days = [
     {day: 'Monday', selected: false },
@@ -178,7 +179,10 @@ export class ProfileComponent implements OnInit {
       certification: [''],
     });
     this.getUser();
-    this.staticdataService.getStaticData().subscribe(x => this.staticData = x);
+    this.staticdataService.getStaticDataSets()
+    .subscribe(x => {this.staticData = x;
+                     this.levels = this.staticData.subjects
+                     .filter((thing, i, arr) => arr.findIndex(t => t.level === thing.level) === i); });
   }
 
   getUser() {

@@ -122,6 +122,7 @@
                   </div>
                 </mat-form-field>
               </div>
+
               <div class="col-md-6">
                 <mat-form-field appearance="outline">
                   <mat-label for="national">Nationality</mat-label>
@@ -156,14 +157,23 @@
                 <div class="col-md-6">
                   <mat-form-field appearance="outline">
                     <mat-label for="medium">Medium Of Education</mat-label>
-                    <input type="text" matInput formControlName="medium" id="medium" placeholder="Type your text here..">
+                    <mat-select id="medium" formControlName="medium">
+                      <mat-option>None</mat-option>
+                      <mat-option *ngFor="let medium of staticData?.mediums" [value]="medium.mediumName">
+                        {{medium.mediumName}}
+                      </mat-option>
+                    </mat-select>
                   </mat-form-field>
                 </div>
                 <div class="col-md-6">
                   <mat-form-field appearance="outline">
                     <mat-label for="subject">Subject Selection</mat-label>
-                    <input type="text" matInput formControlName="subject" id="subject"
-                      placeholder="Type your text here..">
+                      <mat-select id="subject" formControlName="subject">
+                        <mat-option>None</mat-option>
+                        <mat-option *ngFor="let subject of staticData?.subjects" [value]="subject.name">
+                          {{subject.name}}
+                        </mat-option>
+                      </mat-select>
                   </mat-form-field>
                 </div>
               </div>
@@ -171,13 +181,23 @@
                 <div class="col-md-6">
                   <mat-form-field appearance="outline">
                     <mat-label for="board">Education Board</mat-label>
-                    <input type="text" matInput formControlName="board" id="board">
+                    <mat-select id="medium" formControlName="medium">
+                      <mat-option>None</mat-option>
+                      <mat-option *ngFor="let board of staticData?.boards" [value]="board.boardName">
+                        {{board.boardName}}
+                      </mat-option>
+                    </mat-select>
                   </mat-form-field>
                 </div>
                 <div class="col-md-6">
                   <mat-form-field appearance="outline">
                     <mat-label for="standard">Class/Grade</mat-label>
-                    <input type="text" matInput formControlName="standard" id="standard">
+                    <mat-select id="standard" formControlName="standard">
+                      <mat-option>None</mat-option>
+                      <mat-option *ngFor="let level of levels" [value]="level.level">
+                        {{level.level}}
+                      </mat-option>
+                    </mat-select>
                   </mat-form-field>
                 </div>
               </div>
