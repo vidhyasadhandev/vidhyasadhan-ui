@@ -3,6 +3,8 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTable } from '@angular/material/table';
 import { StudentmateriallistDataSource, StudentmateriallistItem } from './studentmateriallist-datasource';
+import { ActivatedRoute, Router } from '@angular/router';
+import { StudymaterialService } from 'src/app/_services/studymaterial.service';
 
 @Component({
   selector: 'app-studentmateriallist',
@@ -16,15 +18,34 @@ export class StudentmateriallistComponent implements AfterViewInit, OnInit {
   dataSource: StudentmateriallistDataSource;
 
   /** Columns displayed in the table. Columns IDs can be added, removed, or reordered. */
-  displayedColumns = ['id', 'name'];
+  displayedColumns = ['id', 'title', 'subject', 'grade', 'topic', 'files'];
+  href;
+
+  slides = [
+    { id: 1, video: 'https://www.youtube.com/embed/M7lc1UVf-VE?autoplay=1&origin=', title: 'video 1' },
+    { id: 2, video: 'https://www.youtube.com/embed/M7lc1UVf-VE?autoplay=1&origin=', title: 'video 2'},
+    { id: 3, video: 'https://www.youtube.com/embed/M7lc1UVf-VE?autoplay=1&origin=', title: 'video 3'},
+    { id: 4, video: 'https://www.youtube.com/embed/M7lc1UVf-VE?autoplay=1&origin=', title: 'video 4'},
+    { id: 5, video: 'https://www.youtube.com/embed/M7lc1UVf-VE?autoplay=1&origin=', title: 'video 5'}
+  ];
+
+  constructor(private route: Router, private studyMaterial: StudymaterialService){
+    this.href = this.route.url;
+    this.slides.forEach(x => x.video += window.location.origin);
+  }
 
   ngOnInit() {
     this.dataSource = new StudentmateriallistDataSource();
+    this.studyMaterial.getMaterials().subscribe(x => this.dataSource.data = x);
   }
 
   ngAfterViewInit() {
     this.dataSource.sort = this.sort;
     this.dataSource.paginator = this.paginator;
     this.table.dataSource = this.dataSource;
+  }
+
+  downloadFile(files){
+
   }
 }

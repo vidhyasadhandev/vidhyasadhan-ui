@@ -5,9 +5,23 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class TutorfilterPipe implements PipeTransform {
 
-  transform(value, keys: string, term: string) {
-    if (!term) { return value; }
-    return (value || []).filter(item => keys.split(',').some(key => item.hasOwnProperty(key) && new RegExp(term, 'gi').test(item[key])));
+  transform(value, keys: string, arg1: any) {
+    console.log(arg1);
+    let filterValue = (value || []);
+    console.log(filterValue);
+    if (arg1[0]){
+      filterValue = (filterValue).filter(item => keys.split(',').some(key => item.hasOwnProperty(key)
+                                                             && new RegExp(arg1[0], 'gi').test(item[key])));
+    }
+    if (arg1[1]){
+      filterValue = (filterValue).filter(item => keys.split(',').some(key => item.hasOwnProperty(key)
+      && new RegExp(arg1[1], 'gi').test(item[key])));
+    }
+    if (arg1[2]){
+      filterValue = (filterValue).filter(item => keys.split(',').some(key => item.hasOwnProperty(key)
+      && new RegExp(arg1[2], 'gi').test(item[key])));
+    }
+    return filterValue;
   }
 
 }

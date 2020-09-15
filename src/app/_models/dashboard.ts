@@ -1,4 +1,5 @@
 export interface Dashboard {
+    id?: number;
     icon: string;
     text: string;
     subtext: string;

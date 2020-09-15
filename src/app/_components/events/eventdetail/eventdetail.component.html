@@ -189,9 +189,9 @@
     </div>
     <div class="card-footer bg-light">
       <mat-card-actions class="footer-buttons clearfix">
-        <button mat-raised-button (click)="resetForm()" color="secondary" class="m-2">Reset</button>
+        <button mat-raised-button (click)="resetForm()" type="reset" color="secondary" class="m-2">Reset</button>
         <div class="float-right">
-          <button mat-raised-button color="secondary" class="m-2">Cancel</button>
+          <button mat-raised-button color="secondary" (click)="cancelForm()" class="m-2">Cancel</button>
           <button mat-raised-button type="submit" color="accent" class="m-2">Send Invite</button>
         </div>
       </mat-card-actions>

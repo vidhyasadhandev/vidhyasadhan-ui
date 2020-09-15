@@ -7,6 +7,7 @@ import { User } from 'src/app/_models/user';
 import { handleException } from 'src/app/_helpers/vsexception';
 import { AuthserviceService } from 'src/app/_services/authservice.service';
 import { Customvalidators } from 'src/app/_helpers/customvalidators';
+import { AlertService } from 'src/app/_services/alert.service';
 
 @Component({
   selector: 'app-register',
@@ -28,12 +29,18 @@ export class RegisterComponent implements OnInit {
     {text: 'Two', cols: 2, rows: 1, color: 'lightgreen'},
   ];
 
+  options = {
+    autoClose: true,
+    keepAfterRouteChange: false
+  };
+
   constructor(
     private formBuilder: FormBuilder,
     private route: ActivatedRoute,
     private router: Router,
     private userService: UserService,
-    public authService: AuthserviceService
+    public authService: AuthserviceService,
+    private alertService: AlertService
   ) {
   }
 
@@ -81,12 +88,12 @@ export class RegisterComponent implements OnInit {
 
     this.userService.addUser(regUser)
     .subscribe(data => {
-      if (data){
-        this.success = 'Registration Complete. Check your email to confirm!';
+      if (data === true){
+        this.alertService.success('Registration Complete. Check your email to confirm!', this.options);
       }else{
-        this.error = `Unable to Complete Registration`;
+        this.alertService.error('Unable to Complete Registration', this.options);
       }
-     }, error => this.error = error);
+     }, error => this.alertService.error(error, this.options));
 
   }
 

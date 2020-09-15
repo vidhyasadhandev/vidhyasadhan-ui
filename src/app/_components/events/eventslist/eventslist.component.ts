@@ -53,6 +53,7 @@ export class EventslistComponent implements OnInit {
   }
 
   accessreturnValue(event){
+    this.filterEvents();
     if (event){
       this.selectedDemo = null;
     }

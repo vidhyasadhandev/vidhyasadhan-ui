@@ -85,6 +85,10 @@ import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatCardModule } from '@angular/material/card';
+import { CarouselModule } from 'ngx-owl-carousel-o';
+import { CarouselhelperComponent } from './_components/carouselhelper/carouselhelper.component';
+import { UrlsafePipe } from './_pipes/urls/urlsafe.pipe';
+import { AlertModule } from './alert/alert.module';
 
 @NgModule({
   declarations: [
@@ -138,7 +142,9 @@ import { MatCardModule } from '@angular/material/card';
     StudentAssignmentsComponent,
     StudentmateriallistComponent,
     NoassignmentsComponent,
-    AssignmentDetailComponent
+    AssignmentDetailComponent,
+    CarouselhelperComponent,
+    UrlsafePipe
   ],
   imports: [
     BrowserModule,
@@ -170,7 +176,9 @@ import { MatCardModule } from '@angular/material/card';
     MatInputModule,
     MatSelectModule,
     MatRadioModule,
-    MatCardModule
+    MatCardModule,
+    CarouselModule,
+    AlertModule
     // CloudinaryModule.forRoot(Cloudinary, { cloud_name: 'dfsizfwtr', upload_preset: 'ml_default'}),
   ],
   providers: [

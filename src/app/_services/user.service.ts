@@ -20,7 +20,7 @@ export class UserService {
   }
 
   getTutors() {
-    return this.http.get<User[]>(`${environment.apiUrl}/users/tutors`);
+    return this.http.get<any>(`${environment.apiUrl}/instructors`);
   }
 
   getAll() {
@@ -28,7 +28,7 @@ export class UserService {
   }
 
   addUser(user: User){
-    return this.http.post<User>(`${environment.apiUrl}/users/register`, user);
+    return this.http.post<boolean>(`${environment.apiUrl}/users/register`, user);
   }
 
   getProfileData(userid){

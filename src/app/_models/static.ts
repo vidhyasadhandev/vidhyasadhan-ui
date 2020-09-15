@@ -41,3 +41,22 @@ export interface StaticData{
     groups: Group[];
     boards: Board[];
 }
+
+
+export interface Statistics{
+  events: EventCounts;
+  tutors: Totals;
+  materials: Totals;
+  progress: Totals;
+  earnings: Totals;
+  profiles: Totals;
+}
+
+export interface Totals{
+  total: number;
+}
+
+export interface EventCounts extends Totals{
+  demos: number;
+  classes: number;
+}

@@ -36,8 +36,8 @@ export class EventsComponent implements OnInit {
 
 
   returnClicked(event){
-    event ? this.create = false : this.create = true;
     this.getDemos();
+    event === true ? this.create = false : this.create = true;
   }
 
 }

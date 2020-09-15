@@ -37,7 +37,7 @@ export class DemomodelComponent implements OnInit {
     this.submitted = true;
     if (this.demomodelForm.valid) {
       const demoreq: DemoRequest = {
-         tutorId: this.data.tutorinfo.id,
+         tutorId: this.data.tutorinfo.account.id,
          date: this.f.demo.value.startDate,
          studentId:  this.data.student.id,
          slot: this.f.demo.value.courseId,

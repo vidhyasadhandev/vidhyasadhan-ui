@@ -571,6 +571,9 @@ OTHER DEALINGS IN THE SOFTWARE.
 ng-apexcharts
 MIT
 
+ngx-owl-carousel-o
+MIT
+
 positioning
 MIT
 MIT License

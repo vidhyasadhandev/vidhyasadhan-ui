@@ -41,7 +41,7 @@
                 </div>
                 <div class="card-body">
                   <h3 class="card-title title">{{course.subject}} - {{course.grade}}</h3>
-                  <p class="card-sub-title subtitle">Tutor: {{course?.courseAssignments[0]?.instructor.firstName}} {{course?.courseAssignments[0]?.instructor.lastName}}</p>
+                  <p class="card-sub-title subtitle">Tutor: {{course?.courseAssignments[0]?.instructor?.firstName}} {{course?.courseAssignments[0]?.instructor?.lastName}}</p>
                   <div class="card-text perfomed">
                     <div class="d-flex">
                       <span>{{course.locationName}}</span>

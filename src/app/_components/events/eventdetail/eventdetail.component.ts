@@ -8,6 +8,7 @@ import { LocationModel } from 'src/app/_models/location';
 import * as moment from 'moment';
 import { Demo } from 'src/app/_models/demo';
 import { StaticData } from 'src/app/_models/static';
+import { AlertService } from 'src/app/_services/alert.service';
 
 @Component({
   selector: 'app-eventdetail',
@@ -19,7 +20,8 @@ export class EventdetailComponent implements OnInit {
   constructor(private formBuilder: FormBuilder,
               private authService: AuthserviceService,
               private demoService: DemoService,
-              private staticData: StaticdataService) { }
+              private staticData: StaticdataService,
+              public alertService: AlertService) { }
 
   public demoForm: FormGroup;
   public submitted = false;
@@ -29,6 +31,10 @@ export class EventdetailComponent implements OnInit {
   timestamps;
   staticDataSet: StaticData;
   levels = [];
+  alertOptions: {
+    autoClose: true,
+    keepAfterRouteChange: false
+  };
   days = [
     {day: 'Monday', selected: false, code: 'MO' },
     {day: 'Tuesday', selected: false, code: 'TU' },
@@ -171,13 +177,13 @@ export class EventdetailComponent implements OnInit {
 
       this.demoService.createDemo(demodata).subscribe(x => {
         if ( x >= 0){
-          this.message = 'succesfully created demo';
+          this.alertService.success('Succesfully Created Event', this.alertOptions);
         }
         else{
-          this.message = 'Unable to create demo';
+          this.alertService.error('Unable to Create Event', this.alertOptions);
         }
       },
-     (error) => this.message = error);
+     (error) => this.alertService.error(error, this.alertOptions));
     }
 
     this.gotoList();
@@ -210,8 +216,13 @@ export class EventdetailComponent implements OnInit {
   }
 
   resetForm(){
-    this.submitted = false;
     this.demoForm.reset();
+    this.submitted = false;
+  }
+
+  cancelForm(){
+    this.demoForm.reset();
+    this.submitted = true;
   }
 
   gotoList(){
