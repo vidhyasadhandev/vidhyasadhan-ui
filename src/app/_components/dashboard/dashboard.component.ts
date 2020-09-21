@@ -5,6 +5,7 @@ import { Dashboard } from 'src/app/_models/dashboard';
 import { UserService } from 'src/app/_services/user.service';
 import { StaticdataService } from 'src/app/_services/staticdata.service';
 import { Statistics } from 'src/app/_models/static';
+import { OwlOptions } from 'ngx-owl-carousel-o';
 
 @Component({
   selector: 'app-dashboard',
@@ -19,6 +20,31 @@ export class DashboardComponent implements OnInit {
   istutor: boolean;
   statistics: Statistics;
   profile;
+
+  customOptions: OwlOptions = {
+    loop: true,
+    mouseDrag: false,
+    touchDrag: false,
+    pullDrag: false,
+    dots: false,
+    navSpeed: 700,
+    navText: ['', ''],
+    responsive: {
+      0: {
+        items: 1
+      },
+      400: {
+        items: 2
+      },
+      740: {
+        items: 3
+      },
+      940: {
+        items: 5
+      }
+    },
+    nav: true
+  }
 
   tutorcards: Dashboard[] = [
     {id: 0, icon: 'assets/dashboard/noun-teaching-2380320.svg', text: 'My Classroom', subtext : 'Events',

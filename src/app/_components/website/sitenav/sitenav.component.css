@@ -1,0 +1,27 @@
+.nav-link{
+  font-family: Poppins;
+  font-size: 14px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #333333;
+}
+
+.item-active{
+  border-bottom: solid #b6091d;
+}
+
+.login-btn{
+  border-radius: 5px;
+  background-image: linear-gradient(to bottom, #f53b0a, #001aff);
+  font-family: Poppins;
+  font-size: 14px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #ffffff;
+}

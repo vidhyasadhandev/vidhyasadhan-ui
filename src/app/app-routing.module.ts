@@ -26,6 +26,9 @@ import { MainlayoutComponent } from './_layouts/mainlayout/mainlayout.component'
 import { EventsComponent } from './_components/events/events.component';
 import { ReportsComponent } from './_components/student/reports/reports.component';
 import { StudymaterialComponent } from './_components/student/studymaterial/studymaterial.component';
+import { SitelayoutComponent } from './_layouts/sitelayout/sitelayout.component';
+import { SitehomeComponent } from './_components/website/sitehome/sitehome.component';
+import { SitenavComponent } from './_components/website/sitenav/sitenav.component';
 
 const routes: Routes = [
   { path: '', component: MainlayoutComponent, canActivate: [AuthGuard],
@@ -51,6 +54,13 @@ const routes: Routes = [
   { path: 'student/assignments', component: StudymaterialComponent},
   { path: 'progress', component: ReportsComponent},
   ] },
+  {
+    path: 'home', component: SitelayoutComponent,
+    children: [
+      { path: '', component: SitehomeComponent, pathMatch: 'full'},
+      { path: 'navbar', component: SitenavComponent},
+    ]
+  },
   { path: 'login', component: LoginComponent },
   { path: 'register/:id', component: RegisterComponent},
   { path: 'authenticate', component: OtpComponent},

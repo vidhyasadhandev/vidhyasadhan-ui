@@ -13,6 +13,9 @@ export class CarouselhelperComponent implements OnInit {
   @Input()
   slidesStore;
 
+  @Input()
+  sourceType;
+
   customOptions: OwlOptions = {
     loop: true,
     mouseDrag: false,

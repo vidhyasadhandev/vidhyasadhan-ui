@@ -1,0 +1,423 @@
+.home-1{
+  background-image:url("/assets/website/bgmain.svg");
+  opacity: 0.9;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  text-align: center;
+  background-color: #ffffff;
+}
+
+.home-2{
+  height: 10vh;
+  background-color: #ffffff;
+}
+
+.main-margin{
+  margin: 2.5rem 1rem;
+}
+
+body{
+  -webkit-font-smoothing: antialiased;
+  background-color: #ffffff;
+}
+
+.provider{
+  font-family: Poppins;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #ffffff;
+  margin: auto;
+}
+
+.platform{
+  font-family: Poppins;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #ffffff;
+}
+
+.start-btn{
+  border-radius: 5px;
+  background-color: #ffffff;
+}
+
+.btn-text{
+  background-image: linear-gradient(to top, #f53b0a, #001aff);
+  font-family: Poppins;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.welcome-card{
+  opacity: 0.8;
+  background-image: linear-gradient(to top, #f53b0a, #000aff);
+  /* position: absolute;
+  margin-top: -1.5rem; */
+  z-index: 2000;
+  width: 100%;
+  background-image: url(/assets/website/bg.svg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  padding: 6rem;
+}
+
+.dev{
+  background-image: linear-gradient(to bottom, #f53b0a, #001aff);
+  font-family: Poppins;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 2.32;
+  letter-spacing: normal;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.dev-text{
+  font-family: Poppins;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 2.5;
+  letter-spacing: normal;
+  color: #333333;
+}
+
+.dev-discover{
+  border-radius: 5px;
+  background-image: linear-gradient(to bottom, #f53b0a, #001aff);
+  color:#ffffff;
+}
+
+.made-simple{
+  background: #ffffff;
+  text-align: center;
+  border: none;
+}
+
+.made-simple-txt{
+  background-image: linear-gradient(to top, #f53b0a, #001aff);
+  font-family: Poppins;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 2.32;
+  letter-spacing: normal;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-align: center;
+}
+
+.card-count{
+  background-image: linear-gradient(to top, #f53b0a, #001aff);
+  font-family: Poppins;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.79;
+  letter-spacing: normal;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+
+.card-title{
+  background-image: linear-gradient(to bottom, #f53b0a, #001aff);
+  font-family: Poppins;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.79;
+  letter-spacing: normal;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.card-text{
+  font-family: Poppins;
+  font-size: 16px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.5;
+  letter-spacing: normal;
+  color: #333333;
+}
+
+.btn-light{
+  background-image: linear-gradient(to top, #f53b0a, #001aff);
+  font-family: Poppins;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  letter-spacing: normal;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.rect-228{
+  width: 90px;
+}
+
+.edu-simple{
+display: flex;
+width: 80%;
+margin: auto;
+padding: 2rem;
+}
+
+/* .edu-simple>.mid-card{
+  margin: 10rem 6rem 2rem 6rem;
+} */
+
+.edu-simple>.mid-card>.card{
+  border-radius: 15px;
+  box-shadow: 0 50px 100px 0 rgba(0, 0, 0, 0.1);
+  border-style: solid;
+  border-width: 1px;
+  border-image-source: linear-gradient(to top, #f53b0a, #001aff);
+  border-image-slice: 1;
+  background-image: linear-gradient(to bottom, #ffffff, #ffffff), linear-gradient(to top, #f53b0a, #001aff);
+  background-origin: border-box;
+  background-clip: content-box, border-box;
+}
+
+
+.gexp-card{
+  display: flex;
+  width: 60%;
+  margin: auto;
+  padding: 2rem;
+}
+
+.gexp-card .card{
+border: none;
+background: transparent;
+}
+
+.role-access{
+  background-image: url(/assets/website/bgmain.svg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-height: 250px;
+}
+
+.role-card{
+  display: flex;
+  width: 60%;
+  margin: auto;
+  justify-content: center;
+  background-color: transparent;
+  flex-flow: column;
+}
+
+.role-card>.container{
+  width:80%;
+  background-color: #ffffff;
+  margin-top: 2rem;
+  padding-bottom: 2rem;
+  border-radius: 30px;
+  box-shadow: 0 50px 100px 0 rgba(0, 0, 0, 0.1);
+}
+
+.role-based{
+  background-image: linear-gradient(to top, #f53b0a, #001aff);
+  font-family: Poppins;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.79;
+  letter-spacing: normal;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-align: center;
+  margin: 2rem 1rem;
+}
+
+.role-1{
+  margin: 0 1rem;
+  padding: 1rem 2rem;
+  text-align: center;
+  border-radius: 15px;
+  box-shadow: 0 50px 100px 0 rgba(0, 0, 0, 0.1);
+  border-style: solid;
+  border-width: 1px;
+  border-image-source: linear-gradient(to top, #f53b0a, #001aff);
+  border-image-slice: 1;
+  background-origin: border-box;
+  background-clip: content-box, border-box;
+  background-image: linear-gradient(to bottom, #ffffff, #ffffff);
+}
+
+.role-1 p{
+  font-family: Poppins;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #333333;
+  margin-top: 1rem;
+}
+
+.blog{
+  text-align: center;
+  background-color: #ffffff;
+  padding: 2rem;
+}
+
+.blog-content{
+  position: relative;
+  width: 100%;
+  min-height: 300px;
+  text-align: center;
+}
+
+.blog-content div{
+  position: absolute;
+  width: 25%;
+  height: 100%;
+  margin: auto;
+}
+
+.blog-content div:nth-of-type(1){
+  left: 20%;
+  margin-top: 1rem;
+}
+
+.blog-content div:nth-of-type(2){
+  left: 40%;
+  z-index: 2000;
+}
+
+.blog-content div:nth-of-type(3){
+  left: 60%;
+  margin-top: 1rem;
+}
+
+.refer-10{
+  background-image: linear-gradient(to top, #f53b0a, #001aff);
+  font-family: Poppins;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.82;
+  letter-spacing: normal;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.refer-10-body{
+  font-family: Poppins;
+  font-size: 12px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 2.33;
+  letter-spacing: normal;
+  color: #333333;
+}
+
+.how-to{
+  font-family: Poppins;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.5;
+  letter-spacing: normal;
+  color: #888888;
+}
+
+.how-to-body{
+  font-family: Poppins;
+  font-size: 10px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.85;
+  letter-spacing: normal;
+  color: #888888;
+}
+
+.readmore-1{
+  border-radius: 5px;
+  background-color: #888888;
+  color: #ffffff;
+}
+
+.readmore-2{
+  border-radius: 5px;
+  background-image: linear-gradient(to top, #f53b0a, #001aff);
+  color: #ffffff;
+}
+
+.blog-post{
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.5;
+  letter-spacing: normal;
+  color: #333333;
+}
+
+
+.testimonial-header{
+  width: 100%;
+}
+
+.testimonial{
+  background-image:url("/assets/website/bg21.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100%;
+  background-position: center;
+  text-align: center;
+  background-color: #ffffff;
+  padding: 4rem 25%;
+}
+
+.satisfied-students{
+  font-family: Poppins;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #ffffff;
+  text-align: center;
+  text-justify: inter-word;
+}
+
+.testimonial p{
+  font-family: Poppins;
+  font-size: 16px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 2.5;
+  letter-spacing: normal;
+  color: #ffffff;
+  text-align: center;
+  text-justify: inter-word;
+}

@@ -1,0 +1,25 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top">
+    <a class="navbar-brand" href="#"><img src="assets/vidhyasadhan-logo.svg"></a>
+    <button class="navbar-toggler hidden-lg-up" type="button" data-toggle="collapse"
+    (click)="isCollapsed = !isCollapsed" [attr.aria-expanded]="!isCollapsed" data-target="#collapsibleNavId" aria-controls="collapsibleNavId"
+       aria-label="Toggle navigation">
+        <mat-icon>menu</mat-icon>
+      </button>
+    <div class="collapse navbar-collapse" id="collapsibleNavId" [ngbCollapse]="isCollapsed">
+      <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+        <li class="nav-item active" [ngClass]="{'item-active': item.isActive}" (click)="clickedItem(item)" *ngFor="let item of menunav">
+          <a class="nav-link" [routerLink]="[item.path]">{{item.name}} </a>
+        </li>
+        <li class="nav-item active dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="dropdownId" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Promoter/Parent</a>
+          <div class="dropdown-menu" aria-labelledby="dropdownId">
+            <a class="dropdown-item" href="#">Action 1</a>
+            <a class="dropdown-item" href="#">Action 2</a>
+          </div>
+        </li>
+      </ul>
+      <form class="form-inline my-2 my-lg-0">
+        <button routerLink="['/']" class="btn btn-outline-success my-2 my-sm-0 login-btn" type="submit">Login</button>
+      </form>
+    </div>
+  </nav>

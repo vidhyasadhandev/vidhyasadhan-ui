@@ -89,6 +89,11 @@ import { CarouselModule } from 'ngx-owl-carousel-o';
 import { CarouselhelperComponent } from './_components/carouselhelper/carouselhelper.component';
 import { UrlsafePipe } from './_pipes/urls/urlsafe.pipe';
 import { AlertModule } from './alert/alert.module';
+import { SitenavComponent } from './_components/website/sitenav/sitenav.component';
+import { SitehomeComponent } from './_components/website/sitehome/sitehome.component';
+import { SitelayoutComponent } from './_layouts/sitelayout/sitelayout.component';
+import { NgbCollapseModule } from '@ng-bootstrap/ng-bootstrap';
+import { SitefooterComponent } from './_components/website/sitefooter/sitefooter.component';
 
 @NgModule({
   declarations: [
@@ -144,7 +149,11 @@ import { AlertModule } from './alert/alert.module';
     NoassignmentsComponent,
     AssignmentDetailComponent,
     CarouselhelperComponent,
-    UrlsafePipe
+    UrlsafePipe,
+    SitenavComponent,
+    SitehomeComponent,
+    SitelayoutComponent,
+    SitefooterComponent
   ],
   imports: [
     BrowserModule,
@@ -178,7 +187,8 @@ import { AlertModule } from './alert/alert.module';
     MatRadioModule,
     MatCardModule,
     CarouselModule,
-    AlertModule
+    AlertModule,
+    NgbCollapseModule
     // CloudinaryModule.forRoot(Cloudinary, { cloud_name: 'dfsizfwtr', upload_preset: 'ml_default'}),
   ],
   providers: [

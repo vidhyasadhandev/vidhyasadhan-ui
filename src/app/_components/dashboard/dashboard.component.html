@@ -1,38 +1,39 @@
 <div class="align-items-center">
-  <div class="jumbotron bg-white m-2">
-      <div class="dash1-board">
-        <div class="card-deck">
-          <div class="card col-md-6 border-0 rounded">
-            <div class="greet">
-              <h4>Hi {{greetmessage}},</h4>
-              <h2 [ngClass]="{'first-nm': istutor === false}">{{user.firstName | uppercase}}
-                {{user.lastName | uppercase}}</h2>
-              <div class="text-container">
-                <p>
-                  Start your journey by clicking on one of these icons
-                </p>
-                <img class="path-2 d-none d-md-block" src="assets/dashboard/path-2.svg">
-              </div>
+  <div class="jumbotron bg-white m-2 j-minheight">
+    <div class="dash1-board">
+      <div class="card-deck">
+        <div class="card col-md-6 border-0 rounded">
+          <div class="greet">
+            <h4>Hi {{greetmessage}},</h4>
+            <h2 [ngClass]="{'first-nm': istutor === false}">{{user.firstName | uppercase}}
+              {{user.lastName | uppercase}}</h2>
+            <div class="text-container">
+              <p>
+                Start your journey by clicking on one of these icons
+              </p>
+              <img class="path-2 d-none d-md-block" src="assets/dashboard/path-2.svg">
             </div>
           </div>
-          <div class="card col-md-6 border-0 rounded d-none d-md-block">
-           <img class="w-100" src="assets/dashboard/dashboard-1.png">
-          </div>
+        </div>
+        <div class="card col-md-6 border-0 rounded d-none d-md-block">
+          <img class="w-100" src="assets/dashboard/dashboard-1.png">
         </div>
       </div>
+    </div>
 
-    <div class="icon-cards">
+    <!-- <div class="icon-cards">
       <div [ngSwitch]="istutor">
         <div *ngSwitchCase="true">
           <div class="row t-card">
             <div class="col-md-4 col-lg-2 col-xl-4 mb-2" *ngFor="let item of tutorcards">
-              <div class="card dash-card text-center clearfix" [routerLink]="profile?.address?.addressId === 0 && item.text !== 'My Profile' ? '' : item.path" [ngClass]="{'opac-blue': profile?.address?.addressId == 0, 'prof-blue': item.text === 'My Profile'}">
+              <div class="card dash-card text-center clearfix"
+                [routerLink]="profile?.address?.addressId === 0 && item.text !== 'My Profile' ? '' : item.path"
+                [ngClass]="{'opac-blue': profile?.address?.addressId == 0, 'prof-blue': item.text === 'My Profile'}">
                 <div class="card-body spl-padding">
                   <img class="img img-responsive" [src]="item.icon">
                   <h5 class="card-title title-text"><a>{{item.text}}</a></h5>
-                  <p class="card-text title-subtext" *ngIf="profile?.address?.addressId > 0"><span>{{item.value}}</span>{{item.subtext}}</p>
-                </div>
-                <div>
+                  <p class="card-text title-subtext" *ngIf="profile?.address?.addressId > 0">
+                    <span>{{item.value}}</span>{{item.subtext}}</p>
                 </div>
               </div>
             </div>
@@ -42,20 +43,59 @@
           <div class="row t-card">
             <div class="col-md-4 col-lg-2 col-xl-4 mb-1" *ngFor="let item of studentcards">
               <div class="card dash-card text-center clearfix"
-              [routerLink]="profile?.address?.addressId === 0 && item.text !== 'My Profile' ? '' : item.path"  [ngClass]="{'opac-pink': profile?.address?.addressId == 0, 'prof-pink': item.text === 'My Profile'}" >
+                [routerLink]="profile?.address?.addressId === 0 && item.text !== 'My Profile' ? '' : item.path"
+                [ngClass]="{'opac-pink': profile?.address?.addressId == 0, 'prof-pink': item.text === 'My Profile'}">
                 <div class="card-body spl-padding">
                   <img class="img img-responsive" [src]="item.icon">
-                  <h5 class="card-title text-dark title-text"><a >{{item.text}}</a></h5>
-                  <p class="card-text text-dark title-subtext"  *ngIf="profile?.address?.addressId > 0"><span>{{item.value}}</span>{{item.subtext}}</p>
-                  <!-- <div class="card-title title-text">{{item.text}}</div>
-                                        <p class="card-text title-subtext"><span>{{item.value}}</span>{{item.subtext}}</p> -->
-                </div>
-                <div>
+                  <h5 class="card-title text-dark title-text"><a>{{item.text}}</a></h5>
+                  <p class="card-text text-dark title-subtext" *ngIf="profile?.address?.addressId > 0">
+                    <span>{{item.value}}</span>{{item.subtext}}</p>
                 </div>
               </div>
             </div>
           </div>
         </div>
+      </div>
+    </div> -->
+
+    <div [ngSwitch]="istutor">
+      <div *ngSwitchCase="true">
+        <owl-carousel-o [options]="customOptions">
+          <ng-container *ngFor="let slide of tutorcards">
+            <ng-template carouselSlide [id]="slide.id">
+              <div class="card dash-card text-center clearfix m-2"
+                [routerLink]="profile?.address?.addressId === 0 && slide.text !== 'My Profile' ? '' : slide.path"
+                [ngClass]="{'opac-blue': profile?.address?.addressId == 0, 'prof-blue': slide.text === 'My Profile'}">
+                <div class="card-body spl-padding">
+                  <img class="img img-responsive" [src]="slide.icon">
+                  <h5 class="card-title title-text"><a>{{slide.text}}</a></h5>
+                  <p class="card-text title-subtext" *ngIf="profile?.address?.addressId > 0">
+                    <span>{{slide.value}}</span>{{slide.subtext}}</p>
+                </div>
+                <div>
+                </div>
+              </div>
+            </ng-template>
+          </ng-container>
+        </owl-carousel-o>
+      </div>
+      <div *ngSwitchCase="false">
+        <owl-carousel-o [options]="customOptions">
+          <ng-container *ngFor="let item of studentcards">
+            <ng-template carouselSlide [id]="item.id">
+              <div class="card dash-card-student text-center clearfix m-2"
+              [routerLink]="profile?.address?.addressId === 0 && item.text !== 'My Profile' ? '' : item.path"
+              [ngClass]="{'opac-pink': profile?.address?.addressId == 0, 'prof-pink': item.text === 'My Profile'}">
+              <div class="card-body spl-padding">
+                <img class="img img-responsive" [src]="item.icon">
+                <h5 class="card-title text-dark title-text"><a>{{item.text}}</a></h5>
+                <p class="card-text text-dark title-subtext" *ngIf="profile?.address?.addressId > 0">
+                  <span>{{item.value}}</span>{{item.subtext}}</p>
+              </div>
+            </div>
+            </ng-template>
+          </ng-container>
+        </owl-carousel-o>
       </div>
     </div>
   </div>
