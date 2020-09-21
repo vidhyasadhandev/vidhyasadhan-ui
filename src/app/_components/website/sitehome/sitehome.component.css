@@ -1,5 +1,5 @@
 .home-1{
-  background-image:url("/assets/website/bgmain.svg");
+  background-image:url("/vidhyasadhan-ui/assets/website/bgmain.svg");
   opacity: 0.9;
   background-repeat: no-repeat;
   background-size: cover;
@@ -68,7 +68,7 @@ body{
   margin-top: -1.5rem; */
   z-index: 2000;
   width: 100%;
-  background-image: url(/assets/website/bg.svg);
+  background-image: url(/vidhyasadhan-ui/assets/website/bg.svg);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -215,7 +215,7 @@ background: transparent;
 }
 
 .role-access{
-  background-image: url(/assets/website/bgmain.svg);
+  background-image: url(/vidhyasadhan-ui/assets/website/bgmain.svg);
   background-repeat: no-repeat;
   background-size: cover;
   min-height: 250px;
@@ -387,7 +387,7 @@ background: transparent;
 }
 
 .testimonial{
-  background-image:url("/assets/website/bg21.svg");
+  background-image:url("/vidhyasadhan-ui/assets/website/bg21.svg");
   background-repeat: no-repeat;
   background-size: cover;
   height: 100%;
