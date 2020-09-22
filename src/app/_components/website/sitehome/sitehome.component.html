@@ -172,7 +172,7 @@
           quodsi complectitur, postea...
         </mat-card-content>
         <mat-card-actions>
-          <button  class="readmore-2" mat-button>Read More</button>
+          <button class="readmore-2" mat-button>Read More</button>
         </mat-card-actions>
       </mat-card>
     </div>
@@ -188,7 +188,7 @@
           quodsi complectitur, postea...
         </mat-card-content>
         <mat-card-actions>
-          <button  class="readmore-1" mat-button>Read More</button>
+          <button class="readmore-1" mat-button>Read More</button>
         </mat-card-actions>
       </mat-card>
     </div>
@@ -203,8 +203,55 @@
     <p>Yeah! we’re proud with numbers. We’ve helped thousands of students &
       Tutors all around the world with our VidhyaSadhan service. Hover ontop of them pic to view their testimonials.</p>
     <div>
-      <img src="assets/website/bg-svg/mg-1.svg" class="img-fluid rounded-circle" alt="">
+      <ul class="list-inline">
+        <li class="list-inline-item" *ngFor="let img of images">
+          <img [src]="img.image1" [srcset]="img.image2" class="Mask-Group">
+        </li>
+      </ul>
+      <ul class="list-inline">
+        <li class="list-inline-item" *ngFor="let img of images.reverse()">
+          <img [src]="img.image1" [srcset]="img.image2" class="Mask-Group">
+        </li>
+      </ul>
     </div>
   </div>
 
+</div>
+<div class="d-flex flex-column justify-content-center bg-white">
+  <div class="download">
+    <h2 class="role-based">Download our app</h2>
+    <p>Discover exclusive Learning services with
+      our mobile experience.</p>
+    <img src="assets/website/Store.png"
+       srcset="assets/website/Store-1.png 2x,
+       assets/website/Store-2.png 3x"
+       class="Store">
+  </div>
+</div>
+<div class="download-mobile">
+<div class="d-flex justify-content-center m-auto">
+  <img src="assets/website/X-1.png"
+       srcset="assets/website/X-1-1.png 2x,
+       assets/website/X-1-1.png 3x"
+       class="Store p-2">
+  <img src="assets/website/X-2.png"
+       srcset="assets/website/X-2-1.png 2x,
+       assets/website/X-2-2.png 3x"
+       class="Store p-2">
+</div>
+</div>
+<div class="d-flex flex-column justify-content-center bg-white">
+  <div class="download subscribe-email">
+    <h2 class="role-based">Subscribe our newsletter</h2>
+    <p>Subscribe to our newsletter for daily/weekly update of our products and services.</p>
+    <div class="form-group row">
+      <div class="col-md-8">
+        <input type="text"
+        class="form-control" name="" id="" aria-describedby="helpId" placeholder="Email">
+      </div>
+      <div class="col-md-4">
+        <a class="btn discover-btn" href="#" role="button">Discover</a>
+      </div>
+    </div>
+  </div>
 </div>

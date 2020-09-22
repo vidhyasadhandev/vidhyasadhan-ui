@@ -68,7 +68,7 @@ body{
   margin-top: -1.5rem; */
   z-index: 2000;
   width: 100%;
-  background-image: url(/vidhyasadhan-ui/assets/website/bg.svg);
+  background-image: url("/vidhyasadhan-ui/assets/website/bg.svg");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -215,7 +215,7 @@ background: transparent;
 }
 
 .role-access{
-  background-image: url(/vidhyasadhan-ui/assets/website/bgmain.svg);
+  background-image: url("/vidhyasadhan-ui/assets/website/bgmain.svg");
   background-repeat: no-repeat;
   background-size: cover;
   min-height: 250px;
@@ -394,7 +394,7 @@ background: transparent;
   background-position: center;
   text-align: center;
   background-color: #ffffff;
-  padding: 4rem 25%;
+  padding: 12rem 25%;
 }
 
 .satisfied-students{
@@ -407,6 +407,7 @@ background: transparent;
   color: #ffffff;
   text-align: center;
   text-justify: inter-word;
+  margin: 4rem;
 }
 
 .testimonial p{
@@ -420,4 +421,77 @@ background: transparent;
   color: #ffffff;
   text-align: center;
   text-justify: inter-word;
+}
+
+.download{
+  margin: auto;
+  width: 350px;
+  text-align: center;
+}
+
+.download-mobile{
+  background-image:url("/vidhyasadhan-ui/assets/website/bg22.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  height: 100%;
+  background-position: center;
+  text-align: center;
+  background-color: #ffffff;
+  margin-top: -250px;
+}
+
+.download-mobile>div{
+  padding-top: 350px;
+}
+
+.discover-btn{
+  border-radius: 5px;
+  background-image: linear-gradient(to bottom, #f53b0a, #001aff);
+  font-family: Poppins;
+  font-size: 14px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #ffffff;
+}
+
+.subscribe-email{
+  margin-bottom: 4rem;
+}
+
+@media screen and (max-width: 576px){
+  .welcome-card{
+    padding: 0;
+  }
+
+  .edu-simple, .gexp-card, .role-card, .role-card>.container, .testimonial{
+    width: 100%;
+    padding: 1rem;
+  }
+
+  .blog-content div:nth-of-type(1), .blog-content div:nth-of-type(3){
+    display: none;
+  }
+
+  .blog-content div:nth-of-type(2){
+    width: 100%;
+    left: 0;
+  }
+  .Mask-Group{
+    max-height: 80px;
+  }
+
+  .Store{
+    max-height: 200px;
+  }
+
+  .download-mobile{
+    margin-top: 0;
+  }
+
+  .download-mobile>div{
+    padding-top: 0;
+  }
 }
