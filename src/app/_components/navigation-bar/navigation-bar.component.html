@@ -78,23 +78,23 @@
       <ng-container *ngSwitchCase="true">
         <ul class="navbar-nav mt-auto">
           <li class="nav-item active">
-            <a class="nav-link" (click)="smClicked = !smClicked" [routerLink]="['/classroom']" >
+            <a class="nav-link" (click)="smClicked = !smClicked" [routerLink]="['/vs/classroom']" >
               <img class="img-nav" src="assets/Student/noun-teaching-2380320.svg"> My Classroom <span class="sr-only">(current)</span></a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" (click)="smClicked = !smClicked" [routerLink]="['/tutors']">
+            <a class="nav-link" (click)="smClicked = !smClicked" [routerLink]="['/vs/tutors']">
               <img class="img-nav" src="assets/Student/noun-assignment-3202074.svg">Book Tutor</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" (click)="smClicked = !smClicked" [routerLink]="['/profile']">
+            <a class="nav-link" (click)="smClicked = !smClicked" [routerLink]="['/vs/profile']">
               <img class="img-nav" src="assets/Student/path.svg">My Profile</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" (click)="smClicked = !smClicked" [routerLink]="['/student/assignments']">
+            <a class="nav-link" (click)="smClicked = !smClicked" [routerLink]="['/vs/student/assignments']">
               <img class="img-nav" src="assets/Student/my-earnings.svg">Study Material</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" (click)="smClicked = !smClicked" [routerLink]="['/progress']">
+            <a class="nav-link" (click)="smClicked = !smClicked" [routerLink]="['/vs/progress']">
               <img class="img-nav" src="assets/Student/chart-pie-36.svg">Progress Report</a>
           </li>
           <!-- <li class="nav-item dropdown">
@@ -113,28 +113,28 @@
       <ng-container *ngSwitchCase="false">
         <ul class="navbar-nav mt-auto">
           <li class="nav-item active">
-            <a class="nav-link" (click)="smClicked = !smClicked" [routerLink]="['/classroom']">
+            <a class="nav-link" (click)="smClicked = !smClicked" [routerLink]="['/vs/classroom']">
               <img class="img-nav" src="assets/dashboard/noun-teaching-2380320.svg">My Classroom <span class="sr-only">(current)</span>
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" (click)="smClicked = !smClicked" [routerLink]="['/requests']">
+            <a class="nav-link" (click)="smClicked = !smClicked" [routerLink]="['/vs/requests']">
               <img class="img-nav" src="assets/dashboard/noun-assignment-3202074.svg">Student Requests</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" (click)="smClicked = !smClicked" [routerLink]="['/profile']">
+            <a class="nav-link" (click)="smClicked = !smClicked" [routerLink]="['/vs/profile']">
               <img class="img-nav" src="assets/dashboard/path.svg">My Profile</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" (click)="smClicked = !smClicked"  [routerLink]="['/events']">
+            <a class="nav-link" (click)="smClicked = !smClicked"  [routerLink]="['/vs/events']">
               <img class="img-nav" src="assets/dashboard/vector.svg">My Events</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" (click)="smClicked = !smClicked"  [routerLink]="['/earnings']">
+            <a class="nav-link" (click)="smClicked = !smClicked"  [routerLink]="['/vs/earnings']">
               <img class="img-nav" src="assets/dashboard/my-earnings.svg">My Earnings</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" (click)="smClicked = !smClicked" [routerLink]="['/tutor-referrals']">
+            <a class="nav-link" (click)="smClicked = !smClicked" [routerLink]="['/vs/tutor-referrals']">
               <img class="img-nav" src="assets/dashboard/my-referrals.svg">My Referrals</a>
           </li>
         </ul>

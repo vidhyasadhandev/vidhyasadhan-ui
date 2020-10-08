@@ -1,2 +1,9 @@
 [0823/165401.341:ERROR:file_io.cc(89)] ReadExactly: expected 36, observed 0
 [0826/154738.038:ERROR:file_io.cc(89)] ReadExactly: expected 36, observed 0
+[0922/214423.945:ERROR:registration_protocol_win.cc(103)] CreateFile: The system cannot find the file specified. (0x2)
+[0922/214423.985:ERROR:registration_protocol_win.cc(103)] CreateFile: The system cannot find the file specified. (0x2)
+[0922/214423.997:ERROR:registration_protocol_win.cc(103)] CreateFile: The system cannot find the file specified. (0x2)
+[0922/214427.887:ERROR:registration_protocol_win.cc(103)] CreateFile: The system cannot find the file specified. (0x2)
+[0922/214428.205:ERROR:registration_protocol_win.cc(103)] CreateFile: The system cannot find the file specified. (0x2)
+[0922/214440.341:ERROR:registration_protocol_win.cc(103)] CreateFile: The system cannot find the file specified. (0x2)
+[0922/214505.101:ERROR:registration_protocol_win.cc(103)] CreateFile: The system cannot find the file specified. (0x2)

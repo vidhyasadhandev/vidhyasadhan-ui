@@ -94,6 +94,13 @@ import { SitehomeComponent } from './_components/website/sitehome/sitehome.compo
 import { SitelayoutComponent } from './_layouts/sitelayout/sitelayout.component';
 import { NgbCollapseModule } from '@ng-bootstrap/ng-bootstrap';
 import { SitefooterComponent } from './_components/website/sitefooter/sitefooter.component';
+import { SiteaboutusComponent } from './_components/website/siteaboutus/siteaboutus.component';
+import { SitepricingComponent } from './_components/website/sitepricing/sitepricing.component';
+import { SitecontactusComponent } from './_components/website/sitecontactus/sitecontactus.component';
+import { AgmCoreModule } from '@agm/core';
+import { SitefeaturesComponent } from './_components/website/sitefeatures/sitefeatures.component';
+import { SitesubscribeComponent } from './_components/website/sitesubscribe/sitesubscribe.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [
@@ -153,7 +160,12 @@ import { SitefooterComponent } from './_components/website/sitefooter/sitefooter
     SitenavComponent,
     SitehomeComponent,
     SitelayoutComponent,
-    SitefooterComponent
+    SitefooterComponent,
+    SiteaboutusComponent,
+    SitepricingComponent,
+    SitecontactusComponent,
+    SitefeaturesComponent,
+    SitesubscribeComponent
   ],
   imports: [
     BrowserModule,
@@ -188,7 +200,11 @@ import { SitefooterComponent } from './_components/website/sitefooter/sitefooter
     MatCardModule,
     CarouselModule,
     AlertModule,
-    NgbCollapseModule
+    NgbCollapseModule,
+    FontAwesomeModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyAtlbePmPUJ_DaeV4z6ZGb2qj_DWC2Ljdk'
+    })
     // CloudinaryModule.forRoot(Cloudinary, { cloud_name: 'dfsizfwtr', upload_preset: 'ml_default'}),
   ],
   providers: [

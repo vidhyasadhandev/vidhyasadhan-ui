@@ -17,31 +17,31 @@
       <ng-container [ngSwitch]="authService.userValue?.role === 0">
       <ng-container *ngSwitchCase="true">
         <a  mat-list-item class="pink"
-        (click)="sidenav.close()" [routerLink]="['/classroom']"
+        (click)="sidenav.close()" [routerLink]="['/vs/classroom']"
         routerLinkActive="list-item-active">
-          <mat-icon matListIcon  > class </mat-icon>
+          <mat-icon matListIcon > class </mat-icon>
           <h4 mat-line>My Classroom</h4>
         </a>
         <a  mat-list-item class="pink"
-        (click)="sidenav.close()" [routerLink]="['/tutors']"
+        (click)="sidenav.close()" [routerLink]="['/vs/tutors']"
         routerLinkActive="list-item-active">
           <mat-icon matListIcon  > assignment </mat-icon>
           <h4 mat-line>Book Tutor</h4>
         </a>
         <a  mat-list-item class="pink"
-        (click)="sidenav.close()" [routerLink]="['/profile']"
+        (click)="sidenav.close()" [routerLink]="['/vs/profile']"
         routerLinkActive="list-item-active">
           <mat-icon matListIcon > person_outline </mat-icon>
           <h4 mat-line>My Profile</h4>
         </a>
         <a  mat-list-item class="pink"
-        (click)="sidenav.close()" [routerLink]="['/student/assignments']"
+        (click)="sidenav.close()" [routerLink]="['/vs/student/assignments']"
         routerLinkActive="list-item-active">
           <mat-icon matListIcon> article </mat-icon>
           <h4 mat-line>Study Material</h4>
         </a>
         <a  mat-list-item class="pink"
-        (click)="sidenav.close()" [routerLink]="['/progress']"
+        (click)="sidenav.close()" [routerLink]="['/vs/progress']"
         routerLinkActive="list-item-active">
           <mat-icon matListIcon > pie_chart </mat-icon>
           <h4 mat-line>Progress Report</h4>
@@ -49,45 +49,42 @@
       </ng-container>
       <ng-container class="blueside-nav" *ngSwitchCase="false">
         <a  mat-list-item
-        (click)="sidenav.close()" [routerLink]="['/classroom']"
+        (click)="sidenav.close()" [routerLink]="['/vs/classroom']"
         routerLinkActive="list-item-active">
           <mat-icon matListIcon > class </mat-icon>
           <h4 mat-line>My Classroom</h4>
         </a>
         <a  mat-list-item
-        (click)="sidenav.close()" [routerLink]="['/requests']"
+        (click)="sidenav.close()" [routerLink]="['/vs/requests']"
         routerLinkActive="list-item-active">
           <mat-icon matListIcon > assignment </mat-icon>
           <h4 mat-line>Student Requests</h4>
         </a>
         <a  mat-list-item
-        (click)="sidenav.close()" [routerLink]="['/profile']"
+        (click)="sidenav.close()" [routerLink]="['/vs/profile']"
         routerLinkActive="list-item-active">
           <mat-icon matListIcon > person_outline </mat-icon>
           <h4 mat-line>My Profile</h4>
         </a>
         <a  mat-list-item
-        (click)="sidenav.close()" [routerLink]="['/events']"
+        (click)="sidenav.close()" [routerLink]="['/vs/events']"
         routerLinkActive="list-item-active">
           <mat-icon matListIcon > event </mat-icon>
           <h4 mat-line>My Events</h4>
         </a>
         <a  mat-list-item
-        (click)="sidenav.close()" [routerLink]="['/earnings']"
+        (click)="sidenav.close()" [routerLink]="['/vs/earnings']"
         routerLinkActive="list-item-active">
           <mat-icon matListIcon > account_balance </mat-icon>
           <h4 mat-line>My Earnings</h4>
         </a>
         <a  mat-list-item
-        (click)="sidenav.close()" [routerLink]="['/tutor-referrals']"
+        (click)="sidenav.close()" [routerLink]="['/vs/tutor-referrals']"
         routerLinkActive="list-item-active">
           <mat-icon matListIcon > connect_without_contact </mat-icon>
           <h4 mat-line>My Referrals</h4>
         </a>
       </ng-container>
-      <p *ngSwitchDefault>
-
-      </p>
       </ng-container>
 
       <mat-divider></mat-divider>

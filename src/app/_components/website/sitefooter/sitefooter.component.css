@@ -13,3 +13,22 @@
   width: 80%;
   margin: auto;
 }
+.footer-parent{
+  display: grid;
+  grid-template-columns: 30% 15% 15% 25%;
+  grid-auto-flow: column;
+  gap: 5%;
+  width: 80%;
+  margin: auto;
+}
+
+.footer-child{
+  position: relative;
+  color: #ffffff;
+}
+
+.square li{
+  width: 50px;
+  height: 50px;
+  background-color: #c4c4c4;
+}

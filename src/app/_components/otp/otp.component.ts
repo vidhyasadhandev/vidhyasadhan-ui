@@ -31,7 +31,7 @@ export class OtpComponent implements OnInit {
     // tslint:disable-next-line: no-string-literal
     this.useremail = this.route.snapshot.queryParams['email'];
     // tslint:disable-next-line: no-string-literal
-    this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
+    this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/vs';
   }
 
   entervalue(event){

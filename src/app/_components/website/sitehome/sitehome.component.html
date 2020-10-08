@@ -1,5 +1,22 @@
+<div class="about-bg">
+  <div class="about-text">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4 offset-md-1 text-left">
+          <h2 class="welove-text"> We provide easy ways to exchange <b>Study/Teach</b>.</h2>
+          <p class="platform">VidhyaSadhan is a platform to change the way you Study and Teach.</p>
+          <a class="btn btn-primary get-start" href="#" role="button"><span>GET STARTED</span></a>
+        </div>
+        <div class="col-md-6 offset-md-1">
+          <img src="assets/dashboard/dashboard-1.png"
+             class="about-us-1">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 <div class="home-1">
-  <div class="container p-2 ">
+  <!-- <div class="container p-2 ">
     <div class="row main-margin align-items-center">
       <div class="col-md-6 text-left">
         <h1 class="provider">
@@ -14,17 +31,18 @@
         <img class="img img-fluid" src="assets/dashboard/dashboard-1.png">
       </div>
     </div>
-  </div>
-  <div class="container mt-5 p-2">
+  </div> -->
+  <div class="container p-2">
     <div class="row justify-content-center">
       <div class="col-md-5">
         <img class="img img-fluid" src="assets/website/home-1.png" srcset="assets/website/home-2.png 2x,
         assets/website/home-3.png 3x">
       </div>
-      <div class="col-md-6">
+      <div class="col-md-6 text-left">
         <h1 class="dev">
           Welcome to VidhyaSadhan
         </h1>
+        <div class="line"></div>
         <div class="dev-text">
           Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's
           standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to
@@ -50,6 +68,7 @@
           <h2 class="made-simple-txt">
             Your Education made simple
           </h2>
+          <div class="line"></div>
           <div class="card-deck">
             <div class="card border-0">
               <div class="card-body text-center">
@@ -100,9 +119,10 @@
   <div class="gexp-card flex-row flex-wrap">
     <div class="card-deck">
       <div class="card">
-        <div class="card-body text-center">
-          <h2 class="card-title">Great experience with VidhyaSadhan</h2>
-          <p class="card-text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum
+        <div class="card-body text-left">
+          <h2 class="card-title great-exp">Great experience with VidhyaSadhan</h2>
+          <div class="line m-0"></div>
+          <p class="card-text great-text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum
             has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of
             type and scrambled.</p>
           <button class="dev-discover" mat-raised-button>Discover</button>
@@ -122,7 +142,8 @@
   <div class="role-card">
     <div class="container">
       <h2 class="role-based">Role-based access control</h2>
-      <div class="d-flex justify-content-center">
+      <div class="line"></div>
+      <div class="d-flex p-2 justify-content-center">
         <div class="role-1">
           <img class="img img-fluid" src="assets/registration/login-1.svg" alt="">
           <p>Tutor</p>
@@ -139,6 +160,7 @@
   <h2 class="role-based">
     Our Blog
   </h2>
+  <div class="line"></div>
   <p class="card-text blog-post">
     Get to know the latest stuff via our blog post.
   </p>
@@ -202,8 +224,10 @@
     </h4>
     <p>Yeah! we’re proud with numbers. We’ve helped thousands of students &
       Tutors all around the world with our VidhyaSadhan service. Hover ontop of them pic to view their testimonials.</p>
-    <div>
-      <ul class="list-inline">
+    <div class="testimonial-img">
+      <img [src]="img.image1" *ngFor="let img of images"  [ngClass]="img.style">
+      <img [src]="img.image1" *ngFor="let img of images"  [ngClass]="img.style">
+      <!-- <ul class="list-inline">
         <li class="list-inline-item" *ngFor="let img of images">
           <img [src]="img.image1"  class="Mask-Group">
         </li>
@@ -212,7 +236,7 @@
         <li class="list-inline-item" *ngFor="let img of images.reverse()">
           <img [src]="img.image1"  class="Mask-Group">
         </li>
-      </ul>
+      </ul> -->
     </div>
   </div>
 
@@ -220,7 +244,8 @@
 <div class="d-flex flex-column justify-content-center bg-white">
   <div class="download">
     <h2 class="role-based">Download our app</h2>
-    <p>Discover exclusive Learning services with
+    <div class="line"></div>
+    <p class="download-text">Discover exclusive Learning services with
       our mobile experience.</p>
     <img src="assets/website/Store.png"
        srcset="assets/website/Store-1.png 2x,
@@ -240,7 +265,7 @@
        class="Store p-2">
 </div>
 </div>
-<div class="d-flex flex-column justify-content-center bg-white">
+<!-- <div class="d-flex flex-column justify-content-center bg-white">
   <div class="download subscribe-email">
     <h2 class="role-based">Subscribe our newsletter</h2>
     <p>Subscribe to our newsletter for daily/weekly update of our products and services.</p>
@@ -254,4 +279,6 @@
       </div>
     </div>
   </div>
-</div>
+</div> -->
+
+<app-sitesubscribe></app-sitesubscribe>

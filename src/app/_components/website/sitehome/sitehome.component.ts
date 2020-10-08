@@ -23,6 +23,7 @@ export class SitehomeComponent implements OnInit {
         image1: 'assets/website/bg-svg/mg-' + (index + 1) + '.png',
         image2: 'assets/website/bg-svg/mg-' + (index + 1) + '-1.png 2x,' + 'assets/website/bg-svg/mg-' + (index + 1) + '-2.png 3x',
         image3: 'assets/website/bg-svg/mg-' + (index + 1) + '-2',
+        style: 'img-' + index
       };
       this.images.push(element);
     }

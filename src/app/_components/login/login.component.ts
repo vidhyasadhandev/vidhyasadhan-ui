@@ -45,7 +45,7 @@ export class LoginComponent implements OnInit {
     private authService: AuthserviceService
   ) {
     if (this.authService.userValue) {
-      this.router.navigate(['/']);
+      this.router.navigate(['/vs']);
     }
   }
 
@@ -62,7 +62,7 @@ export class LoginComponent implements OnInit {
     });
 
     // tslint:disable-next-line: no-string-literal
-    this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
+    this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/vs';
   }
 
   get f() {

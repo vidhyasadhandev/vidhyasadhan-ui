@@ -367,3 +367,30 @@ body { margin: 0 !important; font-family:'Montserrat, sans-serif' !important;}
 .card-min-height{
   min-height: 550px;
 }
+
+.line{
+  width: 50px;
+  height: 4px;
+  background-color: #b6091d;
+  margin: auto;
+}
+
+.welove-devtext{
+  background-image: linear-gradient(to top, #f53b0a, #001aff);
+  font-family: Poppins !important;
+  font-weight: bold !important;
+  font-stretch: normal !important;
+  font-style: normal !important;
+  line-height: 2.32 !important;
+  letter-spacing: normal !important;
+  -webkit-background-clip: text;
+  background-clip: text !important;
+  -webkit-text-fill-color: transparent;
+  padding: 0.5rem !important;
+  margin: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+.welove-text{
+  font-size: x-large !important;
+}

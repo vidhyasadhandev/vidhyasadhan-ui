@@ -29,9 +29,13 @@ import { StudymaterialComponent } from './_components/student/studymaterial/stud
 import { SitelayoutComponent } from './_layouts/sitelayout/sitelayout.component';
 import { SitehomeComponent } from './_components/website/sitehome/sitehome.component';
 import { SitenavComponent } from './_components/website/sitenav/sitenav.component';
+import { SiteaboutusComponent } from './_components/website/siteaboutus/siteaboutus.component';
+import { SitepricingComponent } from './_components/website/sitepricing/sitepricing.component';
+import { SitecontactusComponent } from './_components/website/sitecontactus/sitecontactus.component';
+import { SitefeaturesComponent } from './_components/website/sitefeatures/sitefeatures.component';
 
 const routes: Routes = [
-  { path: '', component: MainlayoutComponent, canActivate: [AuthGuard],
+  { path: 'vs', component: MainlayoutComponent, canActivate: [AuthGuard],
   children: [
   { path: '', component: HomeComponent, pathMatch: 'full'},
   { path: 'navbar', component: NavigationBarComponent},
@@ -55,9 +59,13 @@ const routes: Routes = [
   { path: 'progress', component: ReportsComponent},
   ] },
   {
-    path: 'home', component: SitelayoutComponent,
+    path: '', component: SitelayoutComponent,
     children: [
       { path: '', component: SitehomeComponent, pathMatch: 'full'},
+      { path: 'about-us', component: SiteaboutusComponent},
+      { path: 'pricing', component: SitepricingComponent},
+      { path: 'contact', component: SitecontactusComponent},
+      { path: 'features', component: SitefeaturesComponent},
       { path: 'navbar', component: SitenavComponent},
     ]
   },

@@ -11,11 +11,11 @@ export class SitenavComponent implements OnInit {
   isSelected = true;
 
   menunav = [
-    {id: 0, name: 'Home', isActive: true, path: '/home'},
-    {id: 1, name: 'About Us', isActive: false, path: '/home/about'},
-    {id: 2, name: 'Features', isActive: false, path: '/home/features'},
-    {id: 3, name: 'Pricing', isActive: false, path: '/home/pricing'},
-    {id: 4, name: 'Contact Us', isActive: false, path: '/home/contact'},
+    {id: 0, name: 'Home', isActive: true, path: '/'},
+    {id: 1, name: 'About Us', isActive: false, path: '/about-us'},
+    {id: 2, name: 'Features', isActive: false, path: '/features'},
+    {id: 3, name: 'Pricing', isActive: false, path: '/pricing'},
+    {id: 4, name: 'Contact Us', isActive: false, path: '/contact'},
   ];
 
   constructor() { }

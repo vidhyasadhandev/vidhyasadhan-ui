@@ -34,6 +34,7 @@ import { AuthserviceService } from 'src/app/_services/authservice.service';
 import { format } from 'date-fns/fp';
 import { MatDialog } from '@angular/material/dialog';
 import { ProfilemodelComponent } from '../profilemodel/profilemodel.component';
+import { AlertService } from 'src/app/_services/alert.service';
 
 @Component({
   selector: 'app-profile',
@@ -52,6 +53,7 @@ export class ProfileComponent implements OnInit {
   proofdocument;
   uploadedFile;
   levels;
+  subjects;
 
   days = [
     {day: 'Monday', selected: false },
@@ -116,7 +118,8 @@ export class ProfileComponent implements OnInit {
               private staticdataService: StaticdataService,
               private fileUploader: FileuploaderService,
               public authService: AuthserviceService,
-              public dialog: MatDialog) {}
+              public dialog: MatDialog,
+              public alertService: AlertService) {}
 
   ngOnInit(): void {
     this.userForm = this.formBuilder.group({
@@ -181,8 +184,10 @@ export class ProfileComponent implements OnInit {
     this.getUser();
     this.staticdataService.getStaticDataSets()
     .subscribe(x => {this.staticData = x;
-                     this.levels = this.staticData.subjects
-                     .filter((thing, i, arr) => arr.findIndex(t => t.level === thing.level) === i); });
+                     console.log(x);
+                     this.levels = this.staticData.groups;
+                     this.subjects = x.subjects.filter((thing, i, arr) => arr.findIndex(t => t.name === thing.name) === i);
+                    });
   }
 
   getUser() {
@@ -274,7 +279,12 @@ export class ProfileComponent implements OnInit {
         userValues.student = null;
       }
       this.userService.updateProfileData(userValues)
-      .subscribe(x => console.log(x), (error) => console.log(error));
+      .subscribe(x => {if ( x === true){
+        this.alertService.success('Profile Updated Succesfully');
+      }else{
+        this.alertService.error('Profile is not Updated');
+      }},
+      (error) => this.alertService.error(error));
     }
   }
 

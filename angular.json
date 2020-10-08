@@ -30,6 +30,7 @@
               "node_modules/angular-calendar/css/angular-calendar.css",
               "src/custom-theme.scss",
               "node_modules/bootstrap/dist/css/bootstrap.min.css",
+              "node_modules/font-awesome/css/font-awesome.css",
               "src/styles.css"
             ],
             "scripts": [
