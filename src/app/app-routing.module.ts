@@ -33,6 +33,8 @@ import { SiteaboutusComponent } from './_components/website/siteaboutus/siteabou
 import { SitepricingComponent } from './_components/website/sitepricing/sitepricing.component';
 import { SitecontactusComponent } from './_components/website/sitecontactus/sitecontactus.component';
 import { SitefeaturesComponent } from './_components/website/sitefeatures/sitefeatures.component';
+import { AdminlayoutComponent } from './_layouts/adminlayout/adminlayout.component';
+import { AdminComponent } from './_components/dashboard/admin/admin.component';
 
 const routes: Routes = [
   { path: 'vs', component: MainlayoutComponent, canActivate: [AuthGuard],
@@ -67,6 +69,12 @@ const routes: Routes = [
       { path: 'contact', component: SitecontactusComponent},
       { path: 'features', component: SitefeaturesComponent},
       { path: 'navbar', component: SitenavComponent},
+    ]
+  },
+  {
+    path: 'admin', component: AdminlayoutComponent,
+    children: [
+      { path: '', component: AdminComponent, pathMatch: 'full'}
     ]
   },
   { path: 'login', component: LoginComponent },

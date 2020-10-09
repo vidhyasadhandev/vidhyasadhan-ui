@@ -101,6 +101,10 @@ import { AgmCoreModule } from '@agm/core';
 import { SitefeaturesComponent } from './_components/website/sitefeatures/sitefeatures.component';
 import { SitesubscribeComponent } from './_components/website/sitesubscribe/sitesubscribe.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { AdminComponent } from './_components/dashboard/admin/admin.component';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { MatMenuModule } from '@angular/material/menu';
+import { AdminlayoutComponent } from './_layouts/adminlayout/adminlayout.component';
 
 @NgModule({
   declarations: [
@@ -165,7 +169,9 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     SitepricingComponent,
     SitecontactusComponent,
     SitefeaturesComponent,
-    SitesubscribeComponent
+    SitesubscribeComponent,
+    AdminComponent,
+    AdminlayoutComponent
   ],
   imports: [
     BrowserModule,
@@ -204,7 +210,9 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     FontAwesomeModule,
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyAtlbePmPUJ_DaeV4z6ZGb2qj_DWC2Ljdk'
-    })
+    }),
+    MatGridListModule,
+    MatMenuModule
     // CloudinaryModule.forRoot(Cloudinary, { cloud_name: 'dfsizfwtr', upload_preset: 'ml_default'}),
   ],
   providers: [
