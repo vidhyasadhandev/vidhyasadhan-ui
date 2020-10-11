@@ -105,6 +105,9 @@ import { AdminComponent } from './_components/dashboard/admin/admin.component';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatMenuModule } from '@angular/material/menu';
 import { AdminlayoutComponent } from './_layouts/adminlayout/adminlayout.component';
+import { AdmintutorsComponent } from './_components/admin-pages/admintutors/admintutors.component';
+import { AdminstudentsComponent } from './_components/admin-pages/adminstudents/adminstudents.component';
+import { AdminpaymentsComponent } from './_components/admin-pages/adminpayments/adminpayments.component';
 
 @NgModule({
   declarations: [
@@ -171,7 +174,10 @@ import { AdminlayoutComponent } from './_layouts/adminlayout/adminlayout.compone
     SitefeaturesComponent,
     SitesubscribeComponent,
     AdminComponent,
-    AdminlayoutComponent
+    AdminlayoutComponent,
+    AdmintutorsComponent,
+    AdminstudentsComponent,
+    AdminpaymentsComponent
   ],
   imports: [
     BrowserModule,

@@ -40,11 +40,11 @@ export class AdminComponent {
     map(({ matches }) => {
       if (matches) {
         return [
-          { title: 'Classes', cols: 1, rows: 1 },
-          { title: 'Subscribers', cols: 1, rows: 1 },
-          { title: 'Requests', cols: 1, rows: 1 },
-          { title: 'Events', cols: 1, rows: 1 },
-          { title: 'Recent Activity', cols: 1, rows: 1 }
+          { title: 'Classes', cols: 2, rows: 1 },
+          { title: 'Subscribers', cols: 2, rows: 1 },
+          { title: 'Requests', cols: 2, rows: 1 },
+          { title: 'Events', cols: 2, rows: 1 },
+          { title: 'Recent Activity', cols: 2, rows: 1 }
         ];
       }
 
