@@ -4,7 +4,9 @@
 
 .sidenav {
   width: 200px;
-  background-color: #a4caf8;
+  background-color: cadetblue;
+  color: #ffffff;
+  background-image: linear-gradient(to bottom, var(--ice-blue) 13%, #bcdafc);
 }
 
 .sidenav .mat-toolbar {
@@ -15,4 +17,14 @@
   position: sticky;
   top: 0;
   z-index: 1;
+  background-color: cadetblue;
+  color: #ffffff;
+}
+
+.mat-list-item{
+  color: #ffffff;
+}
+
+.mat-list-item:hover{
+  background-color: #000012;
 }

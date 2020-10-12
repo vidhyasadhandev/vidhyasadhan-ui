@@ -35,6 +35,9 @@ import { SitecontactusComponent } from './_components/website/sitecontactus/site
 import { SitefeaturesComponent } from './_components/website/sitefeatures/sitefeatures.component';
 import { AdminlayoutComponent } from './_layouts/adminlayout/adminlayout.component';
 import { AdminComponent } from './_components/dashboard/admin/admin.component';
+import { AdmintutorsComponent } from './_components/admin-pages/admintutors/admintutors.component';
+import { AdminstudentsComponent } from './_components/admin-pages/adminstudents/adminstudents.component';
+import { AdminpaymentsComponent } from './_components/admin-pages/adminpayments/adminpayments.component';
 
 const routes: Routes = [
   { path: 'vs', component: MainlayoutComponent, canActivate: [AuthGuard],
@@ -74,7 +77,10 @@ const routes: Routes = [
   {
     path: 'admin', component: AdminlayoutComponent,
     children: [
-      { path: '', component: AdminComponent, pathMatch: 'full'}
+      { path: '', component: AdminComponent, pathMatch: 'full'},
+      { path: 'tutors', component: AdmintutorsComponent},
+      { path: 'students', component: AdminstudentsComponent},
+      { path: 'payments', component: AdminpaymentsComponent}
     ]
   },
   { path: 'login', component: LoginComponent },

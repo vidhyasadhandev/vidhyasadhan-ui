@@ -1,0 +1,46 @@
+.profile{
+  height: 50px;
+}
+
+table {
+  width: 100%;
+  font-family:'Montserrat, sans-serif' !important;
+}
+
+.mat-container.mat-elevation-z8 {
+  overflow-x: auto;
+}
+.mat-container .mat-table.mat-table {
+  min-width: 450px;
+}
+
+.mat-header-row{
+  background-color: #f8f9fa;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.03);
+  font-size: larger;
+  color: rgb(39, 37, 37);
+}
+
+.tutor-table{
+  padding: 1rem;
+  min-height: 95vh;
+}
+
+.input-rounded{
+  background-color: rgb(0 0 0 / 47%);
+  border-color: rgba(0, 0, 0, 0.1);
+  border-radius: 50px;
+  color: #ffffff;
+  height: 40px;
+  padding: 10px 50px 10px 15px;
+}
+
+.input-rounded::placeholder{
+  color: #ffffff;
+}
+
+.input-group-text{
+  background-color: rgb(0 0 0 / 47%);
+  border-radius: 50px;
+  color: #ffffff;
+}

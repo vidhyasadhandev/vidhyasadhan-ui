@@ -3,24 +3,26 @@
       [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
       [mode]="(isHandset$ | async) ? 'over' : 'side'"
       [opened]="(isHandset$ | async) === false">
-    <mat-toolbar>Menu</mat-toolbar>
+    <mat-toolbar><img class="w-100" src="assets/vidhyasadhan-logo.svg"></mat-toolbar>
     <mat-nav-list>
-      <a mat-list-item href="#">Link 1</a>
-      <a mat-list-item href="#">Link 2</a>
-      <a mat-list-item href="#">Link 3</a>
+      <a mat-list-item (click)="drawer.close()" [routerLink]="['/admin']">Dashboard</a>
+      <a mat-list-item (click)="drawer.close()" [routerLink]="['/admin/tutors']">Tutors</a>
+      <a mat-list-item (click)="drawer.close()" [routerLink]="['/admin/students']">Students</a>
+      <a mat-list-item (click)="drawer.close()" [routerLink]="['/admin/payments']">Payments</a>
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>
     <mat-toolbar color="primary">
-      <button
+      <a
         type="button"
         aria-label="Toggle sidenav"
         mat-icon-button
-        (click)="drawer.toggle()"
-        *ngIf="isHandset$ | async">
+        (click)="drawer.toggle()">
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
-      </button>
-      <span>vidhyasadhan-ui</span>
+    </a>
+      <span>
+        <img *ngIf="!drawer.opened" class="w-100" src="assets/vidhyasadhan-logo.svg">
+      </span>
     </mat-toolbar>
     <router-outlet></router-outlet>
   </mat-sidenav-content>
