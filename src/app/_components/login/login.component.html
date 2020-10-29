@@ -1,44 +1,132 @@
-<!-- <div class="col-md-6 offset-md-3 mt-5">
-  <div *ngIf='isAlert' class="alert alert-info">
-  </div>
-  <div class="card">
-    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-      <div class="card-header text-center header-bg">
-        <div><img class="img-thumbnail img-prop" src="assets/logo.jpeg"></div>
-      </div>
-      <div class="card-body">
-        <div class="form-group">
-          <label for="username">Username</label>
-          <input matInput type="text" formControlName="username" class="form-control"
-            [ngClass]="{ 'is-invalid': submitted && f.username.errors }" />
-          <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
-            <div *ngIf="f.username.errors.required">Username is required</div>
+<!-- <div class="pbg-1">
+  <mat-toolbar class="justify-content-center tb">
+    <img src="assets/registration/vidhya-sandhhan.svg" class="vidhya-sadhan">
+  </mat-toolbar>
+  <div class="content-fit">
+    <form [formGroup]="loginForm" *ngIf="!isForgot" (ngSubmit)="onSubmit()" class="log-form-mr bg-white">
+      <div class="card-header text-center log-header ">
+        <h2>Choose Account Type</h2>
+        <div class="d-flex flex-wrap justify-content-center">
+          <div class="icon-bg" [ngClass]="isTutor ? 'icon-bg-color-blue' : 'border-light'"
+            (click)="isTutor = true">
+            <img class="img-thumbnail img-prop" src="assets/registration/login-1.svg">
+            <p>Tutor</p>
+            <mat-icon *ngIf="isTutor" class="icon-position icon-color-blue" color="primary">check_circle
+            </mat-icon>
+          </div>
+          <div class="icon-bg" [ngClass]="!isTutor ? 'icon-bg-color-pink' : 'border-light'"
+            (click)="isTutor = false">
+            <img class="img-thumbnail img-prop" src="assets/registration/login-2.svg">
+            <p>Student</p>
+            <mat-icon *ngIf="!isTutor" class="icon-position icon-color-pink" color="secondary">check_circle
+            </mat-icon>
           </div>
         </div>
-        <div class="form-group">
-          <label for="password">Password</label>
-          <input matInput type="password" formControlName="password" class="form-control"
+      </div>
+      <div class="card-body">
+        <h2 class="text-center">Hello {{isTutor ? "Tutor" : "Student"}}</h2>
+        <mat-form-field appearance="outline">
+          <mat-label for="username">Email</mat-label>
+          <span matPrefix>
+            <mat-icon color="primary">email</mat-icon>
+            <mat-divider [vertical]="true"></mat-divider>
+          </span>
+          <input matInput type="email" formControlName="username"
+            [ngClass]="{ 'is-invalid': submitted && f.username.errors }" />
+          <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
+            <div *ngIf="f.username.errors.required">Email is required</div>
+          </div>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label for="password">Password</mat-label>
+          <span matPrefix>
+            <mat-icon color="primary">lock</mat-icon>
+            <mat-divider [vertical]="true"></mat-divider>
+          </span>
+          <input matInput type="password" formControlName="password"
             [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
           <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
             <div *ngIf="f.password.errors.required">Password is required</div>
           </div>
+          <span matSuffix><a href (click)="forgotClick($event)">Forgot?</a></span>
+        </mat-form-field>
+        <div class="d-flex justify-content-between">
+          <div class="account">No account? <a
+              [routerLink]="['/register', isTutor? 'tutor': 'student']">Register</a></div>
+          <button mat-flat-button class="mat-button-base" color="accent" [disabled]="loading">
+            <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+            Login
+          </button>
         </div>
-
+        <div class="alert alert-danger" *ngIf="error">{{error}}</div>
       </div>
-      <div class="card-footer text-center">
-        <button mat-flat-button color="accent" [disabled]="loading">
-          <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
-          Login
+    </form>
+    <form [formGroup]="passwordForm" *ngIf="isForgot" class="m-4" (ngSubmit)="onpasswordSubmit()">
+      <div class="card-header text-center">
+        <div class="signup-txt">Reset Password</div>
+      </div>
+      <div class="form-group loginform">
+        <mat-form-field appearance="outline">
+          <mat-label for="username">Email</mat-label>
+          <span matPrefix>
+            <mat-icon color="primary">email</mat-icon>
+            <mat-divider [vertical]="true"></mat-divider>
+          </span>
+          <input matInput type="email" formControlName="username"
+            [ngClass]="{ 'is-invalid': passwordsubmitted && p.username.errors }" />
+          <div *ngIf="passwordsubmitted && p.username.errors" class="invalid-feedback">
+            <div *ngIf="p.username.errors.required">Email is required</div>
+          </div>
+        </mat-form-field>
+      </div>
+      <div class="form-group loginform">
+        <mat-form-field appearance="outline">
+          <mat-label for="password">New Password</mat-label>
+          <span matPrefix>
+            <mat-icon color="primary">lock</mat-icon>
+            <mat-divider [vertical]="true"></mat-divider>
+          </span>
+          <input matInput type="password" formControlName="password"
+            [ngClass]="{ 'is-invalid': passwordsubmitted && p.password.errors }" />
+          <div *ngIf="passwordsubmitted && p.password.errors" class="invalid-feedback">
+            <div *ngIf="p.password.errors.required">Password is required</div>
+          </div>
+        </mat-form-field>
+      </div>
+      <div class="form-group loginform">
+        <mat-form-field appearance="outline">
+          <mat-label for="confirmPassword">Confirm Password</mat-label>
+          <span matPrefix>
+            <mat-icon color="primary">lock</mat-icon>
+            <mat-divider [vertical]="true"></mat-divider>
+          </span>
+          <input matInput type="password" formControlName="confirmPassword"
+            [ngClass]="{ 'is-invalid': passwordsubmitted && p.password.errors }" />
+          <div *ngIf="passwordsubmitted && p.confirmPassword.errors" class="invalid-feedback">
+            <div *ngIf="p.confirmPassword.errors.required">Confirm Password is required</div>
+          </div>
+        </mat-form-field>
+      </div>
+      <div class="d-flex justify-content-between text-white">
+        <a class="btn btn-secondary" type="submit" (click)="isForgot = !isForgot" role="button">Login?</a>
+        <button mat-flat-button class="mat-button-base" color="accent" [disabled]="loadforgot">
+          <span *ngIf="loadforgot" class="spinner-border spinner-border-sm mr-1"></span>
+          Submit
         </button>
-        <div class="mt-2">Don't have account? <a [routerLink]="'/register'">Sign Up</a></div>
-        <div *ngIf="error" class="alert alert-danger mt-3 mb-0">{{error}}</div>
+      </div>
+      <div class="alert alert-success" role="alert" *ngIf="forgotMessage">
+        <strong>Password Reset Succesful. Please go back to</strong><a (click)="isForgot = !isForgot"
+          class="alert-link">login</a>
+      </div>
+      <div class="alert alert-danger" role="alert" *ngIf="error">
+        {{error}}
       </div>
     </form>
   </div>
 </div> -->
 
 <div class="home-main flex-column" [ngClass]="isTutor? '':'main-bg'">
-  <mat-toolbar class="w-100 p-2 justify-content-center">
+  <mat-toolbar class="justify-content-center tb">
     <img src="assets/registration/vidhya-sandhhan.svg" class="vidhya-sadhan">
   </mat-toolbar>
   <div class="equal-container login-side">
@@ -68,50 +156,47 @@
               </div>
               <div class="card-body">
                 <h2 class="text-center">Hello {{isTutor ? "Tutor" : "Student"}}</h2>
-                <div class="form-group loginform">
-                  <mat-form-field appearance="outline">
-                    <mat-label for="username">Email</mat-label>
-                    <span matPrefix>
-                      <mat-icon color="primary">email</mat-icon>
-                      <mat-divider [vertical]="true"></mat-divider>
-                    </span>
-                    <input matInput type="email" formControlName="username"
-                      [ngClass]="{ 'is-invalid': submitted && f.username.errors }" [(ngModel)]="username" />
-                    <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
-                      <div *ngIf="f.username.errors.required">Email is required</div>
-                    </div>
-                  </mat-form-field>
-                </div>
-                <div class="form-group">
-                  <mat-form-field appearance="outline">
-                    <mat-label for="password">Password</mat-label>
-                    <span matPrefix>
-                      <mat-icon color="primary">lock</mat-icon>
-                      <mat-divider [vertical]="true"></mat-divider>
-                    </span>
-                    <input matInput type="password" formControlName="password"
-                      [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
-                    <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
-                      <div *ngIf="f.password.errors.required">Password is required</div>
-                    </div>
-                    <span matSuffix><a href (click)="forgotClick($event)">Forgot?</a></span>
-                  </mat-form-field>
-                </div>
-                <div class="d-flex d-flex-wrap">
-                  <span class="p-2 mr-auto">No account? <a
-                      [routerLink]="['/register', isTutor? 'tutor': 'student']">Register</a></span>
+                <mat-form-field appearance="outline">
+                  <mat-label for="username">Email</mat-label>
+                  <span matPrefix>
+                    <mat-icon color="primary">email</mat-icon>
+                    <mat-divider [vertical]="true"></mat-divider>
+                  </span>
+                  <input matInput type="email" formControlName="username"
+                    [ngClass]="{ 'is-invalid': submitted && f.username.errors }" />
+                  <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
+                    <div *ngIf="f.username.errors.required">Email is required</div>
+                  </div>
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                  <mat-label for="password">Password</mat-label>
+                  <span matPrefix>
+                    <mat-icon color="primary">lock</mat-icon>
+                    <mat-divider [vertical]="true"></mat-divider>
+                  </span>
+                  <input matInput type="password" formControlName="password"
+                    [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
+                  <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                    <div *ngIf="f.password.errors.required">Password is required</div>
+                  </div>
+                  <span matSuffix><a href (click)="forgotClick($event)">Forgot?</a></span>
+                </mat-form-field>
+                <div class="d-flex justify-content-between">
+                  <div class="account">No account? <a
+                      [routerLink]="['/register', isTutor? 'tutor': 'student']">Register</a></div>
                   <button mat-flat-button class="mat-button-base" color="accent" [disabled]="loading">
                     <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
                     Login
                   </button>
                 </div>
-                <div class="alert alert-danger" *ngIf="error">{{error}}</div>
+                <div class="promoter-log">Login as Promoter <a [routerLink]="['/promoter/login']">Login</a> </div>
+                <div *ngIf="submitted && error" class="alert alert-danger mt-3 mb-0">{{error}}</div>
               </div>
             </form>
           </div>
           <div class="card-body" class="log-form-mr bg-white" *ngIf="isForgot">
-            <div class="card-header text-center bg-white border-0">
-              <h2>Reset Password</h2>
+            <div class="card-header text-center bg-transparent border-0">
+              <h2 class="m-2">Reset Password</h2>
             </div>
             <form [formGroup]="passwordForm" class="m-4" (ngSubmit)="onpasswordSubmit()">
               <div class="form-group loginform">
@@ -121,7 +206,7 @@
                     <mat-icon color="primary">email</mat-icon>
                     <mat-divider [vertical]="true"></mat-divider>
                   </span>
-                  <input matInput type="email" formControlName="username" [(ngModel)]="username"
+                  <input matInput type="email" formControlName="username"
                     [ngClass]="{ 'is-invalid': passwordsubmitted && p.username.errors }" />
                   <div *ngIf="passwordsubmitted && p.username.errors" class="invalid-feedback">
                     <div *ngIf="p.username.errors.required">Email is required</div>
@@ -157,18 +242,17 @@
                 </mat-form-field>
               </div>
               <div class="d-flex justify-content-between text-white">
-                <a  class="btn btn-secondary" type="submit" (click)="isForgot = !isForgot" role="button">Login?</a>
+                <a class="btn btn-secondary" type="submit" (click)="isForgot = !isForgot" role="button">Login?</a>
                 <button mat-flat-button class="mat-button-base" color="accent" [disabled]="loadforgot">
                   <span *ngIf="loadforgot" class="spinner-border spinner-border-sm mr-1"></span>
                   Submit
                 </button>
               </div>
-              <div class="alert alert-success" role="alert" *ngIf="forgotMessage">
-                <strong>Password Reset Succesful. Please go back to</strong><a (click)="isForgot = !isForgot" class="alert-link">login</a>
+              <div class="alert alert-success" *ngIf="submitted && forgotMessage">
+                <strong>Password Reset Succesful. Please go back to</strong><a (click)="isForgot = !isForgot"
+                  class="alert-link">login</a>
               </div>
-              <div class="alert alert-danger" role="alert" *ngIf="error">
-                {{error}}
-              </div>
+              <div *ngIf="submitted && error" class="alert alert-danger mt-3 mb-0">{{error}}</div>
             </form>
           </div>
         </div>
@@ -176,96 +260,3 @@
     </div>
   </div>
 </div>
-
-
-<!-- <div class="card">
-  <div class="card-header main-header text-center">
-    <img src="assets/registration/vidhya-sandhhan.svg" class="vidhya-sadhan">
-  </div>
-  <div class="card-body">
-      <div *ngIf='isAlert' class="alert alert-info">
-      </div>
-      <div class="container-fluid">
-      <div class="card-deck">
-        <div class="card">
-          <div class="card-body">
-            <div>
-              <img class="oval-copy-left-1" src="assets/registration/oval-copy-2.svg">
-              <img class="oval-copy-left-2" src="assets/registration/oval-copy-3.svg">
-            </div>
-
-            <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="log-form-mr bg-white">
-              <div class="card-header text-center log-header ">
-                <h2>Choose Account Type</h2>
-                <div class="d-flex flex-wrap justify-content-center">
-                  <div class="icon-bg" [ngClass]="isTutor ? 'icon-bg-color-blue' : 'border-light'" (click) = "clickedBlue()">
-                    <img class="img-thumbnail img-prop" src="assets/registration/login-1.svg">
-                    <p>Tutor</p>
-                    <mat-icon *ngIf="isTutor" class="icon-position icon-color-blue" color="primary">check_circle</mat-icon>
-                  </div>
-                  <div class="icon-bg" [ngClass]="!isTutor ? 'icon-bg-color-pink' : 'border-light'" (click) = "clickedPink()">
-                    <img class="img-thumbnail img-prop" src="assets/registration/login-2.svg">
-                    <p>Student</p>
-                      <mat-icon *ngIf="!isTutor" class="icon-position icon-color-pink" color="secondary">check_circle</mat-icon>
-                  </div>
-                </div>
-              </div>
-              <div class="card-body">
-                <h2 class="text-center">Hello {{isTutor ? "Tutor" : "Student"}}</h2>
-                <div class="form-group loginform">
-                  <mat-form-field appearance="outline">
-                    <mat-label for="username">Email</mat-label>
-                    <span matPrefix><mat-icon color="primary">email</mat-icon> <mat-divider  [vertical]="true"></mat-divider></span>
-                    <input matInput type="email" formControlName="username"
-                      [ngClass]="{ 'is-invalid': submitted && f.username.errors }" />
-                    <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
-                      <div *ngIf="f.username.errors.required">Email is required</div>
-                    </div>
-                  </mat-form-field>
-                </div>
-                <div class="form-group">
-                  <mat-form-field appearance="outline">
-                    <mat-label for="password">Password</mat-label>
-                    <span matPrefix><mat-icon color="primary">lock</mat-icon> <mat-divider  [vertical]="true"></mat-divider></span>
-                    <input matInput type="password" formControlName="password"
-                      [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
-                    <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
-                      <div *ngIf="f.password.errors.required">Password is required</div>
-                    </div>
-                    <span matSuffix><a [routerLink]="'/register'">Forgot?</a></span>
-                  </mat-form-field>
-                </div>
-                <div class="d-flex d-flex-wrap">
-                <span class="p-2 mr-auto">No account? <a [routerLink]="'/register'">Register</a></span>
-                <button mat-flat-button class="mat-button-base" color="accent" [disabled]="loading">
-                  <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
-                  Login
-                </button>
-                </div>
-              </div>
-            </form>
-            <img class="oval-copy-left-3" src="assets/registration/oval-copy.svg">
-          </div>
-        </div>
-        <div class="card d-none d-md-block p-3">
-          <div class="card-body">
-            <img src="assets/registration/register-1.png" srcset="assets/registration/register-2.png 2x,
-            assets/registration/register-3.png 3x" class="img-fluid">
-            <img class="oval-copy-right-1" src="assets/registration/oval.svg">
-            <img class="oval-copy-right-2" src="assets/registration/oval-copy-4.svg">
-            <img class="oval-copy-right-2" src="assets/registration/oval-copy-4.svg">
-          </div>
-        </div>
-      </div>
-    </div>
-</div> -->
-
-
-<!-- <div class="card-footer text-center">
-                <span>No account? <a [routerLink]="'/register'">Register</a></span>
-                <button mat-flat-button color="accent" [disabled]="loading">
-                  <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
-                  Login
-                </button>
-                <div *ngIf="error" class="alert alert-danger mt-3 mb-0">{{error}}</div>
-              </div> -->

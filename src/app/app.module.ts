@@ -108,6 +108,10 @@ import { AdminlayoutComponent } from './_layouts/adminlayout/adminlayout.compone
 import { AdmintutorsComponent } from './_components/admin-pages/admintutors/admintutors.component';
 import { AdminstudentsComponent } from './_components/admin-pages/adminstudents/adminstudents.component';
 import { AdminpaymentsComponent } from './_components/admin-pages/adminpayments/adminpayments.component';
+import { PromoterlayoutComponent } from './_layouts/promoterlayout/promoterlayout.component';
+import { PromoterregisterComponent } from './_components/promoter/promoterregister/promoterregister.component';
+import { PromoterloginComponent } from './_components/promoter/promoterlogin/promoterlogin.component';
+import { StudentpaymentsComponent } from './_components/student/studentpayments/studentpayments.component';
 
 @NgModule({
   declarations: [
@@ -177,7 +181,11 @@ import { AdminpaymentsComponent } from './_components/admin-pages/adminpayments/
     AdminlayoutComponent,
     AdmintutorsComponent,
     AdminstudentsComponent,
-    AdminpaymentsComponent
+    AdminpaymentsComponent,
+    PromoterlayoutComponent,
+    PromoterregisterComponent,
+    PromoterloginComponent,
+    StudentpaymentsComponent
   ],
   imports: [
     BrowserModule,

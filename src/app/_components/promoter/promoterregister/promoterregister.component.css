@@ -1,0 +1,94 @@
+.pbg-1{
+  background-image: url("/assets/registration/promoter_bg.svg"),
+  url("/assets/registration/promoter_bg_1.svg"),
+      linear-gradient(to right, rgba(30, 75, 115, 1), rgba(255, 255, 255, 0));
+  background-repeat: no-repeat,
+      no-repeat,
+      no-repeat;
+  background-size: 60%, cover, cover;
+  background-position: right,
+  top left,
+      left;
+  height: 100vh;
+}
+
+.mat-form-field{
+  width: 100%;
+}
+
+.log-form-mr{
+  max-width: 350px;
+  background-color: #ffffff;
+  border-radius: 4px;
+  border: solid 1px #c5d5ff;
+  background-color: #ffffff;
+  background-image: url("/assets/registration/combined-shape.svg");
+  background-repeat: no-repeat;
+  background-position: top right;
+}
+
+.signup-txt {
+  font-size: large;
+  font-size: 18px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  text-align: center;
+  color: #3c3c3c;
+  font-family: Montserrat;
+}
+
+.card-header{
+  background: transparent;
+}
+
+.content-fit{
+  display: flex;
+  justify-content: space-between;
+  width: 80%;
+  margin: auto;
+  margin-top: 50px;
+}
+
+.fillout{
+  font-family: Montserrat;
+  font-size: 12px;
+  font-weight: 500;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.67;
+  letter-spacing: normal;
+  text-align: center;
+  color: #3c3c3c;
+}
+
+.login{
+  font-family: Montserrat;
+  font-size: 14px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.07;
+  letter-spacing: normal;
+  text-align: left;
+  color: #3c3c3c;
+}
+
+.promoter-login{
+  margin: 0.5rem;
+}
+
+.h-promoter{
+  text-align: center;
+  font-family: Montserrat;
+  font-size: 16px;
+  font-weight: 500;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.44;
+  letter-spacing: normal;
+  text-align: center;
+  color: #3c3c3c;
+}

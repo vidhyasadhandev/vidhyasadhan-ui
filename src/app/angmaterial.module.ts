@@ -46,6 +46,7 @@ import {MatChipsModule} from '@angular/material/chips';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
 import {MatSliderModule} from '@angular/material/slider';
+import {MatStepperModule} from '@angular/material/stepper';
 
 
 
@@ -82,7 +83,8 @@ import {MatSliderModule} from '@angular/material/slider';
     MatChipsModule,
     MatTooltipModule,
     MatProgressBarModule,
-    MatSliderModule
+    MatSliderModule,
+    MatStepperModule
   ],
   exports: [MatAutocompleteModule,
     MatInputModule,
@@ -114,7 +116,8 @@ import {MatSliderModule} from '@angular/material/slider';
     MatChipsModule,
     MatTooltipModule,
     MatProgressBarModule,
-    MatSliderModule
+    MatSliderModule,
+    MatStepperModule
   ],
   providers: [
     MatDatepickerModule,

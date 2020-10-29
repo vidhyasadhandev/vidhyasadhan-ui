@@ -1,0 +1,320 @@
+<div class="container-fluid mt-2">
+  <div class="card min-card">
+    <div class="card-header payment-header">
+      <span class="payment">Payment</span>
+    </div>
+    <div class="card-body">
+      <mat-horizontal-stepper color="secondary" labelPosition="bottom" #stepper>
+        <mat-step [stepControl]="detailsForm">
+          <div class="verify">Verify Tutor details</div>
+          <div class="container">
+            <form [formGroup]="detailsForm">
+              <ng-template class="header-label" matStepLabel>Verify Tutor Details</ng-template>
+              <div class="row">
+                <div class="col-md-6">
+                  <mat-form-field appearance="outline">
+                    <mat-label>Tutor Name</mat-label>
+                    <input matInput placeholder="Sample Name" required formControlName="tutor" [matAutocomplete]="auto">
+                    <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
+                      <mat-option *ngFor="let tutor of tutors | async" [value]="tutor">
+                        {{tutor.name}}
+                      </mat-option>
+                    </mat-autocomplete>
+                  </mat-form-field>
+                </div>
+                <div class="col-md-6">
+                  <mat-form-field appearance="outline">
+                    <mat-label>Subjects</mat-label>
+                    <mat-select formControlName="subjects" multiple>
+                      <mat-option *ngFor="let subject of subjects" [value]="subject">
+                        {{subject.group.groupName}} - {{subject.name}}</mat-option>
+                    </mat-select>
+                  </mat-form-field>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6">
+                  <mat-label>Teaching Style</mat-label>
+                  <section>
+                    <mat-radio-group formControlName="teachingstyle">
+                      <mat-radio-button class="day-margin" value="Online">Online</mat-radio-button>
+                      <mat-radio-button class="day-margin" value="Offline">Offline</mat-radio-button>
+                      <mat-radio-button class="day-margin" value="Both">Both</mat-radio-button>
+                    </mat-radio-group>
+                  </section>
+                </div>
+                <div class="col-md-6">
+                  <mat-label>Available Days to Tutor</mat-label>
+                  <section>
+                    <mat-checkbox class="day-margin" [checked]="allChecked" (change)="changeAll($event.checked)">All
+                    </mat-checkbox>
+                    <mat-checkbox class="day-margin" [checked]="day.selected" (change)="changeDays($event.checked, day)"
+                      *ngFor="let day of days">{{day.day | slice:0:3}}</mat-checkbox>
+                  </section>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6">
+                  <mat-form-field appearance="outline">
+                    <mat-label>Hourly Rate</mat-label>
+                    <input matInput formControlName="price">
+                  </mat-form-field>
+                </div>
+                <div class="col-md-6">
+                  <mat-form-field appearance="outline">
+                    <mat-label>Currency</mat-label>
+                    <input matInput readonly formControlName="currency">
+                  </mat-form-field>
+                </div>
+              </div>
+              <button #previousButton mat-button hidden matStepperPrevious>Previous</button>
+              <button #nextButton mat-button hidden matStepperNext>Next</button>
+            </form>
+          </div>
+        </mat-step>
+        <mat-step [stepControl]="form2">
+          <div class="verify">Select tution duration</div>
+          <form [formGroup]="form2">
+            <ng-template class="header-label" matStepLabel>Select tution duration</ng-template>
+            <div class="row">
+              <div class="col-md-6">
+                <div class="row">
+                  <div class="col">
+                    <mat-label>Payment options</mat-label>
+                    <section>
+                      <mat-radio-group formControlName="options">
+                        <mat-radio-button class="m-2" value="week">Weekdays (Mon - Fri)</mat-radio-button>
+                        <mat-radio-button class="m-2" value="weekend">Weekends (Sat - Sun)</mat-radio-button>
+                      </mat-radio-group>
+                    </section>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col">
+                    <mat-label>Schedule from</mat-label>
+                    <section>
+                      <mat-form-field appearance="fill">
+                        <mat-label>Enter a date range</mat-label>
+                        <span matPrefix>
+                          <mat-icon>calendar_today</mat-icon>
+                        </span>
+                        <mat-date-range-input [rangePicker]="picker">
+                          <input matStartDate formControlName="startDate" placeholder="Start date">
+                          <input matEndDate formControlName="endDate" placeholder="End date">
+                        </mat-date-range-input>
+                        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                        <mat-date-range-picker #picker></mat-date-range-picker>
+                      </mat-form-field>
+                    </section>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col">
+                    <mat-label>No. of hours per day</mat-label>
+                    <mat-form-field appearance="outline">
+                      <mat-label>No. of hours per day</mat-label>
+                      <input matInput formControlName="hours">
+                    </mat-form-field>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col">
+                    <mat-label>Time slot</mat-label>
+                    <mat-form-field appearance="outline">
+                      <mat-label>Time slot</mat-label>
+                      <span matPrefix>
+                        <mat-icon>alarm</mat-icon>
+                      </span>
+                      <input matInput formControlName="time">
+                    </mat-form-field>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6 sidecard">
+                <div class="p-4">
+                  <h3>Booking Summary</h3>
+                  <mat-divider></mat-divider>
+                  <div class="summary">
+                    <div class="row">
+                      <div class="col section-1">Tutor name:</div>
+                      <div class="col">{{f.tutor.value.name}}</div>
+                    </div>
+                    <div class="row">
+                      <div class="col section-1">Subjects:</div>
+                      <div class="col"> {{getSelectedSubjects()}} </div>
+                    </div>
+                    <div class="row">
+                      <div class="col section-1">Teaching style:</div>
+                      <div class="col">{{f.teachingstyle.value}}</div>
+                    </div>
+                    <div class="row">
+                      <div class="col section-1">Hourly rate:</div>
+                      <div class="col">{{f.price.value}} {{f.currency.value}}</div>
+                    </div>
+                  </div>
+                  <mat-divider></mat-divider>
+                  <div class="summary">
+                    <div class="row">
+                      <div class="col section-1">Frequency of classes:</div>
+                      <div class="col">{{getFrequency()}}</div>
+                    </div>
+                    <div class="row">
+                      <div class="col section-1">Starting from:</div>
+                      <div class="col">{{secondForm.startDate.value | date}} - {{secondForm.endDate.value | date}}</div>
+                    </div>
+                    <div class="row">
+                      <div class="col section-1">No. of hours per day:</div>
+                      <div class="col">{{secondForm.hours.value}}</div>
+                    </div>
+                    <div class="row">
+                      <div class="col section-1">Time slot:</div>
+                      <div class="col">{{secondForm.time.value}}</div>
+                    </div>
+                  </div>
+                  <mat-divider></mat-divider>
+                  <div class="summary">
+                    <div class="row">
+                      <div class="col section-1">Grand total:</div>
+                      <div class="col">{{getGrandTotal}}</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </form>
+        </mat-step>
+        <mat-step>
+          <div class="verify">Complete payment</div>
+          <form [formGroup]="cardForm">
+            <ng-template class="header-label" matStepLabel>Complete payment</ng-template>
+            <div class="row">
+              <div class="col-md-6">
+                <div class="row">
+                  <div class="col">
+                    <mat-checkbox>Apply promo code</mat-checkbox>
+                    <section class="m-2">
+                      <mat-label>Promo code</mat-label>
+                      <mat-form-field appearance="outline">
+                        <mat-label>Promo code</mat-label>
+                        <input matInput formControlName="promo">
+                      </mat-form-field>
+                    </section>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col">
+                    <mat-label>Payment Options</mat-label>
+                    <section>
+                      <mat-radio-group formControlName="option">
+                        <mat-radio-button class="m-2" value="credit">Credit Card</mat-radio-button>
+                        <mat-radio-button class="m-2" value="online">Online Banking</mat-radio-button>
+                        <mat-radio-button class="m-2" value="payment">Payment Partners</mat-radio-button>
+                      </mat-radio-group>
+                    </section>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-8">
+                    <mat-label>Card Number</mat-label>
+                    <mat-form-field appearance="fill">
+                      <mat-label>Card Number</mat-label>
+                      <span matPrefix><mat-icon>credit_card</mat-icon></span>
+                      <input matInput formControlName="cardNumber">
+                    </mat-form-field>
+                  </div>
+                  <div class="col-4">
+                    <mat-label>Exp. Date</mat-label>
+                    <mat-form-field appearance="fill">
+                      <mat-label>Choose a date</mat-label>
+                      <input matInput [matDatepicker]="exppicker" formControlName="expDate">
+                      <mat-datepicker-toggle matSuffix [for]="exppicker"></mat-datepicker-toggle>
+                      <mat-datepicker #exppicker></mat-datepicker>
+                    </mat-form-field>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-10">
+                    <mat-label>Cardholder name</mat-label>
+                    <mat-form-field appearance="fill">
+                      <mat-label>Name</mat-label>
+                      <input matInput formControlName="holderName">
+                    </mat-form-field>
+                  </div>
+                  <div class="col-2">
+                    <mat-label>CVV</mat-label>
+                    <mat-form-field appearance="fill">
+                      <mat-label>CVV</mat-label>
+                      <span matPrefix><mat-icon>credit_card</mat-icon></span>
+                      <input matInput formControlName="cvv">
+                    </mat-form-field>
+                  </div>
+                </div>
+                <mat-checkbox>I accept the terms & conditions</mat-checkbox>
+              </div>
+              <div class="col-md-6 sidecard">
+                <div class="p-4">
+                  <h3>Booking Summary</h3>
+                  <mat-divider></mat-divider>
+                  <div class="summary">
+                    <div class="row">
+                      <div class="col section-1">Tutor name:</div>
+                      <div class="col">{{f.tutor.value.name}}</div>
+                    </div>
+                    <div class="row">
+                      <div class="col section-1">Subjects:</div>
+                      <div class="col"> {{getSelectedSubjects()}} </div>
+                    </div>
+                    <div class="row">
+                      <div class="col section-1">Teaching style:</div>
+                      <div class="col">{{f.teachingstyle.value}}</div>
+                    </div>
+                    <div class="row">
+                      <div class="col section-1">Hourly rate:</div>
+                      <div class="col">{{f.price.value}} {{f.currency.value}}</div>
+                    </div>
+                  </div>
+                  <mat-divider></mat-divider>
+                  <div class="summary">
+                    <div class="row">
+                      <div class="col section-1">Frequency of classes:</div>
+                      <div class="col">{{getFrequency()}}</div>
+                    </div>
+                    <div class="row">
+                      <div class="col section-1">Starting from:</div>
+                      <div class="col">{{secondForm.startDate.value | date}} - {{secondForm.endDate.value | date}}</div>
+                    </div>
+                    <div class="row">
+                      <div class="col section-1">No. of hours per day:</div>
+                      <div class="col">{{secondForm.hours.value}}</div>
+                    </div>
+                    <div class="row">
+                      <div class="col section-1">Time slot:</div>
+                      <div class="col">{{secondForm.time.value}}</div>
+                    </div>
+                  </div>
+                  <mat-divider></mat-divider>
+                  <div class="summary">
+                    <div class="row">
+                      <div class="col section-1">Grand total:</div>
+                      <div class="col">{{getGrandTotal}}</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </form>
+        </mat-step>
+      </mat-horizontal-stepper>
+    </div>
+    <div class="card-footer bg-white text-muted">
+      <div class="d-flex justify-content-between">
+        <a class="btn btn-light m-2" (click)="previousButton._elementRef.nativeElement.click()" role="button">Back</a>
+        <div>
+          <a class="btn btn-primary m-2" role="button">Cancel</a>
+          <a class="btn btn-primary m-2" (click)="nextButton._elementRef.nativeElement.click()"
+            type="submit">Continue</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

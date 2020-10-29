@@ -251,15 +251,15 @@ body { margin: 0 !important; font-family:'Montserrat, sans-serif' !important;}
     );
   background-image:
     image-set(
-      url("/vidhyasadhan-ui/assets/registration/register-1.png.png") 1x,
-      url("/vidhyasadhan-ui/assets/registration/register-2.png.png") 2x,
-      url("/vidhyasadhan-ui/vidhyasadhan-ui/vidhyasadhan-ui/assets/registration/register-3.png.png") 3x,
+      url("/vidhyasadhan-ui/assets/registration/register-1.png") 1x,
+      url("/vidhyasadhan-ui/assets/registration/register-2.png") 2x,
+      url("/vidhyasadhan-ui/vidhyasadhan-ui/vidhyasadhan-ui/assets/registration/register-3.png") 3x,
     );
     /* min-height: 400px; */
     /* display: inline-block; */
     /* width: 100%; */
     /* font-size: 0; */
-    line-height: 0;
+    line-height: 1;
     vertical-align: middle;
     /* background-size: 100%; */
     background-position: 90% 50%;
@@ -393,4 +393,10 @@ body { margin: 0 !important; font-family:'Montserrat, sans-serif' !important;}
 
 .welove-text{
   font-size: x-large !important;
+}
+
+.tb{
+  opacity: 0.9;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.13);
+  background-color: #ffffff;
 }

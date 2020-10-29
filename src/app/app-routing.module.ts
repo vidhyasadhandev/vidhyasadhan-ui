@@ -38,6 +38,10 @@ import { AdminComponent } from './_components/dashboard/admin/admin.component';
 import { AdmintutorsComponent } from './_components/admin-pages/admintutors/admintutors.component';
 import { AdminstudentsComponent } from './_components/admin-pages/adminstudents/adminstudents.component';
 import { AdminpaymentsComponent } from './_components/admin-pages/adminpayments/adminpayments.component';
+import { PromoterregisterComponent } from './_components/promoter/promoterregister/promoterregister.component';
+import { PromoterlayoutComponent } from './_layouts/promoterlayout/promoterlayout.component';
+import { PromoterloginComponent } from './_components/promoter/promoterlogin/promoterlogin.component';
+import { StudentpaymentsComponent } from './_components/student/studentpayments/studentpayments.component';
 
 const routes: Routes = [
   { path: 'vs', component: MainlayoutComponent, canActivate: [AuthGuard],
@@ -62,6 +66,7 @@ const routes: Routes = [
   { path: 'tutor-referrals', component: TutorReferralsComponent},
   { path: 'student/assignments', component: StudymaterialComponent},
   { path: 'progress', component: ReportsComponent},
+  { path: 'student/payments', component: StudentpaymentsComponent},
   ] },
   {
     path: '', component: SitelayoutComponent,
@@ -79,6 +84,16 @@ const routes: Routes = [
     children: [
       { path: '', component: AdminComponent, pathMatch: 'full'},
       { path: 'tutors', component: AdmintutorsComponent},
+      { path: 'students', component: AdminstudentsComponent},
+      { path: 'payments', component: AdminpaymentsComponent}
+    ]
+  },
+  {
+    path: 'promoter', component: PromoterlayoutComponent,
+    children: [
+      { path: '', component: AdminComponent, pathMatch: 'full'},
+      { path: 'register', component: PromoterregisterComponent},
+      { path: 'login', component: PromoterloginComponent},
       { path: 'students', component: AdminstudentsComponent},
       { path: 'payments', component: AdminpaymentsComponent}
     ]

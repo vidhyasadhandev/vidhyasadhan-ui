@@ -1,0 +1,93 @@
+<div class="pbg-1">
+  <mat-toolbar class="justify-content-center tb">
+    <img src="assets/registration/vidhya-sandhhan.svg" class="vidhya-sadhan">
+  </mat-toolbar>
+  <div class="content-fit">
+    <form [formGroup]="registerForm" class="log-form-mr" (ngSubmit)="onSubmit()">
+      <div class="p-4">
+        <div class="card-header bg-img  log-header text-center">
+          <div class="signup-txt">Register For Free</div>
+          <div class="p-2 fillout"><small>Please fill out the form below to get started.</small></div>
+        </div>
+
+        <mat-form-field appearance="outline">
+          <mat-label for="firstname">First Name</mat-label>
+          <input matInput type="text" formControlName="firstName"
+            [ngClass]="{ 'is-invalid': submitted && f.firstName.errors }" />
+          <div *ngIf="submitted && f.firstName.errors" class="invalid-feedback">
+            <div *ngIf="f.firstName.errors.required">First Name is required</div>
+          </div>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label for="lastname">Last Name</mat-label>
+          <input matInput type="text" formControlName="lastName"
+            [ngClass]="{ 'is-invalid': submitted && f.lastName.errors }" />
+          <div *ngIf="submitted && f.lastName.errors" class="invalid-feedback">
+            <div *ngIf="f.lastName.errors.required">Last Name is required</div>
+          </div>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label for="email">Email</mat-label>
+          <input matInput type="email" formControlName="email"
+            [ngClass]="{ 'is-invalid': submitted && f.email.errors }" />
+          <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+            <div *ngIf="f.email.errors.required">Email Address is required</div>
+            <div *ngIf="f.email.errors.email">Please Provide a Valid Email Address</div>
+          </div>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label for="password">Password</mat-label>
+          <input matInput type="password" formControlName="password"
+            [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
+          <mat-hint>Minimum 8 characters with atleast one capital letter and a number</mat-hint>
+          <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+            <div *ngIf="f.password.errors.required">Please Provide a Password</div>
+            <div *ngIf="f.password.errors.pattern">Password should be 8 characters with 1 Upper case letter and a number
+            </div>
+          </div>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label for="password">Confirm Password</mat-label>
+          <input matInput type="password" formControlName="confirmPassword"
+            [ngClass]="{ 'is-invalid': submitted && f.confirmPassword.errors }" />
+          <div *ngIf="submitted && f.confirmPassword.errors" class="invalid-feedback">
+            <div *ngIf="f.confirmPassword.errors.required">Confirm Password is required</div>
+            <div *ngIf="f.confirmPassword.errors.IsMatch">Passwords are not matching!</div>
+          </div>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label for="phone">Phone</mat-label>
+          <input matInput type="tel" formControlName="phone"
+            [ngClass]="{ 'is-invalid': submitted && f.phone.errors }" />
+          <div *ngIf="submitted && f.phone.errors" class="invalid-feedback">
+            <div *ngIf="f.phone.errors.required">Please Provide a Phone number</div>
+            <div *ngIf="f.phone.errors.pattern">Please provide a valid phone number</div>
+          </div>
+        </mat-form-field>
+
+        <mat-card-footer class="text-center justify-content-center">
+          <mat-card-actions class="d-flex flex-column p-2 align-items-center">
+            <button mat-flat-button color="accent" type="submit" [disabled]="loading">
+              <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+              Register
+            </button>
+            <!-- <a mat-flat-button color="accent" [routerLink]="'/register'">Sign Up</a> -->
+            <div class="mt-2 p-2 login">Already have an account? <a [routerLink]="['/promoter/login']">Login</a></div>
+          </mat-card-actions>
+          <div class="m-1">
+            <div class="alert alert-success" role="alert" *ngIf="success">
+              <strong>{{success}}</strong>
+              <mat-icon (click)="registered()">close</mat-icon>
+            </div>
+            <div class="alert alert-warning" role="alert" *ngIf="error">
+              <strong>Unable to Register!</strong>
+              <mat-icon (click)="error = null">close</mat-icon>
+            </div>
+          </div>
+        </mat-card-footer>
+      </div>
+    </form>
+  </div>
+</div>

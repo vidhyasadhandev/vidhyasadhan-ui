@@ -56,7 +56,7 @@ export class LoginComponent implements OnInit {
     });
 
     this.passwordForm = this.formBuilder.group({
-      username: ['', Validators.required],
+      username: [this.f.username.value, Validators.required],
       password: ['', Validators.required],
       confirmPassword: ['', Validators.required]
     });
@@ -81,7 +81,7 @@ export class LoginComponent implements OnInit {
     }
 
     this.loading = true;
-    this.authService.login(this.f.username.value, this.f.password.value, this.isTutor)
+    this.authService.login(this.f.username.value, this.f.password.value, this.isTutor ? 1 : 0)
       .pipe(first())
       .subscribe({
         next: () => {

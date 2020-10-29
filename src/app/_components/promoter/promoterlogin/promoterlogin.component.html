@@ -1,0 +1,57 @@
+<div class="pbg-1">
+  <mat-toolbar class="justify-content-center tb">
+    <img src="assets/registration/vidhya-sandhhan.svg" class="vidhya-sadhan">
+
+  </mat-toolbar>
+  <div class="content-fit">
+    <form [formGroup]="loginForm" class="log-form-mr" (ngSubmit)="onSubmit()">
+      <div class="p-4">
+        <div class="card-header bg-img border-0  log-header text-center">
+          <div class="signup-txt">Login to Promoter Account</div>
+          <img class="promoter-login" src="assets/registration/promoter-login.svg">
+        </div>
+
+        <h4 class="text-center h-promoter">Hello Promoter</h4>
+        <mat-form-field appearance="outline">
+          <mat-label for="email">Email</mat-label>
+          <span matPrefix>
+            <mat-icon color="primary">email</mat-icon>
+            <mat-divider [vertical]="true"></mat-divider>
+          </span>
+          <input matInput type="email" formControlName="username"
+            [ngClass]="{ 'is-invalid': submitted && f.username.errors }" />
+          <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
+            <div *ngIf="f.username.errors.required">Email Address is required</div>
+            <div *ngIf="f.username.errors.email">Please Provide a Valid Email Address</div>
+          </div>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label for="password">Password</mat-label>
+          <span matPrefix>
+            <mat-icon color="primary">lock</mat-icon>
+            <mat-divider [vertical]="true"></mat-divider>
+          </span>
+          <input matInput type="password" formControlName="password"
+            [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
+          <span matSuffix><a href (click)="forgotClick($event)">Forgot?</a></span>
+          <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+            <div *ngIf="f.password.errors.required">Please Provide a Password</div>
+          </div>
+        </mat-form-field>
+
+        <mat-card-footer class="text-center justify-content-center">
+          <mat-card-actions class="d-flex justify-content-between align-items-center">
+            <div class="account">No account? <a [routerLink]="['/promoter/register']">Register</a></div>
+            <button mat-flat-button class="mat-button-base" color="accent" [disabled]="loading">
+              <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+              Login
+            </button>
+          </mat-card-actions>
+          <div class="promoter-log m-2">Login as <a [routerLink]="['/login']">Student / Promoter</a> </div>
+          <div *ngIf="submitted && error" class="alert alert-danger mt-3 mb-0">{{error}}</div>
+        </mat-card-footer>
+      </div>
+    </form>
+  </div>
+</div>
